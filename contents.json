@@ -15,8 +15,18 @@
                 },
                 {
                     "fileName": "Lie",
-                    "title": "Lie algebras arising from singularities",
+                    "title": "Lie Algebras Arising from Singularities",
                     "author": "黄畅"
+                },
+                {
+                    "fileName": "hyx",
+                    "title": "McShane-–Mirzakhani Identity, Weil–Petersson Volumes and Counting Simple Closed Geodesics",
+                    "author": "贺宇昕"
+                },
+                {
+                    "fileName": "KFH",
+                    "title": "Standard Modules of Quiver Hecke Algebras",
+                    "author": "孔繁浩"
                 }
             ]
         }
