@@ -1,0 +1,120 @@
+% === tikz-cd inside amsmath environments ===
+\def\temp{&}
+\catcode`&=\active
+\let&=\temp
+\tikzcdset{scale cd/.style={every label/.append style={scale=#1},
+    cells={nodes={scale=#1}}}}
+% ===========================================
+\usetikzlibrary{babel}
+\newcommand{\xymatrix}[1]{}
+\newcommand{\Zq}{R}
+\newcommand{\Note}[1]{\textcolor{red}{\texttt{#1}}}
+\usepackage[all]{xy}
+\newtheorem{propdef}[theorem]{Proposition/Definition}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{conjecture}[theorem]{Conjecture}
+%=================
+\newcommand{\hA}{\mathcal{A}}
+\newcommand{\Pair}[1]{\langle #1 \rangle}
+\newcommand{\BigPair}[1]{\Bigl\langle #1 \Bigr\rangle}
+\newcommand{\Bk}{\mathbf{k}}
+\newcommand{\Bp}{\mathbf{p}}
+\newcommand{\Bi}{\mathbf{i}}
+%=================
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\XX}{\mathbb{X}}
+\newcommand{\BBS}{\mathbb{S}}
+
+\newcommand{\Vect}{\operatorname{Vect}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Sub}{\operatorname{Sub}}
+\newcommand{\dgcat}{\operatorname{dgcat}_{\Bk}}
+
+\newcommand{\Obj}{\operatorname{Obj}}
+\newcommand{\Add}{\operatorname{Add}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Ind}{\operatorname{Ind}}
+\newcommand{\Sim}{\operatorname{Sim}}
+\newcommand{\DHom}{\operatorname{\mathnormal{D}Hom}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Homm}{\operatorname{\underline{\Hom}}}
+\renewcommand{\hom}{\operatorname{\mathcal{H}\!om}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Irr}{\operatorname{Irr}}
+\newcommand{\tri}{\varsigma}
+\newcommand{\Stab}{\operatorname{Stab}}
+\newcommand{\stab}{\operatorname{St}}
+\newcommand{\Stap}{\operatorname{Stab}^\circ}
+\newcommand{\diff}{\operatorname{d}}
+\newcommand{\Br}{\operatorname{Br}}
+\newcommand{\Rep}{\operatorname{Rep}}
+\newcommand{\rep}{\operatorname{rep}}
+%\newcommand{\SL}{\operatorname{SL}}
+%\newcommand{\arg}{\operatorname{arg}}
+\newcommand{\rank}{\operatorname{rank}}
+%\newcommand{\Ps}{\operatorname{Ps}}
+\newcommand{\PSL}{\operatorname{PSL}_2(\ZZ)}
+\newcommand{\h}{\mathcal{H}}            %heart
+\newcommand{\nh}{\widehat{\h}}
+\newcommand{\nS}{\widehat{S}}
+\newcommand{\ns}{\widehat{\sigma}}
+\newcommand{\nz}{\widehat{Z}}
+\newcommand{\np}{\widehat{\mathcal{P}}}
+%\renewcommand{\Bk}{\mathbf{k}}
+\renewcommand{\mod}{\operatorname{mod}}
+\newcommand{\Mod}{\operatorname{Mod}}
+\newcommand{\modd}{\underline{\operatorname{mod}}}
+\newcommand{\Ho}[1]{\operatorname{\bf H}_{#1}}
+\newcommand{\tilt}[3]{{#1}^{#2}_{#3}}
+\newcommand{\Cone}{\operatorname{Cone}}
+\newcommand{\Ae}[1]{\mathcal{#1}^e}
+\renewcommand{\Re}{\operatorname{Re}}
+
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\Proj}{\operatorname{Proj}}
+\newcommand{\Inj}{\operatorname{Inj}}
+\newcommand{\shift}[1]{\operatorname{\Sigma}_{#1}}
+\newcommand{\D}{\operatorname{\mathcal{D}}}
+\newcommand{\A}{\operatorname{\mathcal{A}}}
+\newcommand{\Ce}{\operatorname{\mathcal{C}}}
+
+\newcommand{\per}{\operatorname{per}}
+\newcommand{\thick}{\operatorname{thick}}
+\newcommand{\PiA}{\Pi_{\XX}(A)}
+\newcommand{\QQX}{\qq{\XX}}
+\newcommand\Sph{\operatorname{Sph}}%^\circ}
+\newcommand{\zero}{\mathcal{H}_\Gamma}
+\newcommand{\Tri}{\bigtriangleup}
+%==========new===========
+\newcommand{\surf}{\mathbf{S}}                       %FST's surface
+\newcommand{\BS}{\mathbf{S}}                       %FST's surface
+\newcommand{\ssp}{\underline{\mathcal{S}}}
+\newcommand{\SC}{\mathrm{S}}                       %HKK's
+\newcommand{\SSo}{\mathbf{S}_\Tri}                       %HKK's
+\newcommand{\ST}{\operatorname{ST}}        %spherical twists
+\newcommand{\BT}{\operatorname{BT}}        %braid twists
+\newcommand{\MCG}{\operatorname{MCG}}
+\newcommand{\Int}{\operatorname{Int}}
+\newcommand{\sign}{\operatorname{sign}}
+\newcommand{\Homeo}{\operatorname{Homeo}}
+\newcommand\coho[1]{\operatorname{H}^{#1}}
+\newcommand\ho[1]{\operatorname{H}_{#1}}
+\newcommand\coch[1]{\operatorname{Z}^{#1}}
+
+\newcommand{\coh}{\operatorname{Coh}}
+\newcommand{\Symp}{\operatorname{Symp}}
+\newcommand{\Diff}{\operatorname{Diff}}
+\newcommand{\TFuk}{\operatorname{TFuk}}
+\newcommand{\Dcoh}{\D^b(\coh X)}
+\newcommand{\DFuk}{\D^b\Fuk(M, \omega)}
+\newcommand{\TT}{\mathbf{T}}
+\newcommand{\RHom}{\operatorname{RHom}}
+\newcommand{\Ltimes}{\stackrel{L}{\otimes}}
+\newcommand{\surfo}{{\mathbf{S}}_\Tri}
+\newcommand{\quot}{\mathbin{/}}
+\newcommand{\quott}{\mathbin{\sslash}}

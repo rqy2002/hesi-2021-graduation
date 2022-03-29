@@ -1,0 +1,102 @@
+% !TeX root = ../thuthesis-example.tex
+
+\chapter{Singular fibers in elliptic fibration}
+In this chapter, we mainly focus on the rational elliptic surface case which we have mentioned in chapter 1. Thanks to Kodaira's work\cite{kodaira1963compact}, there are only finite type of singular fibers on rational elliptic surface.
+\section{Rational Elliptic surface}
+\begin{defi}
+A rational elliptic surface is the blowup of $\mathbb{P}^2$ in the base points arise from  a pencil of cubics, i.e.\ a family $sF+tG=0$ where $[s,t]\in\mathbb{P}^1$ and $F,G$ are smooth cubics intersecting in 9 points with multiplicity. Blowing up at these points, we thus have an elliptic fibration $f\colon X\rightarrow\mathbb{P}^1$.
+\end{defi}
+Since each blow-up will only change the Hodge number $h^{p,q}$ when $p=q=1$\cite{rao2019dolbeault}, thus the rational elliptic surface's Hodge diamond will look like
+\begin{displaymath}
+\begin{split}
+&\qquad  \qquad 1\\
+&\qquad 0 \qquad \qquad 0\\
+&0 \qquad \qquad \!\!\! 10 \qquad \qquad \!\! 0\\
+& \qquad 0 \qquad \qquad 0\\
+& \qquad \qquad 1 \qquad \qquad .
+\end{split}
+\end{displaymath}
+\indent Actually, from \cite{schutt2019elliptic} we know that we can obtain an elliptic $K3$ surfaces $X$ from a given rational elliptic surface $S$ through quadratic base change over $\mathbb{P}^1$. Or see how $K3$ surface are constructed from elliptic surface in Garbagnati and Salgado's paper\cite{garbagnati2019linear}. Here we only need to avoid ramification at non-reduced fibers.\\ \indent
+Thus now we turn ourselves to rational elliptic surfaces, especially the local model near singular fiber.\\ \indent
+Let $f\colon U\rightarrow \Delta$ be an elliptic fibration over the disk with all fibers regular except possibly for $D=f^{-1}(0)$. Assume that $D$ does not contain $(-1)$-curves, and we also assume that $D$ is reduced or equivalently, there is a holomorphic section correspond to $f$, or equivalently $U|_{\Delta^*}\simeq(\Delta^*\times\mathbb{C})/(\mathbb{Z}\tau_1+\mathbb{Z}\tau_2).$ for some multivalued holomorphic functions $\tau_i\colon\Delta^*\rightarrow\mathbb{C}$.\\ \indent
+Suppose $\Omega$ be a meromorphic 2-form on $U$ such that the corresponding divisor is an integer multiple of $D$ up to a scale, and suppose $\Omega=gdz\wedge dw$, $g\colon\Delta^*\rightarrow\mathbb{C}$, here $z$ is the coordinate on $\Delta$ and $w$ the coordinate on the fibers.\\ \indent
+In our discussion, we assume $\textrm{div}(\Omega)=-D$ or 0.\\ \indent
+Kodaira classifies\cite{kodaira1963compact} all possible connected indecomposable curves of canonical type. We now give a table of possible singular fibers.\\
+\begin{table}[]
+\begin{tabular}{lllllll}
+$\mathscr{J}(0)$& mult$_0\mathscr{J}$ & $A$ & ord$A$ & type & generators $\tau_1,\tau_2$ & N \\
+$\notin\{0,1,\infty\}$ & any & I & 1 & $\uppercase\expandafter{\romannumeral1}_0$ & $1,\tau(z)$ &  0\\
+$\notin\{0,1,\infty\}$ & any & -I & 2 & $\uppercase\expandafter{\romannumeral1}_0^*$ & $z^{1/2},z^{1/2}\tau(z)$ &  1\\
+0& $m\equiv1(3)$ & $B_1$ & 6 & $\uppercase\expandafter{\romannumeral2}$ & $(1-z^{m/3})z^{5/6},\zeta_3(1-\zeta_3z^{m/3})z^{5/6}$ & 1 \\
+0& $m\equiv1(3)$ & $B_2$ & 3 & $\uppercase\expandafter{\romannumeral4}^*$ & $(1-z^{m/3})z^{1/3},\zeta_3(1-\zeta_3z^{m/3})z^{1/3}$ & 1 \\
+0& $m\equiv2(3)$ & $B_3$ & 6 & $\uppercase\expandafter{\romannumeral2}^*$ & $(1-z^{m/3})z^{1/6},\zeta_3(1-\zeta_3z^{m/3})z^{1/6}$ & 1 \\
+0& $m\equiv2(3)$ & $B_4$ & 3 & $\uppercase\expandafter{\romannumeral2}$ & $(1-z^{m/3})z^{2/3},\zeta_3(1-\zeta_3z^{m/3})z^{2/3}$ & 1 \\
+0& $m\equiv0(3)$ & I & 1 & $\uppercase\expandafter{\romannumeral1}_0$ & $1,\tau(z)$ & 0 \\
+0& $m\equiv0(3)$ & -I & 2 & $\uppercase\expandafter{\romannumeral1}_0^*$ & $z^{1/2},z^{1/2}\tau(z)$ & 1 \\
+1& $m\equiv1(2)$ & $B_5$ & 4 & $\uppercase\expandafter{\romannumeral3}$ & $(1-z^{m/2})z^{3/4},i(1+iz^{m/2})z^{3/4}$ & 1 \\
+1& $m\equiv1(2)$ & $B_6$ & 4 & $\uppercase\expandafter{\romannumeral3}^*$ & $(1-z^{m/2})z^{1/4},i(1+iz^{m/2})z^{1/4}$ & 1 \\
+1& $m\equiv0(2)$ & I & 1 & $\uppercase\expandafter{\romannumeral1}_0$ & $1,\tau(z)$ & 0\\
+1& $m\equiv0(2)$ & -I & 2 & $\uppercase\expandafter{\romannumeral1}_0^*$ & $z^{1/2},z^{1/2}\tau(z)$ & 1\\
+$\infty$ & -b & $A_b$ & $\infty$ & $\uppercase\expandafter{\romannumeral1}_b$ & $1,\frac{b}{2\pi i}\log z$ & 0 \\
+$\infty$ & -b & $-A_b$ & $\infty$ & $\uppercase\expandafter{\romannumeral1}_b^*$ & $z^{1/2},\frac{b}{2\pi i}z^{1/2}\log z$ & 1
+\end{tabular}
+\end{table}
+\indent
+$$B_1=\begin{pmatrix}
+0 & 1\\
+-1 & 1
+\end{pmatrix}\; ,$$
+$$B_2=-\begin{pmatrix}
+0 & 1\\
+-1 & 1
+\end{pmatrix}\; ,$$
+$$B_3=\begin{pmatrix}
+1 & -1\\
+1 & 0
+\end{pmatrix}\; ,$$
+$$B_4=-\begin{pmatrix}
+1 & -1\\
+1 & 0
+\end{pmatrix}\; ,$$
+$$B_5=\begin{pmatrix}
+0 & 1\\
+-1 & 0
+\end{pmatrix}\; ,$$
+$$B_6=-\begin{pmatrix}
+0 & 1\\
+-1 & 0
+\end{pmatrix}\; ,$$
+$$A_b=\begin{pmatrix}
+1 & b\\
+0 & 1
+\end{pmatrix}\; .$$
+
+
+\section{Monodromy}
+\indent  We now explain the parameters in the above table.\\ \indent
+Kodaira's work\cite{kodaira1963compact} says that if $f\colon U\rightarrow \Delta$ is an elliptic fibration over the unit disk with a section $\sigma$, such that all fibers except $D=f^{-1}(0)$ are smooth and $D$ does not contain $(-1)$-curves. Then the pair $(f,\sigma)$ is isomorphic to a canonical version $(\bar{f},\bar{\sigma})$ whose total space $\bar{U}$ is birational equivalent to $X$ quotient by a finite group related to the monodromy of $f$, where $X$ is the total space of an explicit elliptic fibration.\\ \indent
+Now we will see how Kodaira's canonical form correspond to a given fibration is explicitly constructed.\\ \indent
+Write $U|_{\Delta^*}\simeq(\Delta^*\times\mathbb{C})/(\mathbb{Z}\tau_1+\mathbb{Z}\tau_2).$ as before and transforms as
+$$\tau \mapsto \frac{d\tau+b}{c\tau+a}\; ,$$
+under the image $[A]\in PSL(2,\mathbb{Z})$ of the monodromy when going around the singularity in counterclockwise orientation. Write this in $\tau_1,\tau_2$ we have $T\mapsto TA$, i.e.
+$$(\tau_1,\tau_2)\mapsto(a\tau_1+c\tau_2,b\tau_1+d\tau_2 )\; .$$\\ \indent
+Suppose $j\colon\mathfrak{H}\rightarrow\mathbb{C}$ is the classical elliptic modular function, normalized so that $j(i)=1$, $j(\zeta_3)=0$. Since $j$ is $PSL(2,\mathbb{Z})$-invariant and is only ramified at branch points of order $2,3$ along the orbits of $i,\zeta_3$. And the Kodaira's functional invariant 
+$$\mathscr{J}:=j\circ \tau$$
+is a single-valued meromorphic function on $\Delta^*$.\\ \indent
+For the singularity 0, if $\mathscr{J}(0)\in\mathbb{C}\setminus \{0,1\}$, then $\tau$ is single-valued and can be extended to a regular function on $\Delta$ with $\tau(0)$ not in the $PSL(2,\mathbb{Z})$ orbits of $i,\zeta_3$. Thus the stabilizer of $\tau(0)$ in $PSL(2,\mathbb{Z})$ is trivial, and $A=\pm I$.\\ \indent
+If $A=I$, then $\tau_1,\tau_2$ can directly extend to single-valued functions on $\Delta$ and $$U\simeq (\Delta\times\mathbb{C}/\mathbb{Z}\tau_1+\mathbb{Z}\tau_2)\; .$$
+\indent If $A=-I$, we first change the coordinate through $z=u^2$ over $\Delta_z^*$. The fibration then first lift to a fibration $U'\rightarrow \Delta_u^*$, then extends to $\Delta_u$ with a smooth central fiber $D'$. The free $\mathbb{Z}_2$-action on $U'$ over $\Delta_u^*$ also can extends but has four fixed points on $D'$. Then the quotient is an elliptic fibration over $\Delta_z$, hence isomorphic to $U$ over $\Delta_z^*$, but with four surface singularites of type $A_1$ over $z=0$. Resolving the singularities we have the normal form $\bar{U}\rightarrow \Delta_z$ with a type $\uppercase\expandafter{\romannumeral1}_0^*$ central fiber. \\ \indent
+If $\mathscr{J}(0)=0$, then $\tau$ is possibly multivalued, however it is still regular at 0, with $\tau(0)$ in the orbit of $\zeta_3$. $[A]$ fixes $\tau(0)$, hence have six possibilities for $A$ up to conjugation, including $A=\pm I$. These can be treated as before, also make a base change $z=u^{\textrm{ord}(A)}$, then extend, and minimally resolving the singularities of the quotient, then blowing down the (-1)-curves in central fiber if it is needed.\\ \indent
+Notice that when $\mathscr{J}=1$, the case is the same.\\ \indent
+If $\mathscr{J}$ has a pole of order $b\geq 1$, then $A$ is conjugate to $\pm A_b$.\\
+\indent Also it is possible to let $$\tau_1\equiv 1\;,$$
+$$\tau_2=\tau=b\frac{\log z}{2\pi i}\; .$$
+\indent If $b=1$, we can fill in the surface 
+$$U|_{\Delta^*}\simeq (\Delta^*\times \mathbb{C})/(\mathbb{Z}+\mathbb{Z}\tau)\; ,$$
+by using $\wp$-functions to embed it into $\Delta\times \mathbb{P}^2$ and taking the closure. And we have the canonical form $\bar{U}$ and central fiber with a node $\uppercase\expandafter{\romannumeral1}_1$.\\ \indent When $b>1$, with central fiber a cycle of $b$ rational curves $\uppercase\expandafter{\romannumeral1}_b$ and $A=-A_b$ implies $A^2=A_{2b}$, we can process as former cases.\\ \indent
+Consider the multiplicity $N$ of $\Phi^*(dz\wedge dw)$ along $D$, so that $$\Phi^*(dz\wedge dw)=f^Nhdx\wedge dy\; ,$$
+where $h(p)\neq 0$ in local coordinates $(x,y)$ on $U $ near $p$. So we either have $g(z)=z^{-N-1}k(z)$ or $g(z)=z^{-N}k(z)$, $k(0)=0$, depending on whether div$(\Omega)=-D$ or div$(\Omega)=0$.
+
+
+
+

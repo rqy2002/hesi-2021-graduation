@@ -1,0 +1,2526 @@
+% !TeX root = ../thuthesis-KFH.tex
+
+\chapter{Introduction}
+
+In \cite{L}, Lusztig introduced a twisted bialgebra $\f$, which is 
+the quantized enveloping algebra associated to a maximal nilpotent 
+subalgebra of a finite dimensional complex semisimple Lie algebra.
+In simply laced types, Lusztig gave a categorification of $\f$ in terms of certain
+categories of sheaves on some quiver variety, which transforms
+the multiplication on $\f$ to the Lusztig's convolution product.
+
+In \cite{KL1}, \cite{KL2} and \cite{R}, Khovanov, Lauda and Rouquier
+introduced a new type of family of algebras associated to a quiver,
+known as the \term{quiver Hecke algebras}. They proved that under the assumption
+that the quiver has no edge loops, the quiver Hecke algebras
+categorify the Lusztig's twisted bialgebra $\f$.
+
+Later, in \cite{VV}, Varagnolo and Vasserot showed that 
+in the case that the underlying field is of characteristic zero,
+quiver Hecke algebras are naturally isomorphic to the equivariant 
+extension algebras of certain equivariant complexes of sheaves
+on the quiver variety, which links the algebraic categorification
+and the geometric categorification of $\f$.
+
+From this geometric interpretation of quiver Hecke algebras,
+Kato introduced certain infinite-dimensional modules of quiver Hecke algebras,
+called the \term{geometric standard modules}, in \cite{K} and \cite{K2},
+where the definition and certain homological properties are introduced.
+These modules satisfy properties familiar from the theory of
+highest weight categories. 
+These modules are also studied later by McNamara in \cite{Mc2}.
+
+On the other hand, in \cite{BKM}, Brundan, Kleshchev and McNamara constructed
+certain modules that satisfy similar properties to that of 
+geometric standard modules, in a purely algebraic way.
+These modules are called \term{algebraic standard modules}.
+
+In this paper, we will show that the algebraic standard modules
+and the geometric standard modules coincide. We will also
+recall the definition of \term{polynomial highest weight categories},
+which is a modification of highest weight categories, and survey on that
+the categories of finitely generated graded modules of quiver Hecke algebras
+are polynomial highest weight categories, by using the 
+homological properties of standard modules. Our main theorems 
+are Theorem \ref{alg-geo} and Theorem \ref{p-h-w-c}.
+
+The paper is mainly divided into four parts. In Chapter 2 we will
+recall the definition of quiver Hecke algebras, and their basic properties;
+we will also recall the Lusztig's twisted bialgebra $\f$ and give a
+sketch of proof of the categorification theorem, Theorem
+\ref{categorification}. 
+In Chapter 3 we will recall 
+the geometric realization theorem, Theorem \ref{geo-real};
+we will give the motivation and definition of geometric standard modules,
+and list some basic properties of geometric standard modules.
+In Chapter 4 we will give the algebraic 
+construction of standard modules. 
+In Chapter 5 we will give the two main theorems of the paper;
+We will show that the algebraic standard modules
+and the geometric standard modules coincide;
+we will recall the definition of polynomial highest weight categories,
+and show that the categories of finitely generated graded modules of quiver Hecke algebras
+are polynomial highest weight categories.
+
+\begin{convention}
+    Fix once for all a ground field $\K$. All algebras, if not specified, are over $\K$.
+    By a module over a $\Z$-graded algebra $H$, we always mean a graded left
+    $H$-module. Likewise all submodules, quotient modules are also graded.
+    For a module $V$, $\rad(V)$ is the intersection of all maximal submodules,
+    where $\soc(V)$ is the sum of all irreducible submodules of $V$.
+    We write $q$ for the upward degree shifting functor: if $V = \bigoplus V_n$
+    then $(qV)_n = V_{n-1}$. Given a formal Laurent series $f(q) = \sum f_nq^n$,
+    defined $f(q)V:= \bigoplus (q^nV)^{\oplus f_n}$. For modules $U,V$,
+    we write $\hom(U,V)$ for all homogeneous $H$-module morphisms, and write
+    $\Hom(U,V)$ for the graded vector space $\bigoplus\hom(U,V)_n$,
+    where $\Hom(U,V)_n:= \hom(q^nU,V) = \hom(U,q^{-n}V)$. $\ext^k(U,V)$
+    and $\Ext^n(U,V)$ are defined similarly. If $V$ is locally finite dimensional
+    and bounded below, its graded dimension is the formal Laurent series
+    $\Dim V = \sum(\dim V_n)q^n$.
+
+    Let $\Gamma$ be a quiver with finite vertex set $I$
+    and arrow set $E$, such that there exists no arrow
+    that join a vertex to itself. For any arrow $e\in E$,
+    we define $s(e)$ to be the source of $e$, and 
+    $t(e)$ to be the target of $e$. For any $i,j\in I$, we define
+    $m_{i,j}$ to be the number of directed edges $i\to j$. 
+    The corresponding Cartan matrix $C = (c_{i,j})$ 
+    is defined as $c_{i,i} = 2$ and $c_{i,j} = -m_{i,j}-m_{j,i}$ for $i\ne j$.
+    Thus $(I,C)$ is a Cartan datum, which gives a root lattice.
+    We will denote the simple roots by $\alpha_i,\ i\in I$, and the set of positive roots by
+    $R^+$, and define $Q^+ := \bigoplus_{i\in I}\mathbb{N}\alpha_i$. For 
+    an element $\alpha = \sum_{i\in I}c_i\alpha_i\in Q^+$, we define its \term{height}
+    to be $\operatorname{ht}(\alpha) := \sum_{i\in I}c_i$. Also let $W$ be the Weyl group, with generators
+    $\{s_i\mid i\in I\}$. Let $\mathfrak{g}$ be the corresponding Kac--Moody
+    algebra.
+
+    The path algebra of $\Gamma$ is denoted by $\K\Gamma$.
+    Giving a $\K\Gamma$-module, is equivalent to giving an $I$-graded vector space
+    $V = \bigoplus_i V_i$, and for each $e\in E$, a map of vector spaces $x_e\:V_{s(e)}\to V_{t(e)}$.
+
+    For any $n\in\Z$, let $[n]$ by the quantum
+    integer $(q^n-q^{-n})/(q-q^{-1})$. If $n\ge 0$, let $[n]! := [n][n-1]\cdots[1]$
+    be the quantum factorial. 
+\end{convention}
+
+\chapter{Quiver Hecke Algebras and the Lusztig's Algebra $\f$}
+
+We begin by collecting some basic facts to quiver Hecke algebras
+and the Lusztig's algebra $\f$.
+
+\section{Quiver Hecke Algebras}
+
+In this section, we collect the definition and some properties of quiver Hecke algebras.
+These results are originally given in \cite{KL1}, \cite{KL2} and \cite{R}.
+
+Recall that $\Gamma$ is a quiver with finite vertex set $I$ and arrow set $E$.
+Let $\<I\>$ be the free monoid generated by $I$. 
+For $\alpha\in Q^+$ with height $n$,
+define $\<I\>^\alpha \subseteq \<I\>$ to be the subset of words
+$\boldsymbol{i} = i_1\cdots i_n$ such that $\abs{\boldsymbol{i}} = \alpha$,
+where here $\abs{\boldsymbol{i}} :=  \alpha_{i_1}+ \cdots+ \alpha_{i_n}$.
+The group $S_n$ acts on $\<I\>^\alpha$ by permuting the letters
+in the obvious way. For any $w\in S_n$, we define 
+
+\begin{equation}
+    \label{deg-w-i}\deg(w;\boldsymbol{i}) := -\sum_{1\le j<k\le n,\ w(j)>w(k)}
+    \alpha_{i_j}\cdot\alpha_{i_k}.
+\end{equation}
+
+Let $Q_{i,j}(u,v)\in \K[u,v]$
+denote $0$ if $i = j$ or $(v-u)^{m_{i,j}}(u-v)^{m_{j,i}}$ if $i\ne j$.
+
+\begin{definition}[\cite[Section 2.1]{KL1}]\label{def-of-KLR-alg}
+    For any $\alpha\in Q^+$ with height $n$, the \term{quiver Hecke algebra}
+    $H(\alpha)$ is the associative $\K$-algebra on generators
+    \[
+        \{\1_{\ii}\mid\ii\in\<I\>^\alpha\}\cup\{x_1,\cdots,x_n\}
+        \cup\{\tau_1,\cdots,\tau_{n-1}\},
+    \]
+    subject to the following relations:
+    \begin{itemize}
+        \item The $\1_{\ii}$'s are orthogonal idempotents summing to the identity,
+        which we will call $\1_\alpha\in H(\alpha)$;
+        \item $\1_{\ii} x_k = x_k \1_{\ii}$ and $\1_{\ii} \tau_k = \tau_k\1_{s_k(\ii)}$;
+        \item The elements $x_1,\cdots,x_n$ commute;
+        \item $(\tau_k x_l-x_{s_k(l)}\tau_k)\1_{\ii}
+         = \delta_{i_k,i_{k+1}}(\delta_{k+1,l}-\delta_{k,l})\1_{\ii}$;
+        \item $\tau_k^2\1_{\ii} = Q_{i_k,i_{k+1}}(x_k,x_{k+1})\1_{\ii}$;
+        \item $\tau_k\tau_l = \tau_l\tau_k$ whenever $\abs{k-l}>1$;
+        \item $(\tau_k\tau_{k+1}\tau_k-\tau_{k+1}\tau_k\tau_{k+1})\1_{\ii}
+         = \delta_{i_k,i_{k+2}}\dfrac{Q_{i_k,i_{k+1}}(x_k,x_{k+1})
+        -Q_{i_k,i_{k+1}}(x_{k+2},x_{k+1})}{x_k-x_{k+2}}\1_{\ii}$.
+    \end{itemize}
+\end{definition}
+
+The algebra $H(\alpha)$ is $\Z$-graded,
+with $\1_{\ii}$ in degree $0$, $x_k\1_{\ii}$ in degree $2$, and $\tau_k\1_{\ii}$
+in degree $-\alpha_{i_k}\cdot\alpha_{i_{k+1}}$. There exists an algebra
+isomorphism $T\colon H(\alpha)\to H(\alpha)^{\mathrm{op}}$ that fixes all generators.
+
+For each $w\in S_n$, we fix once and for all a reduced expression $w = s_{i_1}\cdots s_{i_l}$,
+and define $\tau_w:= \tau_{i_1}\cdots\tau_{i_l}\in H(\alpha)$. Note that $\tau_w\1_{\ii}$ is of degree
+$\deg(w;\ii)$, where $\deg(w;\ii)$ is defined in (\ref{deg-w-i}).
+
+\begin{proposition}[{\cite[Theorem 2.5]{KL1}}]\label{basis-of-H}
+    The monomials 
+    \[
+        \{x_1^{k_1}\cdots x_n^{k_n}\tau_w\1_{\ii}\mid
+        \ii\in\<I\>^\alpha,\ w\in S_n,\ k_1,\cdots,k_n\ge 0\}
+    \] gives a basis
+    for $H(\alpha)$. In particular for any $\ii,\ii'\in H(\alpha)$,
+    \[
+        \Dim \1_{\ii'}H(\alpha)\1_{\ii} = \dfrac1{(1-q^2)^n}
+        \sum_{w\in S_n,\ w(\ii) = \ii'}q^{\deg(w;\ii)}.
+    \]
+\end{proposition}
+
+\begin{example}
+    If $\Gamma$ is the quiver with one vertex and no edges,
+    then there exists only one root $\alpha$.
+    In this case the quiver Hecke algebra $H(n\alpha)$
+    is the so-called ``nil Hecke algebra'', denoted by $\NH(n)$
+    whose definition is given in Definition \ref{def-of-nil-hecke}.
+    By the results in Appendix A, $P_n := q^{n(n-1)/2}\NH(n)e_n$ is the only
+    indecomposable projective $H(\alpha)$-module up to isomorphism and degree shift,
+    where $e_n := x_2x_3^2\cdots x_n^{n-1}\tau_{w_0}$ 
+    is the primitive idempotent of $\NH(n)$, $w_0$ is the longest element in $S_n$. Its head $L_n$
+    has graded dimension $[n]!$, and $\NH_n\cong[n]!P_n$ as
+    graded $\NH(n)$-module. Moreover, 
+    \[
+        \NH(n)\cong\operatorname{Mat}
+        _{[n]!}(\K[x_1,\cdots,x_n]^{S_n}).
+    \]   
+\end{example}
+
+In particular, if $\alpha = n\alpha_i$ is a multiple of a positive root,
+then $H(\alpha)$ is isomorphic to the nil Hecke algebra $\NH(n)$.
+
+Now, we define $\mod(H(\alpha))$, $\fmod(H(\alpha))$ and $\pmod(H(\alpha))$ to be the category
+of finitely generated $H(\alpha)$-modules, finite dimensional $H(\alpha)$-modules and finitely generated
+projective $H(\alpha)$-modules. We set 
+\[
+    \fmod(H) := \bigoplus_{\alpha\in Q^+}
+    \fmod(H(\alpha)),\hspace{3em}\pmod(H) :=  \bigoplus_{\alpha\in Q^+}
+    \pmod(H(\alpha)).
+\]
+Here morphisms in both categories are module homomorphisms
+that are homogeneous of degree $0$. The category $\fmod(H)$ is abelian,
+and the category $\pmod(H)$ is additive. Define $[\fmod(H)]$
+to be the Grothendieck group of the category $\fmod(H)$, and define
+$[\pmod(H)]$ to be the split Grothendieck group of the category $\pmod(H)$. They are
+naturally $\Z[q,q^{-1}]$-modules, where the action $q$ is given by the
+upward degree shifting functor.
+
+For any $V\in\fmod(H)$, the module $V$ decomposes
+as $\bigoplus_{\ii\in\<I\>}\1_{\ii}V$. We define the \term{character} of
+$V$ to be 
+\[
+    \Ch(V) :=  \sum_{\ii\in\<I\>} (\Dim\1_{\ii}V)\ii\in\Z[q,q^{-1}]\<I\>.
+\]
+
+\begin{proposition}[{\cite[Theorem 3.17]{KL1}}]
+    The map $\Ch\:[\fmod(H)]\to\Z[q,q^{-1}]\<I\>$ is an injective
+    $\Z[q,q^{-1}]$-module homomorphism.
+\end{proposition}
+
+There exists dualities $\*$ and $\#$ on $\fmod(H)$ and $\pmod(H)$,
+respectively, given by $V^\* := \Hom_{\K}(V,\K)$ and $P^\#  :=  \Hom_H(P,H)$,
+where the left $H$-action arises from the automorphism $T\: H\to H^{\mathrm{op}}$.
+There also exists a nondegenerate bilinear pairing $[\pmod(H)]\times[\fmod(H)]
+\to\Z[q,q^{-1}]$ given by 
+\[
+    ([P],[V]) := \Dim\Hom(P^\#,V) = 
+    \overline{\Dim\Hom(P,V^\*)},
+\]
+where the bar indicates the
+automorphism on $\Z[q,q^{-1}]$ which sends $q$ to $q^{-1}$.
+By \cite[Lemma 3.5]{Br}, any simple $H$-module $L$ can be shifted uniquely
+in degree such that it becomes $\*$-self-dual, in which case the projective cover
+of $L$ is $\#$-self-dual. Since the category $\pmod(H)$ is Krull--Schmidt,
+and objects in the category $\fmod(H)$ are of finite length,
+\[
+    \begin{aligned}
+        \mathbf{B}& := \{[P]\mid P\text{ is an }\#\text{-self-dual indecomposable
+        projective module}\},\\
+        \mathbf{B}^*& := \{[L]\mid L\text{ is an }\*\text{-self-dual simple module}\}
+    \end{aligned}
+\]    
+give bases of $[\pmod(H)]$ of $[\fmod(H)]$ as free $\Z[q,q^{-1}]$-modules,
+respectively.
+
+For $\beta,\gamma\in Q^+$, there exists a natural non-unital algebra embedding
+\[
+    H(\beta)\ox H(\gamma)\hookrightarrow H(\beta+\gamma).
+\]     
+The image of the 
+identity $\1_\beta\ox\1_\gamma$ will be denoted by $\1_{\beta,\gamma}$.
+Now for any $H(\beta)\ox H(\gamma)$-module $V$ and any $H(\beta+\gamma)$-module 
+$U$, we define 
+\[
+    \Ind_{\beta,\gamma}(V) := H(\beta+\gamma)\1_{\beta,\gamma}
+    \ox_{H(\beta)\ox H(\gamma)}V;\hspace{3em}\Res_{\beta,\gamma}(U)
+     := \1_{\beta,\gamma}U.
+\] 
+$\Ind$ and $\Res$ are exact functors; the exactness
+of $\Ind$ follows from Proposition \ref{basis-of-H}.
+%Therefore, they induce well-defined operators on the Grothendieck groups
+%$[\fmod(H)]$ and $[\pmod(H)]$
+For any $H(\beta)$-module $X$ and $H(\gamma)$-module $Y$, we define
+\[
+    X\circ Y := \Ind_{\beta,\gamma}(X\ex Y).
+\]   
+The following Mackey-style
+result from \cite[Proposition 2.18]{KL1} will play an important role:
+
+\begin{proposition}\label{mackey}
+    Suppose $\beta,\gamma,\beta',\gamma'\in Q^+$ are of height $m,n,m',n'$,
+    respectively, such that $\beta+\gamma = \beta'+\gamma'$. Set
+    $k = \min(m,n,m',n')$. Let $\{1 = w_0<\cdots<w_k\}$ be the set of minimal
+    length representatives in 
+    $(S_{m'}\times S_{n'})\backslash S_{m+n}/(S_m\times S_n)$ ordered by
+    the Bruhat order. Then for any $H(\beta)\ox H(\gamma)$-module $V$,
+    there exists a filtration $$0 = V_{-1}\subseteq V_0\subseteq \cdots
+    \subseteq V_k = \Res_{\beta',\gamma'}\Ind_{\beta,\gamma},$$ given by
+    $$V_j := \sum_{i = 0}^j\sum_{w\in(S_{m'}\times S_{n'})w_i(S_m\times S_n)}
+    \1_{\beta',\gamma'}\tau_w\1_{\beta,\gamma}\ox V.$$ Moreover there exists
+    a natural isomorphism of $H(\beta)\ox H(\gamma)$-modules
+    \[
+        \begin{aligned}
+            V_j/V_{j-1}&\cong\bigoplus_{\beta_1,\beta_2,\gamma_1,\gamma_2}
+            q^{-\beta_2\cdot\gamma_1}(\Ind_{\beta_1,\gamma_1}\ox\Ind_{\beta_2,\gamma_2})
+            \\&\hspace{3em}\iota^*(\Res_{\beta_1,\beta_2}\ox\Res_{\gamma_1,\gamma_2})(V),\\
+            \1_{\beta',\gamma'}\tau_{w_j}\1_{\beta,\gamma}\ox v+V_{j-1}&
+        \mapsto\sum_{\beta_1,\beta_2,\gamma_1,\gamma_2}
+        \1_{\beta_1,\gamma_1,\beta_2,\gamma_2}\ox
+        \1_{\beta_1,\beta_2,\gamma_1,\gamma_2}v,
+        \end{aligned}
+    \]
+    where $$\iota\:H(\beta_1)\ox H(\gamma_1)\ox H(\beta_2)\ox H(\gamma_2)
+    \to H(\beta_1)\ox H(\beta_2)\ox H(\gamma_1)\ox H(\gamma_2)$$ is the
+    natural isomorphism, and the sum is taken over all 
+    $\beta_1,\beta_2,\gamma_1,\gamma_2\in Q^+$ such that $\beta_1+\beta_2 = \beta$,
+    $\gamma_1+\gamma_2 = \gamma$, $\beta_1+\gamma_1 = \beta'$,
+    $\beta_2+\gamma_2 = \gamma'$ and $\min(\operatorname{ht}(\beta_2),
+    \operatorname{ht}(\gamma_1)) = j$.
+\end{proposition}
+
+By definition, there exist natural isomorphisms $$\Ext^i(\Ind(V),U)\cong
+\Ext^i(V,\Res(U))$$ for any $H(\beta)\ox H(\gamma)$-module $V$ and 
+any $H(\beta+\gamma)$-module $U$, known as the ``Frobenius reciprocity''.
+
+If $V$ is an 
+$H(\beta)\ox H(\gamma)$-module, we may construct the coinduction
+\[
+    \operatorname{CoInd}(V) := \Hom_{H(\beta)\ox H(\gamma)}
+    (\1_{\beta,\gamma}H(\alpha+\beta),V).
+\] 
+From Proposition \ref{basis-of-H},
+the coinduction is exact. There exist natural isomorphisms
+\[
+    \Ext^i(U,\operatorname{CoInd}(V))\cong
+    \Ext^i(\Res(U),V)
+\] 
+for any $H(\beta)\ox H(\gamma)$-module $V$ and 
+any $H(\beta+\gamma)$-module $U$. 
+
+By \cite[Theorem 2.2]{LV},
+for any $X\in\fmod(H(\beta))$ and $Y\in\fmod(H(\gamma))$,
+there exists a natural isomorphism 
+\[
+    q^{-\beta\cdot\gamma}\Ind_{\beta,\gamma}(X\ex Y)
+    \cong\operatorname{CoInd}_{\gamma,\beta}(Y\ex X).
+\]
+Using this isomorphism, one can show the following result, which is from
+\cite[Lemma 2.3]{BKM}:
+\begin{proposition}\label{dual-of-induction}
+    For any $X\in\fmod(H(\beta))$ and $Y\in\fmod(H(\gamma))$,
+    there exists a natural isomorphism $$(U\circ V)^\*
+    \cong q^{\beta\cdot\gamma}V^\*\circ U^\*.$$
+\end{proposition}
+
+Since the induction is exact, the operator $\circ$
+induces a tensor product operation on $\fmod(H)$ and $\pmod(H)$,
+making $[\fmod(H)]$ and $[\pmod(H)]$ become $\Z[q,q^{-1}]$-algebras.
+Also, we introduce the \term{shuffle product} on $\Z[q,q^{-1}]\<I\>$,
+which is given by $$\ii\circ\ii' := \sum_{w}q^{\deg(w;\ii\ii')}w(\ii\ii')$$
+for $\ii,\ii'\in\<I\>$ with length $m,n$, respectively, and the sum is taken
+over all elements $w\in S_{m+n}$ such that $w(1)<\cdots<w(m)$
+and $w(m+1)<\cdots<w(m+n)$. The shuffle product makes $\Z[q,q^{-1}]\<I\>$
+a $\Z[q,q^{-1}]$-algebra. Now Proposition \ref{mackey} has the following consequence:
+
+\begin{proposition}
+    For $X,Y\in\fmod(H)$ we have $$\Ch(X\circ Y) = (\Ch X)\circ(\Ch Y).$$
+    Therefore $\Ch\:[\fmod(H)]\to\Z[q,q^{-1}]\<I\>$ is an injective
+    $\Z[q,q^{-1}]$-algebra homomorphism.
+\end{proposition}
+
+On the other hand, since the restriction is exact, the functor $\Res$ induces $\Z[q,q^{-1}]$-module 
+homomorphisms $[\fmod(H)]\to[\fmod(H)]\ox_{\Z[q,q^{-1}]}[\fmod(H)]$
+and $[\pmod(H)]\to[\pmod(H)]\ox_{\Z[q,q^{-1}]}[\pmod(H)]$,
+making $[\fmod(H)]$ and $[\pmod(H)]$ coalgebras.
+Proposition \ref{mackey} also has the following consequence:
+
+\begin{proposition}
+    $[\fmod(H)]$ is a twisted bialgebra with respect to the 
+    multiplication on $[\fmod(H)]\ox_{\Z[q,q^{-1}]}[\fmod(H)]$
+    given by $$(a\ox b)(c\ox d) := q^{-\beta\cdot\gamma}(ac\ox bd)$$
+    for $b\in[\fmod(H(\beta))],\ c\in[\fmod(H(\gamma))]$.
+    Similar result holds for $[\pmod(H)]$.
+\end{proposition}
+
+We note that if we define the pairing between 
+$[\pmod(H)]\ox_{\Z[q,q^{-1}]}[\pmod(H)]$ and 
+$[\fmod(H)]\ox_{\Z[q,q^{-1}]}[\fmod(H)]$ by
+$(a\ox b,c\ox d) := (a,c)(b,d)$, then by Frobenius reciprocity,
+the mulplication on $[\pmod(H)]$ is dual to the comultiplication on $[\pmod(H)]$,
+and vice versa.
+
+We finally record the following theorem, which is from \cite[Corollary 2.9]{K}:
+
+\begin{theorem}
+    The algebra $H(\alpha)$ has finite global dimension for any $\alpha\in Q^+$.
+\end{theorem}
+
+\section{The Lusztig's Algebra and the Algebraic Categorification}
+
+In this section, we collect the definition and some basic properties of the Lusztig's algebra,
+and we will recall the algebraic categorification theorem. The results for 
+$\f$ are taken from \cite{L}, and the algebraic categorification theorem
+is taken from \cite{KL1}.
+
+\begin{definition}
+    The Lusztig's algebra $\f$ is the free associative $\Q(q)$-algebra
+    on generators $\{\theta_{i}\mid i\in I\}$ subject to the quantum Serre relations
+    \[
+        \sum_{r+s = 1-\alpha_i\cdot\alpha_j}(-1)^r\theta_i^{(r)}\theta_j\theta_i^{(s)} = 0,
+    \]
+    for all $i,j\in I$, $i\ne j$, where $\theta_i^{(r)}$ is the divided power
+    $\theta_i^r/[r]!$, and $[r]!$ is the quantum factorial.
+\end{definition}
+
+The algebra $\f$ is $Q^+$-graded such that $\theta_i$ is in degree $\alpha_i$.
+Define the multiplication on $\f\ox\f$ by $$(a\ox b)(c\ox d)
+ = q^{-(\deg b)\cdot(\deg c)}(ac\ox bd),$$ then there exists a unique algebra
+homomorphism $$r\:\f\to\f\ox\f,\hspace{3em}\theta_i\mapsto\theta_i\ox 1
++1\ox \theta_i,$$ making $\f$ a twisted bialgebra.
+
+The algebra $\f$ processes a unique nondegenerate symmetric bilinear form satisfying
+\[
+    (\theta_i,\theta_j) = \dfrac{\delta_{ij}}{1-q^2},\hspace{3em}
+    (ab,c) = (a\ox b,r(c)),
+\] 
+where the bilinear form on $\f\ox \f$ is given by 
+$(a\ox b,c\ox d) = (a,c)(b,d)$.
+
+We define $\f_{\Z[q,q^{-1}]}$ to be the $\Z[q,q^{-1}]$-subalgebra of $\f$
+generated by all divided powers $\theta_i^{(r)}$, and let 
+\[
+    \f_{\Z[q,q^{-1}]}^* := \{y\in\f\mid (x,y)\in\Z[q,q^{-1}],\ 
+    \forall x\in\f_{\Z[q,q^{-1}]}\}.
+\]
+$\f_{\Z[q,q^{-1}]}^*$ is again a subalgebra
+of $\f$. Both $\f_{\Z[q,q^{-1}]}$ and $\f_{\Z[q,q^{-1}]}^*$ are free
+$\Z[q,q^{-1}]$-modules, and $$\f\cong\f_{\Z[q,q^{-1}]}\ox_{\Z[q,q^{-1}]}\Q(q)
+\cong\f_{\Z[q,q^{-1}]}^*\ox_{\Z[q,q^{-1}]}\Q(q).$$
+
+Let $\ttb\:\f\to\f$ be the antilinear algebra automorphism that fixes all the
+$\theta_i$'s, and let $\ttb^*\:\f\to\f$ be the map given by 
+\[
+    (x,\ttb^*(y))= \overline{(\ttb(x),y)}.
+\] 
+The map $\ttb^*$ satisfies that 
+\[
+    \ttb^*(xy)= q^{\deg(x)\cdot\deg(y)}\ttb^*(y)\ttb^*(x).
+\] 
+The maps $\ttb$ and $\ttb^*$ preserve
+$\f_{\Z[q,q^{-1}]}$ and $\f_{\Z[q,q^{-1}]}^*$, respectively.
+
+For any $\ii\in\<I\>$, we define $\theta_{\ii} := \theta_{i_1}\cdots\theta_{i_n}$.
+The monomials $\theta_{\ii},\ \ii\in\<I\>^\alpha$ spans $\f_\alpha$. There exists
+an injective $\Z[q,q^{-1}]$-algebra homomorphism 
+\[
+    \Ch\: \f_{\Z[q,q^{-1}]}^*
+    \to\Z[q,q^{-1}]\<I\>,\hspace{3em} x\mapsto\sum_{\ii\in\<I\>}(\theta_{\ii},x)\ii.
+\]
+
+We are now ready to give the statement to the algebraic categorification theorem.
+
+\begin{theorem}[{\cite[Theorem 3.18]{KL1}}]\label{categorification}
+    There exists an isomorphism of twisted bialgebras
+    \begin{equation}\label{categorification-of-f}
+        \gamma\:\f_{\Z[q,q^{-1}]}\to[\pmod(H)],
+    \end{equation} such that
+    $\theta_i\mapsto[H(\alpha_i)]$ for all $i\in I$,
+    and it intertwines the involution $\ttb$ with $\#$.
+    The dual of $\gamma$ induces an isomorphism 
+    \begin{equation}\label{categorification-of-f*}
+        \gamma^*\:[\fmod(H)]\to\f_{\Z[q,q^{-1}]}^*,
+    \end{equation}
+    and it intertwines the involution $\*$ with $\ttb^*$.
+\end{theorem}
+
+\begin{proof}[Sketch of proof]
+    For any $\ii\in\<I\>^\alpha$, we have 
+    \[
+        [H(\alpha_{i_1})\circ\cdots\circ
+        H(\alpha_{i_n})] = [H(\alpha)\1_{\ii}].
+    \] 
+    Thus for any $i\in I$ and $r\ge 0$,
+    we have $[H(\alpha_i)]^r = [H(r\alpha_i)]$, hence $[H(\alpha_i)]^{(r)} = [P(r\alpha_i)]$.
+    By \cite[Lemma 3.10]{Br}, in $[\pmod(H)]$ one has $$\sum_{r+s = 1-\alpha_i
+    \cdot\alpha_j}(-1)^r[P(r\alpha_i)\circ P(\alpha_j)\circ P(s\alpha_j)] = 0.$$
+    Thus there exists a well-defined algebra homomorphism 
+    \[
+        \gamma\:\f_{\Z[q,q^{-1}]}\to[\pmod(H)],
+    \]    
+    such that 
+    $\theta_i\mapsto[H(\alpha_i)]$, and $\theta_i^{(r)}\mapsto[P(r\alpha_i)]$.
+    It is straightforward that $\gamma$ intertwines the comultiplications,
+    thus $\gamma$ is a homomorphism of twisted bialgebras. Taking the dual map
+    with respect to the nondegenerate pairings gives a homomorphism 
+    \[
+        \gamma^*\:[\fmod(H)]\to\f_{\Z[q,q^{-1}]}^*
+    \] 
+    of twisted bialgebras.
+
+    Since $\ttb$ fixes $\theta_{\ii}$ and $\#$ fixes $H\1_{\ii}$ for all $\ii$,
+    and $\{\theta_{\ii}\}$ is a basis for $\f$, the map $\gamma$ intertwines 
+    the involution $\ttb$ with $\#$. Since $\ttb^*$ is dual to $\ttb$ and
+    $\*$ is dual to $\#$, the map $\gamma^*$ intertwines the involution $\*$ with $\ttb^*$.
+
+    For any $V\in\fmod(H)$, we have 
+    \[
+        (\theta_{\ii},\gamma^*[V])
+         = (\gamma(\theta_{\ii}),[V]) = ([H\1_{\ii}],[V]) = \Dim\Hom(H\1_{\ii},V)
+         = \Dim\1_{\ii}V,
+    \] 
+    by definition of $\Ch$, the following diagram commutes:
+    \[
+    \xymatrix{
+        [\fmod(H)]\ar[rr]^{\Ch}\ar[rd]_{\gamma^*}&&\Z[q,q^{-1}]\<I\>.\\
+        &\f_{\Z[q,q^{-1}]}^*\ar[ru]_{\Ch}
+    }
+    \]
+    Since the map $\Ch\:[\fmod(H)]\to\Z[q,q^{-1}]\<I\>$ is injective,
+    the map $\gamma^*$ must be injective, hence $\gamma$ is surjective.
+
+    We define a pairing on $\Q(q)\ox_{\Z[q,q^{-1}]}[\pmod(H)]$ by 
+    \[
+        ([P],[Q]) := \Dim\Hom(P^\#,Q).
+    \] 
+    Since $\{[H\1_{\ii}]\}$ spans 
+    $\Q(q)\ox_{\Z[q,q^{-1}]}[\pmod(H)]$ and 
+    $([H\1_{\ii'}],[H\1_{\ii}]) = \Dim \1_{\ii'}H\1_{\ii}$ which lies in $\Q(q)$, the pairing
+    is well-defined over $\Q(q)$. From the definition of the pairing on $\f$,
+    we have 
+    \[
+        (\theta_{\ii'},\theta_{\ii}) = \dfrac{1}{(1-q^2)^n}
+        \sum_{w\in S_n,\ w(\ii) = \ii'}q^{\deg(w;\ii)}
+    \] 
+    for all $\ii,\ii'\in\<I\>^\alpha$
+    with height of $\alpha$ being $n$. which is equal to
+    $([H\1_{\ii'}],[H\1_{\ii}])$ by Proposition \ref{basis-of-H}.
+    Therefore the map $\hat\gamma\:\f\to\Q(q)\ox_{\Z[q,q^{-1}]}[\pmod(H)]$
+    preserves the pairing. Now if $\hat\gamma(x) = 0$ for some $x\in\f$, then
+    for all $y\in\f$ we have $(x,y) = (\hat\gamma(x),\hat\gamma(y)) = 0$,
+    thus $x = 0$ since the bilinear form on $\f$ is nondegenerate.
+    Therefore $\hat\gamma$ is injective, which shows that
+    $\gamma$ is injective, hence $\gamma^*$ is surjective.
+\end{proof}
+
+\begin{corollary}[{\cite[Corollary 3.19]{KL1}}]
+    Every simple $H$-module is absolutely irreducible, i.e. its 
+    endemorphism ring is $\K$.
+\end{corollary}
+
+\begin{proof}
+    Suppose $L$ is a simple $H(\alpha)$-module, $P$ is its projective cover.
+    We may assume that $L$ is $\*$-self-dual, in which case $P$ is $\#$-self-dual.
+    Since the map $\Hom(P,L)\to\Hom(L,L)$ is surjective, it suffices to show
+    that $\dim\Hom(P,L) = 1$. By Theorem \ref{categorification},
+    the dual of $[P]$ with respect to the basis $\mathbf{B}$ lies in
+    $[\fmod(H)]$. We call the dual $[P]^*$. Since for any $[P']\in\mathbf{B}$,
+    $[P']\ne[P]$, we have $([P'],[L]) = 0$, $[L]$ must be a multiple of $[P]^*$.
+    But $L$ is simple, thus $[L] = q^m[P]^*$ for some $m$. By the $\#$-self-duality
+    of $P$, we have $\dim\Hom(P,L) = 1$, completing the proof.
+\end{proof}
+
+\chapter{The Geometric Realization Theorem and the Geometric Approach to Standard Modules}
+
+In this chapter, we will recall the geometric interpretation to 
+quiver Hecke algebras. We will also survey on the relation
+between the algebraic categorification theorem and the 
+original geometric categorification theorem introduced by Lusztig,
+and the motivation and definition of geometric standard modules. 
+
+The base field $\K$ is assumed to be of characteristic zero in this chapter.
+
+\section{The Geometric Realization Theorem}
+
+Let $\alpha\in Q^+$ be an element in the root lattice, with height $n$.
+Then $\alpha$ can be canonically viewed as an element in $\mathbb{N}I$.
+We suppose that $\alpha = \sum_{i\in I}c_i\alpha_i$.
+We define $$X(\alpha) := \prod_{e\in E}\Hom(\K^{\oplus c_{s(e)}},\K^{\oplus c_{t(e)}}).$$
+It is an affine space. Equivalently, $X(\alpha)$ is the space
+of all $\K\Gamma$-module structures on the $I$-graded vector space
+$V(\alpha) := \bigoplus_{i\in I}\K^{\oplus c_i}$.
+For any element $x\in X(\alpha)$, we write $x_e$ for the corresponding component of $x$
+in $\Hom(\K^{\oplus c_{s(e)}},\K^{\oplus c_{t(e)}})$. The algebraic group
+$G(\alpha)$ acts on $X(\alpha)$ by $((g_i),(x_e))\mapsto
+(g_{t(e)}x_eg_{s(e)}^{-1})$, where $G(\alpha)$ is the 
+algebraic group $\prod_{i}\mathrm{GL}(c_i)$.
+
+For any $\ii\in\<I\>^\alpha$, a flag of type $\ii$ in $V(\alpha)$ 
+is a sequence 
+\[
+    \phi\:0 = V_0\subseteq V_1\subseteq\cdots
+    \subseteq V_n = V(\alpha)
+\] 
+of $I$-graded subspaces such that
+$V_l/V_{l-1}$ has dimension vector $i_l$ for all $l$.
+Let $F_{\ii}$ be the variety of all flags of type $\ii$ in
+$V(\alpha)$. The group $G(\alpha)$ naturally acts on $F_{\ii}$.
+
+For any $\ii\in\<I\>^\alpha$
+we define 
+\[
+    Y_{\ii} := \{(x\in X(\alpha),\phi = (V_l)_{0\le l\le n}\in F_{\ii})\mid
+    x(V_l)\subseteq V_{l-1}\text{ for all }l\}.
+\] 
+The group $G(\alpha)$ 
+acts naturally on $Y_{\ii}$. We set 
+\[
+    d_{\ii} := \dim Y_{\ii}.
+\]
+The projection $\pi_{\ii}\:Y_{\ii}
+\to X(\alpha)$ is $G(\alpha)$-equivariant and proper.
+
+We furthermore take 
+\[
+    Y(\alpha) := \coprod_{\ii\in\<I\>^\alpha}Y_{\ii},
+    \hspace{3em}F(\alpha) := \coprod_{\ii\in\<I\>^\alpha}F_{\ii}.
+\]    
+
+We now take the complex 
+\[
+    \LL_{\ii} := (\pi_{\ii})_*\underline{\K}[d_{\ii}]
+\]    
+on $X(\alpha)$, where $(\pi_{\ii})_*$ is the derived pushforward 
+functor. This complex lies in $\D_{G(\alpha)}^b(X(\alpha))$.
+For any $\ii,\ii'\in\<I\>^\alpha$, we define $$R_{\ii,\ii'}
+ := \Ext^*_{G(\alpha)}(\LL_{\ii},\LL_{\ii'}).$$ Now for any 
+$\ii,\ii',\ii''\in\<I\>^\alpha$, the Yoneda
+product $R_{\ii,\ii'}\times R_{\ii',\ii''}\to R_{\ii,\ii''}$,
+is homogeneous of degree $0$. Thus the space
+\[
+    R(\alpha) := \bigoplus_{\ii,\ii'\in\<I\>^\alpha}R_{\ii,\ii'}
+\]    
+is an associated graded $\K$-algebra. Also note that 
+the identity morphism $\LL_{\ii}\to\LL_{\ii}$ yields 
+an element of $R_{\ii,\ii}$. We denote this element by $\1_{\ii}'$.
+It is clear that $\{\1_{\ii}'\}$ gives a complete set of
+orthogonal idempotents in $R(\alpha)$, and $R_{\ii,\ii'}
+ = \1_{\ii}'R(\alpha)\1_{\ii'}'$.
+
+The following theorem shows the relation between the 
+algebras $R(\alpha)$'s and the quiver Hecke algebras:
+
+\begin{theorem}[Geometric Realization Theorem, {\cite[Theorem 3.6]{VV}}]\label{geo-real}
+    There exists an isomorphism of graded $\K$-algebras
+    $H(\alpha)\to R(\alpha)$. Moreover, under this isomorphism,
+    the idempotents $\1_{\ii}$ are mapped to $\1_{\ii}'$.
+\end{theorem}
+
+Because of this theorem, from now on we will simply identify
+the algebras $H(\alpha)$ and $R(\alpha)$, and identify the 
+idempotents $\1_{\ii}$ and $\1_{\ii}'$.
+
+\section{The Geometric Approach to Standard Modules}
+
+In this section, we assume that the quiver $\Gamma$ is of finite type.
+In this case the set $R^+$ of positive roots is finite. 
+We fix a total order on the set of positive roots, and index them by $\lambda_1,\cdots,\lambda_N$.
+
+\begin{definition}
+    For any $\alpha\in Q^+$, a \term{Kostant partition} of $\alpha$ is a $N$-tuple
+    $m = (m_1,\cdots,m_N)$ such that $\sum m_i\lambda_i = \alpha$.
+    The set of Kostant partitions of $\alpha$ is denoted by 
+    $\KP(\alpha)$.
+\end{definition}
+
+We recall the Gabriel's Theorem \cite{G}:
+
+\begin{theorem}\label{gabriel}
+    If the quiver $\Gamma$ is of finite type, then for any 
+    positive root $\lambda$, there exists a unique indecomposable
+    $\K\Gamma$-module $M(\lambda)$ with dimension vector $\lambda$.
+    Moreover all indecomposable $\K\Gamma$-modules arise in this way.
+\end{theorem}
+
+Now, for any $\alpha\in Q^+$, the $G(\alpha)$-orbits in $X(\alpha)$ are
+the isomorphism classes of $\K\Gamma$-modules with dimension vector
+$\alpha$. Since $\K\Gamma$ is finite dimensional, by the
+Krull--Schmidt theorem, every $\K\Gamma$-module is a direct
+sum of $M(\lambda)$'s, and the multiplicity
+of each indecomposable factor $M(\lambda)$ is uniquely determined. 
+Thus there are only finitely many $G(\alpha)$-orbits on $X(\alpha)$, each corresponds to
+a Kostant partition of $\alpha$. 
+
+\textbf{Notation.} For a Kostant partition $m\in\KP(\alpha)$,
+we define $\OO_m$ to be the corresponding $G(\alpha)$-orbit
+in $X(\alpha)$, and we define $M(m)$ to be the corresponding
+$\K\Gamma$-module.
+
+We now let $\LL(\alpha) = \bigoplus_{\ii\in\<I\>^\alpha}
+\LL_{\ii}$. Since each $Y_{\ii}$ is smooth, and each
+$\pi_{\ii}$ is proper, by the decomposition theorem, 
+each $\LL_{\ii}$ is a semisimple complex, so is 
+$\LL(\alpha)$. Since $\LL(\alpha)$ is $G(\alpha)$-equivariant,
+the complex $\LL(\alpha)$ decomposes as $$\LL(\alpha) = \bigoplus_{m\in\KP(\alpha)}
+\bigoplus_{\LL}V(\OO_m,\LL)\ox\IC(\OO_m,\LL),$$ where $\LL$
+runs over all $G(\alpha)$-equivariant local systems on $\OO_m$, and $\IC(\OO_m,\LL)$
+is its corresponding intersection complex, and $V(\LL)$
+is a complex of vector spaces with differential $0$.
+However, each orbit $\OO_m$ has stablizer $\Aut(M(m))$,
+which is connected, thus each $\LL$ must be the constant
+sheaf $\underline{\K}$, and $\LL(\alpha)$ decomposes as
+\[
+    \LL(\alpha) = \bigoplus_{m\in\KP(\alpha)}
+    V(\OO_m)\ox\IC(\OO_m,\underline{\K}).
+\]    
+
+On the other hand, by \cite[Theorem 2.2]{Re},
+for any $m\in\KP(\alpha)$ there exists some $\ii\in\<I\>^\alpha$
+such that the image of the map $\pi_{\ii}$ is
+the closure of $\OO_m$, thus $\LL_{\ii}$ has support
+the closure of $\OO_m$, which shows that each $V(\OO_m)$ must be nonzero.
+
+We now let $\mathbf{Q}(\alpha)$ be the additive subcategory
+of $\D_{G(\alpha)}^b(X(\alpha))$ generated by the perverse sheaves
+$\IC(\OO_m)$'s and their degree shifts. Its split Grothendieck group
+$[\mathbf{Q}(\alpha)]$ is a $\Z[q,q^{-1}]$-module,
+where $q$ acts on $\mathbf{Q}(\alpha)$ by upward degree shifting functor.
+We set $\mathbf{Q} = \bigoplus_\alpha\mathbf{Q}(\alpha)$.
+
+We now briefly recall the convolution product on $\mathbf{Q}$,
+whose construction is originally given in \cite{L}.
+
+Take $\alpha,\beta\in Q^+$. We choose an injective $I$-graded map
+$V(\alpha)\to V(\alpha+\beta)$, and identify $V(\alpha)$ as a subspace.
+We shall also identify $V(\beta)$ as the corresponding quotient,
+so that there exists a surjection $V(\alpha+\beta)\to V(\beta)$
+whose kernel is $V(\alpha)$. Let $G(\alpha,\beta)$
+be the stablizer of $V(\alpha)$ in $G(\alpha+\beta)$, and $U$ be
+the unipotent radical of $G(\alpha,\beta)$. We have $G(\alpha,\beta)/U\cong G(\alpha)\times G(\beta)$.
+
+Let $X(\alpha,\beta)$ be the closed subvariety of $X(\alpha+\beta)$ consisting of 
+those $x$ such that $x$ fixes $V(\alpha)$. This subvariety
+surjects to $X(\alpha)\times X(\beta)$, and the surjection
+is a vector bundle. The surjection is $G(\alpha,\beta)$-equivariant, 
+where $G(\alpha,\beta)$ acts on $X(\alpha)\times X(\beta)$
+by the quotient $G(\alpha,\beta)/U\cong G(\alpha)\times G(\beta)$.
+
+Let 
+\[
+    X''(\alpha,\beta) := G(\alpha+\beta)\times_{G(\alpha,\beta)}X(\alpha,\beta),
+    \hspace{3em}X'(\alpha,\beta) := G(\alpha+\beta)\times_{U}X(\alpha,\beta).
+\]    
+Note that $X''(\alpha,\beta)$ is the variety of pairs $(x,V)$
+where $x\in X(\alpha+\beta)$ and $V\subseteq V(\alpha+\beta)$
+has dimension vector $\alpha$ such that $x(V)\subseteq V$.
+
+We have a diagram 
+\[
+    X(\alpha)\times X(\beta)\xleftarrow{p}
+    X(\alpha+\beta)\xrightarrow{q}X(\alpha+\beta).
+\]
+We now take 
+\[
+    \begin{aligned}
+        p_0\:X'(\alpha,\beta)\to X(\alpha)\times X(\beta),&\ (g,x)\mapsto p(x);\\
+        \pi\:X'(\alpha,\beta)\to X''(\alpha,\beta),&\ (g,x)\mapsto (g,x);\\
+        q_0\:X'(\alpha,\beta)\to X(\alpha+\beta),&\ (g,x)\mapsto gq(x).
+    \end{aligned}
+\]
+The map $p_0$ is smooth, $q_0$ is proper, and $\pi$ is a principal
+$G(\alpha)\times G(\beta)$-bundle. Hence for any $\LL_1\in\mathbf{Q}(\alpha)$, we have
+$\LL_2\in\mathbf{Q}(\beta)$, we may define their convolution product
+\[
+    \LL_1\circ\LL_2 := (q_0)_*\pi_\flat(p_0)^\dagger(\LL_1\ex\LL_2),
+\]
+where $(p_0)^\dagger = p_0^*[\dim p_0]$ is the smooth pullback,
+$\dim p_0$ is the dimension of the fiber of $p_0$,
+and $\pi_\flat$ is the inverse of the equivalence of categories
+\[
+    \pi^\dagger\:\D^b(X''(\alpha,\beta))\to\D^b_{G(\alpha)\times G(\beta)}
+    (X'(\alpha,\beta)).
+\]
+By \cite[Lemma 9.2.3]{L}, the complex $\LL_1\circ\LL_2$
+lies in $\mathbf{Q}(\alpha+\beta)$ and does not depend on the choice of
+the maps $V(\alpha)\to V(\alpha+\beta)$ and $V(\alpha+\beta)\to V(\beta)$, 
+hence this is a well-defined
+convolution product on the category $\mathbf{Q}$, which makes 
+$[\mathbf{Q}]$ a $\Z[q,q^{-1}]$-algebra.
+
+Note that the above construction naturally extends to the case where
+there are 3 or more components to be multiplicated. In addition,
+since all of $(q_0)_*$, $\pi_\flat$ and $(p_0)^\dagger$ commute
+with the Verdier duality, so is the convolution product.
+
+By the above construction, we have that for any $\ii,\ii'\in\<I\>$,
+$\LL_{\ii}\circ\LL_{\ii'}\cong\LL_{\ii\ii'}$.
+
+The following geometric categorification theorem reveals the relation
+ between the category $\mathbf{Q}$
+and the algebra $\f$:
+
+\begin{theorem}[{\cite[Theorem 13.2.11]{L}}]\label{f-and-q}
+    There exists a $\Z[q,q^{-1}]$-algebra isomorphism
+    \[
+        \lambda\:\f_{\Z[q,q^{-1}]}\to[\mathbf{Q}],\qquad
+        \theta_{\ii}\mapsto[\LL_{\ii}].
+    \]     
+    The isomorphism
+    intertwines the duality $\mathtt{b}$ and the Verdier duality.
+\end{theorem}
+
+In fact, this is the first categorification to the Lusztig's algebra $\f$.
+By definition, the \term{canonical basis}
+of $\f_{\Z[q,q^{-1}]}$ is the inverse image of simple perverse sheaves
+in $\mathbf{Q}$. Since $\lambda$ intertwines the duality $\mathtt{b}$ and the Verdier duality,
+the canonical basis is invariant under $\mathtt{b}$.
+
+We now link the geometric categorification theorem above,
+and the algebraic categorification theorem stated at Theorem \ref{categorification}.
+
+For any $\alpha\in Q^+$ and $\LL$ a complex on $X(\alpha)$,
+we define 
+\[
+    \mu(\LL) := \Ext^*_{G(\alpha)}(\LL(\alpha),\LL).
+\]
+Since $\LL(\alpha)$ is semisimple, for any indecomposable
+direct summand $\LL$ of $\LL(\alpha)$, $\mu(\LL)$ is an
+indecomposable projective $\Ext^*_{G(\alpha)}(\LL(\alpha),\LL(\alpha))$-module.
+By the definition of $\mathbf{Q}(\alpha)$, for any
+$\LL\in\mathbf{Q}(\alpha)$, the module $\mu(\LL)$ is a
+finitely generated $H(\alpha)$-module. Thus $\mu$
+induces an additive functor $\mathbf{Q}(\alpha)
+\to\pmod(H(\alpha))$. Summing over all $\alpha$,
+we obtain a functor $$\mu\:\mathbf{Q}\to\pmod(H).$$
+The functor $\mu$ is additive.
+
+We are now ready to state the following theorem:
+
+\begin{theorem}[{\cite[Theorem 4.4]{VV}}]\label{canonical-basis}
+    \begin{enumerate}[1)]
+        \item The composition $$\f_{\Z[q,q^{-1}]}
+        \xrightarrow{\lambda}[\mathbf{Q}]\xrightarrow{[\mu]}
+        [\pmod(H)]$$ is the map $\gamma\:\f_{\Z[q,q^{-1}]}\to[\pmod(H)]$ in (\ref{categorification-of-f}).
+
+        \item The functor $\mu\:\mathbf{Q}\to\pmod(H)$ is an equivalence of additive categories.
+        
+        \item In the isomorphism (\ref{categorification-of-f}),
+        the canonical basis of $\f_{\Z[q,q^{-1}]}$ is mapped
+        to $\#$-self-dual indecomposable projective modules;
+        similarly in the isomorphism (\ref{categorification-of-f*}),
+        the dual canonical basis of $\f_{\Z[q,q^{-1}]}$ is mapped
+        to $\*$-self-dual simple modules.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    1): To prove this, we only need to show that $\gamma$ and $[\mu]\circ\lambda$ produce
+    the same element on each $\theta_{\ii}$. Suppose that
+    $\ii\in\<I\>^\alpha$ for some $\alpha\in Q^+$. By 
+    Theorem \ref{f-and-q}, $\lambda(\theta_{\ii})
+     = [\LL_{\ii}]$. On the other hand, $\mu(\LL_{\ii})
+     = \Ext^*_{G(\alpha)}(\LL(\alpha),\LL_{\ii}) = H(\alpha)\1_{\ii}$,
+    thus $[\mu](\lambda(\theta_{\ii})) = [H(\alpha)\1_{\ii}] = 
+    \gamma(\theta_{\ii})$, therefore $\gamma = [\mu]\circ\lambda$.
+
+    2): The maps $\gamma$ and $\lambda$ are isomorphisms,
+    thus the map $[\mu]$ is an isomorphism, which shows that 
+    the functor $\mu\:\mathbf{Q}\to\pmod(H)$ is an equivalence of additive categories.
+
+    3): The second statement follows immediately from the first one,
+    so we will only prove the first one.    
+
+    The map $\lambda$ maps the canonical basis
+    to perverse simple sheaves. By the definition of $\mu$,
+    it maps simple sheaves to indecomposable projective objects.
+    Thus $\gamma$ maps the canonical basis to indecomposable
+    projective objects. On the other hand, $\gamma$ maps
+    $\mathtt{b}$-invariant elements to $\#$-invariant elements.
+    since the canonical basis is $\mathtt{b}$-invariant, $\gamma$
+    maps canonical basis to $\#$-self-dual indecomposable
+    projective objects.
+\end{proof}
+
+\begin{remark}
+    Since $\gamma$ and $\lambda$ are $\Z[q,q^{-1}]$-algebra
+    isomorphisms, so is $[\mu]$. Therefore for any $\LL\in
+    \mathbf{Q}(\alpha)$ and $\LL'\in\mathbf{Q}(\alpha')$,
+    we have $$[\Ext_{G(\alpha+\alpha')}^*(\LL(\alpha+\alpha'),\LL\circ\LL')]
+     = [\Ext_{G(\alpha)}^*(\LL(\alpha),\LL)\circ\Ext_{G(\alpha')}^*(\LL(\alpha'),\LL')].$$
+    Since any object in $\pmod(H)$ is a finite direct sum
+    of indecomposable projective modules, and 
+    indecomposable projective modules yield a basis
+    of $[\pmod(H)]$ over $\Z[q,q^{-1}]$, we must have
+    \[
+        \Ext_{G(\alpha+\alpha')}^*(\LL(\alpha+\alpha'),\LL\circ\LL')
+        \cong\Ext_{G(\alpha)}^*(\LL(\alpha),\LL)\circ\Ext_{G(\alpha')}^*(\LL(\alpha'),\LL').
+    \]
+    Therefore $\mu$ is a monoidal functor.
+\end{remark}
+
+\ 
+
+We now recall the motivation and definition to geometric standard modules.
+
+Take an element $\alpha\in Q^+$.
+Recall from the previous section that $\LL(\alpha)$
+has a decomposition $$\LL(\alpha)\cong\bigoplus_{m\in\KP(\alpha)}
+V(\OO_m)\ox\IC(\OO_m),$$ and each $V(\OO_m)$ is a nonzero complex.
+By Theorem \ref{canonical-basis},
+$\mu(\IC(\OO_m)) = \Ext^*_{G(\alpha)}(\LL(\alpha),
+\IC(\OO_m))$ is a $\#$-self-dual indecomposable projective module.
+We define it by $\widetilde{P}(m)$, and define
+$\widetilde{L}(m)$ to be the head of $\widetilde{P}(m)$.
+
+By the theory of constructible sheaves, for a good stratification
+$\mathcal{I}$ of a space $X$, and an open stratum $X_0$,
+there exists a diagram of triangulated categories
+\[
+    \D^b_{\mathcal{I}}(X-X_0)\xrightarrow{i_*}\D^b_{\mathcal{I}}(X)\xrightarrow{j^*}\D^b_{\mathcal{I}}(X_0),
+\]
+such that $i_*$ and $j^*$ are exact and have natural left and right adjoints,
+and the perverse $t$-structure in the middle is formed by gluing
+the perverse $t$-structures on the left and on the right.
+Here $i\:X-X_0\to X$ and $j\:X_0\to X$ are the inclusions.
+
+Hence for any stratum $X_m$ in $\mathcal{I}$ with the inclusion map $j_m\:X_m\to X$, the functors
+$(j_m)_*$ and $(j_m)_!$ are naturally defined, and for any 
+local system $\LL$ on $X_m$, the complex $\IC(X_m,\LL)$
+is the minimal extension of $\LL[\dim X_m]$. The complex $\IC(X_m,\LL)$
+has all its cohomologies supported in the strata that are
+contained in the closure of $X_m$.
+
+%In practice, the $*$-pushforwards and $!$-pushforwards are much more 
+%easy to characterize than the intersection complexes.
+For any $X_m$ and local system $\LL$ on $X_m$, we shall define
+\[
+    \costd(X_m,\LL) := (j_m)_*\underline{\LL}[\dim X_m].
+\]
+The complex $\IC(X_m,\LL)$ naturally maps to $\costd(X_m,\LL)$.
+In addition, the ``decomposition matrix'' between the
+intersection complexes and the $*$-pushforwards
+is upper-triangular with respect to the partial order of orbit closures.
+
+Following the above general observations, we return to our case.
+Again, take an element $\alpha\in Q^+$. For a Kostant partition $m$ of $\alpha$,
+we introduce the complex $$\costd(\OO_m) := 
+(j_m)_*\underline{\K}[d_m]$$ on $X(\alpha)$, where
+$j_m\:\OO_m\to X(\alpha)$ is the inclusion, and $d_m := \dim \OO_m$.
+We make the following definition:
+
+\begin{definition}
+    The $H(\alpha)$-module $\mu(\costd(\OO_m))$ is called the
+    \term{geometric standard module}, denoted by $\widetilde{\std}(m)$.
+\end{definition}
+
+The geometric standard module are firstly introduced and studied by Kato 
+in \cite{K2}, and also studied by McNamara in \cite{Mc2}.
+They are called ``standard modules'' since they have similar
+properties to standard modules in highest weight categories.
+In fact, we will show in Chapter 5 that $\mod(H(\alpha))$
+is a so-called ``polynomial highest weight category''.
+
+We shall record the following proposition, which reflects the
+upper-triangular property between the intersection complexes and the $*$-pushforwards:
+
+\begin{proposition}
+    Let $\alpha\in Q^+$, and $m,n\in\KP(\alpha)$.
+    If $\Hom(\widetilde{P}(n),\widetilde{\std}(m))\ne 0$,
+    then $\OO_m\subseteq\overline{\OO_n}$.
+\end{proposition}
+
+\begin{proof}
+    By assumption, there exists a nonzero map
+    $q^k\widetilde{P}(n)\to\widetilde{\std}(m)$. Since the map is nonzero,
+    the image of the projection from $\LL(\alpha)$ to the summand $\IC(\OO_n)$
+    in $\widetilde{\std}(m)$ must be nonzero. Hence we must have 
+    $\Ext^*_{G(\alpha)}(\IC(\OO_n),\costd(\OO_m))\ne 0$.
+
+    On the other hand, if $\OO_m\subseteq\overline{\OO_n}$ does not hold,
+    then there exists a $G(\alpha)$-invariant open subset $U$ containing
+    $\OO_m$ and not intersecting $\overline{\OO_n}$. Let $j\:U\to
+    X(\alpha)$, $j_1\:\OO_m\to U$  be the inclusions. Then $j^*(\IC(\OO_n)) = 0$,
+    thus by the $(j^*,j_*)$-adjunction,
+    \[
+        \Ext^*_{G(\alpha)}(\IC(\OO_n),\costd(\OO_m)) = \Ext^*_{G(\alpha)}(j^*(\IC(\OO_n)),
+        (j_1)_*\underline{\K}[d_m]) = 0,
+    \] which is a contradiction.
+    Thus we must have $\OO_m\subseteq\overline{\OO_n}$.
+\end{proof}
+
+This implies the following proposition:
+
+\begin{proposition}\cite[Proposition 4.5]{Mc2}\label{comp-of-geo-std}
+    Let $\alpha\in Q^+$, and $m,n\in\KP(\alpha)$.
+    If $q^k\widetilde{L}(n)$ is a subquotient of 
+    $\widetilde{\std}(m)$ for some $k$, then $\OO_m\subseteq\overline{\OO_n}$.
+\end{proposition}
+
+\begin{proof}
+    If $q^k\widetilde{L}(n)$ is a subquotient of 
+    $\widetilde{\std}(m)$ for some $k$, then there exists a nonzero map
+    $q^k\widetilde{P}(n)\to\widetilde{\std}(m)$. By the previous proposition,
+    $\OO_m\subseteq\overline{\OO_n}$.
+\end{proof}
+
+\chapter{Algebraic Approach to Standard Modules}
+
+In this chapter, we recall the algebraic approach to standard modules,
+which are originally given by Brundan, Kleshchev and McNamara.
+We assume that $\Gamma$ is of finite type throughout this chapter.
+
+\section{Convex Ordering and the PBW Basis}
+
+A \term{convex ordering} on $R^+$ is a total order $\le$ such that
+whenever $\beta,\gamma,\beta+\gamma\in R^+$ that satisfies
+$\beta<\gamma$, we have $\beta<\beta+\gamma<\gamma$.
+
+According to \cite{P}, there exists a 1-1 correspondence between convex orderings
+of $R^+$ and reduced expressions for the longest element $w_0$ of $W$;
+given a reduced expression $w_0 = s_{i_1}\cdots s_{i_N}$ where $N = \abs{W}$,
+its corresponding convex ordering on $R^+$ is given by
+\[
+    \alpha_{i_1}<s_{i_1}\alpha_{i_2}<\cdots<s_{i_1}\cdots s_{i_{N-1}}\alpha_{i_N}.
+\]    
+We also record the following lemma, which is from \cite[Lemma 2.4]{BKM}:
+
+\begin{lemma}\label{sum-in-convex-ordering}
+    Suppose $\alpha,\beta_1,\cdots,\beta_k,\gamma_1,\cdots,\gamma_l\in R^+$
+    such that $\beta_i<\alpha<\gamma_j$ for all $i,j$. If $\sum\beta_i = \sum\gamma_j$
+    then $k = l$ and $\beta_i = \alpha = \gamma_j$ for all $i,j$.
+\end{lemma}
+
+From now on until the end of the chapter, we fix a reduced expression of $w_0$,
+which corresponds to a convex ordering on $R^+$. We order the elements in $R^+$
+by $\lambda_1<\cdots<\lambda_N$, where 
+$\lambda_k = s_{i_1}\cdots s_{i_{k-1}}\alpha_{i_k}$. 
+
+Corresponding to this convex ordering
+there exists \term{root vectors} $\{r_\lambda\mid\lambda\in R^+\}$ in $\f$,
+given by Lusztig in \cite{L} as follows: fix the positive embedding 
+$\f\hookrightarrow U_q(\mathfrak{g})$, $x\mapsto x^+$, and let $E_i = \theta_i^+$,
+and consider the braid group generators $T_i := T_{i,+}''$ from 
+\cite[37.1.3]{L}, then for any $\lambda_k$ the root vector $r_{\lambda_k}$
+is the element in $\f$ such that $r_{\lambda_k}^+ = T_{i_1}\cdots T_{i_{k-1}}
+E_{i_k}$. We also introduce the \term{dual root vectors} $r^*_\lambda$ By
+$r^*_\lambda = (1-q^2)r_\lambda$. By \cite[37.2.4]{L}, the dual root vectors
+are invariant under $\ttb^*$ and lie in the dual canonical basis of 
+$\f^*_{\Z[q,q^{-1}]}$. 
+
+Recall that for any $\alpha\in Q^+$, a Kostant partition of $\alpha$ is a $N$-tuple
+$m = (m_1,\cdots,m_N)$ such that $\sum m_i\lambda_i = \alpha$. A Kostant partition $m$
+of $\alpha$ is naturally indentified with a nondecreasing sequence
+$\lambda_{i_1},\cdots,\lambda_{i_l}$ of positive roots summing to $\alpha$;
+we will write it as $m = (\lambda_{i_1},\cdots,\lambda_{i_l})$.
+
+For any $m,n\in\KP(\alpha)$, we say $n>'m$ if $n_l>m_l$ where 
+$l$ is the smallest index such that $n_l\ne m_l$; and we say $n>''m$ if $n_l>m_l$ where 
+$l$ is the largest index such that $n_l\ne m_l$. We say $n>m$ if
+$n>'m$ and $n>''m$. This gives a partial order on $\KP(\alpha)$.
+For any $m\in\KP(\alpha)$, we define the \term{support} of $m$ to be the 
+set of positive roots $\lambda_i$ such that $m_i\ne 0$. 
+
+The following lemmas are useful:
+
+\begin{lemma}[{\cite[Lemma 2.5]{BKM}}]\label{minimal-element-in-KP}
+    For any $\lambda\in R^+$, $k>1$, the Kostant partition 
+    $(\lambda,\cdots,\lambda)$ where $\lambda$ appears $k$ times, is the unique
+    smallest element in $\KP(k\lambda)$. This Kostant partition
+    will be denoted by $(\lambda^k)$.
+\end{lemma}
+
+\begin{lemma}[{\cite[Lemma 2.6]{BKM}}]
+    For $\lambda\in R^+$, if $m\in\KP(\lambda)$ is minimal such that
+    $m>(\lambda)$, then $m = (\beta,\gamma)$ for positive roots
+    $\beta<\lambda<\gamma$. Such Kostant partition is called
+    a \term{minimal pair} of $\lambda$.
+\end{lemma}
+
+Let $\KP := \bigcup \KP(\alpha)$. For any $m\in\KP$, we define
+\[
+    r_m := r_{\lambda_1}^{m_1}\cdots r_{\lambda_N}^{m_N}/[m]!,
+    \hspace{3em} r_m^* = q^{s_m}(r_{\lambda_1}^*)^{m_1}\cdots(r_{\lambda_N}^*)^{m_N},
+\]    
+where 
+\[
+    [m]! = \prod_{1\le i\le N}[m_i]!,\hspace{3em}
+    s_m = \sum_{1\le i\le N}\dfrac{m_i(m_i-1)}2.
+\]
+The following theorem is from \cite{L}:
+
+\begin{theorem}\label{pbw-basis}
+    The elements $\{r_m\mid m\in\KP\}$ and $\{r_m^*\mid m\in\KP\}$
+    give a pair of dual bases over $\Q(q)$ for $\f$. They are called the \term{PBW basis} and the 
+    \term{dual PBW basis}.
+\end{theorem}
+
+\section{Proper Standard Modules}
+
+In this section, we follow the approach in \cite{Mc} to the proper standard modules. They will
+categorify the dual PBW basis.
+
+From now on until the end of this chapter, we suppose that 3) of
+Theorem \ref{canonical-basis} holds,
+so that each $\*$-self-dual simple module lies in the dual canonical basis.
+This is true in the case that $\K$ is of characteristic zero.
+
+\begin{theorem}[{\cite[Theorems 3.1, 3.2]{Mc}}]\label{proper-standard-modules}
+    For each $\lambda\in R^+$, there exists a simple module $L(\lambda)$
+    of $H(\lambda)$ such that:
+    \begin{enumerate}[1)]
+        \item The image of $[L(\lambda)]$ under the isomorphism
+        (\ref{categorification-of-f*}) is the dual root vector $r_\lambda^*$;
+        \item For every $m\in\KP(\alpha)$ for $\alpha\in Q^+$, the module
+        \[
+            \pstd(m) := q^{s_m}L(\lambda_1)^{\circ m_1}\circ\cdots
+            \circ L(\lambda_N)^{\circ m_N}
+        \] 
+        has a simple head,
+        which will be denoted $L(m)$;
+        \item The set $\{L(m)\mid m\in\KP(\alpha)\}$
+        gives a full set of representatives, each corresponds to an isomorphism class
+        up to degree shifts of simple modules of $H(\alpha)$;
+        \item For every $m\in\KP(\alpha)$, the module
+        \[
+            \pcostd(m) := q^{-t_m}L(\lambda_N)^{\circ m_N}\circ\cdots
+            \circ L(\lambda_1)^{\circ m_1}
+        \]    
+        has socle $L(m)$,
+        where here $t_m = \sum_{i<j}m_im_j\lambda_i\cdot\lambda_j$;
+        \item The modules $L(m)$'s are $\*$-self-dual;
+        \item For any $m,n\in\KP(\alpha)$ such that $[\pstd(m):L(n)]>0$, 
+        we have $n\le m$; $[\pstd(m):L(m)] = 1$; Similarly
+        for any $m,n\in\KP(\alpha)$ such that $[\pcostd(m):L(n)]>0$, 
+        we have $n\le m$; $[\pcostd(m):L(m)] = 1$;
+        \item If $\alpha$ is a root, $\beta+\gamma = \alpha$,
+        $\Res_{\beta,\gamma}L(\alpha)\ne 0$, then $\beta$ is a sum of roots
+        no less than $\alpha$, and $\gamma$ is a sum of roots no greater than
+        $\alpha$.
+    \end{enumerate}
+    The modules $\pstd(m)$ and $\pcostd(m)$ are called 
+    \term{proper standard modules} and \term{proper costandard modules},
+    respectively. The modules $L(\lambda)$ for $\lambda\in R^+$
+    are called \term{cuspidal modules}.
+\end{theorem}
+
+\begin{proof}
+    We proceed by simultaneous induction on the height of $\alpha$ and
+    $\lambda$. When the height is $1$, $\alpha$ is a simple root.
+    In this case $H(\alpha)\cong\K[x]$ where $x$ is in degree $2$,
+    and $\KP(\alpha)$ consists of only one element $(\alpha)$. We define
+    $L(\alpha) := H(\alpha)/\rad H(\alpha)$, then the properties 1)-7)
+    are obvious. We now take a positive integer $k>1$ and suppose that
+    $L(\lambda)$ is constructed for all $\lambda$ with $\operatorname{ht}(\lambda)<k$,
+    and properties 1)-7) are satisfied whenever $\operatorname{ht}(\alpha)<k$.
+
+    We now take $\alpha\in Q^+$ with height $k$. Define $\KP'(\alpha) = \KP(\alpha)$
+    when $\alpha$ is not a root, and $\KP'(\alpha) = \KP(\alpha)-\{(\alpha)\}$
+    when $\alpha$ is a root. By induction hypothesis, for all $m\in\KP'(\alpha)$,
+    $\pstd(m)$ is defined. 
+
+    \begin{lemma}\label{res-of-proper-std}
+        For any $m\in\KP'(\alpha)$, $n\in\KP(\alpha)$, $n = (n_1,\cdots,n_N)$,
+        define $\Res_n := \Res_{n_1\lambda_1,\cdots,n_N\lambda_N}$. Then 
+        \[
+            \Res_n\pstd(m) = 
+            \begin{cases}
+                0,&n>'m\text{ or }n>''m;\\
+                L(\lambda_1^{m_1})\ex\cdots\ex L(\lambda_N^{m_N}),&n = m.
+            \end{cases}
+        \]     
+    \end{lemma}
+
+    \begin{proof}[Proof of the Lemma]
+        Suppose that $m = (m_1,\cdots,m_N) = (\lambda_{i_1},\cdots,\lambda_{i_p})$.
+        Suppose that $n\ge''m$ and $\Res_n\pstd(m)\ne 0$.
+        Let $l$ be the largest index such that $n_l\ne 0$.
+        Then $i_j\le l$ for all $j$.
+        By the generalized version of Proposition \ref{mackey},
+        $\Res_n\pstd(m)$ has a filtration indexed by all tables of the following
+        form:
+        \begin{center}
+            \begin{tabular}{c|ccc}
+                &$\lambda_{i_1}$&$\cdots$&$\lambda_{i_p}$\\
+                \hline
+                $n_1\lambda_1$&$\nu_{11}$&$\cdots$&$\nu_{1p}$\\
+                $\vdots$&$\vdots$&$\ddots$&$\vdots$\\
+                $n_l\lambda_l$&$\nu_{l1}$&$\cdots$&$\nu_{lp}$,
+            \end{tabular}
+        \end{center}
+        such that for any $i$, $\sum_j\nu_{ij} = n_i\lambda_i$ and for any $j$,
+        $\sum_i\nu_{ij} = \lambda_{i_j}$. Its corresponding subquotient is nonzero
+        if and only if $\Res_{\nu_{1j},\cdots,\nu_{lj}}L(\lambda_{i_j})\ne 0$
+        for all $j$. In particular $\Res_{\lambda_{i_j}-\nu_{lj},\nu_{lj}}
+        L(\lambda_{i_j})\ne 0$, thus by 7), $\nu_{lj}$ is a sum of roots no
+        greater than $\lambda_{i_j}$, which is again no greater than $\lambda_l$.
+        Now $\sum_j\nu_{lj}$ is a sum of roots no greater than $\lambda_l$,
+        but it is equal to $n_l\lambda_i$, by Lemma \ref{sum-in-convex-ordering},
+        each $\nu_{lj}$ must be a multiple of $\lambda_l$. Therefore 
+        $\nu_{lj} = 0$ whenever $i_j<l$, and $\nu_{lj} = \lambda_l$ or $0$
+        whenever $i_j = l$. This shows that $m_l\ge n_l$. But $n\ge''m$,
+        thus $m_l\le n_l$. Therefore $n_l = m_l$ and the table has form
+        \begin{center}
+            \begin{tabular}{c|cccccc}
+                &$\lambda_{i_1}$&$\cdots$&$\lambda_{i_{p-m_l}}$
+                &$\lambda_l$&$\cdots$&$\lambda_l$\\
+                \hline
+                $n_1\lambda_1$&$\nu_{11}$&$\cdots$&$\nu_{1,p-m_l}$
+                &$0$&$\cdots$&$0$\\
+                $\vdots$&$\vdots$&$\ddots$&$\vdots$
+                &$\vdots$&$\ddots$&$\vdots$\\
+                $n_{l-1}\lambda_{l-1}$&$\nu_{l-1,1}$&$\cdots$&$\nu_{l-1,p-m_l}$
+                &$0$&$\cdots$&$0$\\
+                $n_l\lambda_l$&$0$&$\cdots$&$0$
+                &$\lambda_l$&$\cdots$&$\lambda_l$.
+            \end{tabular}
+        \end{center}
+        Repeat the above argument, we must have $m = n$ and the table must have
+        diagonal form. Again by the generalized version of Proposition \ref{mackey},
+        we must have 
+        \[
+            \Res_n\pstd(m) = q^{s_m}
+            L(\lambda_1)^{\circ m_1}\ex\cdots\ex L(\lambda_N)^{\circ m_N}.
+        \]    
+        By induction hypothesis 2), 6) and Lemma \ref{minimal-element-in-KP},
+        we have $$q^{m_i(m_i-1)/2}L(\lambda_i)^{\circ m_i}
+         = \pstd(\lambda_i^{m_i}) = L(\lambda_i^{m_i}),$$ thus we have 
+        \[
+            q^{s_m}L(\lambda_1)^{\circ m_1}\ex\cdots\ex L(\lambda_N)^{\circ m_N}
+            = L(\lambda_1^{m_1})\ex\cdots\ex L(\lambda_N^{m_N}).
+        \]    
+        The case where $n\ge'm$ is similar.
+    \end{proof}
+
+    We now return to the proof of the original theorem.
+
+    2): Suppose $Q$ is a nonzero quotient of $\pstd(m)$. By adjunction
+    there exists a nonzero map $L(\lambda_1^{m_1})\ex\cdots\ex L(\lambda_N^{m_N})
+    \to\Res_m(Q)$. Since the source of the map is simple, the map is injective.
+
+    Now suppose that the head of $\pstd(m)$ is reducible, and has form $Q\oplus Q'$
+    where $Q$ and $Q'$ nonzero. Since $\Res$ is exact, the surjection 
+    $\pstd(m)\to Q\oplus Q'$ induces a surjection 
+    \[
+        \Res_m(\pstd(m))\to\Res_m(Q)\oplus\Res_m(Q').
+    \] 
+    By Lemma \ref{res-of-proper-std},
+    $\Res_m(\pstd(m))\cong L(\lambda_1^{m_1})\ex\cdots\ex L(\lambda_N^{m_N})$
+    is simple, while both $\Res_m(Q)$ and $\Res_m(Q')$ have
+    $L(\lambda_1^{m_1})\ex\cdots\ex L(\lambda_N^{m_N})$ as submodules, which
+    contradicts to the fact that $\Res_m(\pstd(m))\to
+    \Res_m(Q)\oplus\Res_m(Q')$ is surjective. Therefore the head of $\pstd(m)$
+    must be irreducible.
+
+    Note that by the proof of 2), we obtain that 
+    \begin{equation}\label{res-of-simple}
+        \Res_n L(m) = 
+        \begin{cases}
+            0,&n>'m\text{ or }n>''m;\\
+            L(\lambda_1^{m_1})\ex\cdots\ex L(\lambda_N^{m_N}),&n = m.
+        \end{cases}
+    \\end{equation}
+
+    3): The formula (\ref{res-of-simple}) shows that elements of
+    $\{L(m)\mid m\in\KP'(\alpha)\}$ are pairwise nonisomorphic simple modules
+    up to degree shifts.
+
+    If $\alpha$ is not a root, then $\KP'(\alpha) = \KP(\alpha)$.
+    Otherwise, we take $L(\alpha)$ to be the $\*$-self-dual simple module
+    that is not isomorphic to any of the $L(m)$'s for $m\in\KP'(\alpha)$
+    up to degree shifts.
+
+    In either case, $\{L(m)\mid m\in\KP(\alpha)\}$ 
+    consists of pairwise nonisomorphic simple modules up to degree shifts.
+    By Theorem \ref{pbw-basis}, $\f_{\alpha}$ has dimension $\abs{\KP(\alpha)}$,
+    thus by Theorem \ref{categorification}, $H(\alpha)$ has
+    $\abs{\KP(\alpha)}$ simple modules up to degree shifts.
+    Therefore $\{L(m)\mid m\in\KP(\alpha)\}$
+    gives a set of full representatives, each representing an isomorphism class
+    up to degree shifts of simple modules of $H(\alpha)$.
+
+    4): Since $\Res_m(L(m))\cong L(\lambda_1^{m_1})\ex\cdots\ex L(\lambda_N^{m_N}),$
+    the coinduction adjunction induces a map $L(m)\to\pcostd(m)$, 
+    that is nonzero since $L(m)$ is simple. The remainder of the proof
+    is similar to that of 2).
+
+    5): By induction hypothesis and Proposition \ref{dual-of-induction},
+    $\pstd(m)^\*\cong\pcostd(m)$. Now the $\*$-dual of 
+    the surjection $\pstd(m)\to L(m)$ induces a map $L(m)^\*\to\pcostd(m)$.
+    By 4), $\pcostd(m)$ has socle $L(m)$, thus $L(m)^\*$ must be $L(m)$.
+
+    6): Suppose that $[\pstd(m):L(n)]>0$. Since $\Res$ is exact and
+    $\Res_nL(n)\ne 0$, we have $\Res_n\pstd(m)\ne 0$. By Lemma \ref{res-of-proper-std},
+    $n\le m$. By definition of $L(m)$ we have $[\pstd(m):L(m)]>0$.
+    On the other hand, since $$\Res_m(\pstd(m))\cong\Res_m(L(m))
+    \cong L(\lambda_1^{m_1})\ex\cdots\ex L(\lambda_N^{m_N}),$$
+    we have $[\pstd(m):L(m)]\le 1$. Thus $[\pstd(m):L(m)] = 1$.
+
+    The statement for $\pcostd(m)$ follows by a similar argument.
+
+    7): We only prove the statement for $\gamma$; the statement for $\beta$
+    is similar. We shall also ignore the grading. Suppose that
+    $L(m)\ex L(m')\subseteq\Res_{\beta,\gamma}L(\alpha)$ for some $m\in\KP(\beta)$
+    and $m'\in\KP(\gamma)$. Let $\gamma'$ be the largest element in the
+    support of $m'$. Then $\Res_{\alpha-\gamma',\gamma'}L(\alpha)\ne 0$. 
+    To show that $\gamma$ is a sum of roots no greater than $\alpha$,
+    it suffices to show that $\gamma'\le\alpha$. Thus we may suppose that
+    $\gamma$ is a root, that is maximal in all possible choices.
+    By the maximality of $\gamma$, we must have $m' = (\gamma)$.
+
+    We now let $\beta'$ be the largest element in the support of $m$.
+
+    If $\beta'\le\gamma$ then $L(m)\circ L(\gamma)$ is a quotient
+    of $\pstd(m\amalg\gamma)$, where $m\amalg\gamma$ is the Kostant partition
+    obtained by inserting $\gamma$ at the end of the root sequence of
+    $m$. Since $L(m)\ex L(\gamma)\hookrightarrow\Res_{\beta,\gamma}L(\alpha)$,
+    we obtain a nonzero map $$\pstd(m\amalg\gamma)\to L(m)\circ L(\gamma)
+    \to L(\alpha),$$ which is surjective since $L(\alpha)$ is simple.
+    Since $\pstd(m\amalg\gamma)$ has simple head $L(m\amalg\gamma)$,
+    we must have $m\amalg\gamma = \alpha$, thus $\gamma = \alpha$
+    is a sum of roots no greater than $\alpha$.
+
+    This leaves us with the case $\beta'>\gamma$. Take the Kostant partition
+    $n$ such that $m = n\amalg\beta'$. Then $\pstd(n)\ex L(\beta')$
+    surjects to $\Res_{\beta-\beta',\beta'}L(m)$. Therefore there exists
+    a nonzero map 
+    \[
+        \pstd(n)\ex L(\beta')\ex L(\gamma)\to
+        \Res_{\beta-\beta',\beta',\gamma}L(\alpha),
+    \] 
+    which gives rise to a map
+    $\pstd(n)\ex(L(\beta')\circ L(\gamma))\to\Res_{\beta-\beta',\beta'+\gamma}L(\alpha)$.
+    Therefore there exists some $n'\in\KP(\beta'+\gamma)$
+    and $n_1\in\KP(\beta-\beta')$ such that 
+    there exists an inclusion $L(n_1)\ex L(n')\to
+    \Res_{\beta-\beta',\beta'+\gamma}L(\alpha)$. By the maximality
+    of $\gamma$, all elements in the support of $n'$ are no greater than
+    $\gamma$. However the sum of elements in the root sequence of $n'$
+    is $\beta'+\gamma$, and $\beta'$ is strictly greater than $\gamma$,
+    which contradicts to Lemma \ref{sum-in-convex-ordering}.
+    Therefore the case $\beta'>\gamma$ cannot happen,
+    which completes the proof.
+
+    1): We take a minimal pair $(\beta,\gamma)$ of $\lambda$.
+    By induction hypothesis, we have $[\pstd(\beta,\gamma)] = r_\beta^*r_\gamma^*$,
+    and $[\pcostd(\beta,\gamma)] = q^{-\beta\cdot\gamma}r_\gamma^*r_\beta^*$.
+    Now consider the composition 
+    \[
+        \pstd(\beta,\gamma)\to L(\beta,\gamma)
+        \to\pcostd(\beta,\gamma).
+    \] 
+    By 5), the kernel and the cokernel
+    of the map has all composition factors of the form $L(n)$
+    such that $n<(\beta,\gamma)$. However $(\beta,\gamma)$ is a minimal
+    pair, thus $n$ must equal to $(\lambda)$. This shows that
+    $[\pstd(\beta,\gamma)]-[\pcostd(\beta,\gamma)]$ is a multiple
+    of $[L(\lambda)]$. 
+    
+    On the other hand, by the Levendorskii-Soibelman formula
+    (\cite[Theorem 5.5.2]{LS}), we have $r_\beta r_\gamma
+    -q^{-\beta\cdot\gamma}r_\gamma r_\beta$ lies in 
+    $\sum_m\Q(q)r_m$, where $m$ runs over all elements in $\KP(\lambda)$
+    that are less than $(\beta,\gamma)$. However $(\beta,\gamma)$
+    is minimal, thus $m$ can only be $(\lambda)$, 
+    which shows that $r_\beta r_\gamma
+    -q^{-\beta\cdot\gamma}r_\gamma r_\beta$ is a multiple of $r_\lambda$.
+    Therefore $r_\beta^* r_\gamma^*
+    -q^{-\beta\cdot\gamma}r_\gamma^* r_\beta^*$ is a multiple of $r_\lambda^*$.
+
+    We know that the specializations of $r_\beta$ and $r_\gamma$ to $q = 1$
+    are nonzero root vectors in the weight spaces $\mathfrak{g}_\beta$
+    and $\mathfrak{g}_\gamma$. Since $\beta+\gamma$ is a root,
+    the root vectors do not commute. Thus $r_\beta^* r_\gamma^*
+    -q^{-\beta\cdot\gamma}r_\gamma^* r_\beta^*$ is nonzero.
+
+    The above discussion now shows that $[L(\lambda)]$ is a nonzero
+    multiple of $r_\lambda^*$. By our assumption, $[L(\lambda)]$ lies in the dual canonical basis.
+    Since $r_\lambda^*$ is known to be in the dual canonical basis,
+    we must have $[L(\lambda)] = r_\lambda^*$.
+\end{proof}
+
+From this theorem we immediate obtain the following corollary:
+
+\begin{corollary}
+    The proper standard modules categorify the dual PBW basis,
+    i.e. $[\pstd(m)] = r_m^*$ for all $m\in\KP$.
+\end{corollary}
+
+\begin{remark}
+    The statement 7) remains true if we assume that $\alpha$ is a 
+    multiple of a positive root. The proof is essentially the same.
+\end{remark}
+
+\begin{remark}\label{unique-cuspidal}
+    Since $\Res_m(L(m))\cong L(\lambda_1^{m_1})\ex\cdots\ex L(\lambda_N^{m_N})
+    \ne 0$, we see that if $\alpha$ is a root, and $L$ is a $\*$-self-dual
+    simple $H(\alpha)$-module satisfying 7), then $L$ must be isomorphic
+    to $L(\alpha)$. This gives a characterization of the cuspidal module.
+\end{remark}
+
+For further use, we record the following proposition:
+
+\begin{proposition}\label{res-of-semi-cuspidal}
+    If $\alpha\in R^+$, $k\ge 1$ is an integer, then 
+    \[
+        [\Res_{\alpha,\alpha,\cdots,\alpha}L(\alpha^k)]
+        = [k]![L(\alpha)^{\ex k}].
+    \]
+\end{proposition}
+
+\begin{proof}
+    It suffices to prove that $$[\Res_{\alpha,(k-1)\alpha}L(\alpha^k)]
+     = [k][L(\alpha)\ex L(\alpha^{k-1})].$$
+    We prove this by induction on $k$. The case where $k = 1$ is
+    obvious. Suppose the statement is true for $k-1$. We note that
+    $L(\alpha^k)\cong q^{k-1}L(\alpha)\circ L(\alpha^{k-1})$.
+    We use Proposition \ref{mackey}: nonzero subquotients are 
+    identified with $\beta,\gamma,\beta',\gamma'\in Q^+$ such that
+    $\Res_{\beta,\gamma}L(\alpha)\ne 0$, $\Res_{\beta',\gamma'}
+    L(\alpha^{k-1})\ne 0$, and $\beta+\beta' = \alpha$. By Theorem
+    \ref{proper-standard-modules} 7), the elements $\beta$ and $\beta'$ are sums 
+    of roots no less than $\alpha$. Since they sum to $\alpha$,
+    either $\beta = \alpha$ or $\beta' = \alpha$. Now the subquotient
+    corresponding to $\beta = \alpha$ is $q^{k-1}[L(\alpha)\ex 
+    L(\alpha^{k-1})]$, where the subquotient
+    corresponding to $\beta' = \alpha$ is 
+    \[
+        q^{k-1} q^{-\alpha\cdot\alpha}
+        [(\Ind_{0,\alpha}\ex\Ind_{\alpha,(k-2)\alpha})\iota^*
+        (\Res_{0,\alpha}\ex\Res_{\alpha,(k-2)\alpha})(L(\alpha)\ex 
+        L(\alpha^{k-1}))],
+    \]    
+    which is $q^{-1}[k-1][L(\alpha)\ex 
+    L(\alpha^{k-1})]$ by induction hypothesis.
+    Here we recall that $\iota$ is the natural map 
+    \[
+        \iota\:H(\beta)\ox H(\gamma)\ox H(\beta')\ox H(\gamma')
+        \to H(\beta)\ox H(\beta')\ox H(\gamma)\ox H(\gamma').
+    \] 
+    Since
+    $q^{k-1}+q^{-1}[k-1] = [k]$, the statement is true for $k$,
+    completing the proof.
+\end{proof}
+
+\begin{corollary}\label{res'}
+    For any $n\in\KP$, $n = (\lambda_{i_1},\cdots,\lambda_{i_l})$,
+    define $\Res_n' := \Res_{\lambda_{i_1},\cdots,\lambda_{i_l}}$. 
+    Then 
+    \[
+        [\Res_n'L(n)] = [n]![L(\lambda_1)^{\ex n_1}\ex\cdots
+        \ex L(\lambda_N)^{\ex n_N}],
+    \]    
+    where $[n]! := [n_1]!\cdots[n_N]!$. Moreover $[\Res_m'L(n)] = 0$
+    whenever $n\not\le m$.
+\end{corollary}
+
+\begin{proof}
+    Combine Proposition \ref{res-of-semi-cuspidal} and Lemma 
+    \ref{res-of-proper-std}.
+\end{proof}
+
+\section{Algebraic Standard Modules}
+
+In this section, we follow the approach given
+in \cite{BKM} to the construction of algebraic standard modules. They will
+categorify the PBW basis. 
+
+We first record the following proposition, which is 
+\cite[Theorem 3.1]{BKM}:
+
+\begin{proposition}\label{ext-of-cuspidal}
+    For any root $\alpha$, we have
+    $\Ext^1(L(\alpha),L(\alpha)) = q^{-2}\K$, and
+    $\Ext^d(L(\alpha),L(\alpha)) = 0$ if $d\ge 2$.
+\end{proposition}
+
+We also record the following result in homological algebra:
+
+\begin{proposition}\label{ext-of-subquo}
+    Suppose $U$ and $V$ are finitely generated $H$-modules, and $d>0$ is an integer.
+    If $\ext^d(U,L) = 0$ for all irreducible subquotient of $V$,
+    then $\ext^d(U,V) = 0$.
+\end{proposition}
+
+We proceed the construction of the algebraic standard modules by the following three steps.
+We will first construct the \term{root modules} $\std(\alpha)$
+when $\alpha$ is a root, and construct the \term{divided power} $\std(\alpha^k)$
+when again $\alpha$ is a root, and finally construct
+the algebraic standard modules in general cases.
+
+We first construct the root modules.
+
+\begin{lemma}\label{filtr-of-std}
+    Suppose $\alpha$ is a positive root.
+    There exist $H(\alpha)$-modules $\std_n(\alpha)$,
+    $n = 0,1,\cdots$, with $\std_0(\alpha) = 0$, such that 
+    there exist exact sequences 
+    \begin{equation}\label{exact-1}0\to q^{2(n-1)}L(\alpha)\xrightarrow{i_n}
+    \std_n(\alpha)\xrightarrow{p_n}\std_{n-1}(\alpha)\to 0\end{equation}
+    and \begin{equation}\label{exact-2}0\to q^2\std_{n-1}(\alpha)\xrightarrow{j_n}
+    \std_n(\alpha)\xrightarrow{q_n} L(\alpha)\to 0,\end{equation}
+    such that for any $n\ge 1$:
+    \begin{enumerate}[1)]
+        \item $[\std_n(\alpha)] = \frac{1-q^{2n}}{1-q^2}[L(\alpha)]$;
+        \item The module $\std_n(\alpha)$ is cyclic, has head $L(\alpha)$
+        and socle $q^{2(n-1)}L(\alpha)$;
+        \item If $n\ge 2$, then $\hom(q^2\std_n(\alpha),
+        \std_n(\alpha)) = \K$;
+        \item The map 
+        \[ 
+            i_n^*\:\Ext^1(\std_n(\alpha),L(\alpha))
+            \to\Ext^1(q^{2(n-1)}L(\alpha),L(\alpha))
+        \] 
+        is an isomorphism;
+        \item We have $\Ext^d(\std_n(\alpha),L(\alpha)) = 0$ for all $d\ge 2$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    We proceed by induction on $n$. When $n = 1$, we set $\std_1(\alpha)
+     = L(\alpha)$, the exact sequences and the properties are obvious.
+    We now suppose that the statement is true for $n-1$, where
+    $n\ge 2$.
+
+    Sequence (\ref{exact-1}): By induction hypothesis 4),
+    we have $\Ext^1(\std_{n-1}(\alpha),L(\alpha)) = q^{-2(n-1)}\K$,
+    so there exists a unique module $\Delta_n(\alpha)$ up to isomorphism
+    that fits into this nonsplit exact sequence, such that 
+    the exact sequence nonsplit.
+
+    1): This follows from the induction hypothesis and the 
+    sequence (\ref{exact-1}).
+
+    4) and 5): Take $\Hom(-,L(\alpha))$ to the sequence (\ref{exact-1}),
+    by induction hypothesis and Proposition \ref{ext-of-cuspidal},
+    5) holds. Moreover there exists a long exact sequence:
+    \[
+        \begin{aligned}
+            0&\to\K\xrightarrow{f_1}\Hom(\std(\alpha),L(\alpha))\xrightarrow{f_2}
+            q^{-2(n-1)}\K\xrightarrow{f_3}q^{-2(n-1)}\K\\
+            &\xrightarrow{f_4}
+            \Ext^1(\std_n(\alpha),L(\alpha))\xrightarrow{i_n^*}
+            \Ext^1(q^{-2(n-1)}L(\alpha),L(\alpha))\to 0.
+        \end{aligned}
+    \]
+    The map $f_2$ must be zero, or else there exists a nonzero map
+    $\std_n(\alpha)\to q^{2(n-1)}L(\alpha)$ which will split
+    sequence (\ref{exact-1}). Thus $f_2 = 0$, and  $f_1$ and $f_3$ are isomorphisms,
+    then $f_4 = 0$, which shows that $i_n^*$ is an isomorphism.
+
+    2): By 1) and that $\Hom(\std_n(\alpha),L(\alpha)) = \K$,
+    $\std_n(\alpha)$ has head $L(\alpha)$ and is generated by 
+    any homogeneous element that is not mapped to $0$ in $L(\alpha)$.
+    To compute the socle, by the sequence (\ref{exact-1})
+    and induction hypothesis 2), it suffices to show that
+    $q^{2(n-2)}L(\alpha)$ is not in the socle. To show this
+    consider $V := p_n^{-1}(\im i_{n-1})$. By induction hypothesis 4),
+    the exact sequence $$0\to q^{2(n-1)}L(\alpha)\to V
+    \to q^{2(n-2)}L(\alpha)\to 0$$ does not split,
+    hence $q^{2(n-2)}L(\alpha)$ is not in the socle.
+
+    Sequence (\ref{exact-2}): In the case $n = 2$ this is just
+    sequence (\ref{exact-1}). If $n\ge 3$, take $\hom(q^2\std_{n-1}(\alpha),-)$
+    to sequence (\ref{exact-1}), by induction hypothesis 3),
+    we obtain that $\hom(q^2\std_{n-1}(\alpha),\std_n(\alpha)) = \K$.
+    The nonzero map $q^2\std_{n-1}(\alpha)\to\std_n(\alpha)$ is injective
+    since it is injective on socle, and its cokernel must be
+    $L(\alpha)$ by 1).
+
+    3): Take $\hom(-,\std_{n-1}(\alpha))$ to sequence (\ref{exact-2}),
+    from the long exact sequence, we obtain that $\hom(\std_n(\alpha),\std_{n-1}(\alpha)) = \K$;
+    now take $\hom(q^2\std_n(\alpha),-)$ to sequence (\ref{exact-2}),
+    from the long exact sequence, we obtain that $\hom(q^2\std_n(\alpha),\std_n(\alpha)) = \K$.
+\end{proof}
+
+Now we have a sequence of surjections $$\cdots\to
+\std_2(\alpha)\to\std_1(\alpha)\to\std_0(\alpha).$$
+
+\begin{definition}
+    We take $\std(\alpha)$ to be the inverse limit of the sequence
+    \[
+        \cdots\to\std_2(\alpha)\to\std_1(\alpha)\to\std_0(\alpha),
+    \]
+    and call it the \term{root module}.
+\end{definition}
+
+\begin{proposition}\label{root-module}
+    Suppose that $\alpha$ is a root.
+    There exists an exact sequence \begin{equation}\label{exact-3}
+        0\to q^2\std(\alpha)\xrightarrow{j}\std(\alpha)\to L(\alpha)\to 0.
+    \end{equation}
+    Moreover:\begin{enumerate}[1)]
+        \item The module $\std(\alpha)$ is cyclic
+        and $[\std(\alpha)] = [L(\alpha)]/(1-q^2)$;
+        \item We have $\Dim\Hom(\std(\alpha),L(\alpha)) = 1$, 
+        thus $\std(\alpha)$ has irreducible head $L(\alpha)$;
+        \item We have $\Ext^d(\std(\alpha),V) = 0$ for all $d\ge 1$ and any finitely
+        generated $H$-module $V$ with all irreducible subquotients isomorphic
+        to $q^mL(\alpha)$ for some $m$; in other words,
+        $\std(\alpha)$ is a projective generator in the
+        full subcategory of $\mod(H(\alpha))$ consisting of
+        all modules with all irreducible subquotients isomorphic
+        to $q^mL(\alpha)$ for some $m$.
+        \item We have $\End(\std(\alpha))\cong\K[x]$, where $x$ is in degree $2$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    1): This follows directly from Lemma \ref{filtr-of-std}.
+
+    2): Since the inverse system $$\cdots\to
+    \std_2(\alpha)_i\to\std_1(\alpha)_i\to\std_0(\alpha)_i$$
+    is stable for every $i$, any homogeneous map $f\:\std(\alpha)
+    \to q^mL(\alpha)$ for some $m$ factors through some $\std_n(\alpha)$.
+    Since $\Hom(\std_n(\alpha),L(\alpha)) = \K$, we must have
+    $\Dim\Hom(\std(\alpha),L(\alpha)) = 1$. The conclusion to the head
+    follows by the identity in the Grothendieck group and the dimension
+    of the hom-space.
+
+    Sequence (\ref{exact-3}): We need to modify the maps $j_n$ such that the
+    diagram commutes:
+    \[
+        \xymatrix{
+            q^2\std_{n-1}(\alpha)\ar[d]^{j_n}&q^2\std_n(\alpha)\ar[l]_{p_n}\ar[d]_{j_n}\\
+            \std_n(\alpha)&\std_{n+1}(\alpha)\ar[l]_{p_{n+1}}.
+        }
+    \] 
+    In the case $n = 1$ it is automatic (both compositions are $0$);
+    in the case $n\ge 2$, by Lemma \ref{filtr-of-std} 3), we have $\hom(q^2\std_n(\alpha),
+    \std_n(\alpha)) = \K$. thus $j_{n+1}$
+    can be uniquely scaled such that the diagram commutes. Now take the inverse
+    limits of the $j_n$'s we obtain a map $j\:q^2\std(\alpha)\to\std(\alpha)$,
+    that is injective since each $j_n$ is. By 1), its cokernel
+    is isomorphic to $L(\alpha)$.
+
+    3): By Proposition \ref{ext-of-subquo} it suffices to prove this
+    for $V = L(\alpha)$. Take $\Ext^d(-,L(\alpha))$ to sequence
+    (\ref{exact-3}), noticing that $\Ext^{d+1}(L(\alpha),L(\alpha)) = 0$,
+    we have a surjection 
+    \[
+        \Ext^d(\std(\alpha),L(\alpha))\to
+        q^{-2}\Ext^d(\std(\alpha),L(\alpha)).
+    \] 
+    However $\Ext^d(\std(\alpha),L(\alpha))$
+    is bounded below, thus the only way that this could happen is
+    $\Ext^d(\std(\alpha),L(\alpha)) = 0$.
+
+    4): The injective map $x := j$ generates a free polynomial subalgebra
+    $\K[x]$ of $\End(\std(\alpha))$. However by 1),
+    we have $\Dim\End(\std(\alpha))\le\Dim\K[x]$. Hence we must have
+    $\End(\std(\alpha))\cong\K[x]$.
+\end{proof}
+
+By the above discussion, we have the following corollary:
+
+\begin{corollary}
+    The root module $\std(\alpha)$ categorify the root vector $r_\alpha$.
+\end{corollary}
+
+We next construct the divided powers.
+
+Let $\alpha$ be a root, let $n$ be the height of $\alpha$, and fix a minimal degree
+element $v_\alpha\in\std(\alpha)$. By Proposition \ref{root-module},
+the element $v_\alpha$ generates $\std_\alpha$.
+
+\begin{lemma}\label{definition-of-tau}
+    Let $w\in S_{2n}$ be the element $(1,n+1)(2,n+2)\cdots(n,2n)$.
+    Then there exists a unique $H(2\alpha)$-module morphism
+    \[
+        \tau\:\std(\alpha)\circ\std(\alpha)
+        \to\std(\alpha)\circ\std(\alpha),
+    \]
+    of degree $2$, such that $\tau(\1_{\alpha,\alpha}\ox
+    (v_\alpha\ox v_\alpha)) = \tau_w\1_{\alpha,\alpha}\ox
+    (v_\alpha\ox v_\alpha)$.
+\end{lemma}
+
+\begin{proof}
+    We apply Proposition \ref{mackey} to 
+    $\Res_{\alpha,\alpha}(\std(\alpha)\circ\std(\alpha))$. By similar arguments
+    to Proposition \ref{res-of-semi-cuspidal}, there are only two
+    nonzero subquotients, corresponding to the double cosets
+    $[1]$ and $[w]$. Thus there exists an exact sequence
+    \begin{equation}\label{exact-4}
+        0\to\std(\alpha)\ex\std(\alpha)\xrightarrow{f}
+        \Res_{\alpha,\alpha}(\std(\alpha)\circ\std(\alpha))
+        \xrightarrow{g}q^{-2}\std(\alpha)\ex\std(\alpha)\to0,
+    \end{equation}
+    such that $f(v_\alpha\ox v_\alpha) = \1_{\alpha,\alpha}
+    \ox(v_\alpha\ox v_\alpha)$ and $g(\tau_w\1_{\alpha,\alpha}
+    \ox(v_\alpha\ox v_\alpha)) = v_\alpha\ox v_\alpha$.
+    By Proposition \ref{root-module} 3), we have 
+    \[
+        \Ext^1(q^{-2}\std(\alpha)\ex\std(\alpha),
+        \std(\alpha)\ex\std(\alpha)) = 0,
+    \] 
+    thus the exact
+    sequence splits. Let 
+    \[
+        h\:q^{-2}\std(\alpha)\ex\std(\alpha)
+        \to\Res_{\alpha,\alpha}(\std(\alpha)\circ\std(\alpha))
+    \]
+    be the splitting. Since $\im f$ contains no elements with
+    the same degree as $\tau_w\1_{\alpha,\alpha}
+    \ox(v_\alpha\ox v_\alpha)$, we must have $h(v_\alpha\ox v_\alpha)
+     = \tau_w\1_{\alpha,\alpha}\ox(v_\alpha\ox v_\alpha)$.
+    Now apply Frobenius reciprocity to $h$, we obtain the
+    desired map $\tau$.
+\end{proof}
+
+Now from the endomorphism $x\in\End(\std(\alpha))$
+we obtain endmorphisms 
+\[
+    x_1,\cdots,x_k\in\End(\std(\alpha)^{\circ k})
+\]
+given by $x_i = \1^{\circ(i-1)}\circ x\circ\1^{\circ(k-i)}$.
+Then the map $g$ in \ref{exact-4} intertwines the endomorphisms
+$x_i$ and $x_{i+1}$. The lemma above yields endomorphisms
+\[
+    \tau_1,\cdots,\tau_{n-1}\in\End(\std(\alpha)^{\circ k})
+\]
+given by $\tau_i = \1^{\circ(i-1)}\circ\tau\circ\1^{\circ(k-i-1)}$.
+
+\begin{lemma}
+    The endomorphisms $\tau_i$ square to $0$ and satisfy the type 
+    A braid relations, i.e. $\tau_i\tau_j = \tau_j\tau_i$ whenever
+    $\abs{i-j}>1$ and $\tau_i\tau_{i+1}\tau_i = \tau_{i+1}\tau_i\tau_{i+1}$.
+\end{lemma}
+
+\begin{proof}
+    The proof of Lemma \ref{definition-of-tau} shows that 
+    as vector spaces, 
+    \[
+        \1_{\alpha,\alpha}(\std(\alpha)\circ\std(\alpha))
+        \cong\1_{\alpha,\alpha}\ox(\std(\alpha)\ex\std(\alpha))
+        \oplus\tau_w\1_{\alpha,\alpha}\ox(\std(\alpha)\ex\std(\alpha)).
+    \]
+    Thus $\tau_w\1_{\alpha,\alpha}\ox(v_\alpha\ox v_\alpha)$ is of
+    minimal degree in $\1_{\alpha,\alpha}(\std(\alpha)\circ\std(\alpha))$.
+    Now the element $\tau_w\1_{\alpha,\alpha}\ox(v_\alpha\ox v_\alpha)$ is of
+    stricly smaller degree, hence must be $0$. This shows that
+    $\tau^2 = 0$, hence $\tau_i^2 = 0$ for all $i$.
+
+    The commuting braid relations are obvious. For the noncommuting ones,
+    itsuffices to show that $\tau_1\tau_2\tau_1 = \tau_2\tau_1\tau_2$
+    in the 3-fold product. Let $w_1,w_2\in S_{3n}$ be the elements
+    $(1,n+1)\cdots(n,2n)$ and $(n+1,2n+1)\cdots(2n,3n)$, respectively,
+    $w_0 = w_1w_2w_1 = w_2w_1w_2$. By the definition relations of $H(3\alpha)$,
+    $(\tau_{w_1}\tau_{w_2}\tau_{w_1}-\tau_{w_2}\tau_{w_1}\tau_{w_2})
+    \1_{\alpha,\alpha,\alpha}\ox(v_\alpha\ox v_\alpha\ox v_\alpha)$
+    lies in $$S := \sum_{w<w_0}\tau_w\1_{\alpha,\alpha,\alpha}\ox
+    (v_\alpha\ox v_\alpha\ox v_\alpha).$$ By Proposition \ref{mackey},
+    we have 
+    \[
+        S = \bigoplus_{w\in\{1,w_1,w_2,w_1w_2,w_2w_1\}}
+        \tau_w\1_{\alpha,\alpha,\alpha}\ox
+        (v_\alpha\ox v_\alpha\ox v_\alpha).
+    \] 
+    But 
+    $(\tau_{w_1}\tau_{w_2}\tau_{w_1}-\tau_{w_2}\tau_{w_1}\tau_{w_2})
+    \1_{\alpha,\alpha,\alpha}\ox(v_\alpha\ox v_\alpha\ox v_\alpha)$
+    has degree $3\deg(v_\alpha)-6$ where all elements in $S$
+    has degree no less than $3\deg(v_\alpha)-4$, thus
+    this element must be $0$. This shows that $\tau_1\tau_2\tau_1
+     = \tau_2\tau_1\tau_2$.
+\end{proof}
+
+As before, for each $w\in S_n$, we fix once and for all a reduced expression $w = s_{i_1}\cdots s_{i_l}$,
+and define $\tau_w := \tau_{i_1}\cdots\tau_{i_l}\in\End(\std(\alpha)^{\circ k})$.
+
+\begin{lemma}
+    The elements $\{\tau_w x_k^{t_k}\cdots x_1^{t_1}\mid t_1,\cdots,t_k\ge 0,
+    w\in S_k\}$ give a basis for $\End(\std(\alpha)^{\circ k})$.
+\end{lemma}
+
+\begin{proof}
+    They are linearly independent since they produce linearly independent
+    vectors while applied to $\1_{\alpha,\cdots,\alpha}\ox
+    (v_\alpha\ox\cdots\ox v_\alpha)$. On the other hand, since
+    $\std(\alpha)^{\ex k}$ has head $L(\alpha)^{\ex k}$, we have
+    \[
+    \begin{aligned}
+        \Dim\End(\std(\alpha)^{\circ k})
+        & = \Dim\Hom(\std(\alpha)^{\ex k},
+        \Res_{\alpha,\cdots,\alpha}\std(\alpha)^{\circ k})\\
+        &\le[\Res_{\alpha,\cdots,\alpha}\std(\alpha)^{\circ k}
+        :L(\alpha)^{\ex k}]\\
+        & = [\Res_{\alpha,\cdots,\alpha}L(\alpha)^{\circ k}
+        :L(\alpha)^{\ex k}](1-q^2)^{-k}\\
+        & = (1-q^2)^{-k}q^{-k(k-1)/2}[k]!\\
+        & = \sum_{w\in S_k}\dfrac{q^{-2\ell(w)}}{(1-q^2)^k},
+    \end{aligned}
+    \]
+    therefore they must span the entire $\End(\std(\alpha)^{\circ k})$,
+    completing the proof.
+\end{proof}
+
+\begin{lemma}
+    There exists a choice for $x\in\End(\std(\alpha))$ such that
+    $\tau_i x_j = x_j\tau_i$ if $j\ne i,i+1$, and $\tau_i x_{i+1}
+     = x_i\tau_i-1$ and $\tau_i x_i = x_{i+1}\tau_i+1$.
+\end{lemma}
+
+\begin{proof}
+    The commuting relations are automatic. For the remaining relations,
+    it suffices to work in $\End(\std(\alpha)\circ\std(\alpha))$.
+    Let $\theta_- := \tau x_2-x_1\tau$ and $\theta_+ := \tau x_1-x_2\tau$.
+    They are of degree zero, and since the map $g$ 
+    in \ref{exact-4} intertwines the endomorphisms
+    $x_1$ and $x_2$, they map $\1_{\alpha,\alpha}\ox(v_\alpha\ox v_\alpha)$
+    into $\1_{\alpha,\alpha}\ox(\std(\alpha)\ex\std(\alpha))$.
+    Therefore the two maps must be scalars. Suppose $\theta_- = c_-$,
+    $\theta_+ = c_+$. Since 
+    \[
+    \begin{aligned}
+        \tau x_1 x_2-x_1 x_2\tau = (x_2\tau+c_+)x_2-x_2(\tau x_2-c_-)
+         = (c_++c_-)x_2,\\
+        \tau x_1 x_2-x_1 x_2\tau = (x_1\tau+c_-)x_1-x_1(\tau x_1-c_+)
+         = (c_++c_-)x_1,\\
+    \end{aligned}
+    \]
+    we must have $c_++c_- = 0$. It suffices to show that 
+    $c_+\ne 0$, for then we can replace $x$ with $x/c_+$ and completes 
+    the proof. If not, then $c_+ = c_- = 0$, which shows that $\tau$
+    fixes $S := \im x_1+\im x_2$. However $(\std(\alpha)\circ\std(\alpha))
+    /S\cong L(\alpha)\circ L(\alpha)$, thus $\tau$ induces an
+    endomorphism $\bar\tau$ on $L(\alpha)\circ L(\alpha)$ whose square is $0$.
+    Since $L(\alpha)\circ L(\alpha)$ is simple, $\bar\tau$ is $0$.
+    However $\bar\tau$ sends $\1_{\alpha,\alpha}\ox(\bar{v}_\alpha
+    \ox\bar{v}_\alpha)$ to $\tau_w\1_{\alpha,\alpha}\ox(\bar{v}_\alpha
+    \ox\bar{v}_\alpha)$, thus $\bar\tau$ is nonzero, which is a contradiction.
+    Therefore $c_+\ne 0$, completing the proof.
+\end{proof}
+
+Now the above three lemmas show that $$\End(\std(\alpha)^{\circ k})
+\cong\NH(k)^{\mathrm{op}},$$ which shows that $\std(\alpha)^{\circ k}$
+is an $(H(k\alpha),\NH(k))$-bimodule. We now define $$\std(\alpha^k)
+ := \std(\alpha)^{\circ k}\ox_{\NH(k)}P_k.$$
+
+\begin{definition}
+    The module $\std(\alpha^k)$ is called the \term{divided power}.
+\end{definition}
+
+\begin{proposition}\label{divided-power}
+    We have $[k]!\std(\alpha^k)\cong\std(\alpha)^{\circ k}$.
+    In particular $[k]![\std(\alpha^k)] = [\std(\alpha)^{\circ k}]$.
+\end{proposition}
+
+\begin{proof}
+    Recall that $\NH(k)\cong [k]!P_k$, we have
+    \[
+        \std(\alpha)^{\circ k}\cong \std(\alpha)^{\circ k}\ox_{\NH(k)}\NH(k)
+        \cong [k]!\std(\alpha)^{\circ k}\ox_{\NH(k)}P_k
+        \cong[k]!\std(\alpha^k),
+    \] 
+    completing the proof.
+\end{proof}
+
+By the above discussion, we have the following corollary:
+
+\begin{corollary}
+    The divided power module $\std(\alpha^k)$ categorifies the divided power 
+    $r_{(\alpha^k)} = r_\alpha^k/[k]!$.
+\end{corollary}
+
+We now construct the algebraic standard module in general cases.
+
+Take $\alpha\in Q^+$. For any $m = (m_1,\cdots, m_N)$,
+we define 
+\[
+    \std(m) := \std(\lambda_1^{m_1})\circ\cdots
+    \circ\std(\lambda_N^{m_N}).
+\]
+
+\begin{definition}
+    The module $\std(m)$ is called the \term{algebraic standard module}.
+\end{definition}
+
+From the above discussion, the following theorem is immediate:
+
+\begin{theorem}\label{std-modules}
+    For any Kostant partition $m = (m_1,\cdots,m_N)$, the algebraic standard module $\std(m)$
+    categorifies the element $r_m$ in the PBW basis,
+    i.e. $[\std(m)] = r_m$.
+\end{theorem}
+
+\begin{remark}
+    By the definition of the PBW basis and the dual PBW basis,
+    $[\std(m)]$ is a multiple of $[\pstd(m)]$.
+    Thus for any $m,n\in\alpha$, if $[\std(m):L(n)]\ne 0$,
+    then $[\pstd(m):L(n)]\ne 0$, which shows that $n\le m$.
+    Therefore the composition factors of algebraic standard modules
+    satisfy the upper-triangular property similar to that of
+    geometric standard modules.
+\end{remark}
+
+\chapter{Standard Modules and Polynomial Highest Weight Categories}
+
+In this chapter, we give the relation between algebraic standard modules
+and geometric standard modules. We shall also present that
+for any $\alpha\in Q^+$,
+$\mod(H(\alpha))$ is a polynomial height weight category.
+
+Throughout this chapter, we assume that the quiver $\Gamma$ is of finite type
+and the field $\K$ is of characteristic zero.
+
+\section{The Relation between Algebraic and Geometric Standard Modules}
+
+In this section, we give the relation between algebraic standard modules
+and geometric standard modules. We will combine the approaches
+given in \cite{K2} and \cite{Mc2}.
+
+Recall that in Chapter 3, for each $\alpha\in Q^+$ and $m\in\KP(\alpha)$,
+we gave the definition to the geometric modules $$\widetilde{P}(m)
+ = \Ext^*_{G(\alpha)}(\LL(\alpha),\IC(\OO_m)),\hspace{3em}
+\widetilde{\std}(m) = \Ext^*_{G(\alpha)}(\LL(\alpha),\costd(\OO_m)),$$
+and $\widetilde{L}(m)$ is the head of $\widetilde{P}(m)$. On the other hand,
+given a convex ordering on $R^+$, the algebraic modules
+$L(m)$ and $\std(m)$ are defined in Chapter 4. We set $P(m)$
+to be the projective cover of $L(m)$.
+
+The main result of this section is the following theorem:
+
+\begin{theorem}\label{alg-geo}
+    There exists a convex ordering on $R^+$ such that for any 
+    $m\in\KP$,
+    \begin{enumerate}[1)]
+        \item $\std(m)\cong\widetilde{\std}(m)$;
+        \item $L(m)\cong\widetilde{L}(m)$;
+        \item $P(m)\cong\widetilde{P}(m)$.
+    \end{enumerate}
+\end{theorem}
+
+We first construct the convex ordering on $R^+$.
+
+Let $\alpha = \sum c_i\alpha_i$ and $\alpha' = \sum c'_i\alpha_i$
+be two elements in $\Q^+$. The \term{Euler form} of the 
+quiver $\Gamma$ is defined as $$\<\alpha,\alpha'\>
+ = \sum_{i\in I}c_ic'_i-\sum_{e\in E}c_{s(e)}c'_{t(e)}.$$
+Here we recall that $I$ is the set of vertices and $E$
+is the set of edges.
+Since the quiver $\Gamma$ is of finite type, the symmetric
+bilinear form 
+\[
+    (\alpha,\alpha') := (\<\alpha,\alpha'\>
+    +\<\alpha',\alpha\>)/2
+\] 
+is positive definite, and 
+for any root $\alpha$, $\<\alpha,\alpha\> = 1$.
+
+A reduced expression $s_{i_1}\cdots s_{i_N}$ of the longest
+root $w_0$ is said to be \term{adapted} to $\Gamma$, if for all $k$
+the vertex $i_k$ is a sink of the quiver of the quiver
+$\sigma_{i_{k+1}}\cdots\sigma_{i_N}\Gamma$, where the operation
+$\sigma_i$ is the operation on $\Gamma$ which reverses the direction
+of all arrows joint to the vertex $i$.
+
+By \cite[Propositions 4.9, 4.12]{L2} and \cite[p59]{Ri},
+there always exists a reduced expression of $w_0$
+that is adapted to $\Gamma$; and if we define the convex
+ordering on positive roots corresponding to the reduced
+expression by $\lambda_1<\cdots<\lambda_N$, then for any 
+$1\le k,l\le N$ we have 
+\[
+\begin{aligned}
+    \dim\Hom_{\K\Gamma}(M(\lambda_k),M(\lambda_l))& = \begin{cases}
+        \<\lambda_k,\lambda_l\>,&k\ge l;\\
+        0,&k<l;
+    \end{cases}\\
+    \dim\Ext^1_{\K\Gamma}(M(\lambda_k),M(\lambda_l))& = \begin{cases}
+        -\<\lambda_k,\lambda_l\>,&k<l;\\
+        0,&k\ge l.
+    \end{cases}
+\end{aligned}
+\]
+Here we recall that $M(\lambda_k)$ is the unique indecomposable $\K\Gamma$-module
+with dimension vector $\lambda_k$.
+In particular $\dim\End_{\K\Gamma}(M(\lambda_k),M(\lambda_k)) = 1$
+for all $k$.
+We will fix this convex ordering for the rest of the chapter.
+
+We now have the following proposition:
+
+\begin{proposition}\label{orbit-and-KP}
+    Let $\alpha\in Q^+$, and $m,n\in\KP(\alpha)$.
+    If the orbits $\OO_m$ and $\OO_n$ satisfy
+    $\OO_m\subseteq\overline{\OO_n}$, then $m\ge n$.
+\end{proposition}
+
+\begin{proof}
+    For any $\K\Gamma$-module $U$, let $T(\alpha,U)$ be the variety
+    of all pairs $(x,y)$, where $x\in X(\alpha)$, and $y\in\Hom(U,V(\alpha))$
+    is a map of $\K\Gamma$-modules with respect to the $\K\Gamma$-module
+    structure $x$ on $V(\alpha)$. There exists a projection 
+    \[
+        \pi\:T(\alpha,U)\to X(\alpha)
+    \] 
+    that is $G(\alpha)$-equivariant,
+    and for any orbit $\OO_m$ of $X(\alpha)$, the fiber of the map $\pi$
+    at any point in $\OO_m$ is the affine space $\Hom_{\K\Gamma}(U,M(m))$.
+    Now the map that assigns a point in $X(\alpha)$ with 
+    the dimension of the fiber of $\pi$ at that point is $G(\alpha)$-invariant
+    and upper semicontinuous, thus if $\OO_m\subseteq\overline{\OO_n}$
+    then the the dimension of the fiber of $\pi$ at points in $\OO_m$
+    is greater than that at points in $\OO_n$, which shows that 
+    \[
+        \dim\Hom_{\K\Gamma}(U,M(m))\ge\dim\Hom_{\K\Gamma}(U,M(n)).
+    \]
+    This inequality is true for all $\K\Gamma$-modules $U$.
+    Similarly, we have the inequality
+    \[
+        \dim\Hom_{\K\Gamma}(M(m),U)\ge\dim\Hom_{\K\Gamma}(M(n),U)
+    \]
+    for all $\K\Gamma$-modules $U$.
+
+    Now suppose that $m = (m_1,\cdots,m_N)$, $n = (n_1,\cdots,n_N)$ and 
+    that $m\ne n$. Let $l$ be the smallest index such that $m_l\ne n_l$.
+    Take $U = M(\lambda_l)$. By the previous upper-triangular property, we have
+    \[
+    \begin{aligned}
+        \dim\Hom_{\K\Gamma}(U,M(m))& = m_l+\sum_{1\le k\le l-1}m_l\<\lambda_l,
+        \lambda_k\>,\\
+        \dim\Hom_{\K\Gamma}(U,M(n))& = n_l+\sum_{1\le k\le l-1}n_l\<\lambda_l,
+        \lambda_k\>.\\
+    \end{aligned}
+    \] 
+    Thus we have 
+    \[
+        m_l-n_l = \dim\Hom_{\K\Gamma}(U,M(m))-\dim\Hom_{\K\Gamma}(U,M(n))\ge 0.
+    \]    
+    Since $m_l\ne n_l$, we must have $m_l<n_l$,
+    therefore $m>'n$. Similarly, $m>''n$, thus $m>n$,
+    completing the proof.
+\end{proof}
+
+Combining Proposition \ref{comp-of-geo-std} and the above proposition,
+we have the following corollary:
+
+\begin{corollary}\label{comp-of-geo-std-2}
+    Let $\alpha\in Q^+$, and $m,n\in\KP(\alpha)$.
+    If $q^k\widetilde{L}(n)$ is a subquotient of 
+    $\widetilde{\std}(m)$ for some $k$, then $n\le m$.
+\end{corollary}
+
+We now give the proof of Theorem \ref{alg-geo}.
+
+\begin{proof}[Proof of Theorem \ref{alg-geo}]
+    We proceed by the following cases.
+
+    \textbf{Case 1: }$\alpha$ is a root, and $m$ is the minimal element
+    $(\alpha)$.
+
+    2) and 3): By the characterization of cuspidal modules in Remark \ref{unique-cuspidal}, it suffices to show that 
+    if $\beta+\gamma = \alpha$ and $\Res_{\beta,\gamma}\widetilde{L}(\alpha)
+    \ne 0$, then $\beta$ is a sum of roots
+    no less than $\alpha$, and $\gamma$ is a sum of roots no greater than
+    $\alpha$.
+
+    Now if $\Res_{\beta,\gamma}\widetilde{L}(\alpha)\ne 0$, then there exists
+    $m\in\KP(\beta),\ n\in\KP(\gamma)$ such that $$\Hom(\widetilde{P}(m)
+    \ex\widetilde{P}(n),\Res_{\beta,\gamma}\widetilde{L}(\alpha))\ne 0,$$
+    thus $\Hom(\widetilde{P}(m)
+    \circ\widetilde{P}(n),\widetilde{L}(\alpha))\ne 0$,
+    which shows that $$\Ext^*_{G(\alpha)}(\IC(\OO_m)\circ\IC(\OO_n),
+    \IC(\OO_{\alpha}))\ne 0.$$ This shows that $\IC(\OO_{\alpha})$
+    must be a direct summand of $\IC(\OO_m)\circ\IC(\OO_n)$,
+    which shows that $\OO_{\alpha}$ must be in the support of
+    $\IC(\OO_m)\circ\IC(\OO_n)$. By the definition of the convolution, 
+    there exists $m_0\in\KP(\beta),\ n_0\in\KP(\gamma)$
+    such that there exists an exact sequence $$0\to M(m_0)
+    \to M(\alpha)\to M(n_0)\to 0.$$ Now by the upper-triangular property
+    of the dimension of the hom-spaces between indecomposables modules
+    of $\K\Gamma$, all roots in the support of $m_0$ is no less than $\alpha$,
+    and all roots in the support of $n_0$ is no greater than $\alpha$.
+    Therefore $\beta$ is a sum of roots
+    no less than $\alpha$, and $\gamma$ is a sum of roots no greater than
+    $\alpha$, completing the proof.
+
+    1): The natural map $\IC(\OO_{\alpha})\to\costd(\OO_{\alpha})$
+    induces a map 
+    \[
+        \widetilde{P}(\alpha) = \mu(\IC(\OO_{\alpha}))
+        \to\mu(\costd(\OO_{\alpha})) = \widetilde{\std}(\alpha).\
+    \]
+    Now we have that 
+    \[
+    \begin{aligned}
+        \widetilde{P}(\alpha)
+        & = \Ext^*_{G(\alpha)}(\LL(\alpha),\underline{\K}[d_{\alpha}])\\
+        & = H^*_{G(\alpha)}(X(\alpha),\LL(\alpha))[-d_{\alpha}]\\
+        & = (V(\OO_\alpha)\ox H^*_{G(\alpha)}(X(\alpha),\underline{\K}))\\
+        &\qquad\oplus\bigoplus_{m\in\KP(\alpha),\ m\ne(\alpha)}
+        (V(\OO_m)\ox H^*_{G(\alpha)}(X(\alpha),\IC(\OO_m)))[-d_\alpha],
+    \end{aligned}
+    \] 
+    and 
+    \[
+    \begin{aligned}
+        \widetilde{\std}(\alpha)
+        & = \Ext^*_{G(\alpha)}(\LL(\alpha),(j_\alpha)_*\underline{\K}[d_{\alpha}])\\
+        & = \Ext^*_{G(\alpha)}((j_\alpha)^*\LL(\alpha),\underline{\K}[d_{\alpha}])\\
+        & = H^*_{G(\alpha)}(\OO_\alpha,(j_\alpha)^*\LL(\alpha))[-d_{\alpha}]\\
+        & = V(\OO_\alpha)\ox H^*_{G(\alpha)}(\OO_\alpha,\underline{\K}).
+    \end{aligned}
+    \] 
+    Under these identifications the map 
+    $\widetilde{P}(\alpha)\to\widetilde{\std}(\alpha)$ 
+    is identified with the restriction map $H^*_{G(\alpha)}(X(\alpha),\LL(\alpha))
+    \to H^*_{G(\alpha)}(\OO_\alpha,(j_\alpha)^*\LL(\alpha))$, which also induces 
+    a map 
+    \[
+    H^*_{G(\alpha)}(X(\alpha),\underline{\K})\to 
+    H^*_{G(\alpha)}(\OO_\alpha,\underline{\K}),
+    \] The stablizer of
+    $\OO_\alpha$ is the diagonal copy of $\mathbb{G}_m$ in $G(\alpha)$,
+    and the restriction map is identified with the map
+    $H^*_{G(\alpha)}(\pt)\to H^*_{\mathbb{G}_m}(\pt)$, which is surjective.
+    Thus the original map $\widetilde{P}(\alpha)\to\widetilde{\std}(\alpha)$ 
+    is surjective, therefore $\widetilde{\std}(\alpha)$
+    has head $\widetilde{L}(\alpha) = L(\alpha)$.
+
+    In addition, $\widetilde{\std}(\alpha)$ is isomorphic to
+    $V(\OO_\alpha)\ox\K[x]$, where $\K[x] = H^*_{\mathbb{G}_m}(\pt)$.
+
+    By Proposition \ref{comp-of-geo-std} and 3), 
+    $\widetilde{\std}(\alpha)$ lies in the 
+    full subcategory of $\mod(H(\alpha))$ consisting of
+    all modules with all irreducible subquotients isomorphic
+    to $q^mL(\alpha)$ for some $m$. Since $\std(\alpha)$ 
+    is a projective module in this subcategory with head $L(\alpha)$,
+    there exists a map $\std(\alpha)\to\widetilde{\std}(\alpha)$,
+    which is surjective since it is an isomorphism on the head.
+    We extend this map into an exact sequence 
+    \[
+        0\to K(\alpha)\to \std(\alpha)\to\widetilde{\std}(\alpha)\to 0.
+    \]
+    Since $\std(\alpha)$ is a projective module in this subcategory,
+    we have an exact sequence $$0\to\Hom(\std(\alpha),K(\alpha))
+    \to\Hom(\std(\alpha),\std(\alpha))
+    \to\Hom(\std(\alpha),\widetilde{\std}(\alpha))\to 0.$$
+    By Proposition \ref{root-module}, $\Hom(\std(\alpha),\std(\alpha))
+    \cong\K[x]$. On the other hand, since $\widetilde{\std}(\alpha)
+    \cong V(\OO_\alpha)\ox\K[x]$, $\Hom(\std(\alpha),\widetilde{\std}(\alpha))$
+    is a free $\K[x]$-module. Thus it must be $\K[x]$ and the surjective map
+    \[
+        \Hom(\std(\alpha),\std(\alpha))
+        \to\Hom(\std(\alpha),\widetilde{\std}(\alpha))
+    \] 
+    must be an isomorphism.
+    This shows that $ \Hom(\std(\alpha),K(\alpha)) = 0$.
+    Since $\std(\alpha)$ is a projective generator, 
+    $K(\alpha) = 0$, which shows that 
+    $\std(\alpha)\cong\widetilde{\std}(\alpha)$.
+
+    \textbf{Case 2: }General case.
+
+    1): Suppose $m\in\KP(\alpha)$ has form $(m_1,\cdots,m_N)$
+    and $(\lambda_{i_1},\cdots,
+    \lambda_{i_l})$. Consider the convolution diagram 
+    \[
+    \xymatrix{
+        X'(\lambda_{i_1},\cdots,\lambda_{i_l})\ar[d]_{p_0}
+        \ar[r]^\pi&
+        X''(\lambda_{i_1},\cdots,\lambda_{i_l})\ar[rd]^{q_0}
+        \ar[d]_{\pi_0}\\
+        X(\lambda_{i_1})\times\cdots\times X(\lambda_{i_l})&
+        X(\lambda_{i_1},\cdots,\lambda_{i_l})\ar[l]_{p}
+        \ar[r]^{q}&
+        X(\alpha),\\
+        \OO_{\lambda_{i_1}}\times\cdots\times\OO_{\lambda_{i_l}}
+        \ar@{^{(}->}[u]&
+        \OO_{\lambda_{i_1},\cdots,\lambda_{i_l}}
+        \ar[l]_p\ar@{^{(}->}[u]\ar[ur]_q
+    }
+    \] 
+    where $\OO_{\lambda_{i_1},\cdots,\lambda_{i_l}}
+     = p^{-1}(\OO_{\lambda_{i_1}}\times\cdots\times\OO_{\lambda_{i_l}})$.
+    By the lower-triangular property
+    of the dimension of the ext-spaces between indecomposables modules
+    of $\K\Gamma$, any extension of $M(\lambda_{i_1}),
+    \cdots,M(\lambda_{i_l})$ in this order must be the trivial extension.
+    Therefore the map $p\:\OO_{\lambda_{i_1},\cdots,\lambda_{i_l}}
+    \to\OO_{\lambda_{i_1}}\times\cdots\times\OO_{\lambda_{i_l}}$
+    is an isomorphism. On the other hand, the restriction
+    of $q_0$ on $\pi_0^{-1}(\OO_{\lambda_{i_1},\cdots,\lambda_{i_l}})$
+    has image $\OO_m$, and it is a fiber bundle over $\OO_m$
+    with fiber being a product of flag varieties $\mathrm{Fl}(m_1)
+    \times\cdots\times\mathrm{Fl}(m_n)$. By the construction of the 
+    convolution product, we must have $$\costd(\OO_{\lambda_{i_1}})
+    \circ\cdots\circ\costd(\OO_{\lambda_{i_l}}) = [m]!\costd(\OO_m).$$
+    Applying $\mu$, we have 
+    \[
+        \widetilde\std(\lambda_{i_1})
+        \circ\cdots\circ\widetilde\std(\lambda_{i_l}) = [m]!\widetilde\std(m).
+    \]
+    By the previous case, we have $\widetilde\std(\lambda_{i_k})
+    \cong\std(\lambda_{i_k})$ for all $k$. By Theorem \ref{std-modules}
+    and Proposition \ref{divided-power} which give the construction
+    of the algebraic standard modules, we obtain that 
+    $\std(m)\cong\widetilde{\std}(m)$.
+
+    2) and 3): By Theorem \ref{proper-standard-modules}
+    and Theorem \ref{std-modules}, for any $m\in\KP(\alpha)$, we have
+    $[\std(m):L(m)]\ne 0$. Since both $\{L(m)\mid m\in\KP(\alpha)\}$
+    and $\{\widetilde{L}(m)\mid m\in\KP(\alpha)\}$ give 
+    a set of representatives, each representing an isomorphism class
+    up to degree shifts of simple modules of $H(\alpha)$,
+    there exists a bijection $\KP(\alpha)\to\KP(\alpha)$,
+    $m\mapsto t(m)$ such that $L(m)\cong\widetilde{L}(t(m))$.
+    Now $[\widetilde{\std}(m):\widetilde{L}(t(m))]\ne 0$
+    for all $m$, by Corollary \ref{comp-of-geo-std-2}, $m\ge t(m)$.
+    Since $\KP$ is a finite set, $t$ must be the identity map,
+    which shows that $L(m)\cong\widetilde{L}(m)$,
+    thus $P(m)\cong\widetilde{P}(m)$.
+\end{proof}
+
+\section{Polynomial Highest Weight Categories}
+
+In this section, we survey on some properties of standard modules.
+In particular, we will present that for any $\alpha\in Q^+$,
+$\mod(H(\alpha))$ is a polynomial height weight category.
+We will mainly follow the arguments given in \cite{BKM}.
+
+We first give the motivation and definition to polynomial height weight categories.
+
+Recall from Chapter 3, for a good stratification
+$\mathcal{I}$ of a space $X$, and an open stratum $X_0$,
+there exists a gluing diagram of triangulated categories
+\[
+    \D^b_{\mathcal{I}}(X-X_0)\xrightarrow{i_*}\D^b_{\mathcal{I}}(X)\xrightarrow{j^*}\D^b_{\mathcal{I}}(X_0).
+\]
+By arguments given in \cite{CPS}, the category $\D^b_{\mathcal{I}}(X)$
+has properties similar to that of height weight categories.
+However, in our case, for any $\alpha\in Q^+$, the category $\mathbf{Q}(\alpha)$
+consists of $G(\alpha)$-equivariant complexes, thus their $G(\alpha)$-equivariant
+extension algebras have forms of finite algebras over polynomial rings,
+instead of finite dimensional algebras. This leads to the following definition,
+which modifies the definition of a highest weight category:
+
+\begin{definition}[{Kleshchev, \cite{Kl15}}]
+    Suppose $\mathcal{C}$ is a graded $\K$-linear abelian category
+    with a finite set $\{L(\pi)\mid\pi\in\Pi\}$ of representatives
+    of all simple objects up to isomorphisms and degree shifts.
+    We assume that every simple object $L(\pi)$ has a projective cover
+    $P(\pi)$ and for any $M\in\mathcal{C}$ the multiplicity of $L(\pi)$
+    in $M$ is a formal Laurent series. Assume that $\Pi$ is a partially
+    ordered set. For each $\pi\in\Pi$ let $\mathcal{C}_{\le\pi}$
+    be the subcategory of $\mathcal{C}$ consisting of all objects
+    whose irreducible subquotients are $q^kL(\sigma)$ for $\sigma\le\pi$
+    and $k\in\Z$. Let $\std(\pi)$ be the projective cover of
+    $L(\pi)$ in $\mathcal{C}_{\le\pi}$.
+
+    $\mathcal{C}$ is a \term{polynomial highest weight category},
+    if for every $\pi\in\Pi$ the following conditions are satisfied:
+    \begin{enumerate}[1)]
+        \item $P(\pi)$ has a filtration $P(\pi) = P_n\supseteq
+        P_{n-1}\supseteq\cdots\supseteq P_0 = 0$ such that 
+        $P_n/P_{n-1}\cong\std(\pi)$, and for any $1\le k<n$,
+        $P_k/P_{k-1}\cong q^k\std(\sigma)$ for some $k\in\Z$ and $\sigma>\pi$;
+        \item $B(\pi) := \End(\std(\pi))^{\mathrm{op}}$ is a polynomial ring;
+        \item $\std(\pi)$ is a finitely generated free right $B(\pi)$-module.
+    \end{enumerate}
+\end{definition}
+
+We first compute the head and the endomorphism ring of standard modules.
+
+\begin{lemma}
+    Suppose $\alpha$ is a root, $k\ge 1$. Then $\std(\alpha^k)$
+    has head $L(\alpha^k)$. In addition $\std(\alpha^k)$ has an exhausive
+    filtration $\std(\alpha^k) = V_0\supseteq V_1\supseteq \cdots$
+    with $V_0/V_1 = L(\alpha^k)$ and all other subquotients of the form
+    $q^{2m}L(\alpha^k)$ with $m\ge 1$.
+\end{lemma}
+
+\begin{proof}
+    We have 
+    \[
+    \begin{aligned}
+        {[\std(\alpha^k)]}& = [\std(\alpha)^{\circ k}]/[k]!\\
+        & = [L(\alpha)^{\circ k}]/([k]!(1-q^2)^n)\\
+        & = [L(\alpha^k)]q^{-k(k-1)/2}/([k]!(1-q^2)^n)\\
+        & = [L(\alpha^k)]/((1-q^2)(1-q^4)\cdots(1-q^{2k})).
+    \end{aligned}
+    \]
+    To show that $\std(\alpha^k)$ has head $L(\alpha^k)$,
+    it suffices to show that $\Dim\Hom(\std(\alpha^k),L(\alpha^k)) = 1$.
+    Since $\std(\alpha)^{\ex k}$ has head $L(\alpha)^{\ex k}$,
+    by Proposition \ref{res-of-semi-cuspidal}, we have 
+    \[
+    \begin{aligned}
+        \Dim\Hom(\std(\alpha^k),L(\alpha^k))
+        & = \Dim\Hom(\std(\alpha)^{\circ k},L(\alpha^k))/[k]!\\
+        & = \Dim\Hom(\std(\alpha)^{\ex k},\Res_{\alpha,\cdots,\alpha}
+         L(\alpha^k))/[k]!\\
+        &\le[\Res_{\alpha,\cdots,\alpha}L(\alpha^k),L(\alpha)^{\ex k}]/[k]!\\
+        & = [k]!/[k]! = 1,
+    \end{aligned}
+    \] 
+    On the other hand $\Dim\Hom(\std(\alpha^k),L(\alpha^k))>0$,
+    thus $\Dim\Hom(\std(\alpha^k),L(\alpha^k)) = 1$, which shows that
+    $\std(\alpha^k)$ has head $L(\alpha^k)$. The exhausive
+    filtration follows from the result of the head of $\std(\alpha^k)$
+    and the identity in the Grothendieck group.
+\end{proof}
+
+\begin{proposition}
+    Suppose $\alpha\in Q^+$, $m\in\KP(\alpha)$. Then $\std(m)$
+    has head $L(m)$. In addition $\std(m)$ has an exhausive
+    filtration $\std(m) = V_0\supseteq V_1\supseteq \cdots$
+    with $V_0/V_1 = \pstd(m)$ and all other subquotients of the form
+    $q^{2k}\pstd(m)$ with $k\ge 1$.
+\end{proposition}
+
+\begin{proof}
+    The existence of the filtration is from the filtration
+    in the previous lemma and the exactness of the induction.
+    From this filtration and Theorem \ref{proper-standard-modules} 2)
+    which computes the head of the proper standard modules,
+    the only simple module that can appear in the head with nonzero
+    multiplicity is $L(m)$. Now 
+    \[
+    \begin{aligned}
+        \Dim\Hom(\std(m),L(m))
+        & = \Dim\Hom(\std(\lambda_1^{m_1})\ex\cdots
+        \ex\std(\lambda_1N{m_N}),\Res_mL(m))\\
+        & = \Dim\Hom(\std(\lambda_1^{m_1})\ex\cdots
+        \ex\std(\lambda_1N{m_N}),\\&\hspace{3em}L(\lambda_1^{m_1})\ex\cdots
+        \ex L(\lambda_1N{m_N}))\\& = 1,
+    \end{aligned}
+    \] 
+    therefore $\std(m)$ has head $L(m)$.
+\end{proof}
+
+\begin{lemma}\label{end-of-divided-power}
+    Suppose $\alpha$ is a root, $k\ge 1$. Then 
+    $\End\std(\alpha^k)\cong(\K[x_1,\cdots,x_k]^{S_k})^{\mathrm{op}}$.
+\end{lemma}
+
+\begin{proof}
+    We know that 
+    \[
+        \End(\std(\alpha)^{\circ k})
+        \cong\NH(k)^{\mathrm{op}}.
+    \] 
+    On the other hand, since 
+    $[k]!\std(\alpha^k)\cong\std(\alpha)^{\circ k}$,
+    we have $$\End(\std(\alpha)^{\circ k})\cong\operatorname{Mat}
+    _{[n]!}(\End(\std(\alpha^k))).$$ Since 
+    \[
+        \NH(n)\cong\operatorname{Mat}_{[n]!}(\K[x_1,\cdots,x_n]^{S_n}),
+    \]
+    we conclude that $\End\std(\alpha^k)\cong
+    (\K[x_1,\cdots,x_k]^{S_k})^{\mathrm{op}}$.
+\end{proof}
+
+\begin{proposition}\label{end-is-polynomial-ring}
+    Suppose $\alpha\in Q^+$, $m\in\KP(\alpha)$. Then $\End(\std(m))^{\mathrm{op}}$
+    is a polynomial ring.
+\end{proposition}
+
+\begin{proof}
+    By similar arguments to Lemma \ref{res-of-proper-std},
+    $\Res_m(\std(m)) = \std(\lambda_1^{m_1})\ex\cdots\ex\std(\lambda_N^{m_N})$.
+    Now 
+    \[
+    \begin{aligned}
+        \End(\std(m))&\cong\Hom(\std(\lambda_1^{m_1})\ex\cdots\ex\std(\lambda_N^{m_N}),
+        \Res_m(\std(m)))\\
+        &\cong\End(\std(\lambda_1^{m_1})\ex\cdots\ex\std(\lambda_N^{m_N}))\\
+        &\cong\bigotimes_{1\le i\le N}\End(\std(\lambda_i^{m_i})).
+    \end{aligned}
+    \]
+    Since each $\End(\std(\lambda_i^{m_i}))^{\mathrm{op}}$ is a polynomial ring,
+    so is $\End(\std(m))^{\mathrm{op}}$.
+\end{proof}
+
+We next discuss some homological properties of the standard modules.
+
+\begin{proposition}\label{homological-property}
+    Suppose $\alpha\in Q^+$.
+    \begin{enumerate}[1)]
+        \item For any $m\in\KP(\alpha)$ and any $d\ge 1$,
+        $\Ext^d(\std(m),V) = 0$ for all $V\in\mod(H(\alpha))$
+        with all simple subquotientsof the form $q^kL(n)$
+        for $k\in\Z$ and $n\not>m$;
+        \item For any $m,n\in\KP(\alpha)$, $d\ge 0$, we have $$
+        \Dim\Ext^d(\std(m),\pcostd(n)) = \begin{cases}
+            1,&\text{if }d = 0\text{ and }m = n,\\
+            0,&\text{otherwise}.
+        \end{cases}$$
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    1): We first show that it is true for $V = \pstd(n)$
+    where $n\not>m$. Suppose that $m = (\lambda_{i_1},\cdots,
+    \lambda_{i_l})$. Then $$\begin{aligned}
+        \Dim\Ext^d(\std(m),\pstd(n))& = \Dim\Ext^d(\std(\lambda_{i_1})
+        \circ\cdots\circ\std(\lambda_{i_l}),\pstd(n))/[m]!\\
+        & = \Dim\Ext^d(\std(\lambda_{i_1})
+        \ex\cdots\ex\std(\lambda_{i_l}),\Res_m'\pstd(n))/[m]!.
+    \end{aligned}$$
+    By Corollary \ref{res'}, if $n\not\ge m$ then $\Res_m'\pstd(n) = 0$,
+    therefore $\Ext^d(\std(m),\pstd(n)) = 0$. If $m = n$ then 
+    the above is equal to $$\sum_{d_1+\cdots+d_l = d}\prod_{1\le j\le l}
+    \Dim\Ext^{d_j}(\std(\lambda_{i_j}),L(\lambda_{i_j})),$$ 
+    which is $0$ by Proposition \ref{root-module} 3).
+    This shows that 1) is true in the case that $V = \pstd(n)$.
+
+    By Proposition \ref{ext-of-subquo} and by induction on the 
+    ordering of $\KP(\alpha)$, 1) is true for all $V = L(n)$,
+    thus is true for all such $V$'s.
+
+    2): $\std(m)$ has head $L(m)$ and all other composition factors
+    $q^k L(m')$ where $m'\le m$, where $\pcostd(n)$ has socle $L(n)$
+    and all other composition factors $q^k L(n')$ where $n>n'$.
+    Therefore $$\Dim\Hom(\std(m),\pcostd(m)) = \Dim\Hom(L(m),L(m)) = 1,$$
+    and $\Dim\Hom(\std(m),\pcostd(n)) = 0$ if $m\ne n$. If $d>1$ and $n\not>m$
+    then $\Dim\Ext^d(\std(m),\pcostd(n)) = 0$ by 1). If $d>1$ and $n>m$,
+    by the coinduction-restriction adjunction, if we set
+    $n = (\lambda_{i_1},\cdots,\lambda_{i_l})$, then
+    \[
+    \begin{aligned}
+        \Dim\Ext^d(\std(m),\pcostd(n))& = 
+        \Dim\Ext^d(\Res_n'\std(m),L(\lambda_{i_1})\ex\cdots\ex L(\lambda_{i_l})).
+    \end{aligned}
+    \]
+    By Corollary \ref{res'}, $\Res_n'\std(m) = 0$, therefore
+    $\Dim\Ext^d(\std(m),\pcostd(n)) = 0$.
+\end{proof}
+
+\begin{corollary}
+    Suppose that $\alpha\in Q^+$, $m\in\KP(m)$. Then
+    $\std(m)$ is the projective cover of $L(m)$ in $\mod(H(\alpha))_{\le m}$.
+\end{corollary}
+
+\begin{proof}
+    To prove this it suffices to show that:
+    \begin{enumerate}[i)]
+        \item All composition factors of $\std(m)$ are 
+        of the form $q^k L(n)$ where $n\le m$;
+        \item If $n\le m$, then $\Dim\Hom(\std(m),L(n)) = \delta_{m,n}$;
+        \item If $n\le m$, then $\Dim\Ext^1(\std(m),L(n)) = 0$.
+    \end{enumerate}
+
+    For i), by Theorem \ref{proper-standard-modules} 6),
+    all composition factors of $\pstd(m)$ are 
+    of the form $q^k L(n)$ where $n\le m$; since $[\std(m)]$
+    is a multiple of $[\pstd(m)]$, 
+    all composition factors of $\std(m)$ must be 
+    of the form $q^k L(n)$ where $n\le m$.
+
+    For ii), this follows from the fact that $\std(m)$ has
+    head $L(m)$.
+
+    For iii), this follows directly from Proposition
+    \ref{homological-property} 1).
+\end{proof}
+
+We say a $H(\alpha)$-module $V$ has a \term{standard flag}
+if it admits a filtration $V = V_0\supseteq V_1\supseteq\cdots
+\supseteq V_n = 0$ such that each $V_{i-1}/V_i$ is of the form
+$q^k\std(m)$ for some Kostant partition $m$. By Proposition \ref{homological-property},
+there is an equality 
+\[
+    [V:\std(m)] = \overline{\Dim\Hom(V,\pcostd(m))},
+\]
+thus the multiplicity $[V:\std(m)]$ is independent of the 
+filtration.
+
+Similar to a well-known result in the case of quasi-hereditary algebras (see
+\cite[Proposition A2.2]{Do}), we have the following proposition:
+
+\begin{proposition}\cite[Theorem 3.13]{BKM}
+    Suppose $V\in\mod(H(\alpha))$ satisfies that $$\Ext^1(V,\pcostd(m)) = 0$$
+    for all $m\in\KP(\alpha)$. Then $V$ has a standard flag.
+\end{proposition}
+
+As a result, we have the ``BGG-reciprocity'':
+
+\begin{corollary}
+    For any $m\in\KP(\alpha)$ the projective module $P(m)$ has a 
+    standard flag, and $[P(m):\std(n)] = [\pstd(n):L(m)]$ for all $m,n$.
+\end{corollary}
+
+\begin{proof}
+    Since $\Ext^1(P(m),\pcostd(n)) = 0$ for all $m,n$, $P(m)$
+    has a standard flag. Moreover 
+    \[
+        [P(m):\std(n)]
+         = \overline{\Dim\Hom(P(m),\pcostd(n))} = \overline{[\pcostd(n):L(m)]}
+         = [\pstd(n):L(m)],
+    \]
+    completing the proof.
+\end{proof}
+
+We finally state the following theorem:
+
+\begin{theorem}\cite[Theorem 6.11]{Mc2}\label{p-h-w-c}
+    For any $\alpha\in Q^+$, the category $\mod(H(\alpha))$ is a 
+    polynomial highest weight category.
+\end{theorem}
+
+\begin{proof}
+    We need to verify the properties 1), 2) and 3).
+
+    1): By the previous corollary, $P(m)$ has a standard flag
+    $P(m) = P_l\supseteq P_{l-1}\supseteq P_0 = 0$. By the 
+    reciprocity formula, for any $n\not\ge m$, we have 
+    $[P(m):\std(n)] = [\pstd(n):L(m)] = 0$, and $[P(m):\std(m)] = 1$.
+    Now let $\std_k := P_k/P_{k-1}$. Then each $\std_k$ has form
+    $q^j\std(n)$ where $n\ge m$. Now $P_l$ has head $L(m)$,
+    thus $\std_l = \std(m)$. Therefore all other $\std_k$'s
+    must have form $q^j\std(n)$ where $n>m$.
+
+    2): This follows from Proposition \ref{end-is-polynomial-ring}.
+
+    3): We first show that it is true for $m = (\lambda^k)$ where
+    $\lambda$ is a root. In this case $m$ is the minimal element
+    in $\KP(k\lambda)$, hence $\OO_m$ is the largest orbit in 
+    $X(k\lambda)$. Therefore by the proof of Theorem \ref{alg-geo},
+    \[
+        \std(m)\cong V(\OO_m)\ox H^*_{G(k\lambda)}(\OO_m,\underline{\K}).
+    \]
+    The stablizer of $\OO_m$ is isomorphic to $\mathrm{GL}(k)$,
+    thus $\std(m)\cong V(\OO_m)\ox H^*_{\mathrm{GL}(k)}(\pt)$.
+    On the other hand, by Lemma \ref{end-of-divided-power},
+    $\End(\std(m))^{\mathrm{op}}\cong\K[x_1,\cdots,x_k]^{S_k}
+    \cong H^*_{\mathrm{GL}(k)}(\pt)$. Thus $\std(m)$ is a 
+    free right $\End(\std(m))^{\mathrm{op}}$-module,
+    of finite rank $\dim V(\OO_m)$.
+
+    We now return to the general case. In this case there exists 
+    a finite set $\{\psi_w\}$ of elements in $H(\alpha)$,
+    such that 
+    \[
+        \std(m)\cong\bigoplus\psi_w\ox(\std(\lambda_1^{m_1})
+        \ex\cdots\ex\std(\lambda_N^{m_N})).
+    \] 
+    Moreover for any $\psi_w$,
+    every element in $\End(\std(m))\cong\bigotimes_i\End(\std(\lambda_i^{m_i}))$
+    fixes the direct summand $\psi_w\ox(\std(\lambda_1^{m_1})\ex\cdots\ex\std(\lambda_N^{m_N}))$.
+    Since each $\std(\lambda_i^{m_i})$ is finite free over 
+    $\End(\std(\lambda_i^{m_i}))$, each 
+    $\psi_w\ox(\std(\lambda_1^{m_1})\ex\cdots\ex\std(\lambda_N^{m_N}))$
+    is finite free over $\bigotimes_i\End(\std(\lambda_i^{m_i}))$.
+    Summing over $w$, $\std(m)$ is finite free over $\End(\std(m))$.
+\end{proof}
+
+\end{document}
+

@@ -1,0 +1,381 @@
+This section will introduce another application of the Mirzakhani's integration formula(theorem \ref{integrformu}).
+
+As in other section , $X=S_{g,n}$ denotes a hyperbolic surface of genus $g$ with $n$ cusps. The number of closed geodesics shorter than $L$  is asymptotic to $e^L/L$ as $L\to \infty$ due to Delsarte, Huber and Selberg\cite{Buser}. Mirzakhani proved in \cite{growthofsimple} the number of simple closed geodesics shorter than $L$ has the asymptotic behavior of a polynomial of degree  $6g-6+2n$ with respect to $L$.
+
+It will be helpful to classify all the simple closed geodesics according to their $\Mod_{g,n}$ action orbits, and consider the multi-curves instead of  simple closed geodesics.
+
+Define $S_X(L)$ to be the number of simple closed geodesics shorter than $L$ on $X\in \mathscr{M}_{g,n}$, and for a multi-curve $\gamma=\sum_{i=1}^ka_i\gamma_i$, define $$
+S_X(L,\gamma)=|\{\eta\in \Mod_{g,n}\cdot \gamma|l_\eta(X)\leq L\}|,
+$$
+then $$
+S_X(L)=\sum_\gamma S_X(L,\gamma),
+$$
+where $\gamma$ is over all orbits of simple closed geodesics of $\Mod_{g,n}$ actions, and the right hand of the  equality is  a finite summation.
+
+ \begin{theorem}\label{limit}
+ For rational multi-curve $\gamma$, there exists a continuous proper function $c_\gamma:\mathscr{M}_{g,n}\to \mathbb{R}_+$ such that 
+\begin{equation}
+    \lim_{L\to \infty}\frac{S_X(L,\gamma)}{L^{6g-6+2n}}=c_\gamma(X).
+\end{equation}
+ \end{theorem}
+ 
+ A multi-curve $\gamma=\sum_{i=1}^kc_i\gamma_i$ is called rational if all $c_i\in \mathbb{Q}$, and is called integral if all $c_o\in \mathbb{N}$.
+ 
+ A direct observation is that if theorem \ref{limit} holds for all integral multi-curves, then it holds for all rational multi-curves. Since $S_{X}(L,\frac{1}{N}\gamma)=S_X(NL,\gamma)$, then if $\gamma=\frac{1}{N}(\sum_{i=1}^k(Nc_i)\gamma_i)$ with $Nc_i$ integers, then $$
+ \lim_{L\in\infty}\frac{S_X(L,\gamma)}{L^{6g-6+2n}}=\lim_{L\to\infty}\frac{S_{X}(NL,N\gamma)}{(NL)^{6g-6+2n}}\cdot N^{6g-6+2n}.
+ $$
+  
+ \begin{corollary}
+ There is a continuous proper function $C:\mathscr{M}_{g,n}\to \mathbb{R}_+$ such that \begin{equation}
+    \lim_{L\to \infty}\frac{S_X(L)}{L^{6g-6+2n}}=C(X).
+\end{equation}
+ \end{corollary}
+ 
+ 
+ In this section the concept of lamination is needed  as a tool. 
+ 
+
+ For a hyperbolic surface $X\in \mathscr{M}_{g,n}$, a geodesic lamination $\lambda$ is a closed  subset of $X$ and also the disjoint union of some simple geodesics.  Each geodesic is called a leaf of  $\lambda$.
+
+ 
+ \begin{remark}
+ The concept of lamination is  a topology concept  in fact, but here we only need the geodesic lamination. In general the  lamination is locally the product $B\times \mathbb{R}^k$ with $B\subset R^l$. For the case on surface, $k=1$ and the lamination is the disjoint of some curves.
+ \end{remark}
+ 
+
+ A measured geodesic lamination  is a compact supported geodesic lamination $\lambda$ containing complete simple geodesics, equipped with a transverse invariant measure $\mu$.  Here $\mu$ gives each arc $k$ transverse to $\lambda$ a measure which is invariant under homotopy  of transverse arcs.  The space of measured geodesic lamination is denoted by $\mathscr{ML}_{g,n}$, and the subset of integral multi-curves of it is denoted by $\mathscr{ML}_{g,n}(\mathbb{Z})$. For a measured geodesic  lamination $\lambda$ and $t\in \mathbb{R}$, $t\lambda$ is defined by replacing the measure with its $t$ times.
+
+ 
+ \begin{remark}
+The measure $\mu$ on $k$ may be considered as the number of leaves  $k$ transverse.  If $\lambda$ is just a simple closed geodesic, then for and $t\in \mathbb{R}$, $\mu(k)=t\cdot I(k,\lambda)$ is a well defined measure. Here $I(-,-)$ is the oriented intersection number.
+ \end{remark}
+ 
+ A train track $\tau$ on the hyperbolic surface $X$ is an embedding 1-complex  with each 1-cell  a smooth curve  which meets  other curve at a well defined angle, and for each component $M$ of $X-\tau$, the double of $M$ along $\partial M\subset \tau$, denoted by $\hat{R}$, satisfies $\chi(\hat{M})<0$. 
+ 
+ $\lambda$ always represents a geodesic,  $\gamma$ always represents a multi-curve, and $\tau$ always represents a train track.
+
+We say a lamination $\lambda$ on the surface $S$ is carried by a train track $\tau$ is there is a deformation $f$ of the identity map of $S$ mapping $\lambda$ to $\tau$ and the restriction  on each leaf is non-singular. 
+
+Any geodesic lamination is carried by some train track, and if there is a transverse invariant measure on the lamination, then the induced measure restricted  to one edge  of the train track, is just a multiply of the intersection number. 
+
+While for a birrcurrent train track with a measure, there will be a measured geodesic lamination corresponds to it. 
+
+By work of Thurston, if $\tau$ is fixed, then the set of measures corresponds to an open set $U(\tau)$  in $\mathscr{ML}_{g,n}$, and the integral multiply of the intersection  number corresponds to some integral multi-curve. On set of measures of $\tau$, the linear structure gives it a natural Lebesgue measure. It will induce a volume on $U(\tau)$. If $\cap_{i=1}^kU(\tau_i)$ covers $\mathscr{ML}_{g,n}$, the volume is globally defined, denoted by $\mu_{Th}$. 
+
+Locally $\mathscr{ML}_{g,n}$ is of dimension $6g-6+2n$, with coordinate presented by the $6g-6+2n$ integration of the pull-back $\tilde{\phi}$  of the  closed $1$-forms $\phi_i$  in the definition of the foliation $F$ to the double $\tilde{S}_{g,n}$ of $S_{g,n}$,  along the basis for the homology of the surface $S_{g,n}$:
+$$
+F\mapsto (\int_{\gamma_1}\tilde{\phi},\cdots,\int_{\gamma_{6g-6+2n}}\tilde{\phi}).
+$$
+
+For the case of integral  point, fix a pants decomposition $P=\{\alpha_i\}_{i=1}^{3g-3+n}$, then  a presentation is given by the Dehn-Thurston parameterization\cite{traintracks}:
+$$
+\begin{aligned}
+DT:\mathscr{ML}_{g,n}(\mathbb{Z})&\to (\mathbb{Z}_+\times \mathbb{Z})^{3g-2+n}\\
+\gamma&\mapsto (I(\gamma,\alpha_i),tw(\gamma,\alpha_i))_{i=1}^{3g-3+n},\\
+\end{aligned}
+$$
+with $I$  the intersection number, and $tw$  the twisting number.
+
+
+
+
+
+$\mu_{Th}$ is invariant under the action of the mapping class group, since if $h\in \Mod_{g,n}$ maps $\tau$ to $\tau^\prime$, then it induces a bijection between the set of   measures for  $\tau$ and $\tau^\prime$, and keeps the Lebesgue measure invariant, then maps $U(\tau)$ to $U(\tau^\prime)$, keeping the induced  volume invariant. 
+
+Moreover, the following theorem tells us that for any measure $\mu$ of $\mathscr{ML}_{g,n}$ which is continuous with respect to the measure $\mu_{Th}$ and is invariant under the action of $mod_{g,n}$, then $\mu$ is a multiply of $\mu_{Th}$. See \cite{ergodic} for details.
+
+\begin{theorem}\label{ergodictheorem}
+$\Mod_{g,n}$ actions ergodically on $\mathscr{SF}$, the space  of measured foliation on  a smooth surface $S=S_{g,n}$.
+\end{theorem}
+
+\begin{remark}
+In \cite{ergodic} the theorem is for surface with singularities, and the conclusion is similar for surface with  boundaries.
+\end{remark}
+
+Similar to  the length for the multi-curves, fix$X\in \mathscr{T}_{g,n}$, the length of measured lamination is defined as follows:
+\begin{enumerate}
+    \item if $\gamma$ is a multi-curve on $X$, then the length is  just the length as a  multi-curve.
+    \item for $t\in \mathbb{R}$, $l_{t\lambda}(X)=t l_\lambda(X)$.
+    \item for any element $g$ in the mapping class group, $L_{g\lambda}(gX)=L_{\lambda}(X)$. 
+\end{enumerate}
+
+
+
+A first consequence is about the asymptotic behavior  number of  multi-curves of bounded length. 
+
+
+\begin{theorem}\label{bxlbehavior}
+For $X\in \mathscr{T}_{g,n}(L)$,
+set  $$b_X(L)=|\{\gamma\in \mathscr{ML}_{g,n}(\mathbb{Z}):l_\gamma(X)\leq L\}|$$
+ and $$B_X=\{\lambda\in \mathscr{ML}_{g,n}:l_{\lambda}(X)\leq 1\}$$ 
+  is the unit ball of $\mathscr{ML}_{g,n}$ of length with respect to $X$.
+
+Then 
+ \begin{equation}
+     \lim_{L\to \infty} \frac{b_X(L)}{L^{6g-6+2n}}= \mu_{Th}(B_X)
+ \end{equation}
+
+ 
+as $L\to \infty$.
+
+\end{theorem}
+
+\begin{proof}
+Firstly consider it in locally chart $U(\tau)$, that is,  counting integral point in $U(\tau)\cap \mathscr{ML}_{g,n}(\mathbb{Z})$.  In $U(\tau)$ the structure of the space is linear of dimension $6g-6+2n$. 
+
+For any open subset $U\subset \mathscr{ML}_{g,n}$, define $L\cdot U=\{L\cdot \lambda|\lambda\in U\}$, then by the linear structure of $U(\tau)$, 
+\begin{equation}\label{muthmtau}
+    \lim_{L\to \infty} \frac{|\mathscr{ML}_{g,n}(\mathbb{Z})\cap L\cdot (U\cap U(\tau))|}{L^{6g-6+2n}}=\mu_{Th}(U\cap U(\tau)).
+\end{equation}
+
+
+
+Then cover $\mathscr{ML}_{g,n}$ with finite $U(\tau_i)$, $i\in I$, and  apply the above limitation to $U=B_X\cap (\cap_{j\in J}U(\tau_j))$ and $U(\tau_i)$, where $J\subset I$ arbitrarily. By the inclusion-exclusion principle, 
+$$
+\lim_{L\to \infty} \frac{|\mathscr{ML}_{g,n}(\mathbb{Z})\cap L\cdot B_X|}{L^{6g-6+2n}}=\mu_{Th}(B_X).
+$$
+Notice that $L\cdot B_X=\{\gamma\in \mathscr{ML}_{g,n}| l_\gamma(X)\leq L\}$, then $|\mathscr{ML}_{g,n}(\mathbb{Z})\cap L\cdot B_X|=b_X(L).$
+\end{proof}
+
+\begin{remark}
+For fixed $\lambda$, $l_\lambda$ is continuous, and thus $\mu_{Th}(B_X)$ is a continuous function with respect to $X\in \mathscr{T}_{g,n}$,  and in fact can degenerate to $\mathscr{M}_{g,n}$.
+\end{remark}
+
+To prove that $\mu_{Th}(B_X)$ is integrable, the estimation of $b_X(L)$ is needed. 
+
+In Euclidean space $\mathbb{R}^2$, two norm $|(x,y)|_1=(x^2+y^2)^{\frac{1}{2}}$  and $|(x,y)|_2=|x|+|y|$ are equivalent. Similar to $|(x,y)|_2$, for a  multi-curve $\gamma\in \mathscr{ML}_{g,n}(\mathbb{Z})$, define the combination length with respect to the pants decomposition  $P$ and related  Dehn-Thurston parameterization by 
+$$
+L_P(X,\gamma)=\sum_{\alpha\in P} (I(\gamma,\alpha)w(\alpha)+|tw(\gamma,\alpha)|l(\alpha)),
+$$
+with $I(\gamma,\alpha), tw(\gamma,\alpha)$ the Dehn-Thurston  parameterization, $l(\gamma)$ the length of $\alpha$ and $w(\gamma)$ the half width of collar with center $\alpha$.  Then the combination length is compatible with the original  length of $\gamma$.
+
+\begin{theorem}\label{distanceequi}
+There exists a constant $c(L,g,n)$ such that if   $X\in \mathscr{T}_{g,n}$  and  pants decomposition $P$ with $l_\alpha(X)<L$ for any $\alpha\in P$, then $$
+\frac{1}{c(L,g,n)}l_\gamma(X)\leq L_{P}(X,\gamma)\leq c(L,g,n) l_\gamma(X).
+$$
+\end{theorem}
+
+\begin{remark}
+By There is a Bers' constant $L_{g,n}$ for any $g,n$ such that for any $X\in \mathscr{T}_{g,n}$ there is a pants decomposition $P$ such that the length of all closed curves in $P$ are bounded by $L_{g,n}$, and $L_{g,n}$ is the  optimal parameter.  Thus the condition for the above estimation is easy to satisfy.  
+\end{remark}
+
+\begin{proof}[Proof of theorem \ref{distanceequi}]
+To prove the low bound of $l(\gamma)$, it suffices to show the equality for a simple closed geodesic $\gamma$, since otherwise for multi-curves $\gamma=\sum_{i=1}^kc_i\gamma_i$, the estimation for $\gamma_i$ can be added up to the estimation for $\gamma$, since the condition that $\gamma_i$'s are disjoint guarantees that the twist numbers along the same simple geodesic are of the same signature.
+
+For a   simple closed geodesic $\gamma$, denote the intersection points with $P$ to be $p_1,\cdots, p_{n_0}$ in order, and set $p_{n_0+1}=p_1, p_0=p_{n_0}$. Assume that  $p_j$ is the intersection point of $\gamma$ with $\alpha_{k_j}$. and denote $\gamma_j$ to be the segment between $p_{j-1}$ and $p_{j+1}$ containing $p_j$.
+
+Under these  notations, $$\sum_{j=1}^{n_0}l(\gamma_j)=2l_\gamma(X),$$ and  $$I(\gamma,\alpha_i)=|\{j:p_j\in \alpha_i\}|.$$  What's more, $$|tw(\gamma,\alpha_i)|=\sum_{j:p_j\in \alpha_i}|tw(\gamma_j,\alpha_i)|$$ since $\gamma$ is simple and $tw(\gamma_j,\alpha_i)$'s are of the same signature for different $j$. This implies that if a similar estimation for $l(\gamma_j)$ holds, then  add them up and  the desired below estimation for $l_\gamma(X)$ will form.  
+
+Lift $\gamma_j$ to a geodesic arc $\tilde{\gamma_j}$ on the universe covering $\mathbb{H}$, and the pre-images of $p_{j-1}$, $p_j$, $p_{j+1}$  are $\tilde{p}_{j-1}$, $\tilde{p}_{j}$ and $\tilde{p}_{j+1}$. Lift $\gamma_{k_i}$ to  geodesics $C_i$ on $\mathbb{H}$, for $i=j-1,j,j+1$.
+Let the unique common perpendicular of $C_{i}$ and $C_{i+1}$ is the segment connecting  $P_i$ and $Q_i$, with $P_i\in C_i$, $Q_i\in C_{i+1}$. 
+
+Since $\tilde{\gamma_j}$ is a geodesic arc, then $$l(\gamma_j)\leq d(\tilde{p}_{j-1},P_{j-1})+d(P_{j-1},Q_{j-1})+d(Q_{j-1},P_j)+d(P_j,Q_j)+d(Q_j,\tilde{p_{j+1}}).$$
+
+To show the low bound, consider the geodesic quadrangle $ABCD$ with $d(A,B)=a$, $d(B,C)=b$, $d(C,D)=c$, and $d(D,A)=d$, with $B,C$ right angles. Then project $A$ to the edge $CD$ at $H$, and consider the quadrangle $ABCH$ with the triangle $ADH$, and  apply  lemma \ref{tri}, then the following  equation holds\cite{Buser}:
+\begin{equation}\label{tworight}
+    \cosh(d)=\cosh(a)\cosh(c)\cosh(b)-\sinh(a)\sinh(c).
+\end{equation}
+
+Now $l(\alpha_i)$ is bounded by $L_{g,n}$, then there is a  constant $D=\operatorname{arcsinh} \left(\frac{1}{\sinh(L_{g,n}/2)}\right)$ such that $d(C_i,C_{i+1})\geq D$.
+
+If $b\geq D$ in (\ref{tworight}), then $$
+\cosh(d)\geq \cosh(a+c)\cosh(b-E)\geq \cosh(a+b+c-E)
+$$
+for some uniform constant $E$, so $$
+d\geq a+b+c-E.
+$$
+Apply it to the quadrangle $\tilde{p}_{j-1}P_{j-1}Q_{j-1}\tilde{p}_{j}$,  and $d=d(\tilde{p}_{j-1},\tilde{p}_{j})$, then $d\geq D$.
+If $D\geq E$, then $2d\geq D+E\geq a+b+c$. If $D<E$, then $2Ed\geq Ed+D(a+b+c-E)\geq D(a+b+c)$.
+It follows  \begin{equation}\label{thispart1}
+d\geq min\{\frac{1}{2},\frac{D}{2E}\}(a+b+c).
+\end{equation}
+
+For the edges which play the role of $a,b,c$ in the above  inequality  for   $\tilde{p}_{j-1}P_{j-1}Q_{j-1}\tilde{p}_{j}$,  the edge $\tilde{p}_{j-1}P_{j-1}$ can be ignored, $l(P_{j-1}Q_{j-1})>w(\alpha_{k_j})$, so it lefts to consider the length of $Q_{j-1}\tilde{p}_{j}$  together with $\tilde{p}_{j}P_j$. For $\tilde{p}_{j+1}Q_{j}P_{j}\tilde{p}_{j}$  the estimation is similar.
+
+Since $l(Q_{j-1}P_j)=|tw(\gamma_j,\alpha_{k_j})l(\alpha_{k_j})+\tau_{k_j}+e_j|$ with $|\tau_{k_j}|,|e_j|<l(\alpha_{k_j})$, then $l(Q_{j-1}P_j)\geq max\{|tw(\gamma_j,\alpha_{k_j})|-2,0\}\cdot l(\alpha_{k_j}).$
+Since $l(\alpha_{k_j})<L_{g,n}$, then there is some constant $e$ with \begin{equation}\label{thispart2}
+l(P_{j-1}Q_{j-1})+l(Q_{j-1}P_j)\geq e\cdot (w(\alpha_{k_j})+|tw(\gamma_j,\alpha_{k_j})|\cdot l(\alpha_{k_j})).
+\end{equation}
+
+Combine (\ref{thispart1}) and (\ref{thispart2}),
+$$
+\begin{aligned}
+l(\gamma_j)&=l(\tilde{p}_{j-1}\tilde{p}_j)+l(\tilde{p}_j\tilde{p}_{j+1})\\
+&\geq c^\prime\cdot (l(\tilde{p}_{j-1}P_{j-1})+l(P_{j-1}Q_{j-1})+l(Q_{j-1}\tilde{p}_{j}))\\
+&+c^\prime\cdot (l(\tilde{p}_jP_j)+l(P_jQ_j)+l(Q_j\tilde{p}_{j+1}))\\
+&\geq c^\prime\cdot (l(P_{j-1}Q_{j-1})+l(Q_{j-1}P_j))\\
+\geq c^{\prime\prime}\cdot &(w(\alpha_{k_j})+|tw(\gamma_j,\alpha_{k_j})|\cdot l(\alpha_{k_j})).\\
+\end{aligned}
+$$
+
+Add it for  $j=1,\cdots,r$, then $l_\gamma(X)\geq c\cdot L_P(X,\gamma)$.
+
+For the upper bound of $l_\gamma(X)$, notice that in a pair of pants with boundary components $\beta_1,\beta_2,\beta_3$ of length $x_1,x_2,x_3$, then
+$$
+\cosh(d(\beta_3,\beta_1))=\frac{\cosh(\frac{x_2}{2})+\cosh(\frac{x_1}{2})\cosh(\frac{x_3}{2})}{\sinh(\frac{x_1}{2})\sinh(\frac{x_3}{2})},
+$$
+For $x_i\leq L_{g,n}$, then 
+$$
+\sinh(d(\beta_3,\beta_1))\leq \frac{N}{\sinh(\frac{x_1}{2})\sinh(\frac{x_3}{2})},
+$$
+which implies $d(\beta_3,\beta_1)\leq c(w(\beta_3)+w(\beta_1))$ for some constant $c$. Then the upper bound of $l_\gamma(X)$ is guaranteed by the fact that $\gamma$ is of minimal  length among its homotopy class.
+\end{proof}
+
+The combination length $L_P(X,\gamma)$  is a linear behavior of the Dehn-Thurston  parameterization, by which the number of bounded multi-curves is easy to estimate.
+
+Consider $\epsilon>0$ such that  for any two closed geodesics $\gamma_1,\gamma_2$ with $l(\gamma_1),l(\gamma_2)<\epsilon$, then $\gamma_1\cap \gamma_2=\emptyset$. This is guaranteed by the collar lemma that any other closed curve intersects $\gamma$ must by  longer than the width of the collar centered with  $\gamma$.
+
+\begin{lemma}\label{estimatebxl}
+For any $\delta\leq \epsilon$, there exist constants   $c_1,c_2>0$ such that for $L>1$, \begin{equation}
+  c_1\ \prod_{l_\gamma(X)\leq \delta}\frac{1}{l_\gamma(X)|\log(l_\gamma(X))|}  
+  \leq 
+ \frac{b_X(L)}{L^{6g-6+2n}}
+  \leq
+ c_2\ \prod_{l_\gamma(X)\leq \delta}\frac{1}{l_\gamma(X)}.
+\end{equation}
+\end{lemma}
+
+
+
+Since elements in  $\mathscr{M}_{g,n}$ can be classified to the number of closed simple geodesics shorter than $\epsilon$, and the number is  at most $3g-3+n$.  For the set  $\mathscr{M}_{g,n,\Gamma}^k$ of surfaces containing specific  $k$ closed curves $\Gamma$ shorter than $\epsilon$, the $k$ closed curves can be extended  to a pants decomposition $P$ with closed curves shorter than $L_{g,n}$, and the Fenchel--Nielsen coordinates with respect to it  $$
+\pi\colon\{(l_i,\tau_i)_{i=1}^{3g-3+n}|0\leq \tau_i\leq l_i,l_1,\cdots, l_k\in [0,\epsilon], l_i\leq L_{g,n}\}
+\to \mathscr{M}_{g,n,\Gamma}^k
+$$
+is onto, 
+and $\mathscr{M}_{g,n}$ can be covered by finite $\mathscr{M}_{g,n,\Gamma}^k$.
+
+Since the integral of $\frac{b_X(L)}{L^{6g-6+2n}}$ on $\mathscr{M}_{g,n,\Gamma}^k$ is uniformly bounded by 
+$$
+c_2\int_{[0,\epsilon]^k\times [0,L_{g,n}]^{3g-3+n-k}}\int_{\tau_i\leq l_i}\frac{1}{l_1\cdots l_k}dl_1\cdots dl_{3g-3+n} d\tau_1\cdots d\tau_{3g-3+n}< \infty,
+$$
+then by lemma \ref{estimatebxl}, theorem \ref{bxlbehavior} and dominated convergence theorem, $\mu_{Th}(B_{-})$ is integrable over $\mathscr{M}_{g,n}$.
+
+Meanwhile, since $b_X(L)$ bounds $S_X(L,\gamma)$ and $S_X(L)$, then both of them can be applied to the dominated  convergence theorem. 
+
+If $\mu_{Th}(B_X)$ is large enough or small enough, then there must exist some $\delta\leq \epsilon$ such that $\inf({l_\gamma(X)})\leq\delta$,  which lies in the complement of  a compact domain in $\mathscr{M}_{g,n}$, thus $\mu_{Th}(B_{-}):\mathscr{M}_{g,n}\to \mathbb{R}_+$ is a  proper map.
+
+
+\begin{proof}[Proof of lemma \ref{estimatebxl}]
+Firstly consider the estimation of bounded integral multi-curves with   respect to the combination length. 
+
+Write $A_i=w(\gamma_i)$ and $B_i=l(\gamma_i)$, then
+$$L_P(X,\gamma)=\sum_{i=1}^{3g-3+n} (I_i\cdot A_i+|T_i|\cdot B_i )$$
+with $I_1=I(\gamma,\alpha_i),T_i=tw(\gamma,\alpha_i).$ So it will be helpful to estimate the number of  integral points $(x,y)$ with $Ax+B|y|\leq L, x\geq 0$, denoted by $E(A,B,L)$.
+
+ For $L>100\cdot \max\{A,B\}$,  using the area method,  the domain $[1,A\cdot ([\frac{L}{2A}]+1)]\times [-B\cdot[\frac{L}{2B}+1],B\cdot [\frac{L}{2B}+1]]
+ $
+ lies inside $B(0,L)$, thus \begin{equation}
+    \frac{L}{2B}\times \frac{L}{2A}\times 2\leq E(A,B,L).
+ \end{equation}
+
+ 
+ Similarly, $B(0,L)$ lies inside $[0,A\cdot [1+\frac{L}{A}]]\times [-B\cdot[1+\frac{L}{B}],B\cdot [1+\frac{L}{B}]]$, then \begin{equation}
+     E(A,B,L)\leq 2(2+\frac{L}{A})\times (2+\frac{L}{B})
+ \end{equation}
+ 
+ Set $c=c(L,g,n)$ to be the constant in theorem \ref{distanceequi}, and $k=3g-3+n$, then if $l_\gamma(X)\leq L$, then $L_P(X,\gamma)\leq cL$, while the number of $(I_i,T_i)$ such that $\sum_{i}^k (I_iA_i+|T_i|B_i)\leq cL $ is bounded by $\prod_i^k E(A_i,B_i,cL)$.
+
+Similarly, if $(I_i,T_i)$ satisfies $I_iA_i+|T_i|B_i\leq \frac{L}{kc}$, then $L_P(X,\gamma)\leq \frac{L}{kc}\times k$, so $l_\gamma(X)\leq L$, then $b_X(L)\geq \prod_{i=1}^kE(A_i,B_i,\frac{L}{kc})$.
+
+Now if $A_i\geq \delta$, since $A_i\leq L_{g,n}$, by the collar lemma (Lemma \ref{collarlemma}), there exists some $b_0,b_1>0$ such that $b_0\leq B_i\leq b_1$, then for $L$ large enough $\frac{E(A_i,B_i,cL)}{L^2}\leq 2(\frac{c}{A_i}+2)(\frac{c}{B_i}+2)$, which is bounded from above. For $A_i\leq \delta$,  then $B_i\geq \operatorname{arcsinh}(\frac{1}{\sinh(\frac{1}{2}\delta)})$, then $$\frac{E(A_i,B_i,cL)}{L^2}\leq2(\frac{c}{A_i}+2)(\frac{c}{B_i}+2) \leq d_i\frac{1}{A_i}$$ for some uniform constant $d_i$.  It follows the upper bounded for $\frac{b_X(L)}{L^{6g-6+2n}}$ is $c_2\cdot \prod_{l_\gamma(X)\leq \delta}\frac{1}{l_\gamma(X)}$ if  $L>1$. 
+
+Similarly, if $\delta\leq A_i\leq L_{g,n}$, then $\frac{1}{A_iB_i}$ is bounded from both above and below. If $A_i\leq \delta$, then $$B_i=\log(\frac{1}{\sinh \frac{1}{2}A_i}+\frac{\cosh \frac{1}{2}A_i}{\sinh \frac{1}{2}A_i})\sim \log\frac{2}{\frac{1}{2}A_i}\sim \log(\frac{1}{A_i}),$$ Thus $$\frac{E(A_i,B_i,\frac{L}{kc})}{L^2}\geq e_i\frac{1}{A_i|\log A_i|}$$ for some  constant $e_i$ if $L>100\cdot \max\{A_i,B_i\}$. While for $1<L<100 \cdot\max\{A_i,B_i\}$, $
+\frac{b_X(L)}{L^{6g-6+2n}}$ is bounded from below automatically. 
+\end{proof}
+
+Now $b_X(L)$ has the asymptotic  behavior of $\mu_{Th}(B_X)L^{6g-6+2n}$, with $\mu_{Th}(B_X)$ continuous and integral over $\mathscr{M}_{g,n}$. 
+
+For $S_X(L,\gamma)$, with $\gamma=\sum_{i=1}^ka_i\gamma_i$ a multi-curve, the Mirzakhani's integration formula  will be helpful to deal with the type of $\gamma$.
+
+Define $$P(L,\gamma)=\int_{\mathscr{M}_{g,n}}S_X(L,\gamma)d\mu,$$ then 
+
+\begin{theorem}\label{integralbehavior}
+$P(L,\gamma)$ is a polynomial of degree $6g-6+2n$ with respect to $L$.    
+\end{theorem}
+
+
+\begin{proof}
+For any $L>0$, take $f(x)=0$ if $x>L$ and $f(x)=1$ if $x\leq L$. Then by definition of $f_\gamma$, for any $X\in\mathscr{M}_{g,n}$,
+$$
+\begin{aligned}
+    f_\gamma(X)&=\sum_{[\alpha]\in \Mod\cdot [\gamma]}f(l_\alpha(X))\\
+    &=\sum_{[\alpha]\in \Mod\cdot [\gamma]} 1_{\{f(l_\alpha(X))\leq L\}}\\
+    &=S_X(L,\gamma).\\
+\end{aligned}
+$$
+
+Apply  Mirzakhani's integration formula, $$
+P(L,\gamma)=\frac{2^{-M(\gamma)}}{|sym(\gamma)|}\int_{\sum_{i=1}^ka_ix_i\leq L}\mathrm{Vol}(\mathscr{M}_{g,n}(\Gamma,x))x\cdot dx,
+$$
+and $Vol(\mathscr{M}_{g,n}(\Gamma,x))$ is a polynomial of $x_1,\cdots,x_k$ of degree $6g-6+2n-2k$, since for any $\gamma_i$, if it is not separating, then $g$ becomes $g-1$, and $n$ becomes $n+2$, and if it is separating,  then it becomes union of $S_{g_1,n_1}$ and $S_{g_2,n_2}$, with $g_1+g_2=g$, $n_1+n_2=n+2$.
+
+It follows $P(L,\gamma)$ is  polynomial of degree $6g-6+2n$.
+\end{proof}
+
+Define $c(\gamma)$ to be the leading coefficient of $P_X(L,\gamma)$, then the following theorem holds.
+
+\begin{theorem}\label{pointwisebehavior}
+For rational multi-curve $\gamma$, and any $X\in \mathscr{M}_{g,n}$, 
+$$
+\lim_{L\to \infty}\frac{S_X(L,\gamma)}{L^{6g-6+2n}}=\frac{\mu_{Th}(B_X)}{\int_{\mathscr{M}_{g,n}}\mu_{Th}(B_X)dX}c(\gamma)
+$$
+\end{theorem}
+\begin{remark}
+If this holds, then integrate it over  $\mathscr{M}_{g,n}$ and then $$\lim_{L\to \infty}\frac{P(L,\gamma)}{L^{6g-6+2n}}=c(\gamma),$$ coincident with theorem \ref{integralbehavior}.
+For integral multi-curve $\gamma$, $S_X{L,\gamma}$ is bounded by $b_X(L)$ uniformly, then the dominated convergence theorem can be applied. For rational multi-curve $\gamma$,  it can be deal  with as $N\gamma$ such that $N\gamma$ is an integral multi-curve. But for other multi-curve, such boundary  may not exist uniformly, so the pointwise estimation  of $\mathscr{M}_{g,n}$ can't be obtained by the same method.
+\end{remark}
+
+\begin{proof}[Proof of theorem \ref{pointwisebehavior}]
+As it is  mentioned in the remark, it suffices to prove it for $\gamma\in \mathscr{ML}_{g,n}(\mathbb{Z})$. 
+
+For any $L>0$, the $$
+S_X(L,\gamma)=|L\cdot B_X\cap \Mod_{g,n}\gamma|.$$
+
+So we may set the counting measures as 
+
+$$\mu_{L,\gamma}(U)=\frac{|L\cdot U\cap \Mod_{g,n}\gamma|}{L^{6g-6+2n}}$$ for any $U\subset \mathscr{ML}_{g,n}.$
+
+If $U$ is bounded, assume $U\subset R\cdot B_X$, then $$\mu_{L,\gamma}(U)\leq \mu_{L,\gamma}(R\cdot B_X)\leq \frac{S_X(RL,\gamma)}{L^{6g-6+2n}}\leq \frac{b_X(RL)}{L^{6g-6+2n}},$$
+
+which is bounded uniformly by lemma \ref{estimatebxl}, independent of $L$. 
+
+Since $\mathscr{ML}_{g,n}$ contains a family of countable topology basis, then  for any $\{\mu_{L_i,\gamma}\}$,  there is a weak-convergent subsequence $\{\mu_{L_{i_j},\gamma}\}$ with $\lim_{j\to \infty}L_{i_j}=\infty$, and $\{\mu_{L_{i_j},\gamma}\}$ converges to some measure  $\mu$. That is $\mu_{L_{i_j},\gamma}(V)\to \mu(V)$ for any compact set $V$. Assume the $\mu_{L_i,\gamma}$ weakly converges to $\mu$ for convenience.
+
+
+In particular, $$\mu_{L_i,\gamma}(B_X)=\frac{S_X(L_i,\gamma)}{L_i^{6g-6+2n}}\to \mu(B_X).$$ 
+
+Now since $\mu_{L,\gamma}$ is invariant under $\Mod_{g,n}$ action, then so does $\mu$.   
+
+For $U$ open set , take finite cover $U_{\tau_i}$ of  $\mathscr{ML}_{g,n}$, then 
+ $$
+ \begin{aligned}
+ &\mu_{L_i,\gamma}(U\cap U(\tau_i))\leq \liminf_{i\to \infty}\mu_{L_i,\gamma}(U\cap U(\tau_i))\\
+ \leq &\lim_{i\to \infty}\frac{|Mod_{g,n}\cdot\gamma\cap L_i(U\cap U(\tau_i))|}{L_i^{6g-6+2n}}=\mu_{Th}(U\cap U(\tau))
+ \end{aligned}
+ $$
+ by (\ref{muthmtau}). Then if $\mu_{Th}(V)=0$,  $\mu_{Th}(V\cap U(\tau_i))=0$, hence $\mu(U\cap U(\tau_i))=0$ and $\mu(U)=0$. 
+  It follows if $\mu_{Th}(V)=0$ then $\mu(V)=0$ for any $V$.
+  
+  By theorem \ref{ergodictheorem}, $\mu$ is a multiple of $\mu_{Th}$, denoted by $b(\gamma)\cdot \mu_{Th}$. 
+  
+  $$
+  \begin{aligned}
+  &b(\gamma)\cdot \int_{\mathscr{M}_{g,n}}\mu_{Th}(B_X)dX=\int_{\mathscr{M}_{g,n}}\mu(B_X)dX\\
+  =&\int_{\mathscr{M}_{g,n}}\lim_{i\to \infty}\frac{S_X(L_i,\gamma)}{L_i^{6g-6+2n}}dX=
+  \lim_{i\to \infty}\frac{P(L_i,\gamma)}{L_i^{6g-6+2n}}=c(\gamma).
+  \end{aligned}
+  $$
+  
+  The limitation holds by the dominated convergence theorem.
+  
+  Since the argument holds for any sequence $L_i$ with $L_i\to \infty$, then $$
+  \lim_{L\to \infty}\frac{S_X(L,\gamma)}{L^{6g-6+2n}}=\frac{\mu_{Th}(B_X)}{\int_{\mathscr{M}_{g,n}}\mu_{Th}(B_X)dX}c(\gamma)
+  $$
+\end{proof}
+
+\begin{theorem}
+If $\gamma_i,\cdots,\gamma_k$ represent the orbits of simple closed geodesics under $\Mod_{g,n}$ actions, then if $N(X,L)$ is  the number of simple closed geodesics with length shorter than $L$, then 
+$$
+\lim_{L\to \infty}\frac{N(X,L)}{L^{6g-6+2n}}=\frac{\mu_{Th}(B_X)}{\int_{\mathscr{M}_{g,n}}\mu_{Th}(B_X)dX} \sum_{i=1}^k
+c(\gamma_i).$$
+\end{theorem}

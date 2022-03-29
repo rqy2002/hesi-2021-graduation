@@ -1,0 +1,395 @@
+\subsection{Example 1}
+	\[
+	M=Sl(n,\mathbb{R})/SO(n)
+	\]
+	In the present case where $G \subset G l(n, \mathbb{R})$, the
+	exponential map is the usual matrix exponential map:
+	For $X \in \mathfrak{gl}(n, \mathbb{R})$
+	\[
+	\exp X=e^{X}:={Id}+X+\frac{1}{2} X^{2}+\cdots.
+	\]
+	For $X, Y \in \mathfrak{gl}(n, \mathbb{R})$, 
+	\[
+	({ad} X) Y=[X, Y]=X Y-Y X.
+	\]
+	For a Lie algebra $\mathfrak{g}$, the Killing form is
+	\[
+	B(X, Y)=\operatorname{tr} \mathrm{ad} X \mathrm{ad} Y \quad
+	\text { for } X, Y \in \mathfrak{g}.
+	\]
+	$\mathfrak{g}$ and $G$ are called semisimple if $B$ is
+	nondegenerate.
+
+	On $\mathfrak{gl}(n, \mathbb{R})$, we have 
+	\[
+	B(X,Y)=\text{tr}
+	\mathrm{ad}X\mathrm{ad}Y=2n\text{tr}XY-2\text{tr}X\text{tr}
+	\]
+	where the trace on the right hand side is the usual matrix
+	trace. 	
+
+	This can be computed as follows: 
+	
+	 A basis of $\mathfrak{gl}(n,\mathbb{R})$ is $\{E_{ij}\}$
+	 where the only nonzero entry is (i,j)-th with value $1$.
+	\[\mathrm{ad}X
+	\mathrm{ad}Y(E_{ij})=[X,[Y,E_{ij}]]=XYE_{ij}+E_{ij}YX-XE_{ij
+	}Y-YE_{ij}X\]
+	\[(\mathrm{ad}X
+	\mathrm{ad}Y(E_{ij}))_{ij}=(XY)_{ii}+(YX)_{jj}-X_{ii}Y_{jj}-
+	Y_{ii}X_{jj}.\]
+	So
+	\[\text{tr}\mathrm{ad}X\mathrm{ad}Y=\sum_{i,j}(\mathrm{ad}X
+	\mathrm{ad}Y(E_{ij}))_{ij}=2n\text{tr}XY-2\text{tr}X\text{tr
+	}Y.\]
+
+	For $X=\alpha {Id}$, we have
+	\[
+	\mathrm{ad} X=0
+	\]
+	so $B(\ ,\ )$ is degenerate and therefore $\mathfrak{g l}(n,
+	\mathbb{R})$ is not semisimple. $\mathfrak{sl}(n,
+	\mathbb{R})$, however, is semisimple, and we have for $X, Y
+	\in \mathfrak{sl}(n, \mathbb{R})$
+	\[
+	B(X, Y)=2 n \operatorname{tr} X Y
+	\]
+	in particular 
+	\[
+	B\left(X, X^{t}\right)>0 \quad \text{for}\ \  X \neq 0
+	\]
+	showing nondegeneracy.	
+
+	
+	Now return to $M=S l(n, \mathbb{R}) / S O(n)$.  Put $G=S l(n,
+	\mathbb{R})$,
+	$K=S O(n)$, and $\mathfrak{g}=\mathfrak{sl}(n, \mathbb{R}),
+	\mathfrak{k}=\mathfrak{s o}(n)$. 
+	
+	Let
+	\begin{itemize}
+		\item $P$:=\{$A \in S l(n, \mathbb{R})$: $A^{t}=A$, $A$
+		{ positive definite }\}
+		\item $\mathfrak p$:=\{$X\in
+		\mathfrak{sl}(n,\mathbb{R})$: $X^t=X$\}
+	\end{itemize}
+	Then  $\mathfrak{g}=\mathfrak{k} \oplus \mathfrak{p}$ is the
+	orthogonal decomposition w.r.t $B$, i.e. 
+	for $\forall X\in \mathfrak k, \forall Y\in \mathfrak p$, 
+	\[
+	B(X,Y)=2n\text{tr}
+	XY=2n\text{tr}(Y^tX^t)=2n\text{tr}(-YX)=-B(X,Y)
+	\]
+	so
+	\[B(X,Y)=0.\]
+	We see that:
+	\begin{itemize}
+		\item 	Any $A \in Gl(n, \mathbb{R})$ can be uniquely
+		decomposed ( polar decomposition theorem) as
+		\[
+		A=V R
+		\]
+		with a symmetric positive definite matrix $V$ and an
+		orthogonal matrix $R$.
+	 
+		\item $V \in P$ in the above decomposition.
+		
+		\item In fact, one deduces from the polar decomposition
+		theorem that $M=S l(n, \mathbb{R}) / S O(n)$ is
+		homeomorphic to $P$ by the obvious map:
+		\[
+		M\to P,\ A\cdot S O(n)\mapsto V
+		\]
+		and since $P$ is naturally a differentiable manifold, so
+		then is $M$.
+	\end{itemize}
+	
+	
+
+	$G$ operates transitively on $G / K$ by diffeomorphisms, here
+	$G=S l(n, \mathbb{R}), K=S O(n)$, but this holds in general,
+	like all the structural results that we shall describe:
+	\[
+	\begin{aligned}
+		G \times G / K & \rightarrow G / K \\
+		(h, g K) & \rightarrow h g K .
+	\end{aligned}
+	\]
+	The isotropy group of $Id \cdot K$ is $K$, while the isotropy group of $g K$ is $g K g^{-1}$.
+	
+	
+	In order to describe the metric, we put
+	\[
+	\langle X, Y\rangle_{\mathfrak{g}}:=\left\{\begin{array}{cl}
+		B(X, Y) & \text { for } X, Y \in \mathfrak{p} \\
+		-B(X, Y) & \text { for } X, Y \in \mathfrak{k} \\
+		0 & \text { otherwise. }
+	\end{array}\right.
+	\]
+	It follows from the result $B(X,Y)=2n\text{tr} XY$ that
+	$\langle\cdot, \cdot\rangle_{\mathfrak g}$ is positive
+	definite. 
+
+	We put $e:=\mathrm{Id} \in G$, and we identify $T_{e} G$ with
+	$\mathfrak{g} .\ \ \langle\cdot, \cdot\rangle_{\mathfrak{g}}$
+	then defines a metric on $T_{e} G$, and we then obtain a
+	metric on $T_{g} G$ for arbitrary $g$ by requiring that the
+	left translation
+	\[
+	\begin{aligned}
+		L_{g}: G & \rightarrow G \\
+		h & \rightarrow g h
+	\end{aligned}
+	\]
+	induces an isometry between $T_{e} G$ and $T_{g} G$. 
+	
+	\
+	
+	Likewise, we get an induced metric on $G / K:$ restricting
+	$\left\langle\cdot,  \cdot\rangle_{g}\right.$ to $\mathfrak
+	p$ yields a metric on $T_{e K} G / K \simeq \mathfrak{p}$,
+	and we require again
+	that
+	\[
+	\begin{aligned}
+		L_{g}: G / K & \rightarrow G / K \\
+		h K & \rightarrow g h K
+	\end{aligned}
+	\]
+	induces an isometry between $T_{e K} G / K$ and $T_{g K} G /
+	K$.
+
+	One checks that this metric is well defined, and $G$ then
+	operates isometrically on $G / K$.
+	
+	In order to show that $G / K$ is a symmetric space in the
+	usual differential geometric sense, we need to describe an
+	appropriate involution. We start with
+	\[
+	\begin{aligned}
+		\tau_{e}: G & \rightarrow G \\
+		h & \rightarrow\left(h^{-1}\right)^{t}, \text { in
+		particular } \tau_{e }|_K=\text { id }
+	\end{aligned}
+	\]
+	with derivative
+	\[
+	\begin{aligned}
+		d\tau_{e}: \mathfrak g & \rightarrow \mathfrak g \\
+		X & \rightarrow-X^{t}
+	\end{aligned}
+	\]
+	Therefore,
+	\[
+	d \tau_{e}|_{\mathfrak k}=\mathrm{id}, \quad d \tau_{e
+	}|_{\mathfrak{p}}=-\mathrm{id}
+	\]
+	
+
+	Next, for $g \in G$
+	\[
+	\begin{aligned}
+		\tau_{g}: G & \rightarrow G \\ h & \rightarrow g
+		g^{t}\left(h^{-1}\right)^{t} .
+	\end{aligned}
+	\]
+	Then
+	\[
+	\tau_{g}^{2}=\mathrm{Id}, \text { and } \tau_{g}(g)=g .
+	\]
+	Consequently, we get corresponding involutions
+	\[
+	\tau_{g K}: G / K \rightarrow G / K
+	\]
+	with
+	\[
+	\tau_{g K}(g K)=g K, \quad d \tau_{g K}=-\mathrm{id}, \quad
+	\tau_{g K}^{2}=\mathrm{id}
+	\]
+	and $G / K$ is a symmetric space, indeed.
+
+	Moreover, the matrix exponential map 
+	\[
+	\exp X=e^{X}:={Id}+X+\frac{1}{2} X^{2}+\cdots
+	\]
+	when restricted to $\mathfrak{p}$ becomes the Riemannian
+	exponential map for $G / K$ at $T_{e K} G / K \simeq
+	\mathfrak{p}$. 
+	
+	Since $G$ acts by isometries on $G / K$, each $X \in
+	\mathfrak{g} \simeq T_{e} G$ becomes a Killing vector field
+	on $G / K$. Since the stabilizer of $e K \in G / K$ is in
+	$K$, the elements of $\mathfrak{k}$ represent those Killing
+	fields that vanish at $e K$. 
+
+	By Proposition $\ref{geo}$,
+		with the identification $T_{p} G / K \simeq
+		\mathfrak{p}$, the curvature tensor of $G / K$ satisfies
+		\[
+		R(X, Y) Z=-[[X, Y], Z] \quad \text { for } X, Y, Z \in
+		\mathfrak{p}
+		\]
+
+	
+	In particular, the sectional curvature of a plane in $T_{p}
+	M$ spanned by orthonormal vectors $Y_{1}, Y_{2}$ is given by
+	\[
+	\begin{aligned}
+		sec\left(Y_{1}, Y_{2}\right)
+		&=-\left\langle\left[\left[Y_{1}, Y_{2}\right],
+		Y_{2}\right], Y_{1}\right\rangle \\
+		&=-B\left(\left[\left[Y_{1}, Y_{2}\right], Y_{2}\right],
+		Y_{1}\right) \\
+		&=-B\left(\left[Y_{2},\left[Y_{2}, Y_{1}\right]\right],
+		Y_{1}\right)\\
+		&=B\left(\left[Y_{2}, Y_{1}\right],\left[Y_{2},
+		Y_{1}\right]\right).
+	\end{aligned}
+	\]
+	We have the general relations
+	$
+	[\mathfrak{k}, \mathfrak{k}] \subset \mathfrak{k}
+	$,
+	$[\mathfrak{p}, \mathfrak{p}] \subset \mathfrak{k}$ (in
+	particular, $\ssp$ is {not a Lie algebra) },
+	$
+	[\mathfrak{p}, \mathfrak{k}] \subset \mathfrak{p}
+	$.
+	
+	Therefore, for $Y_{1}, Y_{2} \in \mathfrak{p},\left[Y_{1},
+	Y_{2}\right] \in \mathfrak{k}$, and since the Killing form is
+	negative definite on $\mathfrak{k}$ (since $X^{t}=-X$ for $X
+	\in \mathfrak{k}$), we obtain from above:
+	
+		The symmetric space ${Sl}(n, \mathbb{R}) / S O(n)$ has
+		nonpositive sectional curvature and it is of non-compact
+		type.
+
+\subsection{Example 2}
+	
+	\begin{center}
+			Compact Lie group $G$ (with bi-invariant metric)
+	\end{center}	
+	
+	It can be realized as $$G\times G/G^{\triangle},\ G^{\triangle}=\{(g,g):g\in G\}.$$
+	
+	$G\times G$ is another Lie group, with Lie algebra $\ssg\oplus\ssg$. $G^{\triangle} $ is also a Lie group with Lie algebra $\ssk=\ssg^{\triangle}$. In this case, $\ssp=\{(X,-X):X\in \ssg\}$, then $\ssg\oplus\ssg=\ssk\oplus\ssp$. 
+	
+	The action of $G\times G$ on itself is given by $(a,b)\cdot (g,h)=(ag,bh)$, the homeomorphism $G\times G/G^{\triangle}\cong G$ is by $(a,b)G^{\triangle}=(ab^{-1},e)G^{\triangle}\mapsto ab^{-1}$, and therefore this action on $G$ is $(a,b)\cdot g=agb^{-1}$.
+
+	The involution automorphism on $G\times G$ is $\sigma:G\times G\to G\times G,\ (g,h)\mapsto (h,g)$, then we see $\sigma|_{G^{\triangle}}=id$, and hence we get the induced involution isometry on $G\times G/G^{\triangle}\cong G$ as $g\mapsto g^{-1}$.
+	
+	We see that $(d\sigma)_e:
+	(X,Y)\mapsto (Y,X)$, and that $(d\sigma)_e|_{\ssk}=id$, $(d\sigma)_e|_{\ssp}=-id$, and $\ssp\cong T_eG$ as desired.
+
+	When $\ssg$ has no center, $g=-B$ defines a biinvariant
+	metric. Then from the general result $\ref{geo2}$,
+	$\mathrm{Ric}=-\frac{1}{2}B=\frac{1}{2}g$, the curvatures are
+	nonnegative, and this is a case of compact type when $G$
+	irreducible.
+
+\subsection{Example 3}
+\begin{center}
+	A noncompact type
+\end{center}
+	
+	We can also get a noncompact type (characterized by nonpositive curvature) using the same Lie algebra  $\ssg$. 
+	
+	Consider $\ssg\otimes\mathbb C$ with involution $\sigma\:
+	X\mapsto \bar X$, the complex conjugation. Then $\ssk=\ssg$,
+	$\ssp=i\ssg$. The inner product on $\ssk$ is just $-B$ on
+	$\ssg$, while on $\ssp$ the metric is given by
+	$g(iX,iY)=-B(X,Y)=B(iX,iY)$. This gives
+	$\mathrm{Ric}(iX,iY)=-\frac{1}{2}B(iX,iY)=-\frac{1}{2}g(iX,i
+	Y)$. Hence the manifold $\exp(\ssg\otimes\mathbb
+	C)/\exp(\ssk)$ is a symmetric space of noncompact type.
+
+\subsection{Example 4}
+\begin{center}
+	Grassmann manifolds
+\end{center}			
+	
+	Let $G_{k}\left(R^{n}\right)$ be the Grassmanian of
+	unoriented $k$ -planes in $\mathbb{R}^{n}$ and let
+	$G_{k}^{0}\left(R^{n}\right)$ be the  oriented one. We know
+	that the oriented one is a two-cover of the unoriented. Hence
+	their Cartan decompositions are the same. We see that
+	$G=\mathrm{SO}(n)$  acts transitively on $k$ planes, with Lie
+	algebra $\mathfrak{so}(n)$. 
+	
+	Suppose point $p_{0}\in G_{k}\left(R^{n}\right)$ is spanned
+	by vectors $e_{1}, \cdots, e_{k}$, then its stabilizer is
+	\[
+	G_{p_{0}}=S(\mathrm{O}(k)
+	\mathrm{O}(n-k))=\left\{\left(\begin{array}{cc}
+		A & 0 \\
+		0 & B
+	\end{array}\right) \mid A \in \mathrm{O}(k), B \in
+	\mathrm{O}(n-k),|A||B|=1\right\}.
+	\]
+	For the oriented $G_{k}^{0}\left(R^{n}\right)$, we have
+	$G_{p_{0}}=\mathrm{SO}(k) \mathrm{SO}(n-k)$.
+	
+	Obviously, the diagonal matrix with diagon entries 1 and -1
+	is an involution on $G$ as long as it is not the identity
+	matrix. Consider such matrix as $I_{p,q}$ with $p$ numbers of
+	value $1$ on the left top and other $q$ numbers of $-1$ on the right bottom. Then 
+	
+	We denote the matrix with $p$ entries of $1$ and $q$
+	$\sigma(A)=I_{k, n-k} A I_{k, n-k}$ is a automorphism of $G$.
+	Obiously $\sigma|_{G_{p_0}}=id$ for both Grassmanians.
+
+	And we see that $d\sigma_e$:
+	\[
+	\begin{pmatrix}
+		X_{11}&X_{12}\\
+		X_{21}&X_{22}
+	\end{pmatrix}\mapsto
+	\begin{pmatrix}
+		X_{11}&-X_{12}\\
+		-X_{21}&X_{22}
+	\end{pmatrix}.
+	\]
+	
+	
+	So the $-1$ eigenspace $\ssp$ of $d \sigma$ 
+	is :
+	\[
+	\mathfrak{p}=\left\{\left(\begin{array}{cc}
+		0 & X \\
+		-X^{T} & 0
+	\end{array}\right) \mid X \in M(p, q, \mathbb{R})\right\}
+	\subset\mathfrak{so}(n)\ 
+	\]
+	and the $\ad$ representation is $\mathrm{Ad}((A, B)) X=A X B^{T}$, 
+	where $(A, B) \in S(\mathrm{O}(k) \mathrm{O}(n-k))$.
+
+	We may let the metric on $\ssp$ be $\langle
+	X,Y\rangle=\mathrm{tr}(X^tY)=-\mathrm{tr}(XY)=-\frac{1}{k+l-
+	2}B(X,Y)$, then $\mathrm{Ric}=\frac{k+l-2}{2}g$, the
+	curvature is nonnegative and these are compact types for
+	irreducible ones.
+	
+	Note that $B(X,X)=(n-2)\mathrm{tr}X^2$ on
+	$\mathfrak{so}(n,\mathbb R)$. This can be similarly computed
+	by taking basis $\{E_{ij}-E_{ji}\}$.
+	
+	\subsection{Example 5}
+	\begin{center}
+		Trivial cases
+	\end{center}
+	
+	With only the definition of a symmetric Riemannian manifold,
+	one can see that $\R^n$ with standard flat matric is one.
+	$s_p$ are obviously the total reflection at a vector, i.e.,
+	$s_p(p+v)=p-v$ for any $p\in \R^n$. 
+	
+	Another trivial example is the unit sphere, with
+	$s_p(v)=2\langle v,p\rangle-v$. We see that indeed it act on
+	the tangent space at $p$ by $-id$. 
+	
+	For a compact Lie group, if endow it with bi-invariant matric
+	as before, $s_e:g\mapsto g$ is clearly an involution
+	isometry. Since for any $X\in\ssg$, there is $s_p(\exp
+	tX)=\exp(-tX)$, so $d(s_e)_e=-id$. This is consistent with
+	what we analyzed previouly.

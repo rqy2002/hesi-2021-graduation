@@ -1,0 +1,71 @@
+% !TeX root = ../thuthesis-example.tex
+
+\begin{survey}
+\label{cha:survey}
+
+\title{Ouguri--Vafa metric and certain metric on rational elliptic surface}
+\maketitle
+
+
+\tableofcontents
+
+\section{Ooguri--Vafa Metric}
+This part is mainly the construction of Ooguri and Vafa's construction of the metric near singular fibers\cite{ooguri1996summing}.
+Consider the hypermultiplet moduli space for type IIA string on a CY 3-fold. According to Ooguri--Vafa\cite{ooguri1996summing}, the conifold point $z=0$ is what we need to care, so we will see about behavior of the moduli space near the limit $z\rightarrow 0$. We hope to extract a universal deformation of moduli space. The piece we are considering is a  hyperk{\"a}hler manifold of real dimension 4, the complex moduli $z$, and two coordinates $x,t$ which are expectation values of the RR 3-form corresponding to the vanishing cycle and its dual.\\ \indent
+The classical metric is given by
+$$ds^2=\frac{\lambda^2}{\tau_2}(dt+\tau(z)dx)(dt+\bar{\tau}(\bar{z})dx)+\tau_2dzd\bar{z} \; ,$$
+where $\displaystyle \tau(z)=\frac{1}{2\pi i}\log z$ is the moduli space geometry near the conifold, described by the elliptic fibration, and $\lambda$ the coupling constant.\\ \indent
+This metric has $U(1)_t\times U(1)_x$ translational invariance in $t$ and $x$. We can rewrite it as
+$$ds^2=\lambda^2[V^{-1}(dt-\mathbf{A}\cdot d\mathbf{y})^2+V d\mathbf{y}^2]\; ,$$
+where
+$$\mathbf{y}=\left(x,\frac{z}{\lambda},\frac{\bar{z}}{\lambda}\right) \; ,$$
+$$V=\tau_2=\frac{1}{4\pi}\log\left(\frac{1}{z\bar{z}}\right)\; ,$$
+$$A_x=-\tau_1=\frac{i}{4\pi}\log\left(\frac{z}{\bar{z}}\right),\quad A_z=A_{\bar{z}}=0\; .$$
+\indent When we discuss how the quantum corrections would modify the metric, considering the math and physics backgrounds, there are various requirements that the potential $V$ has to satisfy:\\ 
+(1) The metric is hyperk{\"a}hler if and only if 
+$$V^{-1}\Delta V=0,\qquad \nabla V=\nabla \times A\; ,$$
+where 
+$$\Delta=\partial_x^2+4\lambda^2\partial_z\partial_{\bar{z}}\; .$$
+(2) For $|z|\rightarrow \infty$,
+$$V\rightarrow \frac{1}{4\pi}\log\left(\frac{1}{z\bar{z}}\right)\; .$$
+(3) The metric should be periodic in $x$ with period 1, but not translationally invariant.\\
+(4) $V$ is a function of $x$ and $|z|$ only.\\
+(5) The singularities of $V$ can be removed by appropriate coordinate transformation.\\ \indent
+In fact, there is a unique solution satisfying the above conditions and is given by
+$$V=\frac{1}{4\pi}\sum_{n=-\infty}^{\infty}\left(\frac{1}{\sqrt{(x-n)^2+\frac{z\bar{z}}{\lambda^2}}}-\frac{1}{|n|}\right)+\textrm{const}\; .$$
+And it can be rewritten as
+$$V=\frac{1}{4\pi}\log\left(\frac{\mu^2}{z\bar{z}}\right)+\sum_{m\neq 0}\frac{1}{2\pi}e^{2\pi imx}K_0\left(2\pi \frac{|mz|}{\lambda}\right)\; ,$$
+where $\mu$ is some constant and $K_0$ is the modified Bessel function of the second kind.\\ \indent
+When $|z|\rightarrow \infty$, using the asymptotic formula of the modified Bessel function
+$$K_0(z)\sim \sqrt{\frac{\pi}{2z}}e^{-z}\sum_{n=0}^{\infty}\frac{(-1)^n((2n-1)!!)^2}{n!(8z)^n}\; ,$$
+we have
+$$V=\frac{1}{4\pi}\log\left(\frac{\mu^2}{z\bar{z}}\right)+\sqrt{\frac{\lambda}{4\pi|mz|}}\sum_{m\neq 0}\exp\left[-2\pi\left(\frac{|mz|}{\lambda}-imx\right)\right]\sum_{n=0}^{\infty}\frac{(-1)^n((2n-1)!!)^2}{n!(8z)^n} \; .$$
+Here the correction term is suppressed by the factor $\exp\left[-2\pi\left(\frac{|mz|}{\lambda}-imx\right)\right]$.\\
+\\
+\section{Rational elliptic surface and certain metric}
+This part is the survey when I first read Hein's paper\cite{hein2012gravitational}, introduce the ALG and ALH spaces.
+\begin{defi}
+A \textbf{rational elliptic surface} is the blowup of $\mathbb{P}^2$ in the base points of a pencil of cubics, i.e.\ a family $sF+tG=0$, $(s:t)\in\mathbb{P}^1$, where $F,G$ are smooth cubics intersecting $9$ points with multiplicity. Blowing up these points, if needed repeatedly, produces an elliptic fibration $f\colon X\rightarrow \mathbb{P}^1$, $X=\mathbb{P}^2 \# 9\bar{\mathbb{P}}^2$.
+\end{defi}
+\begin{defi}
+A \textbf{bad 2-cycle} in $M$ is one that arises from the following process up to orientation and isotopy. Consider the topological monodromy representation of $\pi_1(\Delta^*)=\mathbb{Z}$ in the mapping class group of any fiber $F$ over $\Delta^*$. Take a simple loop $\gamma\subset F$ such that $[\gamma]\in H_1(F,\mathbb{Z})$ is indivisible and invariant under the monodromy, and move $\gamma$ around the puncture by lifting a simple loop $\bar{\gamma}\subset \Delta^*$ up to every point in $\gamma$ such that the union of the translates of $\gamma$ is a $T^2$ embedded in $f^{-1}(\bar{\gamma})$.
+\end{defi}
+\begin{defi}
+Let $\epsilon,\delta,l>0,\theta\in (0,1],\tau\in \mathbb{H}/\textrm{PSL}(2,\mathbb{Z})$, where $\mathbb{H}$ is the upper half-plane. Let $g_{\epsilon,\tau}$ denote the unique flat metric of area $\epsilon$ and modulus $\tau$ on $T^2$. Let $g$ be a complete Riemannian metric on an open $4$-manifold $N$.\\ \indent
+(i) The metric $g$ is called ALG$(\delta,[\theta,\epsilon,\tau])$ if there exist  $r_0>0$, a compact subset $K\subset N$ and an embedding $\Phi\colon S(\theta,r_0)\times T^2\hookrightarrow N\setminus K$ with a dense image, where
+$$S(\theta,r_0):=\{z\in \mathbb{C}: |z|>r_0,0<\arg z<2\pi\theta   \},$$
+such that
+$$|\nabla^k_{g_{\textrm{flat}}}(\Phi^*g-g_{\textrm{flat}})|_{g_{\textrm{flat}}}\leq C(k)|z|^{-\delta-k}$$
+for all $k\in\mathbb{N}_0$, where $g_{\textrm{flat}}:=g_{\mathbb{C}}\oplus  
+g_{\epsilon,\tau}$.\\ \indent
+(ii) The metric $g$ is called ALH if there exists $\delta>0$, a compact subset $K\subset N$ and a diffeomorphism $\Phi\colon\mathbb{R}^+\times T^3\rightarrow N\setminus K$ such that
+$$|\nabla^k_{g_{\textrm{flat}}}(\Phi^*g-g_{\textrm{flat}})|_{g_{\textrm{flat}}}\leq C(k)e^{-\delta t}$$
+for all $k\in\mathbb{N}_0$, where $g_{\textrm{flat}}:=dt^2\otimes h$ for some flat metric $h$ on $T^3$. More specifically, we say that $g$ is ALH$(l,\epsilon,\tau)$ with $h=l^2d\phi^2\otimes g_{\epsilon,\tau}$ with respect to some topological splitting $T^3=S^1\times T^2$, with $\phi\in S^1=\mathbb{R}/2\pi \mathbb{Z}$ and $g_{\epsilon,\tau}$ as above.
+\end{defi}
+
+
+
+\bibliographystyle{thuthesis-bachelor}
+\bibliography{ref/appendix}
+
+\end{survey}

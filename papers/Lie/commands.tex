@@ -1,0 +1,56 @@
+% 数学命令
+\makeatletter
+\newcommand\dif{%  % 微分符号
+  \mathop{}\!%
+  \ifthu@math@style@TeX
+    d%
+  \else
+    \mathrm{d}%
+  \fi
+}
+\makeatother
+
+
+%特殊字母
+\newcommand{\K}{\mathcal K}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Cc}{{\mathbb{C}}}
+%同态
+\newcommand{\id}{\operatorname{Id}}
+\newcommand{\Aut}{\operatorname{Aut}\,}
+\newcommand{\Endo}{\operatorname{End}\,}
+%线性空间
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\Mat}{\operatorname{Mat}}
+\newcommand{\spann}{\operatorname{span}}
+\newcommand{\Ker}{\operatorname {Ker}\,}
+%\prenewcommand{\Im}{\operatorname{Im}\,}
+%形式幂级数
+\newcommand{\Cx}{\C\{\boldsymbol{x}\}}
+\newcommand{\Cxn}{\mathbb{C}\{x_{1},\cdots,x_{n}\}}
+\newcommand{\m}{\mathfrak m}
+\newcommand{\fjf}{\langle f,j(f)\rangle}
+\newcommand{\xn}{{\boldsymbol{x}}}
+\newcommand{\bt}{{\boldsymbol  t}}
+\newcommand{\xk}{\boldsymbol{x'}}
+\newcommand{\0}{{\boldsymbol 0}}
+\newcommand{\Der}{\operatorname{Der}}
+%微分算子
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\ud}{\, \mathrm{d}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pdt}[2]{\frac{\partial^{2} #1}{\partial #2^{2}}}
+\newcommand{\od}[2]{\frac{\d #1}{\d #2}}
+%奇点
+\newcommand{\req}{\stackrel{r}\sim}
+\newcommand{\ceq}{\stackrel{c}\sim}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\Sing}{\operatorname{Sing}}
+%其它特殊符号
+\newcommand{\lan}{\left\langle}
+\newcommand{\ran}{\right\rangle}
+
+\newtheorem{fact}{Fact}[theorem]
+
+\usepackage{longtable}
+\usepackage{makecell}

@@ -1,0 +1,153 @@
+\newtheorem{thma}{Theorem A}
+
+Let $S$ be a hyperbolic Riemann surface. A point in the Teichm\"uller space $\mathscr{T}(S)$ is a complete hyperbolic Riemann surface $X$ with a marking or a diffeomorphism $f:S\to X$. Two elements $f:S\to X$ and $g:S\to Y$ are equivalent if $g\circ f^{-1}:X\to Y$ is isotopic to a conformal map. 
+
+If $\partial S\neq \emptyset$, then denote $A=\partial S$ and $L=(L_\alpha)_{\alpha\in A}$. In this case $X$ should satisfies $l_\alpha(X)=L_\alpha$, and denote the Teichm\"uller sapce by $\mathscr{T}(S,L)$, Use 
+
+$$
+\mathscr{T}_{g,n}(L_1,\cdots,L_n)=\mathscr{T}(S_{g,n},L_1,\cdots,L_n),
+$$
+ to denote the Teichm\"uller space of $S_{g,n}$, a complete hyperbolic surface  of genus $g$ with $n$ boundary components of length $L_1,\cdots,L_n.$
+ 
+ The mapping class group $\Mod_{g,n}=\Mod(S_{g,n})$ acts on $\mathscr{T}_{g,n}(L)$ freely and properly discontinuously, and the quotient space is denoted by $\mathscr{M}_{g,n}(L)$.
+
+For a compact Riemann surface  $S_{g,n}$, a pants decomposition  is a family $P= \{\alpha_i\}_{i=1}^{3g-3+n}$ of $3g-3+n$ distinct non-peripheral simple closed geodesics which separates $S_{g,n}$ into $2g-2+n$  pair of pants, or  $S_{0,3}$.  A coordinate of elements in $\mathscr{T}_{g,n}(L)$ is given by 
+\begin{align*}
+\mathscr{T}_{g,n}(L)\to & \mathbb{R}_+^P\times \mathbb{R}^P\\
+X\to (l_{\alpha_i}&(X),\tau_{\alpha_i}(X)). 
+\end{align*}
+
+Here $l_{\alpha_i}(X)$ is the length of geodesic corresponding to $\alpha_i$ and $\tau_{\alpha_i}(X)$ is the twisting parameter denoting how two adjacent pairs of pants  are glued together along $\alpha_i$. The twisting  parameters can be chosen continuously since $\mathscr{T}_{g,n}(L)$ is simple connected. This gives the Fenchel--Nielsen coordinates for $\mathscr{T}_{g,n}(L)$, and $\mathscr{T}_{g,n}(L)$ is of dimension $6g-6+2n$ .
+
+
+
+$\mathscr{T}_{g,n}(L)$ admits a symplectic structure.  The closed, non-degenerated   2-form, called the Weil-Petersson symplectic form $\omega$, is given by
+$$
+\omega=\sum_{i=1}^k dl_{\alpha_i}\wedge d\tau_{\alpha_i}
+$$
+according to Scott Wolpert in \cite{wolpertformula}. The Weil--Petersson volume form corresponding to it is the $k$ fold wedge product  $d\mu=\frac{\omega\wedge\omega\wedge\cdots\wedge\omega}{k!}$, where $k=3g-3+n$.
+
+The Dehn twist along $\alpha_i$ acts on $\mathscr{T}_{g,n}(L)$ by  adding  $l_{\alpha_i}$ to $\tau_{\alpha_i}$, so $d\mu$ is invariant under the action of  the mapping class group $\Mod_{g,n}(L)$, so $d\mu$ degenerates to volume form on $\mathscr{M}_{g,n}(L)$.
+
+Maryam Mirzakhani gives an integration formula over the moduli space of boarded Riemann surfaces with respect to the Weil--Petersson volumes in \cite{Mirzakhani:2006fta}.
+
+Given a multi-curve $\gamma=\sum_{i=1}^k c_i\gamma_i$, define $$l_\gamma(X)=\sum_{i=1}^kc_il_{\gamma_i}(X),$$
+for $X\in \mathscr{T}_{g,n}(L)$.
+
+For a continuous function $f\colon\mathbb{R}_+\to \mathbb{R}_+$, define a related function $$
+f_\gamma(X)=\sum_{[\alpha]\in \Mod\cdot[\gamma]}f(l_\alpha(X)).
+$$
+ Since the summation is ergodic over the orbits of the  equivalent classes under the actions of mapping class group, it  reduces to a function $f_\gamma\colon\mathscr{M}_{g,n}(L)\to \mathbb{R}_+$.
+ 
+ The integration formula in  \cite{Mirzakhani:2006fta} has wrong coefficients for the ignored  fact that  the quotient  of  level set of $l_{\gamma_i}$ under the twisting along $\gamma_i$ and the moduli space of $S_{g,n}(\gamma)$, the Riemann surface obtained by cutting $S_{g,n}$ along $\gamma$, is not $1-1$ correspondent,  because when two boundary components of a Riemann surface  have same lengths, there may exists some automorphisms to exchange them. 
+ 
+ Maryam Mirzakhani fixes the coefficients in other articles, and Petri summaries it in \cite{Teithe}.
+ 
+ \begin{thma}[Mirzakhani's integration formula]
+ If $\Gamma=\{\gamma_1,\cdots,\gamma_k\}$ be a family of finite simple closed geodesics on $S_{g,n}$ of distinct homotopy classes. If $(g,n)\neq (1,1),(0,3)$, then  for integrable function $F:\mathbb{R}_+^k\to \mathbb{R}$, the integration formula holds:
+ $$
+ \int_{\mathscr{M}_{g,n}(L)}F^\Gamma(X)dV_{wp}(X)=\frac{2^{-M(\Gamma)}}{|\sym(\Gamma)|}\int_{\mathbb{R}_+^k}F(x)\mathrm{Vol}_{wp}(\mathscr{M}(S_{g,n}(\Gamma),L,x,x))x\cdot dx.
+ $$
+ 
+ Here  the notation $x\cdot dx$ represents $x_1\cdots x_k dx_1\cdots dx_k$, and $F^\Gamma$ is defined as $f^{\Gamma}(X)=\sum_{[\alpha]\in \Mod\cdot [\Gamma]}F(l_{\alpha_1}(X),\cdots,l_{\alpha_k}(X))$. $M(\Gamma)$  is the number of $S_{1,1}$ cut by $\Gamma$. $S_{1,1}$ admits a half twist.
+ $$\sym(\Gamma)=\cap_{i=1}^k\stab(\gamma_i)/\cap_{i=1}^k\stab^+(\gamma_i).$$
+ Here $\stab(\gamma_i)$ is the set of  elements fixing $\gamma_i$  setwisely in $\Mod_{g,n}$  and $\stab^+(\gamma_i)$ is the set of  elements fixing $\gamma_i$ setwisely and keeping the orientation of $\gamma_i$  in $\Mod_{g,n}$. 
+ \end{thma}
+ 
+Greg McShane prove the McShane identity in \cite{McShane1998SimpleGA} for Riemann surfaces with punctures.
+
+\begin{thma}[McShane identity]
+$$\sum_{\alpha,\beta}\frac{1}{1+\exp{\frac{l_\alpha(X)+l_\beta(X)}{2}}}=\frac{1}{2},$$
+Where the sum is taken over all the unordered  pairs $(\alpha,\beta)$ of simple closed geodesics or cusps bounding  a pair of pants with a fixed cusp. 
+\end{thma}
+
+Mirzakhani generalizes the identity to Riemann surface with positive boundary lengths in \cite{Mirzakhani:2006fta}. 
+
+\begin{thma}[McShane--Mirzakhani identity]
+For $X\in \mathscr{T}_{g,n}(L)$ with negative Euler characteristic,  then $$
+\sum_{\{\gamma_1,\gamma_2\}\in\mathscr{F}_1}\mathscr{D}(L_1,l_{\gamma_1}(X),l_{\gamma_2}(X))+\sum_{i=2}^n\sum_{\gamma\in \mathscr{F}_{1,i}}\mathscr{R}(L_1,L_i,l_{\gamma}(X))=L_1.
+$$
+Here $\mathscr{F}_1$ is the set of unordered  pairs of non-peripheral  simple closed geodesics which bound a pair of pants along with $\beta_1$, the first boundary component of length $L_1$. Similarly, $F_{1,i}$ is the set of non-peripheral simple closed geodesics which bound a pair of pants along with $\beta_1,\beta_i$.  $\mathscr{D}$ and $\mathscr{R}$ is defined by 
+\begin{equation*}\label{D}
+  D(x_1,x_2,x_3)=2\log \left(\frac{e^{\frac{x}{2}}+e^{\frac{y+z}{2}}}{e^{\frac{-x}{2}}+e^{\frac{y+z}{2}}}\right),
+  \end{equation*}
+ \begin{equation*}\label{R}
+     R(x,y,z)=x-\log \left(\frac{\cosh(\frac{y}{2})+\cosh (\frac{x+z}{2})}{\cosh(\frac{y}{2})+\cosh (\frac{x-z}{2})}\right).
+ \end{equation*}
+ \end{thma}
+ 
+ The McShane identity is the limitation case of the McShane-Mirzakhani identity.
+ 
+ 
+ Mirzakhani integrates the generated identity over the moduli space and apply the integral formula to get a recursive formula for the Weil--Petersson volumes of $\mathscr{M}_{g,n}(L)$ and the direct conclusion is that the Weil--Petersson volume of $\mathscr{M}_{g,n}(L)$ is a polynomial of $L_i$.
+ 
+ \begin{thma}
+$$\mathrm{Vol}_{wp}(\mathscr{M}_{g,n}(L))=\sum_{|\alpha|\leq 3g-3+n}C_\alpha\cdot L^{2\alpha}.$$
+
+Here $L^{2\alpha}$ means $L_1^{2\alpha_1}\cdots L_k^{2\alpha_k}$ and $C_\alpha\in \pi^{6g-6+2n-2|\alpha|}\cdot \mathbb{Q}$.
+ \end{thma}
+ 
+Maryam Mirzakhani also uses the integration formula to count the number of simple closed geodesics of bounded lengths. 
+
+The number of closed geodesics shorter than $L$  is asymptotic to $\frac{e^L}{L}$ as $L\to \infty$. 
+While for the number of  simple closed geodesics shorter than $L$,  Mirzakhani proves that it is asymptotic to $c(X)\cdot L^{6g-6+2n}$ as $L\to\infty$. Besides, the number of simple closed geodesics shorter than $L$ and of given  type $\gamma$ is also asymptotic to $\eta_{\gamma}(X)\cdot L^{6g-6+2n}$ as $L\to \infty$. Moreover, $\eta_{\gamma}$ is a continuous, proper map.
+
+
+The proof requires some propositions of the space $\mathscr{ML}_{g,n}$ of measured geodesic lamination. 
+
+$\mathscr{ML}_{g,n}$ admits a piecewisely linear structure of dimension $6g-6+2n$. The  integral points are one-to-one corresponding to multi-curves of integer coefficients.   Set of integral points in  $\mathscr{ML}_{g,n}$ is denoted by $\mathscr{ML}_{g,n}(\mathbb{Z})$. Moreover, $\mathscr{ML}_{g,n}$ contains a Thurston measure $\mu_{Th}$ which is invariant under the actions of the mapping class group $\Mod_{g,n}$. These propositions can be find in \cite{traintracks}.
+
+Howard Masur proved in \cite{ergodic} that for any measure $\mu$ which is invariant under the actions of $\Mod_{g,n}$ and $\mu_{Th}(U)=0$ implies $\mu(U)=0$, then  $\mu=c\mu_{Th}$  for some constant $c$.
+
+To count integral multi-curves of bounded length, define $$b_X(L)=\#\{\gamma\in \mathscr{ML}_{g,n}(\mathbb{Z}):l_\gamma(X)\leq L\}$$
+ and $$B_X=\{\lambda\in \mathscr{ML}_{g,n}:l_{\lambda}\leq 1\}.$$
+ 
+ By the piecewisely linear structure of $\mathscr{ML}_{g,n}$, $b_X(L)$ has asymptotic behavior 
+ $$
+ \frac{b_X(L)}{L^{6g-6+2n}}\to \mu_{Th}(B_X)
+ $$
+as $L\to \infty$.
+
+Using some combination tricks, the length of multi-curves $l_\gamma(X)$ is controlled by the combinatorial length $l_{P}(X,\gamma)$, which is a linear   combination of the lengths of fixed simple closed curves and the widths of their collar neighborhoods.  
+
+Mirzakhani gives a  rough estimate of $b_X(L)$.
+
+\begin{thma}
+For small $\epsilon>0$ and $L>1$, $$
+C_1 \prod_{\gamma:l_{\gamma}(X)\leq \epsilon}\frac{1}{l_{\gamma}(X)|\ln l_{\gamma}(X) |}\leq  \frac{b_X(L)}{L^{6g-6+2n}}\leq C_2\prod_{\gamma:l_{\gamma}(X)\leq \epsilon}\frac{1}{l_{\gamma}(X)}.
+$$
+Here $C_1,C_2$ is independent of $X$.
+\end{thma}
+
+A direct corollary is that $\mu_{Th}(B_X)$ is proper and  integral over $\mathscr{M}_{g,n}(L)$.
+
+Mirzakhani also calculates the frequent of multi-curves  of bounded  lengths of given type. Define 
+$$
+S_X(L,\gamma)=\#\{\lambda\in \Mod_{g,n}\cdot \gamma:l_\gamma(X)\leq L\},
+$$
+then the proportion  of $S_X(L,\gamma)$ is given by 
+ $$
+\lim_{L\to \infty} \frac{S_X(L,\gamma)}{L^{6g-6+2n}}=\eta_\gamma(X),
+$$
+if $\gamma$ is of rational coefficients. Here $\eta_\gamma$ is proper and continuous.
+
+Using Mirzakhani’s integration formula  to  $\Chi_{[0,L]}$, 
+$$
+\int_{\mathscr{M}_{g,n}}S_X(L,\gamma)dX=\frac{2^{-M(\gamma)}}{|\sym(\gamma)|}\int_{\sum_{i}a_ix_i\leq L}V_{g,n}(\Gamma,x)xdx,
+$$
+ which is a polynomial  about $L$ of degree $6g-6+2n$ with leading coefficient $c(\gamma)\in\mathbb{Q}$. In some way, $c(\gamma)$ represents the average frequency of multi-curves of the same type with $\gamma$..
+ 
+ Define a discrete measure om $\mathscr{ML}_{g,n}$ for given $\gamma\in \mathscr{ML}_{g,n}(\mathbb{Z})$ and $T>0$ by 
+ $$
+ \mu_{T,\gamma}(U)=\frac{\#\{T\cdot U\cap \Mod_{g,n}\cdot \gamma \}}{T^{6g-6+2n}}.
+ $$
+
+Mirzakhani proves $\mu_{T,\gamma}\to \frac{c(\gamma)}{b_{g,n}}\mu_{Th}$, where $b_{g,n}=\int_{\mathscr{M}_{g,n}}\mu_{Th}(B_X)dX$, here the integration is with respect to the Weil--Petersson volume form.
+
+Therefore $\mu_{L,\gamma}(B_X)=\frac{S_X(L,\gamma)}{L^{6g-6+2n}}\to \frac{c(\gamma)}{b_{g,n}}\mu_{Th}(B_X)$, and this holds for rational multi-curves.
+
+\begin{thma}
+For rational multi-curves $\gamma\in \mathscr{ML}_{g,n}$, $$
+S_X(L,\gamma)\sim \frac{\mu_{Th}(B_X)\cdot c(\gamma)}{b_{g,n}} L^{6g-6+2n}.
+$$
+\end{thma}

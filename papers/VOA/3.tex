@@ -1,0 +1,939 @@
+\subsection{Regularized integrals}
+
+Following \cite{regularized},
+we describe a way to integrate meromorphic forms
+on Riemann surfaces, called the \emph{regularized integral}.
+
+\begin{notation}
+    Let $\Sigma$ be a compact Riemman surface,
+    and let $D = \{ p_1, \dotsc, p_n \} \subset \Sigma$ be a discrete subset.
+    \begin{itemize}
+        \item
+            Let
+            \[
+                \mathscr{A}^{p,q} (\Sigma, \star D)
+            \]
+            denote the space of smooth $(p, q)$-forms on $\Sigma \setminus D$,
+            with possible holomorphic poles at $p_1, \dotsc, p_n$.
+        \item
+            Let
+            \[
+                \mathscr{A}^{p,q} (\Sigma, \log D)
+            \]
+            denote the space of smooth $(p, q)$-forms on $\Sigma \setminus D$,
+            with possible logarithmic poles at $p_1, \dotsc, p_n$.
+            In other words, in local holomorphic coordinates around $p_i$,
+            the form can be written as the product of $d z / z$ and a smooth form,
+            where the local coordinate $z$ satisfies $z (p_i) = 0$.
+            \varqed
+    \end{itemize}
+\end{notation}
+
+The integral of a form with logarithmic poles
+is absolutely convergent,
+so there is a well-defined integral operator
+\[
+    \int \colon
+    \mathscr{A}^{1,1} (\Sigma, \log D)
+    \to \bbC .
+\]
+The regularized integral will be defined as an operator
+\[
+    \intbar \colon
+    \mathscr{A}^{1,1} (\Sigma, \star D)
+    \to \bbC ,
+\]
+which extends the usual integral operator
+on $\mathscr{A}^{1,1} (\Sigma, \log D)$.
+
+\begin{definition}
+    Let $\omega \in \mathscr{A}^{1,1} (\Sigma, \star D)$.
+    If there exist
+    $\alpha \in \mathscr{A}^{1,1} (\Sigma, \log D)$
+    and $\beta \in \mathscr{A}^{0,1} (\Sigma, \star D)$,
+    such that
+    \[
+        \omega = \alpha + \partial \beta ,
+    \]
+    then we define the \emph{regularized integral} of $\omega$ to be
+    \[
+        \intbar_\Sigma \omega = \int_\Sigma \alpha.
+    \]
+    In fact, such forms $\alpha$ and $\beta$ always exist,
+    and the regularized integral does not depend on
+    the choice of $\alpha$ and $\beta$.
+    \varqed
+\end{definition}
+
+See \cite[Definition~2.5]{regularized}.
+
+In fact, the regularized integral can be described
+as an intrinsic notion of the Cauchy principal value
+on Riemann surfaces, as follows.
+
+\begin{theorem}
+    \label{thm-regularized}
+    Let $\omega \in \mathscr{A}^{1,1} (\Sigma, \star D)$,
+    where $D = \{ p_1, \dotsc, p_n \}$.
+    Let $B_{\epsilon} (p_i)$
+    be the $\epsilon$-ball centred at $p_i$,
+    with respect to some chosen local holomorphic coordinates.
+    Then
+    \[
+        \intbar_{\Sigma} \omega =
+        \lim_{\epsilon \to 0}
+        \int_{\Sigma \setminus \bigcup_{i = 1}^n B_{\epsilon} (p_i)} \omega,
+    \]
+    where the limit always exists
+    and does not depend on the choice of local holomorphic coordinates.
+\end{theorem}
+
+See \cite[Theorem~2.8]{regularized}.
+
+We also have a version of the residue/Stokes theorem.
+
+\begin{definition}
+    Let $\omega \in \mathscr{A}^1 (\Sigma, \star D)$.
+    The \emph{residue} of $\omega$ at a point $p \in \Sigma$
+    is defined to be the limit
+    \[
+        \Res_{z = p} \omega =
+        \frac{1}{2 \uppi \upi} \oint_p \ \omega =
+        \frac{1}{2 \uppi \upi} \lim_{\epsilon \to 0}
+        \oint_{\partial B_{\epsilon} (p)} \omega,
+    \]
+    where $B_{\epsilon} (p)$ is the $\epsilon$-ball
+    with respect to some local holomorphic coordinate
+    around $p$.
+    
+    In fact, this limit always exists and does not depend on
+    the choice of the local coordinate.
+    \varqed
+\end{definition}
+
+See \cite[Lemma/Definition~2.10]{regularized}.
+
+\begin{theorem}
+    \label{thm-residue-stokes}
+    Let $\alpha \in \mathscr{A}^1 (\Sigma, \star D)$,
+    where $D = \{ p_1, \dotsc, p_n \}$, with $p_i$ all distinct. Then
+    \[
+        \intbar_\Sigma d \alpha =
+        -2 \uppi \upi
+        \sum_{i=1}^n \Res_{p_i} \alpha.
+    \]
+\end{theorem}
+
+See \cite[Theorem~2.13]{regularized}.
+Note that the right hand side is not always $0$,
+as $\alpha$ is not necessarily meromorphic.
+
+\begin{proof}
+    Let $B_{\epsilon} (p_i)$
+    be a small coordinate ball centred at $p_i$.
+    By Theorem~\ref{thm-regularized}, we have
+    \begin{align*}
+        \intbar_\Sigma d \alpha
+        & = \lim_{\epsilon \to 0}
+        \int_{\Sigma \setminus \bigcup_{i = 1}^n B_{\epsilon} (p_i)} d \alpha \\
+        & = -{\lim_{\epsilon \to 0} \,
+        \sum_{i = 1}^n \,
+        \oint_{\partial B_{\epsilon} (p_i)} \alpha} \\
+        & = -2 \uppi \upi 
+        \sum_{i=1}^n \Res_{p_i} \alpha.
+        \qedhere
+    \end{align*}
+\end{proof}
+
+This provides a technique to compute regularized integrals
+on elliptic curves, which we will use later.
+
+On the elliptic curve $E = \bbC / (\bbZ 1 \oplus \bbZ \tau)$,
+where $\im \tau > 0$,
+we have the volume form
+\[
+    \frac {d^2 z} {\im \tau} = \frac {\upi} {2 \im \tau} \, d z \wedge d \bar{z},
+\]
+so that $\int_E d^2 z / {\im \tau} = 1$.
+
+Recall that for the elliptic curve $E$,
+we have the \emph{Weierstrass zeta function} $\zeta (z)$,
+which is a meromorphic function defined on $\bbC$,
+satisfying the quasi-periodicity conditions
+\[
+    \zeta (z + 1) = \zeta (z) + 2 \eta_1, \quad
+    \zeta (z + \tau) = \zeta (z) + 2 \eta_2,
+\]
+where $\eta_1 = \zeta (1/2)$ and $\eta_2 = \zeta (\tau/2)$.
+The function $\zeta (z)$ has a pole at $0$,
+satisfying $\zeta (z) = 1/z + o(1)$ as $z \to 0$,
+and it has no poles other than in the lattice $\bbZ 1 \oplus \bbZ \tau$.
+For details, see for example \cite{elliptic}.
+
+We modify the Weierstrass zeta function a little bit,
+by defining
+\[
+    \xi (z) = \zeta (z) - 2 \eta_1 z.
+\]
+Then $\xi$ is a meromorphic function on $\bbC$,
+satisfying the quasi-periodicity conditions
+\[
+    \xi (z + 1) = \xi (z), \quad
+    \xi (z + \tau) = \xi (z) - 2 \uppi \upi,
+\]
+where we have used the identity
+$\eta_1 \tau - \eta_2 = \uppi \upi$.
+Again, see  \cite{elliptic} for this fact.
+Note that we have the asymptotic behaviour
+$\xi (z) = 1/z + o(1)$ as $z \to 0$.
+
+\begin{lemma}
+    \label{lem-zeta-technique}
+    Let $E = \bbC / (\bbZ 1 \oplus \bbZ \tau)$
+    be an elliptic curve, where $\im \tau > 0$,
+    and let $f \in \mathscr{A}^0 (E, \star D)$ be a meromorphic function,
+    where $D = \{ p_1, \dotsc, p_n \} \subset E$.
+    Suppose that the points $0, p_1, \dotsc, p_n \in E$
+    are all distinct.
+    Then
+    \[
+        \intbar_E f \, \frac {d^2 z} {\im \tau} =
+        2 \uppi \upi
+        \sum_{i=0}^n \Res_{z = p_i} \biggl[
+            \biggl( \frac {\im z} {\im \tau} +
+            \frac {1} {2 \uppi \upi} \, \xi (z) \biggr) f
+        \biggr] ,
+    \]
+    where $p_0 = 0$,
+    and $\xi$ denotes the function defined above.
+\end{lemma}
+
+\begin{proof}
+    By Theorem~\ref{thm-residue-stokes}, we have
+    \begin{align*}
+        \intbar_E f \, \frac {d^2 z} {\im \tau}
+        & = -\intbar_E \dbar \biggl[
+            \biggl( \frac {\im z} {\im \tau} +
+            \frac {1} {2 \uppi \upi} \, \xi (z) \biggr)
+            f \, d z
+        \biggr] \\
+        & = 2 \uppi \upi
+        \sum_{i=0}^n \Res_{z = p_i} \biggl[
+            \biggl( \frac {\im z} {\im \tau} +
+            \frac {1} {2 \uppi \upi} \, \xi (z) \biggr)
+            f \, d z
+        \biggr] . \qedhere
+    \end{align*}
+\end{proof}
+
+
+\subsection{Regularized integrals and residues}
+
+The goal of this subsection is to prove the following lemma,
+which shows that the operation of taking the residue of a function
+commutes with the operation of taking its regularized integral.
+
+\begin{lemma}
+    \label{lem-commutator}
+    Let $\Sigma$ be a compact Riemann surface,
+    with a distinguished point $0 \in \Sigma$,
+    and let $\mathrm{vol}$ be a volume form on $\Sigma$.
+    Let
+    \[
+        D =
+        \{ z = z_1, \dotsc, z_l \} \cup
+        \{ w = w_1, \dotsc, w_m \} \cup
+        \{ z = w \}
+        \subset \Sigma^2
+    \]
+    be a divisor of $\Sigma^2$,
+    where $z_1, \dotsc, z_l, w_1, \dotsc, w_m \in \Sigma$.
+    Let
+    \[
+        F \colon \Sigma^2 \setminus D \to \bbC
+    \]
+    be a real analytic function,
+    with possible holomorphic poles along $D$.
+    Then
+    \begin{enumerate} [label={\textup{(\roman*)}}]
+        \item
+            Taking the residue commutes with
+            taking the regularized integral:
+            \[
+                \Biggl[ \ 
+                    \oint_0 \ d z \ , \ 
+                    \intbar_\Sigma \mathrm{vol}_w
+                \Biggr]
+                F (z, w)
+                = 0,
+            \]
+        \item 
+            Taking the holomorphic partial derivative commutes with
+            taking the regularized integral:
+            \[
+                \Biggl[ 
+                    \frac {\partial} {\partial z} \ , \ 
+                    \intbar_\Sigma \mathrm{vol}_w
+                \Biggr]
+                F (z, w)
+                = 0,
+            \]
+            whenever $z \neq z_1, \dotsc, z_l$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof} [Proof of \textup{(i)}]
+    \allowdisplaybreaks
+    Choose $\delta > \epsilon > 0$ such that
+    $\{ z_i, w_i \} \cap ( \bar{B}_{\delta} (0) \setminus \{ 0 \} ) = \varnothing$,
+    where $\bar{B}_{\delta} (0)$ denotes the closed ball of radius $\delta$
+    centred at $0 \in \Sigma$.
+    We use the notation $O_{\delta} (\epsilon^2)$
+    to denote a function that is $O (\epsilon^2)$ for any fixed $\delta$.
+    Thus,
+    \begin{align*}
+        & \phantom{{} = {}}
+        \intbar_\Sigma \mathrm{vol}_w \ 
+        \oint_0 \ d z \ 
+        F (z, w) \\
+        & =
+        \intbar_{\Sigma \setminus B_{\delta} (0)} \mathrm{vol}_w \ 
+        \oint_{|z| = \epsilon} d z \ 
+        F (z, w)
+        +
+        \intbar_{B_{\delta} (0)} \mathrm{vol}_w \ 
+        \oint_{0} \ d z \ 
+        F (z, w)
+        + O_{\delta} (\epsilon^2) \\
+        & =
+        \oint_{|z| = \epsilon} d z \ 
+        \intbar_{\Sigma \setminus B_{\delta} (0)} \mathrm{vol}_w \ 
+        F (z, w)
+        +
+        O (\delta^2)
+        +
+        O_{\delta} (\epsilon^2),
+    \end{align*}
+    where we were able to swap the two integrals in the first term,
+    because the regularized integral
+    can be written as a limit:
+    \[
+        \intbar_{\Sigma \setminus B_{\delta} (0)} \mathrm{vol}_w \ 
+        F (z, w)
+        =
+        \lim_{\epsilon' \to 0}
+        \int_{
+            \Sigma \setminus \left(
+                B_{\delta} (0) \ 
+                \cup \ 
+                \bigcup_i B_{\epsilon'} (w_i)
+            \right)
+        } \mathrm{vol}_w \ 
+        F (z, w),
+    \]
+    and the limit on the right hand side
+    converges uniformly with respect to all $z$ such that $|z| = \epsilon$.
+    It follows that
+    \[
+        \Biggl[ \ 
+            \oint_0 \ d z \ , \ 
+            \intbar_\Sigma \mathrm{vol}_w
+        \Biggr]
+        F (z, w)
+        =
+        \oint_{|z| = \epsilon} d z \ 
+        \intbar_{B_{\delta} (0)} \mathrm{vol}_w \ 
+        F (z, w)
+        + O (\delta^2) + O_{\delta} (\epsilon^2).
+    \]
+    For $(z, w) \in B_{\delta} (0) ^2$,
+    we may expand $F$ as
+    \[
+        F (z, w) \, \mathrm{vol}_w
+        =
+        \Biggl(
+            \sum _{k = 1} ^{K}
+            \frac {a_k (z)} {w^k}
+            +
+            \sum _{k = 1} ^{K}
+            \frac {b_k (z)} {(w - z)^k}
+            +
+            \sum _{k = 1} ^{K}
+            \frac {c_k (w)} {z^k}
+            +
+            F_0 (z, w)
+        \Biggr) \,
+        d^2 w,
+    \]
+    where $F_0$ is non-singular in $B_{\delta} (0) ^2$,
+    the functions $c_k$ are non-singular in $B_{\delta} (0)$,
+    and the functions $a_k, b_k$ have a possible holomorphic pole at $z = 0$
+    and no other poles.
+    Indeed, the first two terms come from expanding $F (z, w)$
+    in terms of its poles in $w$ for fixed $z \neq 0$,
+    and the regular part becomes the last two terms.
+    Since
+    \[
+        \intbar_{B_{\delta} (0)}
+        \frac {d^2 w} {w^k}
+        = 0 \quad
+        \text{and} \quad
+        \intbar_{B_{\delta} (0)}
+        d^2 w \, c_k (w)
+        = O (\delta^2) \quad
+        \text{for all }
+        k \geq 1,
+    \]
+    we have
+    \[
+        \Biggl[ \ 
+            \oint_0 \ d z \ , \ 
+            \intbar_\Sigma \mathrm{vol}_w
+        \Biggr]
+        F (z, w)
+        =
+        \sum _{k = 1} ^{K} \ 
+        \oint_{|z| = \epsilon}
+        b_k (z) \ d z \ 
+        \intbar_{B_{\delta} (0)} 
+        \frac {d^2 w} {(w - z)^k}
+        + O (\delta^2) + O_{\delta} (\epsilon^2).
+    \]
+    Notice that if $r > |z|$, and if we write $\theta = \arg w$, then
+    \begin{align*}
+        & \phantom{{} = {}}
+        \oint _{|w| = r}
+        \frac {d \theta} {(w - z)^k} \\
+        & =
+        - \upi r \ 
+        \oint _{|w| = r}
+        \frac {d w} {w (w - z)^k} \\
+        & =
+        2 \uppi r \biggl(
+            \Res_{w = 0} \frac {1} {w (w - z)^k}
+            +
+            \Res_{w = z} \frac {1} {w (w - z)^k}
+        \biggr) \\
+        & =
+        2 \uppi r \biggl(
+            \frac {(-1)^k} {z^k}
+            +
+            \frac {1} {(k - 1)!}
+            \biggl( \frac {d} {d w} \biggr) ^{k-1}
+            \frac {1} {w}
+            \bigg|_{w = z}
+        \biggr) \\
+        & = 0,
+    \end{align*}
+    so that for any $0 < |z| < \delta$, we have
+    \[
+        \intbar_{B_{\delta} (0)} 
+        \frac {d^2 w} {(w - z)^k}
+        =
+        \intbar_{B_{|z|} (0)} 
+        \frac {d^2 w} {(w - z)^k}.
+    \]
+    This means that if we replace $z$ by $c z$,
+    with $c \in \bbC$ such that $0 < |c z| < \delta$,
+    then this integral becomes
+    \[
+        \frac {|c|^2} {c^k}
+        =
+        \frac {\bar{c}} {c^{k-1}}
+    \]
+    times the original value.
+    Therefore, this integral must have the form
+    \[
+        \intbar_{B_{\delta} (0)} 
+        \frac {d^2 w} {(w - z)^k}
+        =
+        C_k
+        \frac {\bar{z}} {z^{k-1}}
+    \]
+    for some constant $C_k \in \bbC$,
+    for all $0 < |z| < \delta$.
+    If we expand $b_k$ as
+    \[
+        b_k (z) =
+        \sum _{ p = -P } ^{\infty}
+        \sum _{ q = 0 } ^{\infty}
+        b_{k, p, q} \, z^p \, \bar{z}^q ,
+    \]
+    then
+    \begin{align*}
+        & \phantom{{} = {}}
+        \oint_{|z| = \epsilon}
+        b_k (z) \ d z \ 
+        \intbar_{B_{\delta} (0)} 
+        \frac {d^2 w} {(w - z)^k} \\
+        & =
+        C_k \ 
+        \sum _{q = 0} ^{\infty}
+        b_{k, k - 1 + q, q} \ 
+        \oint_{|z| = \epsilon}
+        z^q \, \bar{z}^{q + 1} \, d z \\
+        & =
+        2 \uppi \upi \, C_k \ 
+        \sum _{q = 0} ^{\infty}
+        b_{k, k - 1 + q, q} \, \epsilon^{2q + 2} \\
+        & =
+        O (\epsilon^2),
+    \end{align*}
+    by the analyticity of $b_k$.
+    Therefore,
+    \[
+        \Biggl[ \ 
+            \oint_0 \ d z \ , \ 
+            \intbar_\Sigma \mathrm{vol}_w
+        \Biggr]
+        F (z, w)
+        =
+        O (\delta^2) + O_{\delta} (\epsilon^2).
+    \]
+    It follows that this commutator must be zero.
+\end{proof}
+
+
+\begin{proof} [Proof of \textup{(ii)}]
+    We have
+    \begin{align*}
+        & \phantom{{} = {}}
+        \Biggl[
+            \frac {\partial} {\partial z} \ , \ 
+            \intbar_\Sigma \mathrm{vol}_w
+        \Biggr]
+        F (z, w) \\
+        & =
+        \frac {1} {2 \uppi \upi}
+        \Biggl[ \ 
+            \oint_z \ d \zeta \ , \ 
+            \intbar_\Sigma \mathrm{vol}_w
+        \Biggr]
+        \frac {F (\zeta, w)} {(\zeta - z)^2} \\
+        & = 0,
+    \end{align*}
+    where the last equality almost follows from (i),
+    except that the function $F (\zeta, w) / (\zeta - z)^2$
+    is only defined when $\zeta$ is in a neighbourhood of $z$.
+    However, the proof of (i)
+    works even if $F$ is not analytic,
+    as long as it is smooth on $\Sigma^2 \setminus D$
+    and analytic near $\{ 0 \} \times \Sigma$.
+    Therefore, we can extend the function $1 / (\zeta - z)^2$
+    smoothly to $\Sigma \setminus \{ z \}$,
+    multiply it with $F (\zeta, w)$,
+    and then apply (i) with $0 = z$ to complete the proof.
+\end{proof}
+
+\begin{remark}
+    In general, the anti-holomorphic differential
+    does \emph{not} commute with the regularized integral.
+    That is, the expression
+    \[
+        \Biggl[
+            \frac {\partial} {\partial \bar{z}} \ , \ 
+            \intbar_\Sigma \mathrm{vol}_w
+        \Biggr]
+        F (z, w)
+    \]
+    is in general not zero.
+    In fact, even if $F$ is meromorphic in $z$,
+    so that $\partial F / \partial \bar{z} = 0$,
+    the regularized integral
+    \[
+        \intbar_\Sigma \mathrm{vol}_w \ F (z, w)
+    \]
+    may not be meromorphic in $z$.
+    For example, on the elliptic curve,
+    using Lemma~\ref{lem-zeta-technique},
+    one computes that
+    \[
+        \intbar_E \frac {d^2 w} {\im \tau} \ 
+        \bigl( \zeta (z) - \zeta (w) + \zeta (w - z) \bigr)
+        = 2 \uppi \upi \, \frac {\im z} {\im \tau} + \xi (z),
+    \]
+    which is not meromorphic in $z$. \varqed
+\end{remark}
+
+
+\subsection{Twisted conformal blocks}
+
+Let $\scrV$ be a vertex algebra,
+and let $I \in \scrV$ be a vertex operator such that $I_{(0)} I = 0$.
+Let $\langle \cdots \rangle$ be an element of the conformal block of $\scrV$
+on the elliptic curve $E = \bbC / (\bbZ 1 \oplus \bbZ \tau)$,
+which we fix throughout this section.
+
+Recall that we have the BRST reduction $H (\scrV, I_{(0)})$.
+In this section, we attempt to construct elements
+of the conformal block of $H (\scrV, I_{(0)})$ on $E$,
+based on the existing element $\langle \cdots \rangle$ of the conformal block of $\scrV$.
+
+For any formal power series
+\[
+    F = \sum_{m=0}^\infty a_m x^m \in \bbC [[x]],
+\]
+we write
+\begin{align*}
+    & \phantom {{} = {}}
+    \biggl\langle
+        \scrO_1 (z_1) \cdots \scrO_n (z_n) \ 
+        F \biggl( \frac{1}{\hbar} \intbar I \biggr)
+    \biggr\rangle \\
+    & =
+    \sum_{m=0}^\infty \frac{a_m}{\hbar^m}
+    \intbar_E \frac {d^2 w_1} {\im \tau} \cdots
+    \intbar_E \frac {d^2 w_m} {\im \tau} \ 
+    \langle
+        \scrO_1 (z_1) \cdots \scrO_n (z_n) \ 
+        I (w_1) \cdots I (w_m)
+    \rangle
+\end{align*}
+as a shorthand,
+where $\hbar$ is a formal variable.
+One particularly interesting example is
+\[
+    \langle
+        \scrO_1 (z_1) \cdots \scrO_n (z_n) \ 
+        \upe^{\frac{1}{\hbar} \intbar I}
+    \rangle,
+\]
+which should give the correlation functions of the new theory
+obtained via BRST reduction.
+
+\begin{lemma}
+    \label{lem-new-conf-block-well-defined}
+    Suppose that $\scrO_1, \dotsc, \scrO_n \in \scrV$
+    are $I_{(0)}$-closed, and let $F \in \bbC[[x]]$. Then
+    \[
+        \biggl\langle
+            \scrO_1 (z_1) \cdots \scrO_n (z_n) \ 
+            F \biggl( \frac{1}{\hbar} \intbar I \biggr)
+        \biggr\rangle
+    \]
+    does not depend on the choice of representatives
+    of the $I_{(0)}$-cohomology classes of the elements $\scrO_i$.
+\end{lemma}
+
+\begin{proof}
+    Suppose that $\scrO_1 = I_{(0)} \scrO'_1$ for some $\scrO'_1$.
+    We need to show that
+    \[
+        \langle
+            I_{(0)} \scrO'_1 (z_1) \ 
+            \scrO_2 (z_2) \cdots \scrO_n (z_n) \ 
+            I (w_1) \cdots I (w_m)
+        \rangle
+        = 0
+    \]
+    for any $m \geq 0$.
+    But by the global residue theorem, we have
+    \begin{align*}
+        0
+        & =
+        (
+            \Res_{w = z_1} + \cdots + \Res_{w = z_n}
+            + \Res_{w = w_1} + \cdots + \Res_{w = w_m}
+        ) \\
+        & \hspace{4em}
+        \langle
+            \scrO'_1 (z_1) \ 
+            \scrO_2 (z_2) \cdots \scrO_n (z_n) \ 
+            I (w) \ I (w_1) \cdots I (w_m)
+        \rangle \\
+        & =
+        \langle
+            I_{(0)} \scrO'_1 (z_1) \ 
+            \scrO_2 (z_2) \cdots \scrO_n (z_n) \ 
+            I (w_1) \cdots I (w_m)
+        \rangle ,
+    \end{align*}
+    since by assumption, $I_{(0)} \scrO_i = 0$ and $I_{(0)} I = 0$.
+    It follows that
+    \[
+        \biggl\langle
+            I_{(0)} \scrO'_1 (z_1) \ 
+            \scrO_2 (z_2) \cdots \scrO_n (z_n) \ 
+            F \biggl( \frac{1}{\hbar} \intbar I \biggr)
+        \biggr\rangle
+        = 0.
+        \qedhere
+    \]
+\end{proof}
+
+
+\begin{lemma}
+    \label{lem-meromorphic}
+    Let $\scrO_1, \dotsc, \scrO_n, I_1, \dotsc, I_m \in \scrV$
+    be elements such that $I_{j, (0)} I_i = 0$
+    and $I_{j, (0)} \scrO_i = 0$ for all $i, j$.
+    Then the function
+    \[
+        \intbar_E \frac {d^2 w_1} {\im \tau} \cdots
+        \intbar_E \frac {d^2 w_m} {\im \tau} \ 
+        \langle
+            \scrO_1 (z_1) \cdots \scrO_n (z_n) \ 
+            I_1 (w_1) \cdots I_m (w_m)
+        \rangle
+    \]
+    is meromorphic in $z_1, \dotsc, z_n$.
+\end{lemma}
+
+\begin{proof}
+    \allowdisplaybreaks
+    For fixed $z_1, \dotsc, z_n, w_1, \dotsc, w_{m-1} \in E$,
+    such that these points are distinct and are different from $0$,
+    we denote $z_{n+j} = w_j$ ($1 \leq j \leq m - 1$).
+    Using Lemma~\ref{lem-zeta-technique}, we have
+    \begin{align*}
+        & \phantom{{} = {}}
+        \intbar_E \frac {d^2 w_m} {\im \tau} \ 
+        \langle
+            \scrO_1 (z_1) \cdots \scrO_n (z_n) \ 
+            I_1 (w_1) \cdots I_m (w_m)
+        \rangle \\
+        & =
+        2 \uppi \upi
+        \left(
+            \sum _{i=1} ^{n+m-1} \Res_{w_m = z_i} +
+            \Res _{w_m = 0}
+        \right) \\
+        && \hspace{-24em}
+        \left[
+            \Bigl(
+                \frac{\im w_m}{\im \tau} +
+                \frac {1} {2 \uppi \upi} \, \xi (w_m)
+            \Bigr)
+            \langle
+                \scrO_1 (z_1) \cdots \scrO_n (z_n) \ 
+                I_1 (w_1) \cdots I_m (w_m)
+            \rangle
+        \right] \\
+        & =
+        2 \uppi \upi
+        \sum _{i=1} ^{n+m-1} \Res_{w_m = z_i}
+        \Biggl[
+            \Bigl(
+                \frac{\im (w_m - z_i)}{\im \tau} +
+                \frac{\im z_i}{\im \tau} +
+                \frac {1} {2 \uppi \upi} \, \xi (w_m)
+            \Bigr) \cdot {} \\
+        && \hspace{-24em}
+            \langle
+                \scrO_1 (z_1) \cdots \scrO_n (z_n) \ 
+                I_1 (w_1) \cdots I_m (w_m)
+            \rangle
+        \Biggr]
+        + \text{(meromorphic term)} \\
+        & =
+        2 \uppi \upi
+        \sum _{i=1} ^{n+m-1}
+        \frac{\im z_i}{\im \tau}
+        \Res_{w_m = z_i}
+        \langle
+            \scrO_1 (z_1) \cdots \scrO_n (z_n) \ 
+            I_1 (w_1) \cdots I_m (w_m)
+        \rangle \\
+        && \hspace{-24em}
+        {} + \text{(meromorphic term)} \\
+        & =
+        0 + \text{(meromorphic term)},
+    \end{align*}
+    by the assumption that
+    $I_{m, (0)} \scrO_i = I_{m, (0)} I_{j} = 0$
+    for all $i, j$.
+    
+    Similarly, if $m > 1$, then we have
+    \begin{align*}
+        & \phantom{{} = {}}
+        \intbar_E \frac {d^2 w_{m-1}} {\im \tau}
+        \intbar_E \frac {d^2 w_m} {\im \tau} \ 
+        \langle
+            \scrO_1 (z_1) \cdots \scrO_n (z_n) \ 
+            I_1 (w_1) \cdots I_m (w_m)
+        \rangle \\
+        & =
+        2 \uppi \upi
+        \sum _{i=1} ^{n+m-2}
+        \frac{\im z_i}{\im \tau}
+        \Res_{w_{m-1} = z_i}
+        \intbar_E \frac {d^2 w_m} {\im \tau} \\
+        && \hspace{-24em}
+        \langle
+            \scrO_1 (z_1) \cdots \scrO_n (z_n) \ 
+            I_1 (w_1) \cdots I_m (w_m)
+        \rangle
+        + \text{(meromorphic term)} \\
+        & =
+        2 \uppi \upi
+        \sum _{i=1} ^{n+m-2}
+        \frac{\im z_i}{\im \tau}
+        \intbar_E \frac {d^2 w_m} {\im \tau} \ 
+        \Res_{w_{m-1} = z_i} \\
+        && \hspace{-24em}
+        \langle
+            \scrO_1 (z_1) \cdots \scrO_n (z_n) \ 
+            I_1 (w_1) \cdots I_m (w_m)
+        \rangle
+        + \text{(meromorphic term)} \\
+        & =
+        0 + \text{(meromorphic term)},
+    \end{align*}
+    where we have applied Lemma~\ref{lem-commutator}
+    to swap the regularized integral
+    and the residue operator.
+    
+    Continuing in this way,
+    we see that the $n$-fold regularized integral
+    is meromorphic in $z_1, \dotsc, z_n$.
+\end{proof}
+
+
+\begin{theorem}
+    \label{thm-main}
+    Let $\scrV$ be a vertex algebra, and let $\langle \cdots \rangle$
+    be an element of the conformal block for $\scrV$ on $E$.
+    Let $I \in \scrV$ be a vertex operator such that $I_{(0)} I = 0$.
+    Then for any $F \in \bbC [[x]]$, the expression
+    \[
+        \biggl\langle
+            \scrO_1 (z_1) \cdots \scrO_n (z_n) \ 
+            F \biggl( \frac{1}{\hbar} \intbar I \biggr)
+        \biggr\rangle
+    \]
+    gives an element of the conformal block for the BRST reduction
+    $H (\scrV, I_{(0)})$ on $E$.
+\end{theorem}
+
+\begin{proof}
+    \allowdisplaybreaks
+    The expression
+    $\bigl\langle \scrO_1 (z_1) \cdots \scrO_n (z_n) \ 
+    F \bigl( \frac{1}{\hbar} \intbar I \bigr) \bigr\rangle$
+    is well-defined on the BRST reduction by
+    Lemma~\ref{lem-new-conf-block-well-defined},
+    and is meromorphic in $z_1, \dotsc, z_n$
+    by Lemma~\ref{lem-meromorphic}.
+    
+    Write $F (x) = \sum_m a_m x^m$.
+    To show that
+    $\bigl\langle \cdots F \bigl( \frac{1}{\hbar} \intbar I \bigr) \bigr\rangle$
+    indeed has the singularities specified by the OPE in
+    $H (\scrV, I_{(0)})$, we notice that
+    \begin{align*}
+        & \phantom{{} = {}}
+        \oint_{z_1} \ 
+        (z - z_1)^k \ d z \ 
+        \biggl\langle
+            \scrO (z) \ 
+            \scrO_1 (z_1) \cdots \scrO_n (z_n) \ 
+            F \biggl( \frac{1}{\hbar} \intbar I \biggr)
+        \biggr\rangle \\
+        & =
+        \sum _{m = 0} ^{\infty}
+        \frac {a_m} {\hbar^m} \ 
+        \oint_{z_1} \ 
+        (z - z_1)^k \ d z
+        \intbar_E \frac {d^2 w_1} {\im \tau}
+        \cdots
+        \intbar_E \frac {d^2 w_m} {\im \tau} \\
+        & \hspace{8em}
+        \langle
+            \scrO (z) \ 
+            \scrO_1 (z_1) \cdots \scrO_n (z_n) \ 
+            I (w_1) \cdots I (w_m)
+        \rangle \\
+        & =
+        \sum _{m = 0} ^{\infty}
+        \frac {a_m} {\hbar^m} 
+        \intbar_E \frac {d^2 w_1} {\im \tau}
+        \cdots
+        \intbar_E \frac {d^2 w_m} {\im \tau}
+        \oint_{z_1} \ 
+        (z - z_1)^k \ d z \\
+        & \hspace{8em}
+        \langle
+            \scrO (z) \ 
+            \scrO_1 (z_1) \cdots \scrO_n (z_n) \ 
+            I (w_1) \cdots I (w_m)
+        \rangle \\
+        & =
+        \sum _{m = 0} ^{\infty}
+        \frac {a_m} {\hbar^m} 
+        \intbar_E \frac {d^2 w_1} {\im \tau}
+        \cdots
+        \intbar_E \frac {d^2 w_m} {\im \tau} \\
+        & \hspace{8em}
+        \langle
+            \scrO_{(k)} \scrO_1 (z_1) \ 
+            \scrO_2 (z_2) \cdots \scrO_n (z_n) \ 
+            I (w_1) \cdots I (w_m)
+        \rangle \\
+        & =
+        \biggl\langle
+            \scrO_{(k)} \scrO_1 (z_1) \ 
+            \scrO_2 (z_2) \cdots \scrO_n (z_n) \ 
+            F \biggl( \frac{1}{\hbar} \intbar I \biggr)
+        \biggr\rangle ,
+    \end{align*}
+    where we have applied Lemma~\ref{lem-commutator} (i)
+    to swap the residue operator and the regularized integrals.
+    
+    To show that
+    $\bigl\langle \cdots F \bigl( \frac{1}{\hbar} \intbar I \bigr) \bigr\rangle$
+    is compatible with the translation operator of
+    $H (\scrV, I_{(0)})$, we have
+    \begin{align*}
+        & \phantom{{} = {}}
+        \frac {\partial} {\partial z_1}
+        \biggl\langle
+            \scrO_1 (z_1) \cdots \scrO_n (z_n) \ 
+            F \biggl( \frac{1}{\hbar} \intbar I \biggr)
+        \biggr\rangle \\
+        & =
+        \sum _{m = 0} ^{\infty}
+        \frac {a_m} {\hbar^m} \,
+        \frac {\partial} {\partial z_1}
+        \intbar_E \frac {d^2 w_1} {\im \tau}
+        \cdots
+        \intbar_E \frac {d^2 w_m} {\im \tau} \\
+        & \hspace{8em}
+        \langle
+            \scrO_1 (z_1) \cdots \scrO_n (z_n) \ 
+            I (w_1) \cdots I (w_m)
+        \rangle \\
+        & =
+        \sum _{m = 0} ^{\infty}
+        \frac {a_m} {\hbar^m} 
+        \intbar_E \frac {d^2 w_1} {\im \tau}
+        \cdots
+        \intbar_E \frac {d^2 w_m} {\im \tau} \,
+        \frac {\partial} {\partial z_1} \\
+        & \hspace{8em}
+        \langle
+            \scrO_1 (z_1) \cdots \scrO_n (z_n) \ 
+            I (w_1) \cdots I (w_m)
+        \rangle \\
+        & =
+        \sum _{m = 0} ^{\infty}
+        \frac {a_m} {\hbar^m} 
+        \intbar_E \frac {d^2 w_1} {\im \tau}
+        \cdots
+        \intbar_E \frac {d^2 w_m} {\im \tau} \\
+        & \hspace{8em}
+        \langle
+            T \scrO_1 (z_1) \ 
+            \scrO_2 (z_2) \cdots \scrO_n (z_n) \ 
+            I (w_1) \cdots I (w_m)
+        \rangle \\
+        & =
+        \biggl\langle
+            T \scrO_1 (z_1) \ 
+            \scrO_2 (z_2) \cdots \scrO_n (z_n) \ 
+            F \biggl( \frac{1}{\hbar} \intbar I \biggr)
+        \biggr\rangle ,
+    \end{align*}
+    where we have applied Lemma~\ref{lem-commutator} (ii)
+    to swap the partial derivative and the regularized integrals.
+\end{proof}
+

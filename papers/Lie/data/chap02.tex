@@ -1,0 +1,62 @@
+% !TeX root = ../Lie.tex
+
+Now start from a convergent power series $f\in \m \subset \Cc\{\xn\}=\Cc\{x_1,\cdots, x_n\}$, where $\m = \lan x_1,\cdots, x_n\ran$ is the unique maximal ideal of $\Cc\{x_1,\cdots,x_n\}$, the local ring of convergent power series of $n$ variables, which can also be regarded as the coordinate ring of the complex space germ $(\Cc^n,\0)$. Then the origin of $\Cc^n$ lies in the hypersurface $\{ f = 0\} \subset \Cc^n$.
+
+\subsection{Isolated hypersurface singularities} Let $V=V(f)$ denote the germ of $\{f=0\}$ at the origin of $\Cc^n$. Since the singular locus of $V$ is exactly where the gradient of $f$ vanishes, we say $V$ is a germ of isolated hypersurface singularity if the origin $\0\in \Cc^n$  is an isolated point of 
+$$\left\{f=0,\pd f{x_1}=0,\cdots, \pd f{x_n}=0\right\}.$$
+In this case we also say $f$ defines a isolated hypersurface singularity $V$.
+
+\subsection{Moduli algebra}\label{sec-2.2}
+For $f\in \m$, we introduce its Jacobian ideal to be 
+\[j(f)\coloneq \lan \pd f{x_1},\cdots, \pd f {x_n}\ran.\]
+and its Tjurina algebra to be 
+\[A(f)\coloneq  \Cc\{\xn\} / \lan f, j(f)\ran.\]
+According to lemma 2.3 of \cite[113]{GL}, $A(f)$ is of finite dimension iff $f$ defines an isolated hypersurface singularity. This algebra is also said to be  moduli algebra of $V=V(f)$. The well-known Mather--Yau theorem states that 
+
+\begin{theorem}[\cite{MY}]\label{MY}
+  For  isolated hypersurface singularities $V(f_1), V(f_2)$ defined by $f_1,f_2\in \m\subset \Cc\{\xn\}$, they are isomorphic as complex space germs if and only if their moduli algebras $A(f_1)$ and $A(f_2)$ are isomorphic as $\Cc$-algebras.
+\end{theorem}
+Consequently, the moduli algebra $A(f)$ is a complete invariant of the isolated hypersurface singularities $V(f)$. 
+
+
+\subsection{Yau algebra}\label{sec-2.3}
+Suppose we have a homomorphism of $\Cc$-algebras  $A\to B$, which is equivalent to say that $B$ is an $A$-algebra.  Denote $\Endo_A B$ the endomorphisms of $B$ as an $A$-module, then we can define the $A$-derivation algebra of $B$ to be the submodule
+\[\Der_A B=\{ \delta \in \Endo_A B\,\mid \delta(fg)= \delta(f)g+f\delta(g), \forall f,g \in B\},\]
+whose Lie bracket is the commutator of linear endomorphisms. We would consider  the case $A=\Cc$ before section \ref{sec4}, and then the case $A=\Cc\{t\}$ or $\Cc\{\bt\}=\Cc\{t_1,\cdots, t_m\}$ will also be taken into consideration.
+\begin{remark}
+  To obtain
+  \[\Der_\Cc \Cc\{\xn\} = \bigoplus_{i=1}^n\Cc\{\xn\} \pd{}{x_i},\]
+  one may need moreover that the derivation over $\Cc\{\xn\}$ is continuous with respect to the $\m$-adic topology. However, this doesn't make any difference when $B$ is also a  finite generated module over $A$. This is the most case we consider. 
+\end{remark}
+
+The Tjurina algebra $A(f)$ for $f\in \m$ is a $\Cc$-algebra, so we now can introduce its derivation Lie algebra as
+\[L(f)\coloneq  \Der_\Cc A(f).\]
+Motivated by Theorem \ref{MY}, we can ask whether  $L(f)$ is also a complete invariant of the isolated hypersurface singularities $V(f)$.	
+
+\subsection{New Lie algebra}\label{sec-2.4}
+In \cite{BN}, a new complete invariant of quasi-homogeneous isolated hypersurface singularities $V=V(f)$ was defined as
+\[A^*(f)\coloneq \Cc\{\xn\}/\lan f, j(f), H(f)\ran,\]
+where
+\[H(f)\coloneq \det  \left( \frac{\partial^2 f}{\partial x_i \partial x_j}\right)_{1\leqslant i,j \leqslant n } \]
+is the Hessian of $f$. Consequently, another Lie algebra $L^*(f)\coloneq \Der_\Cc A^*(f)$ called new Lie algebras in \cite{BN} arises from the singularity defined by $f$, and a question similar to $L(f)$ can be proposed.
+
+Before the concrete computation in section \ref{sec3}, we present the following results about the grading structure of the above algebras, which can be found in \cite{BN}:	
+\begin{proposition}[\cite{BN}]\label{res}
+  Let $f\in \Cc\{\xn\}$ be a homogeneous polynomial of degree $d\geqslant 2$ defining an isolated hypersurface singularity in $( \Cc^n, \0)$.
+  Note that there are natural grading which can be denoted to be 
+  \begin{align*}
+    A(f)=\bigoplus_{k=0}^DA(f)_k,&
+    A^*(f)=\bigoplus_{k=0}^{D^*}A^*(f)_k.
+  \end{align*}
+  \item[(1)](Theorem 2.3, Proposition 2.1)  The degree-$D$ part of $A(f)$ is $1$-dimensional with a basis represented by $H(f)$. In particular, $D\coloneq  \deg  H(f) = n(d-2)$ . Moreover, the total dimension of $A(f)$ is  $ (d-1)^n.$
+  \item[(2)](Theorem 2.3) The natural projection $A(f) \to A^*(f)$ induces isomorphisms of $\Cc$-linear spaces $A(f)_k\stackrel \sim \to A^*(f)_k, 0 \leqslant k \leqslant D-1$. In particular, $D^*=D-1$. Moreover, the total dimension of $A^*(f)$ is  $ (d-1)^n-1.$
+  \item[(3)](Corollary 2.1) $L(f)$  is solvable, while $L^*(f)$ is solvable given $d\geqslant 4$.
+  \item[(4)](Remark 6.1) $L(f)$ and $L^*(f)$ are naturally graded with no negative part and share the same total dimension.
+  \end{proposition}
+  We also denote $\Cc\{\xn\}_k$ to be  the degree $k$-part of $\Cc\{\xn\}$, i.e., the vector space consists of homogeneous polynomials of degree $k$, then we have $\forall K \geqslant 0$, 
+  \[\Cc\{\xn\} = \left( \bigoplus_{k=0}^K \Cc\{\xn\}_k \right)\oplus \m^{K+1}\]
+  as $\Cc$-vector space.
+
+  %	\[
+  %	\Cc\{\xn\}=\overline{\bigoplus_{k\geqslant 0}\Cc\{\xn\}_k},\]
+  %	where the closure is taken with respect to the $\m$-adic topology of $\Cc\{\xn\}$. 

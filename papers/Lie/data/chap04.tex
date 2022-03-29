@@ -1,0 +1,487 @@
+% !TeX root = ../Lie.tex
+
+The natural way to extend the Lie algebra to the origin is consider the liftable Lie algebra. Let's recall  the definition in \cite{SY}:
+\begin{definition}\label{din-4.1}
+  A derivation $\delta_0\in L(f_\0)$ is liftable to $S_{\bt}\coloneq \Cc^m$ if   there is $\delta\in \Der_{\Cc\{\bt\} }\Cc\{\xn,\bt\}$ leaves the ideal 
+  \[\lan \pd f {x_1},\cdots, \pd f {x_n} \ran \subset \Cc\{\xn,\bt\}\]
+  invariant, and the following diagram commutes
+  \[\begin{tikzcd}
+    \Cc\{\xn,\bt\} \ar[r, "\delta"] \ar[d, two heads]  & \Cc\{\xn,\bt\}  \ar[d, two heads]\\
+    \Cc\{\xn\} \ar[r, "\delta|_{\bt=\0}"]  \ar[d, two heads]  & \Cc\{\xn\}  \ar[d, two heads]\\
+    A(f_{\bt}) \ar[r, "\delta_0"] & A(f_{\bt})
+  \end{tikzcd}\]
+  The  derivations liftable to $S_\bt$ in $L(f_\0)$   form a Lie subalgebra which is denoted by $\tilde L(f_\0)$.
+\end{definition}
+
+\begin{remark}\label{rmk-4.1}
+  \item[(1)] Similar definitions and results in this subsection applies to  $L^*(f_\0)$ and we won't take time to repeat it unless necessary.
+  \item[(2)]Let $\delta\in \Der_{\Cc\{\bt\}} \Cc\{\xn,\bt\}.$ Since $\delta$ is $\Cc\{\bt\}$-linear, we have
+    \[\delta=\delta_\0+\sum_{|\alpha|=1} \bt^\alpha \delta_\alpha+\sum_{|\beta|=2} \bt^\beta \delta_\beta + \cdots,\]
+    where $\delta_\0, \delta_\alpha, \delta_\beta ,\cdots\in \Der_{\Cc}\Cc\{\xn\}.$ If $\delta$ preserves $\lan \pd f {x_1},\cdots, \pd f {x_n} \ran \subset \Cc\{\xn,\bt\}$, then $\delta_\0= \delta|_{\bt=\0}$ preserves $j(f)\subset \Cc\{\xn\}$, and hence induces $\bar \delta_\0\in \Der_{\Cc} A(f_\0)=L(f_\0)$. By definition, all liftable derivations take the form $\bar \delta_\0$.   Moreover, if $\delta_0\in L(f_\0)$ is liftable to some $\delta$, then it is liftable to some $\delta|_{\bt=\0} \in \Der_\Cc \Cc\{\xn\}$. Hence, a lifting of $\delta_0$ is not necessarily unique.
+  \end{remark}
+
+  To make the lifting unique, let's consider the $\Cc\{\bt\}$-algebra
+  \[A(f)\{\bt\} : = \Cc\{\xn, \bt\} \Bigg / \lan \pd{f}{x_1} , \cdots, \pd {f} {x_n} \ran\]
+  and the $\Cc\{\bt\}$-module
+  \[L(f)\{\bt\}\coloneq \Der_{\Cc\{\bt\}} A(f)\{\bt\} .\]
+  \begin{lemma}\label{lem-4.2}
+  \item[(1)] $A(f)\{\bt\}$ is a free $\Cc\{\bt\}$-module of finite rank with a basis coincide to a general basis of $A(f)$, for example, the monomial basis \eqref{3.1.1}.
+  \item[(2)] The natural restriction 
+    \begin{align*}
+      L(f)\{\bt\} & \to L(f_\0)\\
+      \delta&\mapsto \delta|_{\bt=\0}
+    \end{align*}
+    is a well-defined map on to $\tilde L(f_\0)$.
+  \end{lemma}
+  \begin{remark}
+    For convenience, let $\deg x_i =1, \deg t_i=0$. Then we would  see  easily that $A(f)\{\bt\}$ is a graded $\Cc\{\bt\}$-module, so is $L(f)\{\bt\}$. Denote the degree-$k$ part of $A(f)\{\bt\}$ and $L(f)\{\bt\}$ to be $A(f)_k\{\bt\}$ and $L(f)_k\{\bt\}$.
+  \end{remark}
+  \begin{proof}
+    (2) is obvious from remark \ref{rmk-4.1} and we would just show (1). It's enough to show the monomial basis \eqref{3.1.1} is a $\Cc\{\bt\}$-basis for $A(f)\{\bt\}$. 
+
+    Let's review the proof of Proposition \ref{pro-3.1}. 
+    Let $\{B_1,\cdots, B_M\}$ denotes the monomials $\{\xn^{\boldsymbol{\alpha}} \mid |\boldsymbol{\alpha}| = k \},$  which is a $\Cc\{\bt\}$-basis for $\Cc\{\xn,\bt\}_k$. Let $\{b_1,\cdots, b_\mu\}$ denotes the monomials in \eqref{3.1.1} and $\{b_{\mu+1},\cdots, b_{M'}\}$ denotes
+    \[\left\{ \xn^{\boldsymbol \alpha}\cdot \pd f{x_j} \Bigm| |\boldsymbol \alpha |+d-1=k \right\}.\]
+    Then there is $C\in \Mat\left( M' \times M , \Cc[\bt] \right)$ such that
+    \[\begin{pmatrix}
+      b_1\\
+      \vdots\\
+      b_{M'}
+    \end{pmatrix}
+    =
+    C
+    \begin{pmatrix}
+      B_1\\
+      \vdots\\
+      B_M
+    \end{pmatrix}
+  .\]
+  Note that $\{b_1,\cdots, b_{M'}\}$ span $\Cc\{\xn\}_k$ at $\bt=\0$,  so $C$ has a submatrix $C_k\in \Mat\left(M\times M, \Cc[\bt]\right)$ invertible at $\bt=\0$.  This implies that $\det C_k \in \Cc[\bt]$ has non-zero constant term. 
+
+  Then $\det C_k$ is invertible in $\Cc\{\bt\}$ and hence $C_k$ is invertible over $\Cc\{\bt\}$. Consequently, we have
+  \[\{\xn^{\boldsymbol{\alpha}} \mid |\boldsymbol{\alpha}| = k \} = \{B_1,\cdots, B_M \}\subset  \spann_{\Cc\{\bt\}}\{ b_1,\cdots, b_\mu\} + \lan \pd f{x_1},\cdots, \pd f{x_n} \ran.\]
+  In particular, $\m^{D+1}\Cc\{\xn, \bt\} \subseteq  \lan \pd f{x_1},\cdots, \pd f{x_n} \ran$.
+
+  It remains to show $\{b_1,\cdots, b_\mu\}$ is $\Cc\{\bt\}$-linear independent in $A(f)\{\bt\}$. Enough to show: suppose $p_1,\cdots, p_{M'} \in \Cc\{\bt\}$ satisfying $p_1b_1+\cdots+p_{M'}b_{M'}=0\in \Cc\{\xn,\bt\},$ then $p_1=\cdots=p_\mu=0\in \Cc\{\bt\}$. Note that $p_1,\cdots, p_{M'}$ can be regarded as holomorphic function over $U\subseteq \Cc^m$, a neighbourhood of $\0 \in  \Cc^m\backslash Z.$ Then $\forall \bt\in U$, we have
+  \[p_1(\bt)b_1+\cdots+p_{M'}(\bt)b_{M'}=0\in \Cc\{\xn\}.\]
+  Since $\{b_1,\cdots, b_\mu\}$ is $\Cc$-linear independent in $A(f_\bt)$, we have $p_1(\bt)=\cdots=p_ \mu(\bt)=0.$ So $p_1=\cdots=p_\mu=0,$ as holomorphic functions over $U$, then they are also $0$ as elements in $\Cc\{\bt\}$.
+\end{proof}
+We hope that there is a similar description for $L(f)\{\bt\}$ as  $A(f)\{\bt\}$, for example, is it  a free $\Cc\{\bt\}$-module? If this is true, then take a suitable $\Cc\{\bt\}$-basis for $L(f)\{\bt\}$ and restrict it to $\bt=\0$,  we would obtain a $\Cc$-basis for $\tilde L(f_\0)$. However, the naive idea is far from the truth. Since $\0 \in S_\bt= \Cc^m$ is not general point for $L(f_\bt)$, the structure of $L(f)\{\bt\}$ would much more complicated than $A(f)\{\bt\}$. In lemma \ref{lem-4.9}, we would give a description in the 1-parameter case. Before that, let's show the natural graded structure of $\tilde L(f_\0)$. 
+
+\subsection{Graded structure}
+\begin{lemma}\label{lem-4.3}
+  $\tilde L(f_\0)$ is graded Lie subalgebra of $L(f_0)$, i.e., there is a decomposition
+  \[\tilde L(f_\0) = \bigoplus_{k=0}^D\tilde L(f_\0)_k,\]
+  where $\tilde L(f_\0)_k = \tilde L(f_\0) \cap L(f_0)_k$.
+\end{lemma}
+\begin{proof}
+  Suppose $\delta_0\in \tilde L(f_0)$ lifts to $\delta \in \Der_{\Cc\{\bt\}} \Cc\{\xn, \bt\}$, then $\delta$ decompose to its homogeneous part as
+  \[\delta\coloneq  \sum_{k=-1}^\infty \delta^k,\]
+  where $\delta^k$ takes
+  \[\Cc\{\xn,\bt\}_j\coloneq \spann_{\Cc\{\bt\}}\left\{ \xn^\alpha\mid |\alpha|=j\right\}\]
+  to
+  \[\Cc\{\xn,\bt\}_{j+k}\coloneq \spann_{\Cc\{\bt\}}\left\{ \xn^\alpha\mid |\alpha|=j+k\right\}.\]
+  Since $\delta$ can be choose to preserve $j(f)\Cc\{\xn,\bt\}$, we have
+  \begin{align*}
+    \sum_{k=-1}^\infty \delta^k \pd f{x_i} =\delta \pd  f {x_i}
+  &=\sum_{j=1}^n\pd f{x_j} \sum_{l=0}^\infty \sum_{|\alpha|=l}a_{i,\alpha}^j(\bt)\xn^\alpha\\
+  &= \sum_{l=0}^\infty \sum_{|\alpha|=l}\sum_{j=1}^na_{i,\alpha}^j(\bt)\xn^\alpha \pd f{x_j},
+  \end{align*}
+  the two side coincide in every degree, that is, $\delta^{-1}=0$ and $\forall k\geqslant 0$,
+  \[\delta^k \pd f{x_i} =
+  \sum_{|\alpha|=k}\sum_{j=1}^n a_{i,\alpha}^j(\bt)\xn^\alpha \pd f{x_j}.\]
+  Consequently, $\delta^k|_{\bt=\0} \in \Der_\Cc \Cc\{\xn\}$ preserves $j(f)$ and induces $\bar \delta^k|_{\bt=\0}\in \Der_\Cc A(f_\0) .$
+  So we have the decomposition
+  \[\delta_\0= \bar \delta|_{\bt=\0}=\sum_{k=-1}^\infty \bar \delta^k|_{\bt=\0},\]
+  where $\bar \delta^k|_{\bt=\0}$ is liftable to $\delta^k$ and of degree $k$. Now we can conclude that the homogeneous part of $\delta_0\in \tilde L(f_\0)$ also lies in $\tilde L(f_\0)$.
+\end{proof}
+Then, to compute $\tilde L(f_\0)$, we just need to compute its homogeneous part $\tilde L (f_0)_k$. Recall, we point out that
+\[L(f)_k=\bigoplus_{i=1}^nA(f)_{k+1}\pd{}{x_i}\]
+if $k>D-d+1$, after lemma \ref{lem-3.2}. Here we can show more over that 
+\begin{corollary}\label{cor-4.4}
+  If $k>D-d+1$, then 
+  \[\tilde L(f)_k=L(f)_k=\bigoplus_{i=1}^nA(f)_{k+1}\pd{}{x_i}.\]
+  Similarly, if $k\geqslant D-d+1$, then
+  \[\tilde L^*(f)_k=L^*(f)_k=\bigoplus_{i=1}^nA^*(f)_{k+1}\pd{}{x_i}\]
+\end{corollary}
+\begin{proof}
+  It suffices to proof $\tilde L(f)_k = L(f)_k$ for $k>D-d+1$. For $\delta \in L(f)_k\subseteq \Der_\Cc A(f)$, we may lift it to 
+  \[\tilde \delta \in \Der_\Cc\Cc\{\xn\}= \bigoplus_{i=1}^n \Cc\pd{}{x_i},\]
+  which is of degree $k$. Hence $\tilde \delta$ can be regarded as a $\Cc\{\bt\}$-derivation of $\Cc\{\xn,\bt\}$, and satisfies $\forall i=1,\cdots, n$,
+  \[\tilde \delta \pd f {x_i} \in \m^{k+d-1}\Cc\{\xn, \bt\} \subseteq \m^D \Cc\{\xn, \bt\} \subseteq \lan \pd f{x_1},\cdots, \pd f{x_n} \ran,\]
+  hence leaves $ \lan \pd f{x_1},\cdots, \pd f{x_n} \ran$ invariant. So any $\delta \in L(f)_k$ is liftable to  $\tilde \delta \in \Der_{\Cc\{\bt\}}\Cc\{\xn ,\bt\}$.
+\end{proof}
+
+We would like to point out moreover that in the two case we consider, we have
+\begin{proposition}\label{pro-4.5}
+  Suppose $k<D-d+1$. Denote 
+  \[E=x_1\pd{}{x_1}+\cdots +x_n\pd{} {x_n}\]
+  to be the Euler derivation.
+\item[(1)]We have
+  \begin{equation}\label{4.1.1}
+    \tilde L(f_\0)_k \subseteq A(f_\0)_k E.
+  \end{equation}
+  Consequently,
+  \[\tilde L(f)_k =  A(f)_kE.\]
+\item[(2)]We have
+  \begin{equation}\label{4.1.2}
+    \tilde L^*(f_\0)_k \subseteq A^*(f_\0)_k E.
+  \end{equation}
+  Consequently,
+  \[\tilde L^*(f)_k =  A^*(f)_kE.\]
+\end{proposition}
+\begin{proof}
+  The explicit calculation for  \eqref{4.1.2} will  be presented in subsubsection \ref{sec-4.2.2} and \ref{sec-4.2.4}. The proof for \eqref{4.1.1} will be given in \ref{sec-4.2.3}.  The latter equations are derived directly from the observation that any derivation in $A(f)_kE$ or $A^*(f)_kE$ is liftable.
+\end{proof}
+
+
+
+\begin{proposition}\label{pro-4.6}
+  If $k=D-d+1$, then
+  \[\tilde L(f)_k=L(f)_k.\]
+\end{proposition}
+\begin{proof}
+  This will be showed in subsubsection \ref{sec-4.2.3}.
+\end{proof}
+
+\subsection{Necessary condition for liftablility}
+\subsubsection{Liftable Lie algebra with respect to one parameter}\label{sec-4.2.1}
+
+\begin{definition}\label{din-4.7}
+  A derivation $\delta_0\in L(f_\0)$ is liftable to \[S_{t_i}\coloneq \{\bt\coloneq (t_1,\cdots, t_m)\in S_\bt \mid t_j=0,\forall j \not = i \}\] 
+  if   there is $\delta\in \Der_{\Cc\{t_i\} }\Cc\{\xn,t_i\}$ leaves the ideal 
+  \[\lan \pd {f_{t_i}} {x_1},\cdots, \pd {f_{t_i}} {x_n} \ran \subset \Cc\{\xn,t_i\}\]
+  invariant, and the following diagram commutes
+  \[\begin{tikzcd}
+    \Cc\{\xn,t_i\} \ar[r, "\delta"] \ar[d, two heads]  & \Cc\{\xn,t_i\}  \ar[d, two heads]\\
+    \Cc\{\xn\} \ar[r, "\delta|_{t_i=0}"] \ar[d, two heads]  & \Cc\{\xn\}  \ar[d, two heads]\\
+    A(f_{t_i}) \ar[r, "\delta_0"] & A(f_{t_i})
+  \end{tikzcd}\]
+  where
+  \[f_{t_i}\coloneq f_\0+ t_i g_i = x_1^d+\cdots+ x_n^d +t_ig_i.\]
+  The  derivations liftable to $S_{t_i}$ in $L(f_\0)$   form a Lie subalgebra which is denoted by $\tilde L_i(f_\0)$.
+\end{definition}
+\begin{remark}
+  Similiar to lemma \ref{lem-4.3}, the $\tilde L_i(f_\0)$ is a graded Lie subalgebra of $L(f_\0)$. 
+\end{remark}
+
+Let's denote
+\[A(f)\{t_i\} : = \Cc\{\xn, t_i\} \bigg / \lan \pd{f_{t_i}}{x_1} , \cdots, \pd {f_{t_i}} {x_n} \ran,\]
+and
+\[L(f_\0)\{t_i\}\coloneq  \Der_{\Cc\{t_i\}} A(f)\{ t_i \}.\]
+\begin{lemma}\label{lem-4.9}
+\item[(1)]$L(f)\{t_i\}$ is a free $\Cc\{t_i\}$-module of finite rank with a basis coincide to a general basis of $L(f_{t_i})$.
+\item[(2)] The natural restriction $L(f)\{t_i\} \to \tilde L_i(f_0)$ induces an isomorphism of $\Cc\{t_i\}/\m_{t_i}$-modules
+  \[\Cc\{t_i\}/\m_{t_i} \otimes_{\Cc\{t_i\}} L(f_0)\{t_i\} \stackrel{\sim}\to \tilde L_i(f_0),\]
+  where $\m_{t_i} = \lan t_i \ran$ is the unique maximal ideal of $\Cc\{t_i\}$.
+\end{lemma}
+\begin{proof}
+  The following argument depends on the fact that $\Cc\{t_i\}$ is a PID, and hence can not generalize to the case of multi-parameter.
+\item[(1)]
+  According to lemma \ref{lem-4.2}(1), $A(f)\{t_i\}$ is a free $\Cc\{t_i\}$-module of rank $\mu=\dim_\Cc A(f)$, then $\Endo_{\Cc\{t_i\}} A(f)\{t_i\}$ is also a free $\Cc\{t_i\}$-module of rank $\mu^2$. So $\Der_{\Cc\{t_i\}} A(f)\{t_i\}$, as a  submodule of  $\Endo_{\Cc\{t_i\}} A(f)\{t_i\}$, is also free of finite rank, which depends on the fact that $\Cc\{t_i\}$ is a principle ideal domain.
+
+  From remark \ref{rem-3.3} and proof of lemma \ref{lem-4.2}, we can similarly derived that, as a free module over $\Cc\{t_i\}$, $\Der_{\Cc\{t_i\}} A(f)\{t_i\}$ is the null space of a matrix $C\in \Mat(\mu^3\times \mu^2, \Cc\{t_i\})$. Now let's calculate this null space by elementary row and column operations.
+
+  Denote $C=(C_{j,k})$. Suppose the greatest common divisor of $\{C_{j,k}\mid 1\leqslant j \leqslant \mu^3, 1\leqslant k \leqslant \mu^2\}$ is $t_i^l$, with $l\geqslant 0,$ then $t_i^{-l}C$ is a matrix over $\Cc\{t_i\}$, and shares the same null space with $C$. Replace $C$ by $t^{-l}_i C,$ then we may assume $l=0$, then there must be some entry $C_{j,k}$ invertible in $\Cc\{t_i\}$. After row and column permutation we may assume $C_{1,1}$ is a unit in $\Cc\{t_i\}$. After another 2 kinds of elementary row operations we may assume $C_{1,1}=1, C_{j,1}=0, 2\leqslant j\leqslant \mu^3$. Iterate it and we would reduce $C$ to the following form
+  \[\begin{pmatrix}
+    I_r& *\\
+    0 & 0
+  \end{pmatrix}.\]
+  Then we would obtain a $\Cc\{t_i\}$-basis for the null space of $C$.
+
+  The same operation make sense when we regard $t_i$ as a complex number in a domain $U\backslash \{0\}\subseteq \Cc,$ where $U$ is a neighbourhood of $0\in \Cc.$ So the above operation gives also a basis for $L(f_{t_i})$ when $t_i\in U\backslash \{0\}$. Consequently, $\Der_{\Cc\{t_i\}} A(f)\{t_i\}$ admits a $\Cc\{t_i\}$-basis coincide with a general $\Cc$-basis of $L(f_{t_i})$.
+\item[(2)] It suffices to show that the kernel of the map in lemma \ref{lem-4.2}(2) is exactly $\m_{t_i}\Der_{\Cc\{t_i\}} A(f)\{t_i\}$, from which we would derived the following isomorphism of $\Cc\cong \Cc\{t_i\}/\m_{t_i}$-modules
+  \begin{align*}
+    \Cc\{t_i\}/\m_{t_i} \otimes_{\Cc\{t_i\}} \Der_{\Cc\{t_i\}} A(f) \{ t_i\}
+    &= \Der_{\Cc\{t_i\}} A(f) \{ t_i\}/\m_{t_i} \Der_{\Cc\{t_i\}} A(f) \{ t_i\} \\
+    &\stackrel\sim\to \tilde L_i (f_\0).
+  \end{align*}
+
+  Now let $\delta \in \Der_{\Cc\{t_i\}} A(f) \{ t_i\}$, and regard it as a $\mu^2$-dimensional column vector $(\delta_j^k)$ over $\Cc\{t_i\},$ satisfying $C\delta=0$. If $\delta$ lies in the kernel of the map, that is, $\delta|_{t_i=0}=0$, then its components satisfies $\delta_j^k|_{t_i=0}=0,$ and hence $\delta_j^k \in \m_{t_i}$.  Then $t_i^{-1}\delta$ is also a vector over $\Cc\{t_i\}$, and satisfies
+  $C(t_i^{-1} \delta) = t_i^{-1} C\delta =0.$ So $t_i^{-1} \delta$ is a $\Cc\{t_i\}$-derivation of $A(f)\{t_i\}$, hence 
+  \[\delta=t_i\cdot \left( t_i^{-1} \delta\right) \in \m_{t_i} \cdot \Der_{\Cc\{t_i\}} A(f) \{ t_i\}. \qedhere\]
+\end{proof}
+
+Consequently, we can obtain a basis of $\tilde L_i(f_\0)$ from a general basis for $L(f_{t_i})$, which we have compute in section \ref{sec3}. The next two subsections aims to prove the following fact:
+\begin{proposition}\label{prop-4.9}
+  For $n=3,4$ and $k=0,\cdots, D-d$, we have
+  \[\bigcap_{i=1}^m \tilde L^*_i(f_\0)_k\subseteq A^*(f_\0)_k E.\]
+  Consequently, proposition \ref{pro-4.5}(2) follows easily from the fact that
+  \[\tilde L^*(f_\0)_k \subseteq \bigcap_{i=1}^m \tilde L^*_i(f_\0)_k.\]
+\end{proposition}
+Let's compute $\tilde L^*_i(f_0)_k$ for case $n=3,4$ respectively, where $0 \leqslant k \leqslant D-d$. 
+
+
+\subsubsection{Case \texorpdfstring{$n=3$}{n=3}}\label{sec-4.2.2}
+We just need to compute the case $i=1$ and $i=4$, because other $\tilde L^*_i(f_0)_k$ can be obtained by symmetry. For example, if we replace $(x,y,z,t_1)$ by  $(x,z,y,t_2)$, then the following basis for $\tilde L^*_1(f_0)$ would become into a basis for $\tilde L^*_2(f_0)$, because $f_{t_1}=x^4+y^4+z^4+t_1x^2y^2$ would become into $f_{t_2}=x^4+y^4+z^4+t_2x^2z^2.$
+\paragraph{Degree \texorpdfstring{$k=0$}{k=0}}
+A basis for $\tilde L^*_1(f_0)_k$ is given by
+\[x\pd{}x+y\pd{}y, z\pd{}z,\]
+while a basis for $\tilde L^*_4(f_0)_k$ is given by
+\[E\coloneq x \pd {} x + y \pd{} y + z\pd{} z.\]
+Consequently,
+\[\bigcap_{i=1}^6 \tilde L^*_i(f_0)_0 =\Cc E = A^*(f_\0)_0 E.\]
+
+\paragraph{Degree \texorpdfstring{$k=1$}{k=1}}
+A basis for $\tilde L^*_1(f_0)_k$ is given by
+\[xy\pd{}y,
+x^2\pd{}x ,
+xy\pd{}x,
+xz\pd{}x+yz\pd{}y,
+y^2\pd{}y, 
+xz\pd{}z,
+yz\pd{}z,
+z^2\pd{}z,\]
+while a basis for $\tilde L^*_4(f_0)_k$ is given by
+\[x^2 \pd{} x + xy \pd{} y + xz \pd{} z ,
+xy\pd{} x+ y^2\pd{} y + yz \pd{} z,
+xz \pd{} x + yz \pd{} y + z^2\pd{} z.\]
+Consequently,
+\[\bigcap_{i=1}^6 \tilde L^*_i(f_0)_1 =\bigoplus_{i=1}^3\Cc x_iE = A^*(f_\0)_1 E.\]
+
+\paragraph{Degree \texorpdfstring{$k=2$}{k=2}}
+A basis for $\tilde L^*_1(f_0)_k$ is given by
+\begin{align*}
+  x^2y\pd{}x,
+  xy^2\pd{}x,
+  x^2z\pd{}x,
+  xyz\pd{}y,
+  xyz\pd{}x,
+  xz^2\pd{}x+yz^2\pd{}y,
+  x^2y\pd{}y,
+  y^2z\pd{}y,\\
+  xy^2\pd{}y,
+  x^2z\pd{}z,
+  xyz\pd{}z,
+  xz^2\pd{}z,
+  y^2z\pd{}z,
+  yz^2\pd{}z,
+\end{align*}
+while a basis for $\tilde L^*_4(f_0)_k$ is given by
+\begin{align*}
+  xy^2 \pd{} y ,
+  xyz\pd{} z,
+  x^2y\pd{} x ,
+  xz^2 \pd{} z ,
+  xyz\pd{} y,
+  x^2z\pd{} x ,
+  xyz\pd{}x+y^2z\pd{}y + y z^2\pd{} z,\\
+  x^2 y \pd{} y  ,
+  x^2 z \pd{} z ,
+  yz^2\pd{}y,
+  y^2z\pd{}z,
+  xz^2\pd{}x,
+  xy^2\pd{}x.
+\end{align*}
+A simple calculation would lead to 
+\[\bigcap_{i=1}^6 \tilde L^*_i(f_0)_2= A^*(f_\0)_2 E,\]
+and the details are as follows.
+
+Denote
+\begin{align*}
+  e_{i,j}&\coloneq x_i^2 x_j \pd{} {x_j}, &1\leqslant i \not = j \leqslant 3,\\
+  f_{i,j,k}&\coloneq x_i x_ jx_k\pd{}{x_k}, &1\leqslant i < j \leqslant 3,
+\end{align*}
+then $\tilde L_1^*(f_\0)_2$ is spaned by
+\[\{e_{3,1}+e_{3,2}\} \cup \{e_{1,j}\}\cup \{ e_{2,j}  \} \cup\{f_{i,j,k}\},\]
+and $\tilde L_4^*(f_\0)_2$ is spaned by
+\[\{e_{i,j}\} \cup\{f_{1,2,k}, f_{1,3,k}\} \cup \{f_{2,3,1}+f_{2,3,2}+f_{2,3,3}\}.\]
+Then by symmetry we obtain a basis for each $\tilde L^*_i(f_\0)_2$ as follows:
+
+\begin{center}
+  \begin{tabular}{ c |  c }
+    Space &Basis \\
+    \hline
+    $\tilde L_1^*(f_\0)_2$ & $e_{1,j},e_{2,j} ,e_{3,1}+e_{3,2},f_{i,j,k}$ \\
+    $\tilde L_2^*(f_\0)_2$ & $e_{1,j},e_{2,1}+e_{2,3} ,e_{3,j},f_{i,j,k}$\\
+    $\tilde L_3^*(f_\0)_2$ & $e_{1,2}+e_{1,3},e_{2,j} ,e_{3,j},f_{i,j,k}$ \\
+    $\tilde L_4^*(f_\0)_2$ & $e_{i,j},f_{1,2,k}, f_{1,3,k},f_{2,3,1}+f_{2,3,2}+f_{2,3,3}$ \\
+    $\tilde L_5^*(f_\0)_2$ &  $e_{i,j},f_{1,2,k}, f_{1,3,1}+f_{1,3,2}+f_{1,3,3}, f_{2,3,k}$\\
+    $\tilde L_6^*(f_\0)_2$ & $e_{i,j}, f_{1,2,1}+f_{1,2,2}+f_{1,2,3},f_{1,3,k},f_{2,3,k}$\\
+  \end{tabular}
+\end{center}
+
+To take the intersection of the above spaces, let's propose the following facts in linear algebra:
+\begin{lemma}\label{lem-4.10}
+  Suppose a vector space 
+  $V=\bigoplus_{i=1}^m V_i$ has subspaces $V_i^1,\cdots, V_i^k \subseteq V_i,$ then
+  \[\bigcap_{j=1}^k \left( \bigoplus_{i=1}^m V_i^j \right)
+    =\bigoplus_{i=1}^m
+  \left( \bigcap_{j=1}^kV_i^j\right) .\] 
+\end{lemma}
+\begin{proof}
+  Obviously we have $\supseteq$, and just need to prove $\subseteq$. Note that $\forall v\in V$ can be uniquely decomposed into 
+  $v=\sum_i v_i$
+  with $v_i \in V_i$. 
+
+  Now suppose $v\in V$ lies in the common intersection. Since it lies in $\oplus_i V_i^j$, we can decompose it into 
+  $v=\sum_i v_i^j$
+  with $v_i^j\in V_i^j$. However, it is also a decomposition under $V=\oplus_i V_i$, then we have $v_i=v_i^j\in V_i^j.$ Since $j$ is arbitrary, we have $v_i\in \cap_j V_i^j$. So $v\in \oplus_i \cap_j V_i^j.$
+\end{proof}
+
+Now we take
+\[V_i=\bigoplus_{j\not=i} \Cc e_{i,j} \ni x_i^2 E,\]
+for $i=1,2,3$ and 
+\begin{align*}
+  V_4=\bigoplus_{k=1}^3 \Cc f_{1,2,k}\ni xy E,\,
+  V_5=\bigoplus_{k=1}^3 \Cc f_{1,3,k}\ni xz E,\,
+  V_6=\bigoplus_{k=1}^3 \Cc f_{2,3,k}\ni yz E,
+\end{align*}
+it follows from lemma \ref{lem-4.10} and previous data  that 
+\[\bigcap_{i=1}^6 \tilde L_i^*(f_\0)_2=\bigoplus _{i=1}^3 \Cc x_i^2 E
+  \oplus \Cc xyE
+  \oplus \Cc xzE 
+\oplus \Cc yzE = A^*(f_\0)_2 E.\]
+
+
+\subsubsection{Case \texorpdfstring{$n=4$}{n=4}}\label{sec-4.2.4}
+For the similar reason to the above subsection, we just need to compute the case $i=1,7,19$. For convenience we sometimes replace $(x_1,x_2,x_3,x_4)$ by $(x,y,z,w)$.
+
+\paragraph{Degree \texorpdfstring{$k\leqslant 2$}{k<=2}}
+A basis for $\tilde L^*_{19}(f_0)_0, \tilde L^*_{19}(f_0)_1, \tilde L^*_{19}(f_0)_2$ is given by
+\begin{align*}
+  &E\coloneq x \pd {} x + y \pd{} y + z\pd{} z+w\pd{}w, xE,yE,zE,wE,\\
+  &x^2E,xyE, xz E, xw E,y^2E,
+  yzE, ywE, z^2E, zw E, w^2E
+\end{align*}
+respectively. 	Consequently,
+\begin{align*}
+  \bigcap_{i=1}^{19} \tilde L^*_i(f_0)_0 
+  &\subseteq\Cc E = A^*(f_\0)_0 E,\\
+  \bigcap_{i=1}^{19} \tilde L^*_i(f_0)_1
+  &\subseteq\bigoplus_{i=1}^4\Cc x_iE = A^*(f_\0)_1 E\\	
+  \bigcap_{i=1}^{19} \tilde L^*_i(f_0)_2 
+  &\subseteq A^*(f_\0)_2 E.
+\end{align*}
+
+\paragraph{Action of the group \texorpdfstring{$S_4$}{S4}}
+To calculate $\tilde L^*(f_\0)_k$ for $k=3,4$, we have to know the information more than $\tilde L_{19}^*(f_\0)_k$. So we must calculate $\tilde L_1^*(f_\0)_k, \tilde L_7^*(f_\0)_k$ and obtain other $\tilde L_i^*(f_0)$ by symmetry.  Since by ``symmetry'' we  actually mean an action of group, we can make it clear in the language of group theory. 
+
+$S_4$ acts on $(x_1,x_2, x_3, x_4)$ by $\sigma \cdot (x_1,x_2, x_3, x_4) \coloneq  (x_{\sigma(1)}, x_{\sigma(2)}, x_{\sigma(3)}, x_{\sigma(4)})$, which induces the action of $S_4$ on $\{f_{t_i}\mid 1\leqslant i \leqslant 19\}$ and $\{ \tilde L_i(f_\0) \mid 1\leqslant i \leqslant 19\}$.
+\begin{example} Denote $\sigma\coloneq (1,2)$ and $\tau\coloneq (2,3)$, which take  $(x,y,z,w)$ to $(y,x,z, w)$ and $(x,z,y,w)$ respectively.
+\item[$(1)$] $\tau$ takes $g_1=x^2y^2$ to $g_2=x^2 z^2$, and hence takes $\tilde L^*_1(f_\0)$ to $\tilde L^*_2(f_\0)$. But $\sigma\cdot g_1= g_1$, and hence preserves $\tilde L^*_1(f_\0)$. The stablizer $H\subseteq S_4$ of $g_1$ is  generated by $(1,2)$ and $(3,4)$ and hence we have a bijection
+  \[S_4/H \stackrel \sim \to \{ g_1,\cdots, g_6\}.\]
+\item[$(2)$] $\sigma$ takes $g_7=x^2yz$ to $g_8= xy^2z$, and hence takes $\tilde L^*_7(f_\0)$ to $\tilde L^*_8(f_\0)$. But $\tau\cdot g_7=g_7$, and hence preserves $\tilde L^*_7(f_\0)$. The stablizer $D$ of $g_7$ is generated by $(2,3)$ and hence we have a bijection
+  \[S_4/D \stackrel \sim \to \{ g_7,\cdots, g_{18}\}.\]
+\item[$(3)$] $S_4$ leaves $g_{19}\coloneq xyzw$ invariant, so it preserves and acts on the $\Cc$-vector space $\tilde L^*_{19}(f_\0)$.
+\end{example}
+
+
+\paragraph{Degree \texorpdfstring{$k=3$}{k=3}}
+We just point out some facts that implies proposition \ref{prop-4.9}. The proof of them will be given in the appendix \ref{app-C-3}.
+\begin{fact}\label{fac-4.11}
+  There exist vector space $V,W$ such that $\tilde L^*_i(f_\0)_3\subseteq V\oplus W$ decompose into $V_i\oplus W_i$ for $i=7,19$, and moreover:
+  \begin{enumerate}
+\item $V_7\subseteq V_{19}= V, W_{19}\subseteq W_7\subseteq W$.
+\item $S_4$ preserves and hence, acts on $V=V_{19},W$ and $W_{19}$. 
+\end{enumerate}
+\end{fact}
+\begin{corollary}\label{cor-4.12}
+  $\forall i=7,\cdots, 19$, there is decomposition $\tilde L^*_i(f_\0)_3 = V_i\oplus W_i$ such that 
+  \begin{equation}\label{4.1.3}
+    \bigcap_{i=7}^{19} \tilde L_i^* (f_\0)_3 = \left( \bigcap_{i=7}^{18} V_i\right) \oplus W_{19}.
+  \end{equation}
+\end{corollary}
+\begin{proof}
+  For $i=7,\cdots, 18$, take $\sigma\in S_4$ such that $g_i=\sigma \cdot g_7$, then $V_i\coloneq \sigma \cdot V_7,W_i\coloneq \sigma \cdot W_7$
+  are well defined and 
+  \[V_i\oplus W_i = \sigma\cdot( V_7\oplus W_7) = \sigma \cdot \tilde L ^*_7(f_\0)_3 = \tilde L ^*_i(f_\0)_3.\]
+  Note that
+  \begin{align*}
+    V_i&=\sigma \cdot V_7\subseteq \sigma \cdot V=V=V_{19},\\
+    W_{19}=\sigma \cdot W_{19}\subseteq  W_i&=\sigma \cdot W_7\subseteq \sigma \cdot W=W
+  \end{align*}
+  Then \eqref{4.1.3} follows from lemma \ref{lem-4.10}.
+\end{proof}
+
+\begin{fact}\label{fac-4.13}
+  There exist decompositions
+  $V_i=V_i^1\oplus V_i^2\oplus V_i^3 \oplus V_i^4$
+  for $i=7,19$ such that
+\item[$(1)$]$V_7^1\subsetneq V_{19}^1,  V_7^j=V_{19}^j $ for $j=2,3,4$.
+\item[$(2)$] $S_4$ acts on $\{V_{19}^1, V_{19}^2, V_{19}^3, V_{19}^4\}$ by permutation. Moreover, the stablizer of $V_{19}^1$ is $S_3$, consists of the permutations of $(x,y,z)$ and preserves $V_7^1\subsetneq V_{19}^1$. 
+\end{fact}
+\begin{remark}
+  The above $S_3$ contains $(1,2)$, which generate the stablizer of $g_7$ in $S_4$.
+\end{remark}
+\begin{corollary}\label{cor-4.14}
+  $\forall i =7,\cdots, 18$, there is decomposition $V_i=V_i^1\oplus V_i^2\oplus V_i^3 \oplus V_i^4$ such that
+\item[$(1)$] if $g_i=\sigma\cdot g_7$ and $\sigma\cdot V_{19}^1 = V_{19}^k$, then $V_{19}^j= V_i^j$ for $j\not=k$. 
+\item[$(2)$] if moreover $\sigma \in S_3$, then $V_i^1=V_7^1$.
+\end{corollary}
+\begin{proof}
+  We have already the decomposition
+  \[V_i=\sigma \cdot V_7 = \bigoplus_{j=1}^4\sigma \cdot V_7^j,\]
+  and we need renumber $\{\sigma\cdot V_7^1,\cdots, \sigma \cdot V_7^4\}$ such that $V_i^j \subseteq V_{19}^j.$
+\item[$(1)$] follows from the fact that $\sigma V_7^j=\sigma V_{19}^j$ for $j\not=1$,.
+\item[$(2)$] follows from the fact that $\sigma\cdot V_7^1= V_7^1$.
+\end{proof}
+\begin{corollary}
+  We have
+  \[\bigcap_{i=7}^{18} V_i = \bigoplus_{\sigma \in S_4/S_4} \sigma\cdot V_7^1.\]
+\end{corollary}
+\begin{proof}
+  For lemma \ref{lem-4.10}  and corollary \ref{cor-4.14} we know
+  \[\bigcap_{i=1}^{18} V_i = \bigoplus_{j=1}^4 \bigcap_{i=1}^{18} V_i^j,\]
+  where $V_i^j$ is either $V_{19}^j$ or $\sigma V_7^1$ for some $\sigma \in S_4$.
+\end{proof}
+Consequently, 
+\[\bigcap_{i=7}^{19} \tilde L_i^*(f_\0)_3 = \left( \bigoplus_{\sigma \in S_4/S_3} \sigma\cdot V_7^1\right) \oplus W_{19}. \]
+Now the proposition \ref{prop-4.9} in degree $3$ follows from the concrete decomposition data in the appendix \ref{app-C-3}.
+
+\paragraph{Degree \texorpdfstring{$k=4$}{k=4}}
+The decomposition we use is
+\begin{align*}
+  \tilde L _i (f_\0)_4= U_i \oplus V_i\oplus W_i&\subseteq U \oplus V\oplus W,\\
+  U_i=\bigoplus_{j=1}^6 U_i^j,&
+  V_i=\bigoplus_{j=1}^4 V_i^j,
+\end{align*}
+with the following property:
+\begin{fact}
+\item[$(1)$] $U_1\subseteq U_7=U_{19}=U, V_7\subseteq V_1=V_{19}=V,$ and $W_{19}\subseteq W_1, W_7 \subseteq W$.
+\item[$(2)$] $U_1^j\subseteq U_7^j= U_{19}^j$, with the first inequality holds iff $j=1$. 
+\item[$(3)$]$V_7^j\subseteq V_1^j= V_{19}^j$, with the first inequality holds iff $j=1$.
+\item[$(4)$] $S_4$ preserves and hence, acts on $U,V,W$ and $W_{19}.$
+\item[$(5)$] $S_4$ acts on $\{U_{19}^1,\cdots, U_{19}^6\}$ by permutation. Moreover, the stablizer $H$ of $U_{19}^1$ is generated by $(1,2),(3,4)\in S_4$,  and preserves $U_1^1\subsetneq U_{19}^1$. 
+\item[$(6)$] $S_4$ acts on $\{V_{19}^1,\cdots, V_{19}^4\}$ by permutation. Moreover, the stablizer of $V_{19}^1$ is $S_3$, consists of the permutations of $(x,y,z)$ and preserves $V_7^1\subsetneq V_{19}^1$. 
+\end{fact}
+Consequently, 
+\[\bigcap_{i=1}^{19} \tilde L_i^*(f_\0)_4 = \left( \bigoplus_{\sigma \in S_4/H} \sigma\cdot U_1^1\right) \oplus \left( \bigoplus_{\sigma \in S_4/S_3} \sigma\cdot V_7^1\right) \oplus W_{19}. \]
+Now the proposition \ref{prop-4.9} in degree $4$ follows from the concrete decomposition data in the appendix \ref{app-C-4}.
+
+\subsubsection{Liftable derivations in Yau algebra}\label{sec-4.2.3}
+
+$\eqref{4.1.1}$ in part (1) of proposition \ref{pro-4.5} can be easily derived as follows. For $k<D-d+1$, we have $L(f_{\bt})_k\stackrel \sim \to L^*(f_\bt)_k$ as $\Cc$-vector spaces, which is pointed out in subsection \ref{sec-3.1}. Then we have
+\begin{align*}
+  \dim_\Cc \tilde L_i(f_\0)_k &= \rank_{\Cc\{t_i\}} L(f)_k\{t_i\} = \dim_\Cc L(f_{t_i})_k\\
+                              &=\dim_\Cc L^*(f_{t_i})_k = \rank_{\Cc\{t_i\}} L^*(f)_k\{t_i\} = \dim_\Cc \tilde L_i(f_\0)_k.
+\end{align*}
+Consequently, the natural isomorphism $L(f_{t_i})_k\stackrel \sim \to L^*(f_{t_i})_k$ takes $\tilde L_i(f_0)_k$ isomorphicly to $\tilde L_i^*(f_0)_k$ when $t_i=0$. In particular,  they share the same basis presented above. Then we can compute similarly that 
+\[\tilde L(f_\0)_k \subseteq 
+\bigcap_{i=1}^m \tilde L_i (f_0)_k \subseteq A(f)_k E.\]
+
+Let's deduce proposition \ref{pro-4.6} from proposition \ref{res} (4) and corollary \ref{cor-4.4}. We want to show that for $k=D-d+1$, $\tilde L(f_\0)_k = L(f_\0)_k,$ i.e., any $\delta \in L(f_\0)_k$ is liftable with respect to   $S_\bt$. This is essentially due to the fact that a basis for $\tilde L(f_\0)_k $ and $L(f_\0)_k$ can be obtained by the same linear equation system.
+
+Let's review from subsection \ref{sec-3.1} how to compute $L(f_\0)_k, L(f_\bt)_k$ and $L(f)_k\{\bt\}$.  All we need to do is solve the same linear equations of $\delta^{i,j}$ derived from equation \eqref{3.1.2}. The coefficient matrix $C$ of this linear equation system has entries in $\Cc\{\bt\}$.  The only difference among the 3 cases is that $\bt$ is regarded as $\0,$ general point in $\Cc^m$, or formal variable respectively. 
+
+When $k=D-d+1$,we have $\rank C(\0)=n$. This is due to the following fact pointed out in subsubsection \ref{sec-3.1.3}:
+\begin{itemize}
+  \item The linear equations for $L(f)_k$ is of $n$ rows.
+  \item $\dim L(f)_{k}=\dim L^*(f)_k-n$.
+  \item The linear equations for $L^*(f)_k$ is trivial.
+\end{itemize}
+
+Then a basis for $\tilde L(f_\0)_k$ and $L(f_\0)_k$  can be calculated as follows. From $\rank C(\0)=n$ we know $C$ has a submatrix  $C_n\in \Mat(n\times n , \Cc\{\bt\})$  invertible at $\bt=\0$, and hence invertible over $\Cc\{\bt\}$. Consequently, we can reduce $C$ to the form
+\[\begin{pmatrix}
+  I_n & *
+\end{pmatrix}\]
+by elementary row operations and column permutations over $\Cc\{\bt\}$.  From the above matrix we can obtain a $\Cc\{\bt\}$-basis for $L(f)_k\{\bt\}$, which gives a $\Cc$-basis for $\tilde L(f_\0)_k$ by restricting to $\bt=\0$.  However, those  elementary row operations and column permutations over $\Cc\{\bt\}$ also make sense when we regard $\bt=\0$. So by taking $\bt=\0$ we would get a $\Cc$-basis for $L(f_\0)_k$.  Consequently, $\tilde L(f_\0)_k \subseteq L(f_\0)_k$ share the same dimension.
+
+Now we have proved that any derivation in $L(f_\0)_k$ is liftable, and proposition \ref{pro-4.6}  follows.
+
+\subsection{Our conclusion} 
+The family of Lie algebras $L_\bt = (V, \eta_\bt)\subseteq L(f_\bt)$ or $L^*(f_\bt)$ are now obtained. Indeed, we can take linear space $V$ to be the liftable Lie subalgebra $\tilde L(f_\0)$ or $\tilde L^*(f_\0)$. It can be checked directly that $V$ is a subspace of $L(f_\bt)$ or $L^*(f_\bt)$ for general $\bt\in \Cc^m$, and comes out to be a subalgebra. Denote its Lie bracket by $\eta_{\bt}: V\times V \to V$. Note that, what can be computed by Mathematica is the partial derivate $\varphi_i\coloneq \pd{\eta_{\bt}}{t_i}(\0)$, which comes from the Lie bracket of the $1$-parameter Lie algebra $(V,\eta_{t_i})\subseteq L(f_{t_i})$ or $L^*(f_{t_i})$.
+
+In case $n=3,$ we already know that $(V,\eta_{\bt})$ is a $6$-parameter family of  $37$-dimensional Lie algebras. Mathematica verifies that it is non-trivial at origin in the sense of definition \ref{din-3.5}.
+
+In case $n=4,$ we already know that $(V,\eta_{\bt})$ is a $19$-parameter family of  $106$-dimensional Lie algebras. Mathematica has not verified the non-triviality of it yet. The difficulty is that in this case, the equation \eqref{coh-m} is of size $106^3\times ( 106^2 +19)$, too large to solve for any ordinary computer. But we strongly believe that this family is non-trivial at origin, and I would try to verity it latter on.

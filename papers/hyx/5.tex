@@ -1,0 +1,271 @@
+ 
+ Maryam Mirzakhani gives an integration formula over  $\mathscr{M}_{g,n}(L)$ with respect to the  Weil--Petersson volume form  in \cite{Mirzakhani:2006fta}. However, the integration formula in  \cite{Mirzakhani:2006fta} has wrong coefficients, she fixes the coefficients in \cite{growthofsimple}, and Petri summaries it in \cite{Teithe}. Although their definitions and notations are distinct slightly, their formula matches with each other. This section adopts Mirzakhani's notations, with which the coefficients are more concrete.
+
+A multi-curve is of the form $\gamma=\sum_{i=1}^kc_i\gamma_i$ with $c_i\geq 0$ and $\gamma_i's$ are disjoint simple closed curves in different isotopy class, and none of them are homotopic to some boundary component. Then define $S_{g,n}(\gamma)$
+to be the surface obtained by cutting $S_{g,n}$ along $\{\gamma_i\}_{i=1}^k$. Assume that $$
+S_{g,n}(\gamma)=\cup_{i=1}^NS_{g_i,n_i}
+$$
+with $S_{g_i,n_i}$ all the connected components. Now consider the projection  $\pi\colon S_{g,n}(\gamma)\to S_{g,n}$, and  $\pi^{-1}(\gamma_i)=\{\gamma_i^1,\gamma_i^2\}$, then  $$
+\partial S_{g,n}(\gamma)=\{\beta_1,\beta_2,\cdots,\beta_n,\gamma_1^1,\gamma_1^2,\cdots,\gamma_k^1,\gamma_k^2\}.
+$$
+
+If $\Gamma=(\gamma_1,\cdots,\gamma_k)$,  $\beta=(\beta_1,\cdots,\beta_n)$, $L=(L_1,\cdots,L_n)\in \mathbb{R}_+^n$, and $x=(x_1,\cdots,x_k)\in \mathbb{R}_+^k$, then denote the Teichm\"uller space of Riemann surface homeomorphic to $S_{g,n}(\gamma)$ with fixed boundary length $l_{\beta_i}=L_i$ and $l_{\gamma_i}=x_i$ by $$
+\mathscr{T}(S_{g,n}(\gamma),l_\Gamma=x,l_\beta=L),
+$$
+denote the moduli space of Riemann surface homeomorphic to $S_{g,n}(\gamma)$, with fixed boundary length $l_{\beta_i}=L_i$ and $l_{\gamma_i}=x_i$ by $$
+\mathscr{M}(S_{g,n}(\gamma),l_\Gamma=x,l_\beta=L),
+$$
+and  $$
+ V_{g,n}(\Gamma,x,\beta,L)=\mathrm{Vol}(\mathscr{M}(S_{g,n}(\gamma),l_\Gamma=x,l_\beta=L))
+ $$
+ is the Weil--Petersson volume of this moduli space.
+ 
+ Now take $$G(\Gamma)=\cap_{i=1}^k\operatorname{stab}(\gamma_i),$$
+ it acts on $\mathscr{T}(S_{g,n}(\gamma),l_\Gamma=x,l_\beta=L)$, 
+ and the quotient of $\mathscr{T}(S_{g,n}(\gamma),l_\Gamma=x,l_\beta=L)$ with respect to $G(\Gamma)$ is denoted by  $$
+\mathscr{M}_{g,n}(\Gamma,x,\beta,L)= \mathscr{T}(S_{g,n}(\gamma),l_\Gamma=x,l_\beta=L)/G(\Gamma).
+ $$
+ 
+ \begin{remark}
+ Notice that if $g\in G(\Gamma)$ doesn't preserve the orientation of $\gamma_i$, then $g$ will map $\gamma_i^1$ to $\gamma_i^2$ and map $\gamma_i^2$ to $\gamma_i^1$.
+ 
+ Take $(X,f)\in \mathscr{T}_{g,n}(L)$, with $L_i=L_j$, and $h:X\to X$ exchanges $\beta_i$ to $\beta_j$, then $(X,h\circ f)\in \mathscr{T}_{g,n}(L)$. But this will bring inconvenience, and change the moduli space $\mathscr{M}_{g,n}(L)$  dramatically if $L$ is changed slightly. Such case could be ignored, since for almost every $L\in \mathbb{R}_+^{3g-3+n}$, $L_i$'s are  distinct. But for the case of $S_{g,n}(\gamma)$, $\gamma_i^1$ and $\gamma_i^2$ is always of the same length, so they are not ignored.  For the case that $x_i=x_j$ and $h$ exchanges $\gamma_i$  and $\gamma_j$, it also corresponds to a set of measure in $\mathbb{R}_+^k$, which can be ignored.
+ 
+ The main formula in this section is theorem \ref{integrformu}. Suppose that $L_i\neq L_j$ for all $i\neq j$.Notice that the integral function on the right side has a factor  $\mathrm{Vol}(\mathscr{M}_{g,n}(\Gamma,x,\beta,L))$, for all $x\in \mathbb{R}_{+}^k$. So for all $x$, $l(\gamma_i^1)=l(\gamma_i^2)$. 
+  But for almost every $x\in \mathbb{R}_{+}^k$, $(x_1,\cdots,x_k,L_1,\cdots,L_{3g-3+n})$ are pairwise distinct, so the exceptional case could be ignored since the integral over a subset of measure of zero is always zero.
+ 
+ While for the exceptional case of $L_i=L_j$ for some $i\neq j$, it can be seen that both sides are influenced by the same factor to the  multiplicities, so the amendment can be done uniformly. 
+ 
+ One main conclusion which  will be shown in  this article is that the $V_{g,n}(L)$ is a polynomial of $L_i$ of degree $6g-6+2n$. The above amendment avoids the  discontinuous points of $V_{g,n}(L)$ at $L$ with $L_i=L_j$.
+\end{remark}
+
+ 
+ 
+ 
+ Define $\stab_0(\gamma)\subset \stab(\gamma)\subset \Mod_{g,n}(L)$ to be the subset of  elements which preserve the orientation of $\gamma$. Then consider the mapping class group $\Mod(S_{g,n}(\gamma))$, $g\in \Mod(S_{g,n}(\gamma))$ can be seen as an element in $\cap_{i=1}^k \stab_0(\gamma_i)$ by gluing the diffeomorphisms along the boundary components, since any orientation preserving self-diffeomorphisms of the boundary circle is homotopical equivalent. While for element $g$ in  $\cap_{i=1}^k\stab_0(\gamma_i)$,  the restriction map of $g$ on each components of $S_{g,n}(\gamma)$ can be seen as a self-diffeomorphism of $S_{g,n}(\gamma)$. This gives the isomorphism $$
+ \Mod (S_{g,n}(\gamma))\simeq \cap_{i=1}^k\stab_0(\gamma_i).
+ $$
+ The mapping class group acts discretely on the Teichm\"uller space, so $\mathscr{M}(S_{g,n}(\gamma),l_\Gamma=x,l_\beta=L)$ is  the covering space of $\mathscr{M}_{g,n}(\Gamma,x,\beta,L)$ of order $$
+ N(\gamma)=|G(\Gamma)/\cap_{i=1}^k\stab_0(\gamma_i)|=|\cap_{i=1}^k\stab(\gamma_i)/\cap_{i=1}^k\stab_0(\gamma_i)|,
+ $$
+ 
+thus $$\mathrm{Vol}(\mathscr{M}_{g,n}(\Gamma,x,\beta,L))=\frac{1}{N(\gamma)}\mathrm{Vol}(\mathscr{M}(S_{g,n}(\gamma),l_\Gamma=x,l_\beta=L)).$$
+ 
+\begin{remark}
+In \cite{Mirzakhani:2006fta} the orientation of $\gamma_i$ is not taken into consideration. The corresponding of $\mathscr{M}_{g,n}(\Gamma,x,\beta,L)$ and $\mathscr{M}(S_{g,n}(\gamma),l_\Gamma=x,l_\beta=L)$ is not $1$ to $1$.
+
+\end{remark}
+
+
+ 
+ In the above definition, the coefficients $c_i$'s don't appear.
+ 
+ For $\gamma=\sum_{i=1}^kc_i\gamma_i$, define the stabilizer of $\gamma$ to be $$
+ \stab(\gamma)=\{g\in \Mod_{g,n}|g\gamma=\gamma\}, 
+ $$
+  and its symmetry group to be $$
+  \sym(\gamma)=\stab(\gamma)/\cap_{i=1}^k \stab(\gamma_i).
+  $$
+ 
+ \begin{remark}
+ If $\gamma=c_1\gamma_1$, then $|\sym(\gamma)|=1$. Generally,  $|\sym(\gamma)|\leq k!$, and if $|\sym(\gamma)|=k!$, then $\forall \sigma\in S(k)$, where $S(k)$ is the $k^{th}$ permutation group, there is an element $g$ such that $\gamma=\sum_{i=1}^kc_i\gamma_{i}=g\gamma=\sum_{i=1}^kc_{\sigma i}\gamma_{ i}$, thus $c_1=c_{\sigma 1}$ for all $\sigma\in S(k)$, so $c_1=c_2=\cdots=c_k.$
+ \end{remark}
+ 
+ 
+ 
+ 
+ 
+
+For a multi-curve $\gamma=\sum_{i=1}^k c_i\gamma_i$, define $$l_\gamma(X)=\sum_{i=1}^kc_il_{\gamma_i}(X),$$
+for $X\in \mathscr{T}_{g,n}(L)$. This is defined on $\mathscr{T}_{g,n}(L)$, but is not well defined on $\mathscr{M}_{g,n}(L)$. It is not invariant under the mapping class group  actions. 
+
+For any continuous function $f:\mathbb{R}_+\to \mathbb{R}$, define a related function $$
+f_\gamma(X)=\sum_{[\alpha]\in \Mod\cdot[\gamma]}f(l_\alpha(X)).
+$$
+Since $\Mod_{g,n}[g\gamma]=\Mod_{g,n}[\gamma]$, and
+ the summation is ergodic over the orbits of the  equivalent classes under the actions of mapping class group,
+then $f_\gamma$ is a well defined function on $\mathscr{M}_{g,n}(L)$. 
+
+
+
+
+
+
+
+
+ 
+ \begin{theorem}[Mirzakhani's integration formula]\label{integrformu}
+ If  $\gamma=\sum_{i=1}^ka_i\gamma_i$ is a multi-curve  and  $(g,n)\neq (1,1),(0,3)$,   for the integrable function $f:\mathbb{R}_+\to \mathbb{R}$, the following integration formula holds:
+ $$
+ \int_{\mathscr{M}_{g,n}(L)}f_\gamma(X)dX=\frac{2^{-M(\gamma)}}{|\sym(\gamma)|}\int_{\mathbb{R}_+^k}f(|x|)\mathrm{Vol}(\mathscr{M}_{g,n}(\Gamma,x,\beta,L))x\cdot dx.
+ $$
+ 
+ Here  the notation $x\cdot dx$ represents $x_1\cdots x_k dx_1\cdots dx_k$, and  $|x|=\sum_{i=1}^k a_ix_i$,
+ $M(\Gamma)$  is the number of $S_{1,1}$ cut by $\gamma$. $S_{1,1}$ admits a half twist. For the case that $\gamma$ cut $S_{2,0}$ into two pieces of $S_{1,1}$, take $M(\gamma)=1$ as an exception.
+ \end{theorem}
+ 
+ 
+\begin{lemma}\label{coverintegral}
+ If $\pi:M\to N$ is a covering map, then for an volume form $\omega$ of $N$, it will be pulled back to a volume form $\pi^*\omega$ of $M$. 
+ Then if $f\in L^1(M,\pi^*\omega)$, define the push forward $\pi_*f\in L^1(N,\omega)$ by 
+ \begin{equation}
+      (\pi_*f)(x)=\sum_{\pi(y)=x}f(y),
+ \end{equation}
+ then the equality holds:
+ \begin{equation}
+     \int_{N} (\pi_*f)d\omega=\int_{M}fd(\pi_*\omega).
+ \end{equation}
+\end{lemma}
+ 
+ 
+ For  $\Gamma=(\gamma_1,\cdots,\gamma_k)$,  $h\in \Mod_{g,n}$ acts by
+ $$
+ h\cdot \Gamma=(h\gamma_1,\cdots,h\gamma_k),
+ $$
+ and $\mathscr{O}^\Gamma$ represents the set of  orbits of homotopy classes of  $\Mod_{g,n}\cdot \Gamma$. 
+ Define the space $$
+ \mathscr{M}_{g,n}(L)^\Gamma=\{(X,\eta)|X\in \mathscr{M}_{g,n}(L),\eta\in \mathscr{O}^\Gamma\},
+ $$
+ and the projection $$
+\begin{aligned}
+ \pi: \mathscr{M}_{g,n}(L)^\Gamma&\to  \mathscr{M}_{g,n}(L)\\
+ (X,\eta)&\mapsto X,\\
+\end{aligned}
+ $$
+ then $\pi\colon \mathscr{M}_{g,n}(L)^\Gamma\to  \mathscr{M}_{g,n}(L)$ is covering map with base space $\mathscr{M}_{g,n}(L)$. So the integral over $\mathscr{M}_{g,n}(L)$ can be derived by the integral over $\mathscr{M}_{g,n}(L)^\Gamma$.
+ 
+ While for $\mathscr{T}_{g,n}(L)$, consider the map $$
+ (X,f)\mapsto (X,[f(\gamma_1)],[f(\gamma_2)],\cdots,[f(\gamma_k)]),
+ $$
+ then it induces the equivalent $$
+ \mathscr{M}_{g,n}(L)^\Gamma\simeq \mathscr{T}_{g,n}(L)/\cap_{i=1}^k \stab(\gamma_i).
+ $$
+ 
+ Now since the Weil--Petersson symplectic form is invariant under the mapping class group action,  $\mathscr{M}_{g,n}(L)^\Gamma$ admits the induced Weil--Petersson symplectic form $\pi^*\omega$, where $\omega$ is the Weil--Petersson symplectic form on the moduli space.
+ 
+Consider the length vector with respect to  $\Gamma$, 
+$$
+\begin{aligned}
+    l_\Gamma\colon\mathscr{T}_{g,n}(L)&\to \mathbb{R}_+^k\\
+    X &\mapsto (l_{\gamma_1}(X),\cdots,l_{\gamma_k}(X)),\\
+\end{aligned}
+$$ 
+and the level set $l_\Gamma^{-1}(a)\subset \mathscr{T}_{g,n}(L)$, 
+is the invariant subspace of  the twist along $\gamma_i$, since $l_{\gamma_j}(T_{\gamma_i}^t(X))=l_{\gamma_j}(X)$.
+
+
+Here the twist long $\gamma_i$ is defined by $$
+T_{\gamma_i}^t(X)=tw_{\gamma_i}^{tl_{\gamma_i}(X)}(X),
+$$
+where $tw_{\alpha}^s$ is given by $$
+(l_{\alpha_i}(X),\tau_{\alpha_i}(X))_{i=1}^{3g-3+n}\mapsto ((l_{\alpha_i}(X),\tau_{\alpha_i}(X)+s\delta_{1i}l_{\alpha_i}(X))_{i=1}^{3g-3+n},
+$$
+ if $P=\{\alpha_i\}_{i=1}^{3g-3+n}$ is a pants decomposition with $\alpha_1=\alpha$. For the case $s=l_{\alpha}(X)$, it corresponds with the Dehn  twist  $D(\alpha)$ along $\alpha$.
+ 
+ The twists along  all $\gamma_i$  are commutable,  thus there is a $\mathbb{R}^k$ action on $l_\Gamma^{-1}(a)$. 
+ 
+ The length function can degenerate to $\mathscr{M}_{g,n}(L)^\Gamma$ by 
+ $L_{\Gamma}(X,\eta)=(l_{\eta_i}(X))_{i=1}^k$,
+  and the level set of $a$ is  denoted by $\mathscr{M}_{g,n}(L)^\Gamma[a]$. Then the $\mathbb{R}^k$ action degenerates to a $T^k=S^1\times S^1\times \cdots\times S^1$ action on $\mathscr{M}_{g,n}(L)^\Gamma[a]$, since the Dehn twists belong to the mapping class group $\Mod_{g,n}$. The quotient space of $\mathscr{M}_{g,n}(L)^\Gamma[a]$ with respect to the $T^k$ action is denoted by $\mathscr{M}_{g,n}(L)^{\Gamma*}[a]$.
+  
+  $\mathscr{M}_{g,n}(L)^{\Gamma}[a]=L_{\Gamma}^{-1}(a)\subset \mathscr{M}_{g,n}(L)^{\Gamma}$ admits the induced volume form $\omega^*\in\Omega^{6g-6+2n-k}(\mathscr{M}_{g,n}(L)^{\Gamma})$,  which is
+  $$
+    dl_1\wedge d\tau_1\wedge \cdots \widehat{dl_{i_1}}\cdots \widehat{dl_{i_k}}\cdots\wedge dl_{3g-3+n}\wedge d\tau_{3g-3+n}
+  $$
+  under the Fenchel-Nielsen coordinates $(l_i,\tau_i)_{i=1}^{3g-3+n}$ with respect to the pants decomposition $(\alpha_i)_{i=1}^{3g-3+n}$, with $\alpha_{i_t}=\gamma_t$, since the length of $\alpha_{i_t}$ is fixed on the level set $\mathscr{M}_{g,n}(L)^{\Gamma}[a]$.
+  
+  While for the quotient space $\mathscr{M}_{g,n}(L)^{\Gamma*}[a]$, it admits the symplectic structure, $$\omega=\sum\limits_{j\neq i_t,\quad t=1,2,\cdots,k}dl_j\wedge d\tau_j.$$
+ $d\tau_{i_t}$'s are  killed by the $T^k$ action of twists along $\alpha_{i_t}$.
+ 
+ In most case, the parameters for $\mathscr{M}_{g,n}(L)^{\Gamma}[a]$ over $\mathscr{M}_{g,n}(L)^{\Gamma*}[a]$ are $\tau_{i_t}\in[0,l_{\gamma_{i_t}}(X))$. But if $\gamma_i$ cut off a $S_{1,1}$, then the half twist of it is not contained in the group generalized by Dehn twists along  closed geodesics in $\Gamma$, thus $\tau_{i_t}$ varies from $0$ to $\frac{1}{2}l_{\gamma_{i_t}}(X)$.
+ 
+ Thus, under the projection $$\pi\colon\mathscr{M}_{g,n}(L)^{\Gamma}[a]\to \mathscr{M}_{g,n}(L)^{\Gamma*}[a],$$
+ for open set $U\subset \mathscr{M}_{g,n}(L)^{\Gamma*}[a]$, 
+ \begin{equation}\label{areaformula}
+     \mathrm{Vol}(\pi^{-1}(U))=2^{-M(\gamma)}\mathrm{Vol}(U)\ a_1\cdots a_k.
+ \end{equation}
+ \begin{remark}
+ The factor $2^{-M(\gamma)}$ comes from the half twist here, and for the case of $\gamma$ cut  $S_{2,0}$ into two pieces of $S_{1,1}$, take $M(\gamma)=1$. Due to the existence of $M(\gamma)$, when $\mathrm{Vol}(\mathscr{M}_{1,1}(L))$ is needed, it is $\frac{1}{24}(L^2+4\pi^2)$ instead of $\frac{1}{48}(L^2+4\pi^2)$. This is due to some historical reason. 
+ \end{remark}
+ $\mathscr{M}_{g,n}(L)^{\Gamma*}[a]$ can be  related  to the moduli space of $S_{g,n}(\gamma)$.
+ 
+ For $X\in l_{\Gamma}^{-1}(a)$, cut it along $\gamma$, and get a surface $\cut_\gamma(X)$ in $\mathscr{T}(S_{g,n}(\gamma),l_\beta=L,l_\Gamma=a)$.
+ $cut_{\gamma}$ is invariant under the $\mathscr{R}^k$ action on $l_{\Gamma}^{-1}(a)$, since the geodesics along with which the twists flow is cut. That is $$
+ \cut_{\gamma}(X)=\cut_{\gamma}(T_{\gamma_1}^{s_1}\cdots T_{\gamma_k}^{s_k}(X)).
+ $$
+ 
+ Project the image to $\mathscr{T}(S_{g,n}(\gamma),l_{\Gamma}=a,L_\beta=L)/G(\Gamma)$, then for $[(X,\eta)]\in \mathscr{M}_{g,n}(L)^{\Gamma*}[a]$, $\cut_{\gamma}([(X,\eta)])\in\mathscr{T}(S_{g,n}(\gamma),l_{\Gamma}=a,L_\beta=L)/G(\Gamma)$ is well defined. $\cut_{\gamma}$ induces the map:
+ $$
+ \cut\colon\mathscr{M}_{g,n}(L)^{\Gamma*}[a]\to \mathscr{M}_{g,n}(\Gamma,a,\beta,L),
+ $$
+which keeps the symplectic structure by theorem \ref{wpmetricWolpert}, and is an isomorphism. The inverse map is obtained by gluing $X$ along the boundary components corresponding to the same $\gamma_i\in \Gamma$. 
+
+This implies:
+\begin{lemma}
+\begin{equation}\label{areaidentity}
+    \mathrm{Vol}(\mathscr{M}_{g,n}(L)^{\Gamma*}[a])=\mathrm{Vol}(\mathscr{M}_{g,n}(\Gamma,a,\beta,L)).
+\end{equation}
+
+
+\end{lemma}
+
+Then combine (\ref{areaidentity}) and (\ref{areaformula}), the volume of the level set  is given by:
+\begin{equation}
+    \mathrm{Vol}(\mathscr{M}_{g,n}(L)^\Gamma[a])=2^{-M(\gamma)}\mathrm{Vol}(\mathscr{M}_{g,n}(\Gamma,x,\beta,L))\ a_1\cdots a_k.
+\end{equation}
+
+It helps to calculate the version of integration formula of geometric function independent of the coefficients of $\gamma_i$ in $\gamma$.
+
+\begin{theorem}
+For integrable function $F\colon\mathbb{R}^k\to \mathbb{R}_+$, and $L_\Gamma\colon\mathscr{M}_{g,n}(L)^\Gamma\to \mathbb{R}^k$ with  $L_\Gamma(X,\eta)=(L_{\eta_i}(X))$, then 
+\begin{equation}\label{intver1}
+    \int_{\mathscr{M}_{g,n}(L)^\Gamma}F(L_\Gamma(Y))dY=2^{-M(\Gamma)}\int_{\mathbb{R}_+^k}F(x)\mathrm{Vol}(\mathscr{M}_{g,n}(\Gamma,x,\beta,L))xdx.
+\end{equation}
+where $F(x)=F(x_1,\cdots,x_k)$ and $xdx=x_1\cdots x_kdx_1\cdots dx_k$.
+\end{theorem}
+
+\begin{proof}
+$$
+\int_{\mathscr{M}_{g,n}(L)^\Gamma}F(L_\Gamma(Y))dY
+=\int_{x\in\mathbb{R}_+^k} dx \int_{\mathscr{M}_{g,n}(L)^\Gamma[x]}F(L_\Gamma(Z))dZ
+$$
+while on $\mathscr{M}_{g,n}(L)^\Gamma[x]$ $F(L_\Gamma(Z))=F(x)$,  thus $$
+\int_{\mathscr{M}_{g,n}(L)^\Gamma[x]}F(L_\Gamma(Z))dZ
+=F(X)2^{-M(\gamma)}\mathrm{Vol}(\mathscr{M}_{g,n}(\Gamma,x,\beta,L))x_1\cdots x_k,
+$$
+then (\ref{intver1}) holds.
+\end{proof}
+
+Then take the coefficient into consideration.
+It will lead to the coefficient $\frac{1}{|\sym(\gamma)|}$ in Mirzakhani's integration formula.
+\begin{proof}[Proof of theorem \ref{integrformu}]
+ Apply the lemma \ref{coverintegral} to the function $F\circ L_\Gamma$ and the covering map
+$$
+\pi\colon \mathscr{M}_{g,n}(L)^\Gamma\to  \mathscr{M}_{g,n}(L),
+$$
+the identity follows $$
+\int_{\mathscr{M}_{g,n}(L)^\Gamma}F(L_\Gamma(Y))dY=\int_{\mathscr{M}_{g,n}(L)}(\pi_*(F\circ L_{\Gamma}))(Y)dY.
+$$
+Take $F(x_1,\cdots,x_k)=f(\sum_{i=1}^kc_ix_i)$, then $F(x)=f(|x|)$, where $|x|=\sum_{i=1}^ka_ix_i$.
+So the above equation is equal to  $$
+2^{-M(\Gamma)}\int_{\mathbb{R}_+^k}f(|x|)\mathrm{Vol}(\mathscr{M}_{g,n}(\Gamma,x,\beta,L))xdx.
+$$
+While $f_\gamma(X)=\sum_{[\alpha]\in \Mod\cdot [\gamma]}f(l_\alpha(X))$, and 
+$$
+\begin{aligned}
+&\pi_*(F\circ L_\Gamma)(X)\\
+=&\sum\limits_{(\eta_1,\cdots,\eta_k)\in \Mod\cdot (\gamma_1,\cdots,\gamma_k)} F\circ L_\eta (X)\\
+=&\sum_{g\in \Mod_{g,n}/\cap_{i=1}^k\stab(\gamma_i)}f( L_{g\gamma}(X))\\
+=&\sum\limits_{g\in \Mod_{g,n}/\stab(\gamma)} \sum\limits_{h\in \sym(\gamma)} f(l_{gh\gamma}(X)) \\
+=&|\sym(\gamma)|\sum\limits_{g\in \Mod_{g,n}/\stab(\gamma)}f(l_{g\gamma})(X))\\
+=&|\sym(\gamma)|f_{\gamma}(X).\\
+\end{aligned}
+$$
+then it follows 
+$$
+|\sym(\gamma)|\int_{\mathscr{M}_{g,n}(L)}f_\gamma(X)dV_{wp}(X)=2^{-M(\gamma)}\int_{\mathbb{R}_+^k}f(|x|)\mathrm{Vol}(\mathscr{M}_{g,n}(\Gamma,x,\beta,L))x\cdot dx.
+$$
+\end{proof}
+
+  
+ 

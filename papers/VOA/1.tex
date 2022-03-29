@@ -1,0 +1,953 @@
+% \subsection{Conformal field theory}
+
+% A \emph{conformal field theory} in two dimensions
+% is a two dimensional quantum field theory that is
+% invariant under conformal transformations.
+
+% Consider a conformal field theory on
+% the space-time cylinder $S^1 \times \bbR$,
+% where $S^1$ is the space component and $\bbR$ is the time component.
+% We use the complex coordinate $\xi = \theta + \upi \tau$,
+% where $\theta \in S^1$ and $\tau \in \bbR$.
+% We then change the coordinates to
+% \[
+%     z = \upe^{-\upi \xi}.
+% \]
+% This maps the cylinder to the set $\bbC \setminus \{ 0 \}$,
+% and the time ordering becomes the radial ordering
+% of concentric circles centred at the origin.
+
+% \figplacehold
+
+
+\subsection{Definition}
+
+First of all,
+we briefly recall the definition of a vertex algebra.
+For details, we refer the reader to
+\cite{frenkel-ben-zvi} and \cite{kac}.
+
+\begin{definition}
+    A \emph{vertex algebra} is the data $(\scrV, Y, T, \ket{0})$, where
+    \begin{itemize}
+        \item
+            $\scrV$ is a $\bbZ_2$-graded vector space over $\bbC$,
+            called the \emph{state space},
+            or the \emph{space of observables}.
+        \item
+            $\ket{0} \in \scrV$ is an even element,
+            called the \emph{vacuum state}.
+        \item
+            $Y$ is an even linear map
+            \begin{align*}
+                Y \colon \scrV & \to \End(\scrV) [[z, z^{-1}]], \\
+                A & \mapsto A (z) = \sum_{n \in \bbZ} A_{(n)} z^{-n - 1},
+            \end{align*}
+            called the \emph{state--field correspondence}.
+        \item
+            $T \colon \scrV \to \scrV$
+            is an even endomorphism,
+            called the \emph{translation operator}.
+    \end{itemize}
+    They satisfy the following axioms:
+    \begin{itemize}
+        \item
+            For all $A, B \in \scrV$, we have
+            \[
+                A (z) \, B \in \scrV ((z)),
+            \]
+            where $\scrV ((z)) = \scrV [[z]] [z^{-1}]$
+            is the space of formal Laurent series
+            with values in $\scrV$.
+            In other words, we have
+            \[
+                A_{(n)} B = 0 \quad (n \gg 0).
+            \]
+            
+        \item
+            (Vacuum)
+            $T \ket{0} = 0$
+            and $\ket{0} (z) = \operatorname{id}$.
+            For all $A \in \scrV$,
+            $A (z) \ket{0} = A + O (z)$.
+            
+        \item
+            (Translation)
+            For all $A \in \scrV$, we have $[T, A(z)] = \partial_z A(z)$.
+            
+        \item
+            (Locality)
+            For all $A, B \in \scrV$, there exists $N \in \bbN$ such that
+            \[
+                (z - w)^N [A(z), B(w)] = 0.
+            \]
+    \end{itemize}
+    By abuse of language,
+    we say that $\scrV$ is a vertex algebra.
+    \varqed
+\end{definition}
+
+For $A \in \scrV$, note that the operator $A_{(n)} \in \End (\scrV)$
+can be expressed as a residue:
+\[
+    A_{(n)} = \operatorname{Res}_{z = 0} (z^n A(z)).
+\]
+
+\begin{definition}
+    A \emph{graded vertex algebra}
+    is a vertex algebra $\scrV$,
+    together with a $\bbZ$-grading
+    \[
+        \scrV = \bigoplus_{m} \scrV_m
+    \]
+    on the vector space $\scrV$, compatible with the $\bbZ_2$-grading
+    (i.e.\ the two gradings form a $\bbZ \times \bbZ_2$-bigrading),
+    such that
+    \begin{itemize}
+        \item
+            $\ket{0} \in \scrV_0$.
+        \item
+            $\deg T = 1$.
+        \item
+            For any $A \in \scrV_m$,
+            we have $\deg A_{(n)} = -n - 1 + m$.
+    \end{itemize}
+    If $A \in \scrV_m$,
+    we say that $A$ has \emph{conformal dimension} $m$.
+    \varqed
+\end{definition}
+
+\begin{definition}
+    A \emph{conformal vertex algebra},
+    also called a \emph{vertex operator algebra},
+    is a graded vertex algebra $\scrV$,
+    together with an even element $L \in \scrV_2$,
+    called the \emph{conformal vector},
+    such that if we write
+    \[
+        L (z) = \sum _{n \in \bbZ} L_{n} z^{-n-2}
+    \]
+    (that is, $L_n = L_{(n+1)}$, so that $\deg L_n = -n$), then
+    \begin{itemize}
+        \item
+            $L_{-1} = T$ is the translation operator.
+        \item
+            For all $m$, $\scrV_m$ is the $m$-eigenspace of $L_0$.
+        \item
+            We have the \emph{Virasoro relations}
+            \[
+                [L_n, L_m] =
+                (n - m) L_{n + m} +
+                c \cdot \frac{n^3 - n}{12} \cdot \delta_{n, -m},
+            \]
+            where $c \in \bbC$ is called the \emph{central charge}.
+            \varqed
+    \end{itemize}
+\end{definition}
+
+
+\subsection{Operator product expansion}
+
+The analogue between associative algebras and vertex algebras
+can be formulated as follows.
+For an associative algebra $V$, each element $A \in V$
+defines an element of $\End (V)$ by left multiplication,
+so the structure of the algebra is given by a linear map
+\begin{align*}
+    Y \colon V & \to \End (V), \\
+    A & \mapsto A \cdot {-}.
+\end{align*}
+In a vertex algebra $\scrV$, there is a family of multiplication operators,
+parametrized by the formal variable $z$,
+and the structure of the vertex algebra is given by
+\begin{align*}
+    Y \colon \scrV & \to \End(\scrV) [[z, z^{-1}]], \\
+    A & \mapsto A (z) \cdot -.
+\end{align*}
+
+From this point of view,
+one can talk about whether a vertex algebra
+is associative.
+It turns out that all vertex algebras
+are associative in the following sense.
+
+\begin{theorem}
+    \label{thm-assoc}
+    Let $\scrV$ be a vertex algebra,
+    and let $A, B, C \in \scrV$. 
+    \begin{itemize}
+        \item
+            \textup{(Associativity)}
+            The elements
+            \begin{align*}
+                A (z) \, B (w) \, C
+                & \in \scrV ((z)) ((w)), \\
+                B (w) \, A (z) \, C
+                & \in \scrV ((w)) ((z)), \\
+                (A (z - w) \, B) (w) \, C
+                & \in \scrV ((w)) ((z - w))
+            \end{align*}
+            come from the same element of
+            \[
+                \scrV [[z, w]] [z^{-1}, w^{-1}, (z-w)^{-1}],
+            \]
+            where the inclusions
+            \begin{align*}
+                \scrV [[z, w]] [z^{-1}, w^{-1}, (z-w)^{-1}]
+                & \hookrightarrow \scrV ((z)) ((w)), \\
+                \scrV [[z, w]] [z^{-1}, w^{-1}, (z-w)^{-1}]
+                & \hookrightarrow \scrV ((w)) ((z)), \\
+                \scrV [[z, w]] [z^{-1}, w^{-1}, (z-w)^{-1}]
+                & \hookrightarrow \scrV ((w)) ((z-w))
+            \end{align*}
+            are given by
+            \begin{align*}
+                (z-w)^{-1} & \mapsto
+                \frac{1}{z} \sum_{n=0}^\infty
+                \biggl( \frac{w}{z} \biggr)^n, \\
+                (z-w)^{-1} & \mapsto
+                -\frac{1}{w} \sum_{n=0}^\infty
+                \biggl( \frac{z}{w} \biggr)^n, \\
+                z^{-1} & \mapsto
+                \frac{1}{w} \sum_{n=0}^\infty
+                \biggl( \frac{w-z}{w} \biggr)^n,
+            \end{align*}
+            respectively.
+    \end{itemize}
+\end{theorem}
+
+See \cite[Theorem~3.2.1]{frenkel-ben-zvi}.
+
+As a result,
+we may write down equations of the form
+\[
+    A (z) \, B (w) =
+    \sum_{n \in \bbZ} \frac{(A_{(n)} B) (w)}{(z - w)^{n+1}},
+\]
+or sometimes, we only write down the singular part:
+\[
+    A (z) \, B (w) =
+    \sum_{n = 0}^N \frac{(A_{(n)} B) (w)}{(z - w)^{n+1}}
+    + \text{reg.},
+\]
+where `reg.'\ means `regular part'.
+These formulas are known as the
+\emph{operator product expansion}, or the \emph{OPE},
+of the fields $A$ and $B$
+\cite[\S3.3]{frenkel-ben-zvi}.
+
+Note that technically,
+the OPE formulas only make sense in the space
+\[
+    \scrV [[z, w]] [z^{-1}, w^{-1}, (z-w)^{-1}].
+\]
+
+From the OPE, we can recover the commutation relations
+of vertex operators.
+Indeed, for even elements $A, B \in \scrV$, we have
+\begin{align*}
+    \oint_w A (z) \, B (w) \, d z
+    & = \oint_{\gamma_1} A (z) \, B (w) \, d z
+    - \oint_{\gamma_2} B (w) \, A (z) \, d z \\
+    & = \Biggl[ \ \oint A \ , B (w) \Biggr],
+\end{align*}
+where $\oint_w$ denotes the contour integral
+along a small circle around $w$;
+$\gamma_1, \gamma_2$ are as shown in the following picture;
+and $\oint A$ is short for $\oint_0 A (z) \, d z$,
+and is equal to $2 \uppi \upi \, A_{(0)}$.
+
+\[
+    \begin{tikzpicture}[
+        thick,
+        decoration = {
+            markings,
+            mark = at position 0.05 with {\arrow[scale=1.5]{stealth}}
+        },
+        scale = .8
+    ]
+        \begin{scope}
+            \fill (0, 0) circle (.07);
+            \fill (1.8, 1.8) circle (.07);
+            \draw[postaction = {decorate}] (1.8, 1.8) circle (.6);
+            \draw[postaction = {decorate}] (0, 0) circle (3.6);
+            \draw[postaction = {decorate}] (0, 0) circle (1.4);
+            \node at (.25, -.15) {$0$};
+            \node at (2.05, 1.65) {$w$};
+            \node at (1.7, .1) {$\gamma_2$};
+            \node at (3.8, .8) {$\gamma_1$};
+        \end{scope}
+    \end{tikzpicture}
+\]
+
+Integrating over $w$, we obtain the formula
+for the commutator of $\oint A$ and $\oint B$:
+\[
+    \Biggl[ \ \oint A \ , \ \oint B \Biggr] =
+    \oint_0 \ d w \ 
+    \oint_w \ d z \ A (z) \, B (w).
+\]
+See also \cite[Ch.~6]{cft}.
+A similar argument shows that this holds for odd elements as well.
+
+We can slightly generalize this argument,
+by replacing the integrand $A (z) \, B (w)$
+by $z^m w^k \, A (z) \, B (w)$.
+Then one arrives at the following result,
+a version of which was taken as
+one of the axioms in Borcherd's original definition
+\cite{borcherds86} of a vertex algebra.
+
+\begin{theorem} [Borcherd's identity]
+    For any $A, B \in \scrV$ and $m, k \in \bbZ$, we have
+    \[
+        [A_{(m)}, B_{(k)}] =
+        \sum_{n \geq 0} \binom{m}{n} \,
+        (A_{(n)} B)_{(m+k-n)}.
+    \]
+    In particular, when $m = 0$, we have
+    \[
+        [A_{(0)}, B_{(k)}] =
+        (A_{(0)} B)_{(k)}.
+    \]
+\end{theorem}
+
+See also \cite[\S3.3]{frenkel-ben-zvi}
+for a generalization.
+
+\begin{proof}
+    \allowdisplaybreaks
+    We have
+    \begin{align*}
+        [A_{(m)}, B_{(k)}]
+        & = \frac {1} {(2 \uppi \upi)^2}
+        \Biggl[ \ 
+            \oint_0 \ z^m A (z) \, d z \ , \ 
+            \oint_0 \ w^k B (w) \, d w
+        \Biggr] \\
+        & = \frac {1} {(2 \uppi \upi)^2}
+        \oint_0 \ w^k \, d w \ 
+        \oint_w z^m \, d z \, A (z) \, B (w) \\
+        & = \frac {1} {(2 \uppi \upi)^2}
+        \oint_0 \ w^k \, d w \sum_{n \in \bbZ} \ 
+        \oint_w \frac{z^m}{(z - w)^{n+1}} \, d z \,
+        (A_{(n)} B) (w) \\
+        & = \frac {1} {2 \uppi \upi}
+        \oint_0 \ w^k \, d w \sum_{n \geq 0} \,
+        \binom{m}{n} \, w^{m-n} \,
+        (A_{(n)} B) (w) \\
+        & = \sum_{n \geq 0} \binom{m}{n} \,
+        (A_{(n)} B)_{(m+k-n)}. \qedhere
+    \end{align*}
+\end{proof}
+
+Note that only the singular part of the OPE $A (z) \, B (w)$
+is used in this identity.
+
+On the other hand,
+the non-singular part of the OPE
+is equal to the normally ordered product,
+which we now define following \cite[\S2.2]{frenkel-ben-zvi}.
+
+\begin{definition}
+    Let $\scrV$ be a vertex algebra, and let $A, B \in \scrV$.
+    The \emph{normally ordered product} of the fields
+    $A (z)$ and $B (w)$ is defined by the formula
+    \[
+        \nord{A (z) \, B (w)} =
+        A (z)_+ \, B (w) + B (w) \, A (z)_-,
+    \]
+    where
+    \[
+        A (z)_+ = \sum_{n < 0} A_{(n)} z^{-n-1}, \quad
+        A (z)_- = \sum_{n \geq 0} A_{(n)} z^{-n-1},
+    \]
+    where the plus/minus signs refer to the positive/negative powers of $z$.
+    
+    More generally, for $A_1, \dotsc, A_n \in \scrV$, with $n > 2$,
+    the \emph{normally ordered product} of the fields
+    $A_1 (z_1)$, $\dotsc$, $A_n (z_n)$ is defined inductively by
+    \[
+        \nord{A_1 (z_1) \cdots A_n (z_n)} =
+        \nord{A_1 (z_1) \ \bigl( \nord{A_2 (z_2) \cdots A_n (z_n)} \bigr) }.
+        \varqedhere
+    \]
+\end{definition}
+
+The idea behind the normally ordered product is that
+by changing the order of multiplication,
+we avoid the singularities that we would
+normally get in the OPE.
+This is shown by the following theorem.
+
+\begin{theorem}
+    Let $\scrV$ be a vertex algebra, and let $A, B \in \scrV$. Then
+    \[
+        A (z) \, B (w) =
+        \sum_{n \geq 0} \frac {(A_{(n)} B)(w)} {(z - w)^{n + 1}}
+        + \nord{A (z) \, B (w)}.
+    \]
+    That is, the regular part of the OPE $A (z) \, B (w)$
+    is exactly the normally ordered product $\nord{A (z) \, B (w)}$.
+\end{theorem}
+
+See \cite[\S3.3.6]{frenkel-ben-zvi}.
+
+Since the normally ordered product $\nord{A (z) \, B (w)}$
+is no longer singular along the diagonal $z = w$,
+one may consider its restriction to the diagonal,
+which is a well-defined field,
+denoted by $\nord{A (z) \, B (z)}$.
+This works for more than two fields as well.
+
+Finally, we mention a theorem
+that describes the field corresponding to
+the product of vertex operators.
+This result shows that the information of a vertex algebra
+can be recovered from its generating elements.
+
+\begin{theorem}
+    \label{thm-structure}
+    Let $\scrV$ be a vertex algebra, let $A^1, \dotsc, A^k \in \scrV$,
+    and let $n_1, \dotsc, n_k \in \bbZ_{<0}$. Then
+    \[
+        \bigl( A^1_{(n_1)} \cdots A^k_{(n_k)} \ket{0} \bigr) (z) =
+        \Biggl( \prod_{i=1}^k \frac{1}{(-n_i - 1)!} \Biggr) \ 
+        \nord{ \partial_z^{-n_1 - 1} A^1 (z) \cdots \partial_z^{-n_k - 1} A^k (z) }.
+    \]
+\end{theorem}
+
+See \cite[Corollary~4.4]{kac}.
+
+
+\subsection{Examples}
+\label{sect-voa-examples}
+
+\begin{example} [$\betagamma$ system]
+    \allowdisplaybreaks
+    \label{eg-beta-gamma}
+    Let 
+    \[
+        \frg^\betagamma \enspace = \enspace 
+        \bigoplus_{n \in \bbZ} \bbC \cdot \beta_n
+        \enspace \oplus \enspace \bigoplus_{n \in \bbZ} \bbC \cdot \gamma_n
+        \enspace \oplus \enspace \bbC \cdot \mathbf{1}
+    \]
+    be a Lie algebra defined by
+    \[
+        [\beta_n, \gamma_m] = \delta_{n, -m} \cdot \mathbf{1}, \quad
+        [\beta_n, \beta_m] = [\gamma_n, \gamma_m] = [\mathbf{1}, -] = 0.
+    \]
+    Let
+    \[
+        \scrV^\betagamma =
+        U (\frg^\betagamma) \cdot \ket{0} \Bigg/
+        \left\{ \ 
+            \begin{aligned}
+                \beta_n \cdot \ket{0} &= 0 \quad (n \geq 0) \\
+                \gamma_n \cdot \ket{0} &= 0 \quad (n > 0) \\
+                \mathbf{1} \cdot \ket{0} &= \ket{0}
+            \end{aligned}
+        \ \right\}
+    \]
+    be a representation of $\frg^\betagamma$
+    generated by the vector $\ket{0}$.
+    By the PBW theorem,
+    as a vector space, one may identify
+    \[
+        \scrV^\betagamma \simeq
+        \bbC [
+            \beta_{-1}, \beta_{-2}, \dotsc,
+            \gamma_0, \gamma_{-1}, \gamma_{-2}, \dotsc
+        ].
+    \]
+    We assign a $\bbZ$-grading to $\scrV^\betagamma$ by
+    \[
+        \deg \beta_{n} = -n \ (n < 0), \quad
+        \deg \gamma_{n} = -n \ (n \leq 0).
+    \]
+    This grading is well-defined because the elements
+    $\beta_n$ ($n < 0$) and $\gamma_n$ ($n \leq 0$)
+    commute with each other in $\frg^\betagamma$.
+    
+    We wish to define a vertex algebra structure on $\scrV^\betagamma$,
+    that is, to define the maps $Y$ and $T$. Write
+    \begin{align*}
+        \beta (z) &= \sum_{n \in \bbZ} \beta_n z^{-n - 1}, \\
+        \gamma (z) &= \sum_{n \in \bbZ} \gamma_n z^{-n}.
+    \end{align*}
+    In light of Theorem~\ref{thm-structure},
+    we define
+    \begin{align*}
+        \beta_{-n-1} (z) &=
+        \frac{1}{n!}
+        \biggl( \frac {\partial} {\partial z} \biggr)^n \beta (z), \\
+        \gamma_{-n} (z) &=
+        \frac{1}{n!}
+        \biggl( \frac {\partial} {\partial z} \biggr)^n \gamma (z)
+    \end{align*}
+    for $n \geq 0$, and for a general element
+    $x_1 \cdots x_p \ket{0} \in \scrV^\betagamma$,
+    where each $x_i$ is either 
+    $\beta_{n}$ ($n < 0$) or $\gamma_{n}$ ($n \leq 0$),
+    we define
+    \[
+        \bigl( x_1 \cdots x_p \ket{0} \bigr) (z) =
+        \nord{ x_1 (z) \cdots x_p (z) }
+    \]
+    to be the normally ordered product.
+    
+    The commutation relations of $\beta_n$ and $\gamma_n$
+    can be rewritten as the OPE
+    \[
+        \beta(z) \, \gamma(w) = \frac{1}{z - w} + \text{reg.}
+    \]
+    
+    The conformal structure on $\scrV^\betagamma$ is given by the field
+    \[
+        L (z) = \nord{ \gamma'(z) \, \beta(z) }.
+    \]
+    One can show that $L$ satisfies the axioms for a conformal vertex algebra,
+    and the central charge is $c = 2$. \varqed
+\end{example}
+
+
+\begin{example} [$\bc$ system]
+    \label{eg-bc}
+    The $\bc$ system is the fermionic counterpart of the $\betagamma$ system.
+    Let
+    \[
+        \frg^\bc \enspace = \enspace 
+        \bigoplus_{n \in \bbZ} \bbC \cdot b_n
+        \enspace \oplus \enspace \bigoplus_{n \in \bbZ} \bbC \cdot c_n
+        \enspace \oplus \enspace \bbC \cdot \mathbf{1}
+    \]
+    be a Lie superalgebra,
+    with all the elements $b_n, c_n$ being odd, and with
+    \[
+        [b_n, c_m] = \delta_{n, -m} \cdot \mathbf{1}, \quad
+        [b_n, b_m] = [c_n, c_m] = [\mathbf{1}, -] = 0.
+    \]
+    We then copy the construction of the $\betagamma$ vertex algebra
+    word by word, with $b_n$ and $c_n$ in place of $\beta_n$ and $\gamma_n$,
+    except that these elements are now odd.
+    This defines a conformal vertex algebra
+    $\scrV^\bc$, with
+    \[
+        b(z) \, c(w) = \frac{1}{z - w} + \text{reg.},
+    \]
+    and with the central charge $c = -2$. \varqed
+\end{example}
+
+
+\begin{example} [chiral boson]
+    Let
+    \[
+        \frg^\cb \enspace = \enspace 
+        \bigoplus_{n \in \bbZ} \bbC \cdot \phi_n
+        \enspace \oplus \enspace \bbC \cdot \mathbf{1}
+    \]
+    be a Lie algebra (all elements are even), with
+    \[
+        [\phi_n, \phi_m] = n \delta_{n, -m} \cdot \mathbf{1}, \quad
+        [\mathbf{1}, -] = 0.
+    \]
+    Let
+    \[
+        \scrV^\cb = 
+        U (\frg^\cb) \cdot \ket{0} \Bigg/
+        \left\{ \ 
+            \begin{aligned}
+                \phi_n \cdot \ket{0} &= 0 \quad (n \geq 0) \\
+                \mathbf{1} \cdot \ket{0} &= \ket{0}
+            \end{aligned}
+        \ \right\},
+    \]
+    so that as a vector space,
+    \[
+        \scrV^\cb \simeq \bbC[\phi_{-1}, \phi_{-2}, \dotsc].
+    \]
+    We define the grading on $\scrV^\cb$ by
+    \[
+        \deg \phi_n = -n \quad (n < 0).
+    \]
+    Denote
+    \[
+        \phi (z) = \sum_{n \in \bbZ} \phi_n z^{-n-1},
+    \]
+    and define the corresponding field by
+    \[
+        \phi_{-n - 1} (z) =
+        \frac{1}{n!}
+        \biggl( \frac {\partial} {\partial z} \biggr)^n \phi (z)
+    \]
+    for all $n \geq 0$.
+    For a general element of $\scrV^\cb$,
+    the corresponding field is given by the normally ordered product, as before.
+    We have the OPE
+    \[
+        \phi (z) \, \phi (w) = \frac {1} {(z - w)^2} + \text{reg.}
+    \]
+    
+    There is a family of conformal structures on $\scrV^\cb$,
+    parametrized by $\lambda \in \bbC$,
+    given by
+    \[
+        L_\lambda = \frac{1}{2} \phi_{-1}^2 + \lambda \phi_{-2},
+    \]
+    with central charge $c = 1 - 12 \lambda^2$. \varqed
+\end{example}
+
+
+\begin{example} [Kac--Moody vertex algebra]
+    \label{eg-kac-moody}
+    Let $\frg$ be a finite dimensional simple Lie algebra over $\bbC$.
+    The \emph{affine Kac--Moody algebra} associated to $\frg$
+    is the Lie algebra whose underlying vector space is
+    \[
+        \hat{\frg} \enspace = \enspace
+        \frg ((t)) \enspace \oplus \enspace \bbC \cdot \mathbf{1},
+    \]
+    where $\frg ((t)) = \frg \otimes \bbC ((t))$,
+    with its Lie bracket defined by $[\mathbf{1}, -] = 0$, and
+    \[
+        [A \otimes f (t), B \otimes g (t)] =
+        [A, B]_{\frg} \otimes f (t) \, g (t) -
+        (\Res_{t = 0} f \, d g) \langle A, B \rangle \cdot \mathbf{1},
+    \]
+    where $A, B \in \frg$ and $f, g \in \bbC ((t))$, and
+    \[
+        \langle -, - \rangle =
+        \frac {1} {2 h^\vee} \cdot (\text{Killing form}),
+    \]
+    where $h^\vee$ is the \emph{dual Coxeter number} of $\frg$,
+    and $1 / 2 h^\vee$ is a normalizing factor,
+    so that with respect to the induced inner product on $\frh^\vee$
+    (where $\frh$ is the Cartan subalgebra),
+    the length of the maximal root of $\frg$ is $\ssqrt{2}$.
+    
+    Let $k \in \bbC$, and define
+    \[
+        \scrV_k (\frg) =
+        U (\hat{\frg}) \cdot \ket{0} \Bigg/
+        \left\{ \ 
+            \begin{aligned}
+                \frg [[t]] \cdot \ket{0} &= 0 \\
+                \mathbf{1} \cdot \ket{0} &= k \ket{0}
+            \end{aligned}
+        \ \right\}.
+    \]
+    Let $\{ e^a \}_{a = 1, \dotsc, \dim \frg}$ be a basis of $\frg$,
+    and for each $n \leq -1$, let
+    \[
+        e^a_n = e^a \otimes t^n \in \hat{\frg}.
+    \]
+    Then as a vector space, $\scrV_k (\frg)$ is spanned by the elements
+    \[
+        e^{a_1}_{n_1} \cdots e^{a_m}_{n_m} \ket{0},
+    \]
+    where $a_1 \leq \cdots \leq a_m$,
+    and $n_j < n_{j+1}$ whenever $a_j = a_{j+1}$,
+    with all $n_j < 0$.
+    We define the grading on $\scrV_k (\frg)$ by
+    \[
+        \deg e^{a_1}_{n_1} \cdots e^{a_m}_{n_m} \ket{0}
+        = -\sum_{j=1}^m n_j.
+    \]
+    We describe a vertex algebra structure on $\scrV_k (\frg)$ as follows.
+    Write
+    \[
+        e^a (z) = \sum_{n} e^a_n z^{-n - 1}.
+    \]
+    In light of Theorem~\ref{thm-structure},
+    we define
+    \[
+        e^a_{-n-1} (z) =
+        \frac{1}{n!}
+        \biggl( \frac {\partial} {\partial z} \biggr)^n e^a (z),
+    \]
+    and for a general element
+    $e^{a_1}_{n_1} \cdots e^{a_m}_{n_m} \ket{0} \in \scrV_k (\frg)$,
+    define
+    \[
+        \bigl( e^{a_1}_{n_1} \cdots e^{a_m}_{n_m} \ket{0} \bigr) (z)
+        = \nord{ e^{a_1}_{n_1} (z) \cdots e^{a_m}_{n_m} (z) }
+    \]
+    to be the normally ordered product.
+    The commutation relations can be written as the OPE
+    \[
+        e^a (z) \, e^b (w) =
+        \frac {k \langle e^a, e^b \rangle} {(z - w)^2} +
+        \frac {[e^a, e^b] (w)} {z - w} + \text{reg.}
+    \]
+    
+    Finally, the $\bbZ$-grading on $\scrV_k (\frg)$
+    is given by $\deg \ket{0} = 0$ and $\deg e^a_n = -n$.
+    \varqed
+\end{example}
+
+
+\subsection{Modules}
+
+\begin{definition}
+    Let $\scrV$ be a vertex algebra.
+    A \emph{$\scrV$-module} is a vector space $\scrM$,
+    together with a linear map
+    \begin{align*}
+        Y_{\scrM} \colon \scrV & \to \End (\scrM) [[z, z^{-1}]], \\
+        A & \mapsto A_{\scrM} (z) = \sum_{n \in \bbZ} A_{(n)}^{\scrM} (z),
+    \end{align*}
+    such that the following axioms hold:
+    \begin{itemize}
+        \item
+            For all $A \in \scrV$ and $B \in \scrM$, we have
+            \[
+                A (z) \, B \in \scrM ((z)).
+            \]
+            In other words, we have
+            \[
+                A_{(n)} B = 0 \quad (n \gg 0).
+            \]
+        \item
+            \textup{(Vacuum)}
+            $\ket{0}_{\scrM} (z) = \operatorname{id}_{\scrM}$.
+        \item
+            \textup{(Associativity)}
+            For any $A, B \in \scrV$ and $C \in \scrM$,
+            the elements
+            \begin{align*}
+                A_{\scrM} (z) \, B_{\scrM} (w) \, C
+                & \in \scrM ((z)) ((w)), \\
+                (A_{\scrM} (z - w) \, B)_{\scrM} (w) \, C
+                & \in \scrM ((w)) ((z - w))
+            \end{align*}
+            come from the same element of
+            \[
+                \scrM [[z, w]] [z^{-1}, w^{-1}, (z-w)^{-1}],
+            \]
+            in the sense analogous to that of Theorem~\ref{thm-assoc}.
+    \end{itemize}
+    If moreover, $\scrV$ is a $\bbZ$-graded vertex algebra,
+    then $\scrM$ is called a \emph{graded $\scrV$-module},
+    if it comes with a $\bbC$-grading
+    \[
+        \scrM = \bigoplus_{m \in \bbC} \scrM_m,
+    \]
+    such that
+    \begin{itemize}
+        \item
+            For each $A \in \scrV_m$ and each $n \in \bbZ$,
+            the operator $A_{(n)}^{\scrM}$ is homogeneous
+            of degree $-n - 1 + m$.
+    \end{itemize}
+    If moreover, $\scrV$ is a conformal vertex algebra,
+    then $\scrM$ is called a \emph{conformal $\scrV$-module}
+    if it is a graded $\scrV$-module, and
+    \begin{itemize}
+        \item
+            For all $m \in \bbC$,
+            $\scrM_m$ is the $m$-eigenspace of the operator
+            $L^{\scrM}_0 = L^{\scrM}_{(1)}$.
+            \varqed
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    If $\scrV$ is a (plain, graded, or conformal) vertex algebra,
+    then $\scrV$ itself is a (plain, graded, or conformal) $\scrV$-module.
+    This is called the \emph{adjoint representation} of $\scrV$.
+    \varqed
+\end{example}
+
+\begin{example}
+    A subspace $\scrI \subset \scrV$ is called a \emph{vertex algebra ideal},
+    if it is $T$-invariant,
+    and satisfies $A (z) \, B \in \scrI ((z))$
+    for all $A \in \scrV$ and $B \in \scrI$.
+    Thus, the ideals of $\scrV$ are exactly
+    the submodules of $\scrV$,
+    regarded as a $\scrV$-module via the adjoint representation.
+    \varqed
+\end{example}
+
+
+\subsection{Conformal blocks}
+
+\begin{definition}
+    Let $\scrF_n$ denote the space of meromorphic functions $f$ on $E^n$,
+    where $E = \bbC / (\bbZ 1 \oplus \bbZ \tau)$ is an elliptic curve,
+    such that $f$ is only allowed to have poles
+    along the diagonals $z_i = z_j$ ($i \neq j$).
+    
+    Let $\scrV$ be a vertex algebra.
+    An element of the \emph{conformal block} of $\scrV$
+    on the elliptic curve $E$
+    is a system $\{ \langle \cdots \rangle_n \}_{n \in \mathbb{N}}$
+    of linear functions
+    \begin{align*}
+        \langle \cdots \rangle_n \colon \quad
+        \scrV^{\otimes n} & \to \scrF_n, \\
+        \scrO_1 \otimes \cdots \otimes \scrO_n & \mapsto
+        \langle \scrO_1 (z_1) \cdots \scrO_n (z_n) \rangle,
+    \end{align*}
+    satisfying the following properties:
+    \begin{itemize}
+        \item
+            (Symmetry)
+            For each permutation $\sigma \in \mathfrak{S}_n$,
+            \[
+                \langle \scrO_1 (z_1) \cdots \scrO_n (z_n) \rangle =
+                \pm \langle \scrO_{\sigma (1)} (z_{\sigma (1)}) \cdots
+                \scrO_{\sigma (n)} (z_{\sigma (n)}) \rangle,
+            \]
+            where each $\scrO_i$ is either even or odd,
+            and the $\pm$ sign is the sign of $\sigma$
+            restricted on the odd elements.
+        \item
+            (Vacuum)
+            \[
+                \bigl\langle
+                    \ket{0}(z) \,
+                    \scrO_1 (z_1) \cdots \scrO_n (z_n)
+                \bigr\rangle =
+                \langle \scrO_1 (z_1) \cdots \scrO_n (z_n) \rangle.
+            \]
+        \item
+            (Translation)
+            \[
+                \langle (T \scrO_1) (z_1) \cdots \scrO_n (z_n) \rangle =
+                \frac{d}{d z_1}
+                \langle \scrO_1 (z_1) \cdots \scrO_n (z_n) \rangle.
+            \]
+        \item
+            (Residue)
+            \[
+                \Res_{z = z_1} \bigl(
+                    \langle \scrO (z) \, \scrO_1 (z_1) \cdots \scrO_n (z_n) \rangle \,
+                    (z - z_1)^k
+                \bigr) =
+                \langle \scrO_{(k)} \scrO_1 (z_1) \cdots \scrO_n (z_n) \rangle.
+            \]
+    \end{itemize}
+    The \emph{conformal block} of $\scrV$ on $E$
+    is the vector space of all such systems
+    $\{ \langle \cdots \rangle_n \}$.
+    \varqed
+\end{definition}
+
+\begin{remark}
+    We are mainly concerned with genus $1$ conformal blocks
+    in this paper, i.e.\ conformal blocks for elliptic curves,
+    and not for curves of other genera.
+    \varqed
+\end{remark}
+
+\begin{remark}
+    Sometimes, we introduce a formal variable $\hbar$,
+    and replace the space $\scrF_n$ by
+    $\scrF_n [[\hbar, \hbar^{-1}]]$.
+    We will consider this extended concept
+    of a conformal block in section 4 below.
+    \varqed
+\end{remark}
+
+Following Zhu \cite{zhu},
+we sketch a way to construct elements of the conformal block
+when the vertex algebra satisfies certain assumptions.
+These elements are obtained as the trace in a module over the vertex algebra,
+which is analogous to characters of associative algebras
+being obtained as the trace in a representation of the associative algebra.
+
+Zhu's construction uses a coordinate change
+from the $\tau$-picture to the $q$-picture,
+where $q = \upe^{2 \uppi \upi \tau}$.
+In fact, note that the elliptic curve
+\[
+    E_\tau = \bbC / (z \sim z + 1 \sim z + \tau)
+\]
+is isomorphic to the elliptic curve
+\[
+    \bbC^\times / (w \sim w q),
+\]
+and this isomorphism is induced by the coordinate change
+\[
+    w = \upe^{2 \uppi \upi z}.
+\]
+For a given vertex algebra, we can rewrite everything in the new coordinate
+\[
+    \widetilde{z} = w - 1 = \upe^{2 \uppi \upi z} - 1,
+\]
+where the term $-1$ is added to ensure that $\widetilde{z}|_{z = 0} = 0$.
+This defines a new vertex algebra structure on $\scrV$.
+
+\begin{theorem}
+    Let $(\scrV, Y, L, \ket{0})$ be a conformal vertex algebra,
+    and define
+    \begin{align*}
+        \widetilde{Y} \colon \scrV &\to \End (\scrV) [[z, z^{-1}]], \\
+        A &\mapsto A (\upe^{2 \uppi \upi z} - 1) \, \upe^{2 \uppi \upi z |A|},
+    \end{align*}
+    where $A \in \scrV$ is homogeneous.
+    Then $(\scrV, \widetilde{Y}, \widetilde{L}, \ket{0})$
+    is a conformal vertex algebra, where
+    $\widetilde{L} = (2 \uppi \upi)^2 (L - c/24)$.
+\end{theorem}
+
+See \cite[Theorem~4.2.1]{zhu}.
+The new vertex algebra structure is called the
+\emph{transformed vertex algebra}.
+
+\begin{theorem}[Zhu]
+    \label{thm-zhu}
+    Let $(\scrV, Y, L, \ket{0})$ be a conformal vertex algebra.
+    Suppose that
+    \begin{itemize}
+        \item
+            Every homogeneous space $\scrV_m$ is finite dimensional.
+        \item
+            $\scrV$ is spanned by elements of the form
+            $L_{-i_1} \cdots L_{-i_n} a$,
+            where $a \in \scrV$ satisfies $L_i a = 0$ $(i > 0)$,
+            and $i_1, \dotsc, i_n > 0$.
+        \item
+            The quotient space $\scrV / C_2 (\scrV)$ is finite dimensional,
+            where $C_2 (\scrV)$ is the subspace of $\scrV$
+            spanned by the elements $a_{(-2)} b$ $(a, b \in \scrV)$.
+    \end{itemize}
+    Let $\scrM$ be a conformal $\scrV$-module, such that
+    \begin{itemize}
+        \item
+            Every homogeneous space $\scrM_m$ is finite dimensional.
+    \end{itemize}
+    Then the $q$-trace
+    \[
+        \tr_{\scrM} \scrO_1 (z_1) \cdots \scrO_n (z_n) \, q^{L_0}
+    \]
+    converges absolutely in the domain
+    $0 < |q| < |z_n| < \cdots < |z_1| < 1$,
+    and has a meromorphic continuation on $0 < |q| < |z_i| < 1$
+    $(i = 1, \dotsc, n)$,
+    denoted by the same notation. Set
+    \[
+        \langle \scrO_1 (z_1) \cdots \scrO_n (z_n) \rangle _{\scrM} =
+        \upe^{2 \uppi \upi z_1 |\scrO_1|} 
+        \cdots \upe^{2 \uppi \upi z_n |\scrO_n|}
+        \tr_{\scrM}
+        \scrO_1 (\upe^{2 \uppi \upi z_1})
+        \cdots \scrO_n (\upe^{2 \uppi \upi z_n}) \,
+        q^{L_0} \, q^{-1/24}.
+    \]
+    Then $\langle \cdots \rangle _{\scrM}$
+    is an element of the conformal block for the transformed vertex algebra
+    $(\scrV, \widetilde{Y}, \widetilde{L}, \ket{0})$.
+\end{theorem}
+
+See \cite[Theorem~4.4.3]{zhu}.
+
+\begin{remark}
+    Theorem~\ref{thm-zhu} requires that
+    $\scrV / C_2 (\scrV)$ is finite dimensional,
+    which is quite a strong condition.
+    In fact, none of the examples mentioned in \S\ref{sect-voa-examples}
+    satisfy this condition. \varqed
+\end{remark}

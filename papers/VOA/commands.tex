@@ -1,0 +1,66 @@
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bc}{{b\mathhyphen c}}
+\newcommand{\betagamma}{{\beta\mathhyphen\gamma}}
+\newcommand{\cb}{{\mathrm{cb}}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\dbar}{\bar{\partial}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\frg}{\mathfrak{g}}
+\newcommand{\frh}{\mathfrak{h}}
+\newcommand{\frn}{\mathfrak{n}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\itTheta}{\mathit{\Theta}}
+\newcommand{\ket}[1]{\mathinner{\mathopen{|}#1\mathclose{\rangle}}}
+\newcommand{\nord}[1]{\mathopen{:}#1\mathclose{:}}
+\newcommand{\Res}{\operatorname{Res}}
+\newcommand{\scrF}{\mathscr{F}}
+\newcommand{\scrI}{\mathscr{I}}
+\newcommand{\scrM}{\mathscr{M}}
+\newcommand{\scrO}{\mathscr{O}}
+\newcommand{\scrV}{\mathscr{V}}
+\newcommand{\scrW}{\mathscr{W}}
+\newcommand{\ssqrt}[1]{{\scriptstyle\sqrt{\textstyle#1}}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\upe}{\mathrm{e}}
+\newcommand{\upi}{\mathrm{i}}
+\newcommand{\uppi}{\mathrm{π}}
+\newcommand{\varqed}{%
+    \let\oldqedsymbol\qedsymbol%
+    \let\qedsymbol\varqedsymbol%
+    \qed%
+    \let\qedsymbol\oldqedsymbol%
+}
+\newcommand{\varqedhere}{\eqno\vartriangleleft}
+\newcommand{\varqedsymbol}{$\vartriangleleft$}
+
+\usepackage{cancel}
+\usepackage{cases}
+\usepackage{enumitem}
+\usepackage[title]{appendix}
+
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{notation}[theorem]{Notation}
+
+\newcommand{\figplacehold}{\[\text{\textcolor{red!50}{[figure]}}\]}
+
+\AtBeginDocument{
+    \let\temp\phi
+    \let\phi\varphi
+    \let\varphi\temp
+    \let\temp\epsilon
+    \let\epsilon\varepsilon
+    \let\varepsilon\temp
+}
+
+\usetikzlibrary{decorations.markings}
+
+
+\usepackage{tocloft}

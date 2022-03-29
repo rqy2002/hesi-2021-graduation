@@ -1,0 +1,90 @@
+In this section we show some concrete examples for the volumes of  the moduli space, and the coefficients $c(\gamma)$.
+
+According to \cite{Mirzakhani:2006fta} and \cite{Mirzakhani:2006eta}, the following  theorem holds:
+\begin{theorem}
+If $$V_{g,n}(L)=\sum_\alpha c_\alpha L^{2\alpha},$$
+ then $$
+ c_\alpha=\frac{1}{2^{\sum_i{\alpha_i}}\prod_i(\alpha_i!)(3g-3+n-\sum_i\alpha_i)!}\int_{\overline{\mathscr{M}}_{g,n}}\prod_i\psi_i^{\alpha_i}\cdot \omega^{4g-3+n-\sum_i\alpha_i}.
+ $$
+ where $\psi_i=c_1(E_i)$ is the first Chern class with respect to the $i$-th tautological line bundle $E_i$, $i=1,\cdots, n$. Here  $\psi_i\in H_{dR}^2(M)$ with $M$ the base manifold. 
+ 
+\end{theorem}
+
+
+Two formulas related to  the integration of $\psi_i$ are as follows.
+\begin{enumerate}
+    \item If $\sum_i\alpha_i=n-3,$
+    $$\int_{\overline{\mathscr{M}}_{0,n}}\prod_i\psi_i^{\alpha_i}=\frac{(n-3)!}{\alpha_1!\cdots \alpha_n!}.$$ 
+    \item     if $g>1$, $$
+    \int_{\overline{\mathscr{M}}_{g,1}}\psi_1^{6g-4}=\frac{1}{24^gg!}.
+    $$
+\end{enumerate}
+
+To compute concrete $c(\gamma)$, where $\gamma=\sum_{i=1}^ka_i\gamma_i$  since $$
+c(\gamma)=\lim_{L\to \infty}\frac{1}{L^{6g-6+2n}}\frac{2^{-M(\gamma)}}{|\sym(\gamma)|}\int_{\sum_{i=1}^ka_ix_i\leq L}\mathrm{Vol}(\mathscr{M}_{g,n}(\Gamma,x))x\cdot dx,
+$$
+ then 
+ \begin{theorem}
+ \begin{equation}\label{cgammafor}
+     c(\gamma)==\frac{2^{-M(\gamma)}}{|\sym(\gamma)|}\sum_{\sum_i\alpha_i=3g-3+n-k}\frac{b_\gamma(2\alpha_1,\cdots,2\alpha_k)}{\Pi_ia_i^{2\alpha_i+2}},
+ \end{equation}
+where $$b_\gamma(2\alpha_1,\cdots,2\alpha_k)=\frac{1}{N(\gamma)}\frac{\Pi_i(2\alpha_i+1)!}{(6g-6+2n)!}\cdot (2\alpha_1,\cdots,2\alpha_k),$$
+with $(2\alpha_1,\cdots,2\alpha_k)$  the coefficients of $x_1^{2\alpha_1}\cdots x_k^{2\alpha_k}$ in $\mathrm{Vol}(\mathscr{M}(S_{g,n}(\gamma),l_\Gamma=x))$.
+ \end{theorem}
+ 
+ This is a direct consequence of  the a generalization of lemma \ref{Fmn}.
+ 
+ \begin{lemma}
+ \begin{equation}
+     \begin{aligned}
+      &\int_{\sum_{i=1}^ka_ix_i\leq L}x_1^{2\alpha_1+1}x_2^{2\alpha_2+1}\cdots x_k^{2\alpha_k+1} dx_1dx_2\cdots dx_k\\
+      =&\frac{\Pi_i(2\alpha_i+1)!}{\Pi_ia_i^{2\alpha_i+2}}\frac{L^{2\sum_i\alpha_i+2k}}{(2\sum_i\alpha_i+2k)!}.\\
+     \end{aligned}
+ \end{equation}
+ \end{lemma}
+ 
+ \begin{proof}
+ For $k=1$ this holds as $\frac{1}{2\alpha_1+2}(\frac{L}{a_1})^{2\alpha_1+2}=\frac{(2\alpha_1+1)!}{a_1^{2\alpha_1+2}} 
+ \frac{L^{2\alpha_1+2}}{(2\alpha_1+2)!}.$
+ 
+ For $k=2$,
+ $$
+ \begin{aligned}
+  &\int_{a_1x_1+a_2x_2\leq L}x_1^{2\alpha_1+1}x_2^{2\alpha_2+1}dx_1dx_2\\
+  =&\int_0^{\frac{L}{a_1}}x_1^{2\alpha_1+1}\int_{0}^{\frac{L-a_1x_1}{a_1}}x_2^{2\alpha_2+1}dx_1dx_2\\
+  =&\int_0^{\frac{L}{a_1}}x_1^{2\alpha_1+1}   \frac{(\frac{L-a_1x_1}{a_2})^{2\alpha_2+2}}{2\alpha_2+2}   dx_2\\
+  =&\frac{1}{2\alpha_2+2}\frac{(2\alpha_1+1)!(2\alpha_2+2)!}{(2\alpha_1+2\alpha_2+4)!}\frac{1}{a_2^{2\alpha_2+2}}\frac{L^{2\alpha_1+2\alpha_2+4}}{a_1^{2\alpha_1+2}},
+ \end{aligned}
+ $$
+ by lemma \ref{Fmn}. For generalized $k$,  it is done similarly using  integration by parts.
+ \end{proof}
+ 
+ Some examples are as follows using (\ref{cgammafor}).
+ \begin{example}
+ $(g,n)=(2,0)$.
+ If $\gamma$ is  separating simple closed geodesic, then $N(\gamma)=2$, $M(\gamma)=1$, $|\sym(\gamma)|=1$, so $$
+ c(\gamma)=\frac{1}{24^2}\times \frac{1}{2}\times \times \frac{2^{-1}}{1}\frac{5!}{6!}.
+ $$
+ If $\gamma$ is not separating, since $V_{1,2}(x,x)=\frac{1}{48}(6\pi^2+x^2)(2\pi^2+x^2)$,  $N(\gamma)=2$ and $M(\gamma)=0$, $|\sym(\gamma)|=1$, so $$
+ c(\gamma)=\frac{1}{2}\times \frac{1}{48}\times \frac{5!}{6!}.
+ $$
+ 
+ It follows the asymptotic  ratio of the non-separating and separating simple closed geodesics is $6:1$.
+ \end{example}
+
+\begin{example}
+$\gamma_i$ cut $S_{0,n}$ into $S_{0,i+1}$ and $S_{0,n-i+1}$.
+$N(\gamma)=1$ since the fixed boundary will induce the orientation of $\gamma_i$. Meanwhile, $M(\gamma)=0,$ and $|\sym(\gamma)|=1$,
+ then $$c(\gamma)=\frac{1}{1}\frac{1}{2^{n-2}(n-2)!\cdot 1 }\int_{\overline{\mathscr{M}}_{0,n}}\psi_1^{n-2}=\frac{1}{2^{n-4}(i-2)!(n-i-2)!(2n-6)}$$
+\end{example}
+
+\begin{example}
+$\gamma=\gamma_1+\gamma_2$ cut $S_{0,3}$ into two pieces of $S_{1,2}$.
+Since
+$V_{1,2}(x,y)=\frac{1}{192}(4\pi^2+x^2+y^2)(12\pi^2+x^2+y^2),$
+then $V_{1,2}^2(x,y)=\frac{1}{192^2}(x^4+2x^2y^2+y^4)^2+h(x,y)$, where   $h$  is of lower order.
+Notice that  $N(\gamma)=2$, $M(\gamma)=0$, $|sym(\gamma)|=2$, then
+$$
+c(\gamma)=\frac{2^0}{2}\frac{1}{2}\frac{1}{192^2}(1\times \frac{9!1!}{12!}\times 2+4\times\frac{7!3!}{12!}\times 2 +6\times \frac{5!5!}{12!})
+$$
+\end{example}

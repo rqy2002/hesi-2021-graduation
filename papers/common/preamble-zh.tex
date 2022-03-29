@@ -1,0 +1,58 @@
+\usepackage{indentfirst}
+\parindent=2em
+
+% names in chinese
+\def\abstractname{摘\quad 要}
+\def\contentsname{目录}
+\def\proofname{证明}
+
+% bibliography
+\DefineBibliographyStrings{english}{
+    references = {参考文献},
+}
+
+% spacing
+\usepackage{setspace}
+\setdisplayskipstretch{} %https://tex.stackexchange.com/q/529214
+
+\AtBeginDocument{
+    \spacing{1.25}
+}
+\AtBeginBibliography{
+    \spacing{1}
+}
+
+% lengths
+\AtBeginDocument{
+    \setlength{\abovedisplayskip}{8pt plus 4pt minus 4pt}
+    \setlength{\belowdisplayskip}{8pt plus 4pt minus 4pt}
+    \setlength{\belowdisplayshortskip}{8pt plus 4pt minus 4pt}
+}
+
+% theorems & proofs
+\newtheoremstyle{cjk-theorem}{}{}{\KaiTi}{}{\bfseries}{.}{.5em}{}
+\newtheoremstyle{cjk-definition}{}{}{}{}{\bfseries}{.}{.5em}{}
+\newtheoremstyle{cjk-remark}{}{}{}{}{\KaiTi}{.}{.5em}{}
+
+\theoremstyle{cjk-theorem}
+\renewtheorem{theorem}{定理}[section]
+\renewtheorem{lemma}[theorem]{引理}
+\renewtheorem{corollary}[theorem]{推论}
+\renewtheorem{proposition}[theorem]{命题}
+
+\theoremstyle{cjk-definition}
+\renewtheorem{definition}[theorem]{定义}
+\renewtheorem{remark}[theorem]{注}
+\renewtheorem{example}[theorem]{例}
+\theoremstyle{cjk-theorem}
+
+\numberwithin{equation}{theorem}
+
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+    \pushQED{\qed}%
+    \normalfont \topsep6\p@\@plus6\p@\relax
+    \trivlist
+    \item\relax{\bfseries#1}\hspace{1em}\ignorespaces
+}{\popQED\endtrivlist\@endpefalse}
+\makeatother

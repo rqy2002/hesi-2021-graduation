@@ -1,0 +1,433 @@
+Now let's see the topic of Hermitian symmetric manifold.
+\subsection{Basic definitions}
+	\bdefinition
+Let $M$ be a connected complex manifold with a Hermitian
+structure. $M$ is called a Hermitian symmetric manifold if  each
+point $p\in M$ is an isolated fixed point of an involutive
+holomorphic isometry $s_p$ of $M$.
+\edefinition
+\btheorem
+A Hermitian symmetric manifold is \ka. In particular, irreducible Hermitian symmetric manifolds of semisimple types are simply-connected.
+\etheorem
+\bproof
+Suppose it has the almost complex structure $J$. It suffices to
+show $\nabla J=0$. Actually, for any vector fields $X, Y$, we
+have
+\[
+\left(\nabla_{X} J\right)(Y)=\nabla_{X}(J(Y))-J\left(\nabla_{X}
+Y\right)
+\]
+Let $\left\{T_{t}\right\}$ be the transvection of $X$ at $p$.
+Then
+\[
+\begin{aligned}
+	\nabla_{X}(J(Y)) &=\left.\frac{d}{d t}\right|_{t=0}\left(d
+	T_{-t} J(Y)\right)-J\left(\left.\frac{d}{d
+	t}\right|_{t=0}\left(d T_{-t} Y\right)\right) \\
+	&=\left.\frac{d}{d t}\right|_{t=0}\left( d T_{-t}
+	J(Y)-J\left( d T_{-t} Y \right) \right)=0
+\end{aligned}
+\]
+since $T_{-t}$ is holomorphic for any $t$, hence $d T_{-t}$
+commutes with $J$. For the second assertion, if $M$ is of compact
+type, then it is a compact Kähler manifold of positive Ricci
+curvature, hence is simply-connected. If $M$ is of non-compact
+type, it is simply-connected.
+\eproof
+
+The following proposition shows when a Riemannian symmetric
+manifold can be a Hermitian one.
+
+\begin{proposition}\label{10}
+	Let $(M, g)=G / K$ be a Riemannian symmetric manifold. Then
+	$M$ admits a hermitian symmetric manifold structure if and
+	only if there exists a linear map $ J\: \mathfrak{p}
+	\rightarrow \mathfrak{p}$ which satisfies
+	
+	(a) $J^{2}=-i d$ and $g(J X, J Y)=g(X, Y)$,
+	
+	(b) $J \circ \operatorname{Ad}(h)=\operatorname{Ad}(h) \circ
+	J$ for all $h \in K$.
+\end{proposition}
+\bproof
+Define $J$ to be $J_{g p}=\left( L_{g} \right)_{*}(J) = d\left(
+L_{g} \right)_{p} \circ J \circ d\left( L_{g^{-1}} \right)_{g p}
+.$ Since $J$ commutes with $\operatorname{Ad} K$, we have $J$ is
+well-defined. We claim that $\left( s_{p} \right)_{*} J = J$,
+hence $d\left( s_{p} \right) \circ J \circ d\left(s _{p}^{-1}
+\right) = J .$ Actually, recall that $s_{g p} = L_{g} \circ s_{p}
+\circ L_{g}^{-1}$, we have
+$\left( s_{p} \right)_{*} J$ is another almost complex structure
+which is G-invariant. Note that
+$\left( s_{p} \right)_{*} J=J$ at $p$ since $d s_{p} = -i d$ at
+$p$, so $\left( s_{p} \right)_{*} J = J$ globally.
+
+Then for Nijenhuis tensor
+\[
+N(X, Y)=[J X, J Y]-[X, Y]-J[J X, Y]-J[X, J Y]
+\]
+we have
+\[
+\begin{aligned}
+	\left(s_{p}\right)_{*} N(X, Y) &=d
+	s_{p}\left(N\left(d\left(s_{p}^{-1}\right) X,
+	d\left(s_{p}^{-1}\right) Y\right)\right) \\
+	&=d\left(s_{p}\right)\left(\left[J d\left(s_{p}^{-1}\right)
+	X, J d\left(s_{p}^{-1}\right)
+	Y\right]-\left[d\left(s_{p}^{-1}\right) X,
+	d\left(s_{p}^{-1}\right) Y\right]-\right.\\
+	&\left.-J\left[J d\left(s_{p}^{-1}\right) X,
+	Y\right]-J\left[d\left(s_{p}^{-1}\right) X, J
+	d\left(s_{p}^{-1}\right) Y\right]\right) \\
+	&=[J X, J Y]-[X, Y]-J[J X, Y]-J[X, J Y]=N(X, Y),
+\end{aligned}
+\]
+hence $\left(s_{p}\right)_{*} N=N$. Then for any vector field
+$Z$, we have
+\[
+g(N(X, Y), Z)(p)=g\left(\left(s_{p}\right)_{*} N(X, Y),
+Z\right)(p)=g\left(\left(d s_{p}\right) N\left(d s_{p}^{-1} X, d
+s_{p}^{-1} Y\right), Z\right)(p)
+\]
+hence $N(p)=0$. Then $N_{g p}=\left(d s_{p}\right)_{p} \circ
+N_{p} \circ\left(d s_{p}^{-1}\right)_{g p}=0$, hence $N \equiv 0$
+and so $J$ is integrable.
+\eproof
+\subsection{de Rham decomposition}
+
+The following shows that the canonical decomposition of
+Riemannian situation still holds for Hermitian situation.
+
+\begin{theorem}
+Let $(M, g)$ be a simply-connected hermitian symmetric manifold.
+Suppose $M=M_{1} \times \cdots \times M_{k}$ be the decomposition
+of $M$ into irreducible Riemannian symmetric manifolds. Then each
+factor itself is also an hermitian symmetric manifold.	
+\end{theorem}
+\bproof
+Let $T_{p} M=V_{1} \oplus \cdots \oplus V_{k}$ be the
+decomposition into irreducible spaces with respect to the action
+of $K$. By proposition $\ref{10}$ , we have
+$\operatorname{Ad}(h)$ commutes with $J$ for any $h \in K$, then
+the subspace $V:=\left\{v+J v \mid v \in V_{i}\right\}$ is
+invariant under
+K. Note that $J V_{1}, \cdots, J V_{k}$ is a permutation of
+$V_{1}, \cdots, V_{k}$ and $V_{1}, \cdots, V_{k}$ are orthogonal
+to each other, then $V$ is orthogonal to $\left\{V_{1}, \cdots,
+V_{k}\right\}-\left\{V_{i}, J V_{i}\right\}$.
+
+Since any invariant space is the direct sum of irreducible
+subspaces, we have that either $V=V_{i}$ or $V=J V_{i}$ by
+$\operatorname{dim} V=\operatorname{dim} V_{i}$, then $J
+V_{i}=V_{i}$, hence the integral manifold of $M_{i}$ satisfies
+the conditions of proposition $\ref{10}$ , hence $M_{i}$ is
+an Hermitian symmetric manifold.
+\eproof
+
+\begin{corollary}
+Let $(M, g)$ be a simply connected Riemannian symmetric manifold.
+Then $M$ admits an hermitian symmetric structure if and only if
+$M^{*}$ admits.	
+\end{corollary}
+\bproof
+It suffices to show that when $M$ is simply-connected, we have $J
+\circ \operatorname{Ad}(h)=$ $\operatorname{Ad}(h) \circ J$ if
+and only if $J \circ
+\operatorname{ad}(\mathfrak{k})=\operatorname{ad}(\mathfrak{k})
+\circ J .$ By taking derivatives,
+one direction is clear. For the other direction, suppose J
+commutes with
+$\mathrm{ad} \mathfrak{l}$, we prove that $J$ commutes with
+$\mathrm{Ad} K$.
+
+
+Since $M$ is simply-connected, we have $K$ is connected and then
+$K$ is generated by a neighborhood of the identity element. Then
+it suffices to show that $J$ commutes with
+$\operatorname{Ad}(\exp v)$, for any $v \in \mathfrak{k}$. Then
+since $\operatorname{Ad}(\exp v)=e^{\mathrm{ad} v}=\sum_{i=0}^{\infty} \frac{1}{k !}(\mathrm{ad}
+v)^{k}$, we have $\operatorname{Ad}(\exp v)$ commutes with $J .$
+\eproof
+
+The following statement shows another way to make a Riemannian
+symmetric manifold into a Hermitian one.
+\begin{theorem}\label{13}
+	Let $(M, g)$ be an irreducible Riemannian symmetric manifold of semisimple type with $G=I_{0}(M)$ and $K=G_{p}$. Then $M$ admits an integrable almost complex structure with respect to which $M$ is a hermitian symmetric manifold
+	if and only if $K$ is not semisimple.
+\end{theorem}
+\bproof
+
+By duality, we can assume that $M$ is of compact type.  If $M=G /
+K$ is of non-compact type, then it is simply-connected, then it
+suffices to show
+the dual manifold is hermitian symmetric if and only if $K^{*}$
+is semisimple since $K^{*}$ and $K$ have the same Lie algebras.
+
+If $M$ is Hermitian symmetric, we have $M$ is Kähler and $H_{D
+R}^{2}(M) \neq 0$. Since $G$ is connected, then by the long exact
+sequence
+\[
+\cdots \rightarrow \pi_{1}(G) \longrightarrow \pi_{1}(G / K)
+\longrightarrow \pi_{0}(K) \longrightarrow \pi_{0}(G)
+\longrightarrow \pi_{0}(G / K) \rightarrow 1
+\]
+and that the fundamental group of a complete manifold is finitely
+generated, we have $\pi_{1}(G / K)$ is finitely generated, hence
+$\pi_{0}(K)$ is finitely generated and $K$ has finitely many
+components, hence $\pi_{0}(K)$ is a finite group.
+
+Note that $\pi_{1}(G)$ is finite since $G$ is compact and
+semisimple hence has trivial center, thus $\pi_{1}(M)$ is finite
+since the quotient of $\pi_{1}(M)$ by a finite group is a finite
+group.
+
+If $\tilde{M}$ is the (finite) universal cover, it is well known
+that the DeRham cohomology of $M$ is the DeRham cohomology of
+$\tilde{M}$ invariant under the deck group. Thus $H_{D
+R}^{2}(\tilde{M}) \neq 0$ as well. By applying Hurewicz theorem,
+we have $\mathbb{Z} \subset \pi_{2}(\tilde{M})=H_{2}(\tilde{M},
+\mathbb{Z})$ since $\tilde{M}$ is 0,1 -connected, hence
+$\mathbb{Z} \subset \pi_{2}(M) .$ Now
+we use the fact that $\pi_{2}(G)=0$ for every compact Lie groups
+$G$. Using the long homotopy sequence again
+\[
+\{1\}=\pi_{2}(G) \longrightarrow \pi_{2}(M) \longrightarrow
+\pi_{1}(K) \longrightarrow \cdots
+\]
+we see that $\mathbb{Z} \subset \pi_{1}(K)$ which means that $K$
+cannot be semisimple.
+
+
+Conversely, if $K$ is not semisimple, by Theorem $\ref{3}$,
+either $G$ is simple or $\mathfrak{g} \simeq \mathfrak{k} \oplus
+\mathfrak{k}$ with $\mathfrak{k}$ simple. So $G$ must be simple.
+We will use the fact that in this case $Z(K) \simeq S^{1}$. We
+are going to describe how the integrable almost complex structure
+arises from $Z(K)$. Since $Z(K) \simeq S^{1}$, there exists an
+element $j \in Z(K)$ of order $4 .$ Write $s=j^{2}$. Then
+$s^{2}=e$. Consider the automorphism $\sigma$ on $G$ defined by
+$\sigma(g)=s g s^{-1}$. Clearly $\sigma^{2}(g)=g$ and the fixed
+point set of $\sigma$ is the centraliser $\mathrm{Z}(\mathrm{s})$
+of $\mathrm{s}$ in $G$ with Lie algebra $\xi(s) \subset
+\mathfrak{g} .$ As $s \in Z(K)$ we have $K \subset Z(s) .$ Since
+$G$ is centerless $Z(s) \neq G .$ As $\ssk$ is a maximal proper
+subalgebra we have $\mathfrak{k}=\xi(s)$. Consider
+$\theta^{\prime}:=\mathrm{d} \sigma=\mathrm{Ad}(\mathrm{s})\:
+\mathfrak{g} \rightarrow \mathfrak{g} \cdot \theta^{\prime}$ is
+an involution with fixed point set
+$\ssk$.
+
+
+ Suppose $(\operatorname{Ad}(s))(v)=v$, then $\left.\frac{d}{d
+ t}\right|_{t=0} s \exp (t v) s^{-1}=v .$ Since $t \rightarrow$
+$s \exp (t x) s^{-1}$ is also a one-parameter subgroup, we have
+it coincides with $\exp (t v)$, hence $s$ commutes with $\exp (t
+v)$, hence $\exp (t v) \in Z(s)$ and $v \in$
+$\xi(s)=\mathfrak{k}$
+Let $\ssg=\ssk\oplus\ssp^{\prime}$ be the canonical decomposition
+with respect to $\theta^{\prime}$, so that
+$\left.\theta^{\prime}\right|_{\ssp^{\prime}}=-i d$. Then
+$\ssp^{\prime}$ agrees with the orthogonal complement of in $g$
+with
+respect to the Killing form $B_{g}$ so that in fact we must have
+$\theta=\theta^{\prime}$ and $\mathfrak{p}=\mathfrak{p}^{\prime}$
+Define $\eta: G \rightarrow G$ by $\eta(g)=j g j^{-1}$. Define
+$J\: \mathfrak{p} \rightarrow \mathfrak{p}$ as
+$J:=\left.\mathrm{d}
+\eta\right|_{\ssp}=\left.\operatorname{Ad}(\mathrm{j})\right|_{\ssp}$.
+Then, from $\eta^{2}=\sigma$ we have $J^{2}=-\mathrm{id}$. From
+the irreducibility of $M$ we have $g(v, w)=c B_{\ssg}(v, w)$ for
+some non-zero constant $c$ and any $v, w \in \mathfrak{p} .$
+
+Then
+\[
+\begin{array}{c}
+	g(\mathrm{Jv}, \mathrm{J} w)=g(\mathrm{Ad}(\mathrm{j})
+	\mathrm{v}, \operatorname{Ad}(\mathrm{j})
+	\mathrm{w})=\mathrm{cB}_{\ssg}(\mathrm{Ad}(\mathrm{j})
+	\mathrm{v}, \mathrm{Ad}(\mathrm{j}) \mathrm{w}) \\
+	=\mathrm{cB}_{\ssg}(\mathrm{v},
+	\mathrm{w})=\mathrm{g}(\mathrm{v}, \mathrm{w}) .
+\end{array}
+\]
+Since $j \in Z(K)$, we have $J$ commutes with
+$\operatorname{Ad}(K)$, hence by Theorem $\ref{10}$ , we have $J$
+is integrable and $M$ is a Hermitian symmetric manifold.
+\eproof
+\subsection{Borel embedding theorem}
+
+Next we give the Borel embedding theorem for realizing Hermitian
+manifolds
+of non-compact type as an open subset of its compact dual. Let
+$M=G / K$ be an irreducible Hermitian symmetric manifold of
+noncompact type with
+$\mathfrak{g}=\mathfrak{k}\oplus\mathfrak{p}$ and $\theta:
+\mathfrak{g} \rightarrow \mathfrak{g}$ the canonical involution.
+We've proved that $(\cdot, \cdot):=-B_{\ssg}(\theta(\cdot),
+\cdot)$ is positive definite. By Theorem $\ref{13}$,
+$\mathfrak{k}$ is not semisimple.
+
+
+
+Let $\mathfrak{g}^{\mathbb{C}}=\mathfrak{k}^{\mathbb{C}}+
+\mathfrak{p}^{\mathbb{C}}$ be the complexification of $\mathfrak{g}$. Let
+$\mathfrak{g}_{c}=\mathfrak{k}+\sqrt{-1} \mathfrak{p}$ be the Lie
+algebra of the compact dual of $M$. Let $G^{\mathbb{C}}$ be the
+simply-connected complex Lie group associated to
+$\mathfrak{g}^{\mathbb{C}}$. Let $G_{c}$ be the connected real
+Lie subgroups of
+$G^{\mathbb{C}}$ corresponding to the real Lie subalgebras
+$\mathfrak{g}_{c}$. Extend $\theta: \mathfrak{g} \rightarrow
+\mathfrak{g}$ by complex linearity to an involution
+$\theta^{\mathbb{C}}: \mathfrak{g}^{\mathbb{C}} \rightarrow
+\mathfrak{g}^{\mathbb{C}}$ and
+restrict $\theta^{\mathbb{C}}$ to $\mathfrak{g}_{c}$ then we get
+an involution $\theta_{c}: \mathfrak{g}_{c} \rightarrow
+\mathfrak{g}_{c} .$ Let $\sigma: G^{\mathbb{C}} \rightarrow
+G^{\mathbb{C}}$
+be the involution induced by $\theta^{\mathbb{C}}:
+\mathfrak{g}^{\mathbb{C}} \rightarrow \mathfrak{g}^{\mathbb{C}}$.
+Since $G$ and $G_{c}$ are connected Lie subgroups corresponding
+to $\mathfrak{g}$ and $\mathfrak{g}_{c}$ respectively and
+$\theta^{\mathbb{C}}$ preserves $\mathfrak{g}_{c}$ and
+$\mathfrak{g}$, then $\sigma$ preserves $G_{c}$ and $G$. Since
+$\ssk$ is not semisimple, by Theorem $\ref{13}$,
+$\operatorname{Ad}(j): \mathfrak{p} \rightarrow \mathfrak{p}$ and
+$\mathrm{Ad} j: \sqrt{-1} \mathfrak{p} \rightarrow \sqrt{-1}
+\mathfrak{p}$
+are the unique integrable almost structure of $M=G / K$ and the
+dual manifold $G_{c} / K$ respectively, where $j$ is an element
+of order 4 in $Z(K)=S^{1}$.
+
+
+Denote the complex linear extension of $\operatorname{Ad}(j):
+\mathfrak{p} \rightarrow \mathfrak{p}$ to
+$\mathfrak{p}^{\mathbb{C}} \rightarrow \mathfrak{p}^{\mathbb{C}}$
+by $J$.
+\begin{lemma}
+	Let $\mathfrak{p}^{+}$ be the $\sqrt{-1}$ eigenspace in
+	$\mathfrak{p}^{\mathbb{C}}$ of $\mathrm{J}$ and
+	$\mathfrak{p}^{-}$ be the $-\sqrt{-1}$ eigenspace. Then
+	$\mathfrak{p}^{+}$ and $\mathfrak{p}^{-}$ are both abelian
+	subalgebras of $\mathfrak{g}^{\mathbb{C}}$. Moreover, the
+	complex vector subspace
+	$\mathfrak{q}:=\mathfrak{k}^{\mathbb{C}}+\mathfrak{p}^{-}
+	\subset \mathfrak{g}^{\mathbb{C}}$ is a complex Lie
+	subalgebra of $\mathfrak{g}^{\mathbb{C}}$.
+\end{lemma}
+\bproof
+
+For any $v_{1}, v_{2} \in \mathfrak{p}^{+}$, we have
+$\left[v_{1}, v_{2}\right] \in \ssk^{\mathbb{C}}$ and. Since
+$\operatorname{Ad}(j)$ fixes $\mathfrak{k}^{\mathbb{C}}$, we have
+\[
+\left[\sqrt{-1} v_{1}, \sqrt{-1}
+v_{2}\right]=\left[\operatorname{Ad}(j) v_{1},
+\operatorname{Ad}(j)
+v_{2}\right]=\operatorname{Ad}(j)\left[v_{1},
+v_{2}\right]=\left[v_{1}, v_{2}\right]
+\]
+hence $\left[v_{1}, v_{2}\right]=0 .$ Similarly, we have
+$\mathfrak{p}^{-}$ is also abelian. Then $[\mathfrak q, \mathfrak
+q] \subset$ $\left[\mathfrak{k}^{\mathbb{C}},
+\mathfrak{k}^{\mathbb{C}}\right]+\left[\mathfrak{k}^{\mathbb{C}},
+\mathfrak{p}^{-}\right] \subset
+\mathfrak{k}^{\mathbb{C}}+\mathfrak{p}^{-}$ since
+$\operatorname{Ad}(j)$ acts on $\left[\mathfrak{k}^{\mathbb{C}},
+\mathfrak{p}^{-}\right]$ by $-\sqrt{-1}$.
+\eproof
+
+
+
+Let $Q$ be the complex Lie subgroup of $G^{\mathbb{C}}$
+corresponding to $\mathfrak{q}$. Now we state  the Borel
+embedding theorem:
+
+\begin{theorem}
+	Let $M=G / K$ be an irreducible Hermitian symmetric manifold
+	of non-compact type and $G_{c}, G^{\mathbb{C}}, Q$ are
+	defined as above. Then the emdedding $G_{c} \hookrightarrow
+	G^{\mathbb{C}}$ induces a biholomorphism $G_{c} / K \simeq
+	G^{\mathbb{C}} / Q .$ Moreover, the embedding $G
+	\hookrightarrow G^{\mathbb{C}}$ induces an open embedding $M
+	\hookrightarrow G^{\mathbb{C}} / Q .$ In particular, the
+	embedding realizes $M$ as an open subset of its compact dual.
+\end{theorem}
+\bproof
+Since $Q \subset G^{\mathbb{C}}$ is a complex Lie subgroup, then
+$G^{\mathbb{C}} / Q$ is naturally a complex manifold. Since
+$\mathfrak{k} \subset \mathfrak{q}$, we have $K \subset Q$ and
+the embedding $G_{c} \hookrightarrow G^{\mathbb{C}}$ induces a
+smooth mapping $\varphi: G_{c} / K \hookrightarrow G^{\mathbb{C}}
+/ Q$. Then we have the commutative
+diagram
+\[
+\begin{matrix}
+	G_c&\stackrel{i}{\longrightarrow}&G^{\C}\\
+	\ \ \downarrow \pi_1& &\ \ \downarrow \pi_2\\
+	G_c/K&\stackrel{\phi}{\longrightarrow}&G^{\C}/Q
+\end{matrix}
+\]
+Since $T_{o}\left(G_{c} / K\right)$ is identified with
+$\mathfrak{g}_{c} / \mathfrak{k}=\sqrt{-1} \mathfrak{p}$ and
+$T_{o}\left(G^{\mathbb{C}} / Q\right)$ identified with
+$\mathfrak{g}^{\mathbb{C}} /
+\mathfrak{q}=\mathfrak{p}^{+}\left(\mathfrak{g}^{\mathbb{C}}
+=\mathfrak{k}^{\mathbb{C}}+\mathfrak{p}^{-}+\mathfrak{p}^{+}
+=\mathfrak{q}+\mathfrak{p}^{+}\right)$ via projection maps $\pi_{1},\pi_{2}$
+We have that $d \varphi(o): T_{o}\left(G_{c} / K\right)
+\rightarrow T_{o}\left(G^{\mathbb{C}} / Q\right)$ is given by the
+map $\sqrt{-1} \mathfrak{p} \rightarrow$
+$\mathfrak{p}^{+}$ induced by the inclusion
+$\mathfrak{k}+\sqrt{-1} \mathfrak{p} \hookrightarrow
+\mathfrak{k}^{\mathbb{C}}+\mathfrak{p}^{\mathbb{C}}=
+\mathfrak{k}^{\mathbb{C}}+\mathfrak{p}^{-}+\mathfrak{p}^{+}$. Then
+$\operatorname{ker} d \varphi(o)=\sqrt{-1} \mathfrak{p} \cap
+\mathfrak{p}^{-}=0$. Actually, if $\sqrt{-1} v \in
+\mathfrak{p}^{-}$ with $v \in \mathfrak{p}$, we have
+$\operatorname{Ad} j(\sqrt{-1} v)=-\sqrt{-1} \sqrt{-1} v=v$,
+hence $\operatorname{Ad} j(v)=-\sqrt{-1} v$, hence $v$ must
+be zero. By $\operatorname{dim}_{\mathbb{R}}(\sqrt{-1}
+\mathfrak{p})=\operatorname{dim}_{\mathbb{R}}\left(\mathfrak{p}^{+}
+\right)$, we have $d \varphi(o)$ is an isomorphism.
+
+Since $\varphi$ is $G_{c}$ equivariant, and $G_{c}$ is transitive
+on $G_{c} / K$, we have $\varphi$ is of
+constant rank, so $\varphi$ is a local diffeomorphism. 
+
+Since $X_{c}$ is compact, we have $\varphi$ is a smooth covering.
+Since $G^{\mathbb{C}} / Q$ is simply-connected, we have $\varphi$
+is a diffeomorphism.
+
+We claim that $\varphi$ is holomorphic, hence $d \varphi$
+commutes with $J$. In fact, by the description of the $d\varphi(o)$, 
+we have that for any $v \in \sqrt{-1}\ssp$, it holds that $d \varphi(o)(v)$
+is the $\sqrt{-1}$ eigenvector part of $v$, hence $d
+\varphi(o)(v)=\frac{1}{2}(v-$ $\sqrt{-1} J v)$.
+Then we have
+\[
+\begin{aligned}
+	d \varphi(o)(J v) &=\frac{1}{2}\left(J v-\sqrt{-1} J^{2}
+	v\right)=\frac{1}{2}(J v+\sqrt{-1} v) \\
+	&=\frac{\sqrt{-1}}{2}(v-\sqrt{-1} J v)=\sqrt{-1} d
+	\varphi(o)(v)=J(d \varphi(o)(v))
+\end{aligned}
+\]
+hence $J$ commutes with $d \varphi(o)$, so $\varphi$ is
+holomorphic and then $\varphi$ is biholomorphic since the
+determinant of the real Jacobi matrix of a holomorphic
+map is the square of the determinant of the complex Jacobi
+matrix, which is
+nonzero since $\varphi$ is diffeomorphism.
+
+For the embedding of $M$, note that the inclusion map is also a
+local diffeomorphism since the differential map is given by
+$\mathfrak{p} \rightarrow \mathfrak{p}^{+}$ which is induced by
+the inclusion $\mathfrak{k}+\mathfrak{p} \rightarrow
+\mathfrak{k}^{\mathbb{C}}+\mathfrak{p}^{+}+\mathfrak{p}^{-}$,
+hence $\operatorname{ker} d \varphi(o)=\mathfrak{p} \cap
+\mathfrak{p}^{-}=0 .$ Similarly, $\varphi$ is also holomorphic
+and then by the injectivity of $\varphi$, $\varphi$ is an open
+embedding and is a biholomorphism onto its image.
+\eproof
+

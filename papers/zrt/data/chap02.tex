@@ -1,0 +1,198 @@
+% !TeX root = ../thuthesis-example.tex
+
+\chapter{Weierstrass model}
+Before we enter the main theme of the paper, we first take a brief review of the knowledge of elliptic fibration. Since Deligne proved\cite{deligne1975courbes} that any elliptic fibration with a smooth base admits a birational morphism to a possibly singular Weierstrass model. Thus we introduce some properties for Weierstrass model, for example, it always admits an embedding into a $\mathbb{P}^2$-bundle of the original base. Besides, we'll compute the canonical bundle of the total space and also compute its irregularity. What we mainly concerns in this paper is the case when the base is one dimensional projective space.
+\section{Fundamental line bundle}
+In this section, we'll review the basic facts of Weierstrass fibration, and introduce the fundamental line bundle of a fibration.\\ \indent
+\begin{defi}
+Let $E$ be a reduced irreducible complete curve of arithmetic genus 1, and $p$ be a smooth closed point of $E$, for every non-negative integer $n$, we define $V_n=H^0(E,\bo_E(n\cdot p))$, by Riemann--Roch theorem we have $V_0\simeq V_1\simeq \mathbb{C}$ and $\dim V_n=n$ for $n\geq 1$.
+\end{defi}
+\begin{lemm}
+\begin{enumerate}[(a)]
+\item There is a non-zero element $y\in V_3-V_2$ such that $y^2$ is in the image of $\textrm{Sym}^3V_2\rightarrow V_6$.
+\item There is a non-zero element $x\in V_2-V_1$ such that a monic cubic in $x$ with no $x^2$ term and equal to $y^2$.
+\item  If $(x_1,y_1)$ and $(x_2,y_2)$ are two pairs of elements satisfying $(a)$ and $(b)$, then there is a nonzero element $\lambda\in\mathbb{C}$ such that $x_2=\lambda^2x_1$ and $y_2=\lambda^3y_1$.
+\end{enumerate}
+\end{lemm}
+For the proof of this lemma and the following corollary, we refer to section II.2 of \cite{miranda1989basic}.
+\begin{coro}
+There are elements $A,B$ in $\mathbb{C}$  such that $E$ is defined by $y^2=x^3+Ax+B$ . The pair $(A,B)$ is unique up to the action of $\lambda\in \mathbb{C}^*$ defined by $\lambda\cdot(A,B)=(\lambda^4 A,\lambda^6 B)$.
+\end{coro}
+\begin{defi}
+We call $(x,y)$ with the properties in Lemma 1.1.1 a Weierstrass basis for $E$.
+\end{defi} 
+\begin{defi}
+Let $X$ be a surface and $Y$ a smooth curve. A Weierstrass fibration is a flat proper map $\pi\colon X\rightarrow C$ such that every geometric fiber is either an smooth curve of genus one or a rational curve with a node or a rational curve with a cusp. It also requires $\pi$ has general smooth fiber and a given section $S$ not passing through the nodes or cusps of any fiber.
+\end{defi}
+Now we prove that the push-forward of the normal sheaf is actually a sheaf that does not depend on the choice of $S$, hence a suitable invariant of the fibration, containing some intrinsic information.
+\begin{prop}
+Let $\pi\colon X\rightarrow C$ be a Weierstrass fibration with section $S$, and denote the normal bundle $N_{S/X}$ which satisfies
+$$0\rightarrow \bo_X\rightarrow \bo_X(S)\rightarrow N_{S/X}\rightarrow 0\; ,$$
+then we have
+$$\pi_*N_{S/X}\simeq \mathcal{R}^1\pi_*\bo_X\; ,$$
+$$\pi_*\bo_X(S)\simeq \pi_*\bo_X=\bo_C\; ,$$
+$$\pi_*\bo_X(nS)\textrm{ is a locally free sheaf of rank }n\; ,$$
+$$\mathcal{R}^1\pi_*\bo_X(nS)=0\textrm{ for all }n\geq 1\; .$$
+\end{prop}
+\begin{proof}
+First, notice that for any point $c\in X$ which not in image of $S$, then $\bo_c\simeq \bo_X(S)$, thus $N_{S/X}$ is supported on $S$. Hence for any point $c\in C$, we have
+$$(\mathcal{R}^1\pi_*N_{S/X})_c\simeq H^1(X_c, N_{S/X}|_{X_c})=0\; ,$$
+since $S\cap X_c$ has dimension 0. Also we have
+$$(\pi_*\bo_X(nS))_c\simeq H^0(X_c, \bo_{X_c}(nS))\; ,$$
+$$(\mathcal{R}^1\pi_*\bo_X(nS))_c\simeq H^1(X_c, \bo_{X_c}(nS))\; .$$
+On the fiber $X_c$, since the canonical divisor $K$ on a genus 1 curve is zero, for positive integers $n$, from Serre duality
+$$h^1(\bo_{X_c})=h^0(\bo_{X_c}(K))=h^0(\bo_{X_c})=1\; ,$$ 
+$$h^1(\bo_{X_c}(nS))=h^0(\bo_{X_c}(K-nS))=h^0(\bo_{X_c}(-nS))=0\; .$$
+Thus $\mathcal{R}^1\pi_*\bo_X$ is a line bundle on $C$, and $\mathcal{R}^1\pi_*\bo_X(nS)=0$.\\ \indent
+Then from Riemann-Roch theorem, for positive integers $n$,
+$$h^0(\bo_{X_c}(nS))=\deg(\bo_{X_c}(nS))+1-g=n\; .$$
+\indent While we have
+$$\pi_*\bo_X=\bo_C\; .$$
+\indent Apply $\pi_*$ to the exact sequence at the beginning, we have
+$$0\rightarrow \pi_*\bo_X\rightarrow \pi_*\bo_X(S)\rightarrow \pi_*N_{S/X}\rightarrow \mathcal{R}^1\pi_*\bo_X\rightarrow \mathcal{R}^1\pi_*\bo_X(S)=0$$
+\indent Thus the map from $\pi_*N_{S/X}$ to $\mathcal{R}^1\pi_*\bo_X$ is a surjection, but they are all line bundles, thus it is an isomorphism, which means
+$$\pi_*N_{S/X}\simeq \mathcal{R}^1\pi_*\bo_X \; .$$
+\indent Then look back to the exact sequence we have
+$$\pi_*\bo_X\simeq\pi_*\bo_X(S)\simeq \bo_C$$
+\end{proof}
+As we mentioned above, $\pi_*N_{S/X}$ is an invariant, and now we give its inverse a name. The reason we choose its inverse instead of itself will be revealed in later context.
+\begin{defi}
+Let $\pi\colon X\rightarrow C$ be a Weierstrass fibration with section $S$, the fundamental line bundle of $\pi$ is the line bundle $\mathcal{L}=(\pi_*N_{S/X})^{-1}$.
+\end{defi}
+\begin{lemm}
+There exists a short exact sequence
+$$0\rightarrow \pi_*\bo_X((n-1)S)\rightarrow \pi_*\bo_X(nS)\rightarrow \mathcal{L}^{-n}\rightarrow 0$$
+for every $n\geq 2$.
+\end{lemm}
+\begin{proof}
+Consider the exact sequence 
+$$0\rightarrow \bo_X(-S)\rightarrow \bo_X\rightarrow \bo_S\rightarrow 0\; .$$
+\indent Twist by $\bo_X(nS)$ we have
+$$0\rightarrow \bo_X((n-1)S)\rightarrow \bo_X(nS)\rightarrow \bo_S(nS)\rightarrow 0\; .$$
+\indent Apply $\pi_*$ to it and notice that $\mathcal{R}^1\pi_*\bo_X(nS)=0$ for $n\geq 1$, we have
+$$0\rightarrow \pi_*\bo_X((n-1)S)\rightarrow \pi_*\bo_X(nS)\rightarrow \pi_*\bo_S(nS)\rightarrow 0\; .$$
+\indent And notice that $\bo_S(nS)\simeq N_{S/X}^{\otimes n}$ and we're done.
+\end{proof}
+\begin{prop}
+For every $n\geq 2$, we have a splitting
+$$\pi_* \bo_X(nS)\simeq\bo_X\oplus \bl^{-2}\oplus \bl^{-3}\cdots \oplus \bl^{-n}\; .$$
+\end{prop}
+\begin{proof}
+Locally, let $(x,y)$ be a Weierstrass basis for the fiber of $\pi$. Then if $n=2$, the splitting is given by the span of $1,x$, if $n=3$, by the span of $1,x,y$. If $n$ is even, $n=2m$, then the splitting is given locally by span of $\{1,x,\cdots,x^m,y,xy,\cdots,x^{m-2}y\}$, if $n$ is odd, $n=2m+1$, then the splitting is given locally by the span of $\{1,x,\cdots,x^m,y,xy,\cdots,x^{m-1}y\}$.\\ \indent
+Then from Lemma 1.1.4 and use induction we have the result.
+\end{proof}
+
+
+\section{Local and global sections}
+In this section, we study the local sections and see that actually they are combined to a global one. We will also see that the discriminant of the Weierstrass equation of the fibration gives a global nonzero section, hence obtain the degree of the fundamental line bundle is always non-negative. Finally, we see that all such models can be embedded into a $\mathbb{P}^2$-bundle over the original base, hence inherit a natural coordinate.\\ \indent
+We first see what happens to the coefficients $A,B$ under transition maps, for a given finite open cover $\{U_i\}$ for $C$, so that $\mathcal{L}$ is trivialized on each $U_i$, and choose a base section $e_i$ of $\mathcal{L}$ on $U_i$. Assume the transition functions $\alpha_{ij}$ satisfies $e_i=\alpha_{ij}e_j$ on $U_i\cap U_j$. We have the following result.
+\begin{lemm}
+For each $i$, there is a local Weierstrass basis $(x_i,y_i)$ which transform by $x_i=\alpha_{ij}^{-2}x_j$, $y_i=\alpha_{ij}^{-3}y_j$.
+\end{lemm}
+\begin{proof}
+We first choose $f_i$ in $\pi_*\bo_X(2S)|_{U_i}$ such that $f_i$ projects onto $e_i^{-2}$ in Lemma 1.4's exact sequence, and $g_i$ in  $\pi_*\bo_X(3S)|_{U_i}$ such that $g_i$ projects onto $e_i^{-3}$. The original equation  is
+$$g_i^2=a_6f_i^3+a_5f_ig_i+a_4f_i^2+a_3g_i+a_2f_i+a_1\; ,$$
+where $a_i$ are sections of $\bo_{U_i}$.
+Considering the projection of this equation to $\mathcal{L}^{-6}|_{U_i}$, we see that the left hand side projects onto $e_i^{-6}$ and the right hand side projects onto $a_6e_i^{-6}$, thus $a_6=1$.\\ \indent
+To get a local Weierstrass basis, we need to slightly modified the terms $f_i,g_i$, set 
+$$y_i=g_i-\frac{1}{2}\left(a_5f_i+a_3\right)\; ,$$
+and we have
+$$y_i^2=g_i^2-(a_5f_i+a_3)g_i+\frac{1}{2}\left(a_5f_i+a_3\right)^2=f_i^3+b_2f_i^2+b_1f_i+b_0$$
+for some $b_i$ sections of $\bo_{U_i}$. Then we modify $f_i$ by setting
+$$x_i=f_i+\frac{1}{3}b_2\; ,$$
+and we have
+$$y_i^2=x_i^3+A_ix_i+B_i$$
+for some $A,B$ sections of $\bo_{U_i}$.\\ \indent
+Notice that $a_5f_i+a_3$ is in $\pi_*\bo_{X}(2S)$ and $b_2$ is in $\bo_{U_i}$, so $y_i$ still projects to $e_i^{-3}$ in $\mathcal{L}^{-3}$ and $x_i$ still projects to $e_i^{-2}$ in $\mathcal{L}^{-2}$.\\
+\indent Hence, as local generators for the direct summands of $\pi_*\bo_X(3S)|_{U_i}$ isomorphic to $\mathcal{L}^{-2}|_{U_i}$ and $\mathcal{L}^{-3}|_{U_i}$ respectively, they transform like the given local basis $e_i^{-2}$ and $e_i^{-3}$, which is
+$$x_i=\alpha_{ij}^{-2}x_j,\qquad y_i=\alpha_{ij}^{-3}y_j\; .$$
+\end{proof}
+When we have a local Weierstrass basis $(x_i,y_i)$, we have local Weierstrass coefficients $(A_i,B_i)$ which are local sections of $\bo_{U_i}$. Notice that
+\begin{displaymath}
+\begin{split}
+x_i^3+A_ix_i+B_i &=y_i^2=\alpha_{ij}^{-6}y_j^2\\
+&=\alpha_{ij}^{-6}(x_j^3+A_jx_j+B_j)\\
+&=x_i^3+\alpha_{ij}^{-4}A_jx_i+\alpha_{ij}^{-6}B_j\; .
+\end{split}
+\end{displaymath}
+\indent This shows that $A_i,B_i$ are transformed by $A_i=\alpha_{ij}^{-4}A_j$ and $B_i=\alpha_{ij}^{-6}B_j$. Therefore the local sections $A_ie_i^4$ and $B_ie_i^6$ can patch together to give global sections of $\mathcal{L}^4$ and $\mathcal{L}^6$ Since $A_ie_i^4=A_je_j^4$ and $B_ie_i^6=B_je_j^6$.
+\begin{defi}
+The pair of sections $(A,B)$ of $\mathcal{L}^4\oplus\mathcal{L}^6$ are called the Weierstrass coefficients for the Weierstrass fibration $\pi\colon X\rightarrow C$. The determinant of the fibration is the section $\Delta=4A^3+27B^2$ of $\mathcal{L}^{12}$.
+\end{defi}
+Following the above definitions, the discriminant is not identically zero, because if so, all fibers would be singular and contradictory to our definition. Thus we have a global section for $\mathscr{L}^{12}$, thus we also get that $\deg(\mathscr{L})\geq 0$.\\ \indent
+
+\begin{lemm}
+Given a Weierstrass fibration $\pi\colon X\rightarrow C$, the discriminant $\Delta$ is not identically zero and the Weierstrass coefficients $(A,B)$ are well-defined up to the action of $\lambda\in H^0(C,\bo_C)^*$ given by $$\lambda\cdot(A,B)=(\lambda^4A,\lambda^6B).$$
+\end{lemm}
+\begin{proof}
+If the discriminant is identically zero, then every fiber of the fibration would be singular, which is not allowed. The uniqueness statement is a direct consequence of Lemma 1.1.1.
+\end{proof}
+
+Specifically, we focus on $n=3$ case of $\pi_*\bo_X(nS)$, we have $\pi_*\bo_X(3S)\simeq \bo_c\oplus \mathcal{L}^{-2}\oplus \mathcal{L}^{-3}$, where $\mathcal{L}$ is the fundamental line bundle.\\ \indent
+Let $\phi\colon \pi^*\pi_*\bo_X(3S)\rightarrow \bo_X(3S)$ be the natural map. Locally on $C$, $\bo_X(3S)$ is generated by $\{1,x,y\}$ where $(x,y)$ is a Weierstrass basis correspond to the fibration. Then consider the exact sequence
+$$0\rightarrow \pi_*\bo_X((n-1)S)\rightarrow \pi_*\bo_X(nS)\rightarrow \mathcal{L}^{-n}\rightarrow 0\; ,$$
+and consider the projection of $x,y$ to $\mathcal{L}^{-2}$, $\mathcal{L}^{-3}$ respectively, we notice that $\{1,x,y\}$ are exactly the generators of $\bo_C$, $\mathcal{L}^{-2}$, $\mathcal{L}^{-3}$ respectively. Thus the map $\phi$ is a surjection of $\bo_X$-modules.\\ \indent
+Since $\bo_X(3S)$ is a line bundle on $X$, this gives a map $f\colon X\rightarrow \mathbb{P}(\pi_*\bo_X(3S))$. Notice that $\pi_*\bo_X(3S)$ is a locally free sheaf of rank 3 on $C$, $\mathbb{P}(\pi_*\bo_X(3S))$ is a $\mathbb{P}^2$ bundle over $C$. Moreover, if $p\colon\mathbb{P}(\pi_*\bo_X(3S))\rightarrow C$ is the structure map, $p\circ f=\pi$.\\ \indent
+In fact, $f$ is an embedding. It is an embedding on each fiber, since $1,x,y$ generate the homogeneous coordinate ring of every fiber of $\pi$, by the Weierstrass equation. Thus, via $f$, we realized $X$ as a divisor inside the $\mathbb{P}^2$-bundle over $C$.\\ \indent
+Let $(A,B)$ be the Weierstrass coefficients of $X$ over $C$, then a global equation for $X$ in $\mathbb{P}(\pi_*\bo_X(3S))$ is given by $$Y^2Z=X^3+AXZ^2+BZ^3\; .$$
+\indent This means that such an equation describes $X$ locally on $C$, when $A$, $B$ and $\Delta$ are interpreted as local functions on $C$ by choosing a proper trivialization for $\mathcal{L}$, hence for $\mathcal{L}^{4}$, $\mathcal{L}^6$ and $\mathcal{L}^{12}$. 
+
+
+\section{Geometric properties}
+In this section, we study some geometric properties of the above model, including computing the canonical bundle and the irregularity of total space.
+\begin{prop}
+If $\pi\colon X\rightarrow C$ is a Weierstrass fibration and $f$ the corresponding embedding $f\colon X\rightarrow \mathbb{P}(\pi_*\bo_{X}(3S))$, the fundamental line bundle is $\mathcal{L}$. Then
+$$K_X\simeq \pi^*(K_C\otimes \mathcal{L}).$$
+\end{prop}
+\begin{proof}
+The individual terms of the global equation 
+$$Y^2Z=X^3+AXZ^2+BZ^3$$
+are sections in $\mathcal{L}^6$ formally, and the equation is of degree 3 in global variables, thus the divisor class of $X$ in $\mathbb{P}(\pi_*\bo_{X}(3S))$ is $(p^*\mathcal{L}^6)(3)$.\\ \indent
+The canonical class of $\mathbb{P}(\pi_*\bo_{X}(3S))$ is computed as follows, denote $E=\pi_*\bo_{X}(3S)$, and $F=\mathbb{P}(E)$ we have the following short exact sequence 
+$$0\rightarrow T_{F/C}\rightarrow T_F\rightarrow p^*T_C\rightarrow 0\; ,$$
+$$0\rightarrow \bo_F(-1)\rightarrow p^*E\rightarrow Q\rightarrow 0\; .$$
+Here $Q$ is the universal quotient bundle, which has rank 2.\\ \indent
+Thus from the second sequence we have 
+$$p^*(\det E)=\bo_F(-1) \otimes \det Q\; .$$
+And from the first sequence we have
+$$K_F=\det T_{F/C}^\vee\otimes p^*(\det T_C^\vee)=\det T_{F/C}^\vee\otimes p^* K_C\; .$$
+Notice that for projectived bundle,
+$$T_{F/C}=\operatorname{Hom}_F(\bo_{F}(-1), Q)=\bo_{F}(1) \otimes Q\; .$$
+We thus have
+$$\det T_{F/C}^\vee=\bo_F(-2)\otimes \det Q^\vee=\bo_F(-3)\otimes p^*\det E^\vee\; .$$
+So the canonical bundle
+$$K_F=\bo_F(-3)\otimes p^*\det E^\vee\otimes p^*K_C=(p^*(K_C\otimes\mathcal{L}^{-5}))(-3)\; .$$
+Thus by adjunction formula we have
+$$K_X=f^*(K_F\otimes\bo(X))=f^*(p^*(K_C\otimes\mathcal{L}))=\pi^*(K_C\otimes\mathcal{L})\; .$$ 
+\end{proof}
+Notice that the canonical divisor on $X$ is pulled back from $C$, hence $K_X^2=0$, and the Kodaira dimension of $X$ is at most 1.\\ \indent
+We introduce a lemma:
+\begin{lemm}
+$X$ can be expressed as a product of $C$ with a smooth elliptic curve if and only if $\mathscr{L}\simeq \mathscr{O}_C.$
+\end{lemm}
+\begin{proof}
+If $X$ is a product, let $(E,e_0)$ be an elliptic curve, so it has a group structure, and let $f\colon C\rightarrow E$ induce a section $S$ of $X=E\times C$, by $S=\{(f(c), c)|c\in C \}$. Apply the automorphism $\sigma_f$ to $X$, defined by $\sigma_f(e,c)=(e-f(c),c)$. So $\sigma_f$ carries $S$ to the section $\{(e_0,c)\}$, which has trivial normal bundle since this is a fiber of the projection of $E$.\\ \indent
+If $\mathscr{L}\simeq \mathscr{O}_C$, then 
+$$\mathbb{P}(\pi_*\bo_X(3S))=\mathbb{P}(\mathscr{O}_C\oplus\mathscr{O}_C\oplus\mathscr{O}_C)=\mathbb{P}^2\times C\; .$$
+\end{proof}
+If $X$ is a product, then $\mathscr{L}\simeq \mathscr{O}_C$, thus $H^0(C,\mathscr{L}^{-1})=H^0(C,\mathscr{O}_C)=1$. If $X$ is not a product, then since $\deg(\mathscr{L})\geq 0$, $H^0(C,\mathscr{L}^{-1})=0$.\\ \indent
+Now we calculate the irregularity of $X$:
+\begin{prop}
+Suppose $C$ is a smooth curve of genus $g$ and $\pi:X\rightarrow C$ a Weierstrass fibration. If $X$ is a product of $C$ with a smooth elliptic curve, then $h^1(X,\mathscr{O}_X)=g+1$, otherwise $h^1(X,\mathscr{O}_X)=g$.
+\end{prop}
+\begin{proof}
+Consider the Leray spectral sequence for this fibration. We have $$E^{pq}_2=H^p(C,R^q\pi_*\mathscr{O}_X)\; .$$
+\indent And it converges to $H^{p+q}(X,\mathscr{O}_X)$, thus $E_2^{pq}=0$ for $p\geq 2$ and the spectral sequence collapse at $E_2$.\\ \indent
+Thus we have the short exact sequence
+$$0\rightarrow E_2^{01}\rightarrow H^1(X,\mathscr{O}_X)\rightarrow E_2^{10}\rightarrow 0\; .$$
+\indent Since we know that $$E_2^{01}=H^0(C,R^1\pi_*\mathscr{O}_X)=H^0(C,\mathscr{L})\; ,$$
+\indent  and
+$$E_2^{10}=H^1(C,\pi_*\mathscr{O}_X)=H^1(C,\mathscr{O}_C)\;.$$
+\indent  Thus we're done.
+\end{proof}
+Thus if $C=\mathbb{P}^1$ and $\mathscr{L}=\mathscr{O}_{\mathbb{P}^1}(2)$, then $X$ has trivial canonical bundle and irregularity 0, hence $K3$. In general, if $\mathscr{L}=\bo_{\mathbb{P}^1}(n)$, then $$K_X\simeq \pi^*(\bo_{\mathbb{P}^1}(n-2))\; .$$
+\indent Thus, if $X$ arise from a pencil of cubics, and the last exceptional divisor of the blowup can be chosen as the given section, we can see that 
+$$\bl=\bo_{\mathbb{P}^1}(1)\; ,$$
+and
+$$K_X=\pi^*\bo_{\mathbb{P}^1}(-1)=-F\; ,$$
+where $F$ is a fiber of $\pi$, hence a rational surface. We will study this case later in chapter 3 and 4.

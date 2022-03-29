@@ -1,0 +1,38 @@
+% !TeX root = ../Lie.tex
+
+
+Let's consider an isolated hypersurface singularity $(V,\0)\subset \left(\Cc^n,\0\right)$ defined by a holomorphic function germ $f\in \mathcal O_{\Cc^n,\0}$.
+In \cite{MY},  Mather and Yau proved that  the complex structure $(V,\0)$ is determined by one of its analytic invariant, the moduli algebra $A(V)$, which we would also denote by $A(f)$ in this paper.
+In \cite{Yau}, Yau considered moreover  the derivation Lie algebra $L(f)$ of $A(f)$, and proved its solvability in \cite{Yau5}. He asked whether $L(f)$ is a complete invariant of the singularity $(V,\0)$.
+
+Motivated by Dimca's theorem 2.2 in \cite{Di}, the generalized moduli algebra $A^*(V)$ and new Lie algebra $L^*(V)$ were also considered in \cite{BN}. Detailed definition of them will be introduced in the next section, subsection \ref{sec-2.4}. Here we just point out that it's obvious from definition that $L^*(f)$ is also determined by the complex structure of  $(V,\0)$. And we can ask again whether the converse is true.
+
+Following the question whether these Lie algebras arising from  singularities are enough to determine the singularities themselves, some inspiring examples were proved in \cite{SY} and \cite{BN}, where the Torelli-type theorem was proved to be valid for some simple elliptic singularities.  But the problem is hard in general, since there is few methods to determine whether two Lie algebras are isomorphic or not. One of such examples was encountered in \cite{BN}, for which only weak Torelli-type theorem was verified. 
+
+However, this approach is also valuable for another purpose: provide a general method to construct non-trivial families of solvable Lie algebras with several parameters, since the classification of solvable and nilpotent Lie algebra remains to be a vast open area. This article, as a continuation of the work in 
+\cite{SY} and \cite{BN}, obtains the following main results: 
+
+\begin{theorem}\label{mth1} \hfill
+  \item[(1)] The family of hypersurface singularities in $\Cc^3$ defined by  
+    \[f=f_\bt\coloneq x^4+y^4+z^4
+      +t_1x^2y^2+t_2x^2z^2+t_3y^2z^2
+    +t_4x^2yz+t_5xy^2z+t_6xyz^2\]
+    give rise to nontrivial $6$-parameter families, $\tilde L^*(f_\bt)$ and $\tilde L(f_\bt)$, of solvable Lie algebras of dimension 37.
+
+  \item[(2)] The family of hypersurface singularities in $\Cc^4$ defined by  
+    \begin{align*}
+      f=f_\bt\coloneq
+        & x^4+y^4+z^4+w^4
+        +t_1x^2y^2+t_2x^2z^2+t_3x^2w^2+t_4y^2z^2+t_5y^2w^2 \\
+        &+t_6z^2w^2+t_7x^2yz+t_8xy^2z+t_9xyz^2
+        +t_{10}x^2yw+t_{11}xy^2w \\
+        &+t_{12}xyw^2+t_{13}x^2zw+t_{14}xz^2w+t_{15}xzw^2
+        +t_{16}y^2zw\\
+        &+t_{17}yz^2w+t_{18}yzw^2+t_{19}xyzw
+    \end{align*}
+    give rise to $19$-parameter families, $\tilde L^*(f_\bt)$ and $\tilde L(f_\bt)$, of solvable Lie algebras of dimension 106.
+\end{theorem}
+
+The verification of nontriviality of the $19$-parameter families encountered obstacles due to technical reason, but some other non-trivial families of Lie algebras are given by the way. 
+
+The structure of this article is as follows. In section \ref{sec2}, we collect the definitions and facts mentioned above which are necessary for the latter sections. Relevant materials can be found in \cite{BN} and \cite{GL}. In section \ref{sec3}, we demonstrate the computation of  $L(f_\bt)$ and $L^*(f_\bt)$ arising from the singularities defined by $f_\bt$, a homogeneous polynomial with parameters $\bt\in \Cc^m$. In section \ref{sec4}, we recall the definition of ``liftable Lie algebra'', which follows from the definition 2.2 in \cite{SY}, in order to make the verification of Theorem \ref{mth1}  realizable for a computer.

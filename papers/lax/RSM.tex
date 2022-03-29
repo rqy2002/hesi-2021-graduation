@@ -1,0 +1,1214 @@
+\subsection{Basic definitions}
+
+Now we introduce the theory of symmetric manifolds (or called
+symmetric spaces). Firstly we give some basic geometric
+properties, learning more about $I(M)$ in passing.
+
+\begin{definition}
+Let $M$ be a Riemannian manifold. $M$ is a  Riemannian (globally)
+symmetric
+if each $p \in M$ is an isolated fixed point of an involutive
+isometry $s_{p}$ of $M$.	
+\end{definition}
+\begin{definition}
+	A mapping is called involutive if its square, but not the
+	mapping itself, is
+	the identity.
+\end{definition}
+For an isometry, it has the following properties:
+\begin{lemma}\label{31}
+	Let $\left( M, g_{M} \right)$ and $\left( N, g_{N} \right)$
+	be two Riemannian manifolds and $F\: M \rightarrow N$ be a
+	local Riemannian isometry. Then
+	
+	(1) $F$ maps geodesics to geodesics.
+	
+	(2) For any $p \in M$ and $v \in T_{p} M$, if $\exp _{p} v$
+	is defined, then $\exp _{F(p)}\left( D F_{p}(v) \right)$ is
+	defined and $F \circ \exp _{p}(v) = \exp _{F(p)} \circ D
+	F_{p}(v) .$
+\end{lemma}
+\bproof
+
+(1) is an obvious conclusion in Riemannian geometry.
+
+(2) If $\exp _{p}(v)$ is defined, then $t \mapsto \exp _{p}(t v)$
+is a geodesic. Thus $t \mapsto$ $F\left( \exp _{p}(t v) \right)$
+is also a geodesic. Since
+\[
+\begin{aligned}
+	\left.\frac{d}{d t} F\left( \exp _{p}
+	\right)\right|_{t=0} &=D F\left( \left .\frac{d}{d t} \exp
+	_{p}(t v) \right|_{t=0} \right) =D F(v)
+\end{aligned}
+\]
+we have that $F\left( \exp _{p}(t v) \right)=\exp _{F(p)}(t D
+F(v))$. Setting $t=1$ then the claim is proved.
+\eproof
+\begin{corollary}\label{11.2}
+Let $F, G\:\left( M, g_{M} \right) \rightarrow \left( N, g_{N}
+\right)$ be two local Riemannian isometries. If $M$ is connected
+and there exists $p \in M$ such that $F(p) = G(p), D F_{p} = D
+G_{p}$, then
+$F=G$ on $M$.	
+\end{corollary}
+\bproof
+Let
+\[
+A=\left\{ x \in M \mid F(x) = G(x), D F_{x} = D G_{x} \right\}
+\]
+We know that $p \in A$ and that $A$ is closed. Property (2) of
+Lemma $\ref{31}$ tells
+that
+\[
+\begin{aligned}
+	F \circ \exp _{x}(v) & = \exp _{F(x)} \circ D F_{x}(v) =\exp
+	_{G(x)} \circ D G_{x}(v) = G \circ \exp _{x}(v)
+\end{aligned}
+\]
+if $x \in A$. Since $\exp _{x}$ maps onto a neighborhood of $x$
+it follows that some
+neighborhood of $x$ also lies in $A$. This shows that $A$ is open
+and hence 
+$A=M$ by connectedness.
+\eproof
+
+\begin{theorem}
+	Let $M$ be a Riemannian globally symmetric manifold. Then $M$
+	is geodesically complete and for any $p \in M$ and any
+	involutive isometry $s_{p} \in I(M)$ with $p$ as an isolated
+	fixed point, it holds that $s_{p}\left( \exp _{p} v
+	\right)=\exp _{p}(-v), \forall v \in T_{p} M$.
+	Moreover, $I(M)$ is transitive on $M$.
+\end{theorem}
+\bproof
+Let $A=\left( d s_{p} \right)_{p}$. Then $A$ is a linear
+transformation on $T_{p} M$ and $A^{2}=I$. So $T_{p} M$ can be
+decomposed into $T_{p} M = V^{+} \oplus V^{-}$, where $V^{+}$ is
+the eigenspace of 1 and $V^{-}$ is the eigenspace of $-1 .$
+Suppose $V^{+} \neq 0$ and
+$X \neq 0 \in V^{+}$. Let $\gamma$ be a geodesic starting at $p$
+with tangent vector $X$ at $p$.
+Then $s_{p}(\gamma)$ is also a geodesic due to Lemma \ref{31} and
+with tangent vector $X$ at $p$. So $\gamma$ coincides with
+$s_{p}(\gamma)$, hence $p$ is not an isolated fixed point of
+$s_{p}$,
+a contradiction. So $A=-I .$
+
+Then for any geodesic $\gamma = \exp _{q}(t v), 0 \leq t \leq 1,
+v \in T_{q} M$, let $p = \exp _{q}(v) .$ By
+Lemma $\ref{31}$, $s_{p}(\gamma)$ is also a geodesic and it
+extends $\gamma$ to $0 \leq t \leq 2$. Repeat the process, we
+know that $\gamma$ can be extended to $\gamma\: \mathbb{R}
+\rightarrow M .$ So $M$ is geodesically complete and $\exp _{p}$
+can be defined on $T_{p} M$ for any $p \in M$. So by Lemma
+$\ref{31}$ , for any $p \in M$ and $v \in T_{p} M$, we have
+$s_{p}\left( \exp _{p}(v) \right)=\exp _{p}(A v)=\exp _{p}(-v)$.
+Finally, by Hopf-Rinow theorem, any two points $p, q$ can be
+joined by a geodesic $\gamma\:[0,1] \rightarrow M$ such that
+$\gamma(0) = p, \gamma(1) = q$. Let $m=\gamma\left( \frac{1}{2}
+\right)$, then $s_{m}(p)=q, s_{m}(q)=p .$ So $I(M)$ acts
+transitively on $M$.
+\eproof
+
+	By now we've proved tht $I(M)$ is a locally compact
+	transitive transformation group on $M$. Also from above we
+	see that the involutive isometry at each point is unique. And
+	$M$ is homeomorphic to $I(M) / I(M)_p$. To see the
+	smoothness, we need a little more work as follows.
+
+
+\begin{lemma}\label{3.7}
+Let $M$ be a Riemmanian globally symmetric manifold and $\gamma\:
+\mathbb{R} \rightarrow M$ be a geodesic with $\gamma(0) = p_{0}
+.$ Then for any $t \in \mathbb{R}$, the map $T_{t}\: =
+s_{\gamma\left( \frac{t}{2} \right)} s_{p_{0}}$ is an isometry of
+$M$, called a transvection, which sends $p_{0}$ to $\gamma(t)$
+and $\left( d T_{t} \right)_{p_{0}}$ is the parallel translation
+from $p_{0}$ to $p_{t} = \gamma(t)$.
+
+Moreover, we have $T_t(\ga(s)) = \ga(t+s)$ and $T_t\circ T_s =
+T_{t+s}$, hence $\{ T_t \}$ is a one-parameter group of
+isometries on $M$.	
+\end{lemma}
+\bproof
+Denote the point $\gamma(t)$ by $p_{t}$ and $s_{\gamma(t)}$ by
+$s_{t}, \forall t \in \mathbb{R} .$ Let $\tau_{t}$ and
+$\tau_{\frac{t}{2}}$ be the parallel transport along $\ga $ from
+$p_{0}$ to $p_{t}$ and $p_{0}$ to $p_{\frac{t}{2}}$ respectively,
+then for any $V \in T_{p_{0}} M$, we have $V$ and
+$\tau_{\frac{t}{2}} V$ is parallel along $\overline{p_{0}
+p_{\frac{t}{2}}}$, then since $s_{\frac{t}{2}}$ is an isometry,
+we have $d s_{\frac{t}{2}} V$ and $d s_{\frac{t}{2}}
+\tau_{\frac{t}{2}} V$ is parallel along
+$\overline{p_{\frac{t}{2}} p_{t}} .$ Since $d s_{\frac{t}{2}}
+\tau_{\frac{t}{2}} V=-\tau_{\frac{t}{2}} V$, we have
+$d s_{\frac{t}{2}} V=d T_{t} V$ and $\tau_{\frac{t}{2}} V$ are
+parallel along $\overline{p_{\frac{t}{2}} p_{t}}$, hence $d T_{t}
+V=\tau_{t} V .$
+
+Moreover, $T_{t}\left( p_{s} \right)=s_{\frac{t}{2}} s_{0}\left(
+p_{s} \right)=s_{\frac{t}{2}} p_{-s}=p_{t+s}$, then $T_{t} \circ
+T_{s}\left( p_{0} \right)=T_{t+s}\left( p_{0} \right)=$
+$p_{t+s}$ and $d\left( T_{t} \circ T_{s} \right)_{p_{0}}=d\left(
+T_{t+s} \right)_{p_{0}}$ since they are both the parallel
+transport along $\gamma$, hence $T_{t+s}=T_{t} \circ T_{s}$.
+\eproof
+\begin{theorem}
+	Let $M$ be a Riemannian globally symmetric manifold. Then the
+	isometry group $I(M)$ has a smooth structure compatible with
+	the compact open topology in which it is a Lie transformation
+	group on $M$.
+\end{theorem}
+\bproof
+See \cite{Hel} page 205.
+\eproof
+
+
+
+Sometimes the group $I_0(M)$, the identity component of $I(M)$,
+is more useful than $I(M)$ itself, so we develop the following:
+
+\begin{lemma}
+	Suppose $G$ is a transitive Lie transformation group on a
+	smooth manifold $M$, then the identity component $G_0$ is
+	transitive on $M$ and $M$ is diffeomorphic to $G_0/K$, where
+	$K$ is the subgroup which leaves $p$ fixed.
+\end{lemma}
+\bproof
+$G_0$ is also transitive since the map $g \to g \cdot p$ is a
+submersion and hence an open map, so the orbits of $G_0$ and
+other components are open. But $M$ is connected and is the union
+of these disjoint open orbits, so the orbit of $G_0$ is $M$. 
+\eproof
+
+Hence we get
+\begin{corollary}
+	Let $M$ be a Riemannian globally symmetric manifold and $p_0$
+	be any point in $M$. If $G = I_0(M)$, and $K$ is the subgroup
+	of $G$ which leaves $p_0$ fixed, then $K$ is a compact
+	subgroup of the connected group $G$ and $G/K$ is
+	diffeomorphic to $M$ under the mapping $gK \mapsto g \cdot
+	p_0, g \in G$.
+\end{corollary}
+
+Now we have reach the step to write a Riemannian globally
+symmetric space as the form $I(M)/I(M)_p \cong I_0(M)/I_0(M)_p$.
+Note that the two ways of representing $M$ do not change the
+tangent spaces of Lie groups, so Cartan decomposition below is
+invariant whether we use $I(M)/I(M)_p$ or $ I_0(M)/I_0(M)_p$.
+
+\begin{theorem}[Cartan decomposition]
+	 Let $M$ be a Riemannian globally symmetric manifold with
+	 isometry group $I(M)$ and its identity component $G =
+	 I_0(M)$. Let $p_0$ be a fixed point on $M$ and $K$ is the
+	 subgroup of $G$ which fixes $p_0$. Then the mapping
+	 $\sigma:g\to s_{p_0}gs_{p_0}$ is an involutive automorphism
+	 of $G$, also called the Cartan involution of this symmetric
+	 space.
+	 
+	 Let $\ssg$ and $\ssk$ denote the Lie algebras of $G$ and $K$
+	 respectively. Then $\ssk = \{ X \in \ssg:(d\sigma)_eX = X\}$
+	 and  we have $\ssg = \ssk\oplus\ssp$ for $\ssp:=\{X\in
+	 \ssg:(d\sigma)_eX = -X\}$. Let $\pi $ denote the natural
+	 mapping $g\mapsto g\cdot p_0$ of $G$ onto $M$. Then
+	 $(d\pi)_e$ maps $\ssk$ into $\{0\}$ and $\ssp$
+	 isomorphically onto $T_{p_0}M$. In particular, we have
+	 $T_{p_0}M\cong \ssg/\ssk\cong \ssp$ as vector spaces.
+\end{theorem}
+\bproof
+Obviously $\sigma^2 = id$ so $\sigma$ is an involutive
+automorphism of $I(M)$ and since it is well known that $H_0$ is a
+normal subgroup of $H$ for any Lie group $K$, $\sigma$ maps $G$
+onto itself.  If $k\in K$, the mappings $k$ and $s_{p_0}ks_{p_0}$
+are isometries which induce the same mapping on $T_{p_0}M$. Then
+we have $s_{p_0}ks_{p_0} = k$ for all $k\in K$ by Corollary
+$\ref{11.2}$. It follows that the automorphism $(d\sigma)_e$ of
+$\ssg$ is identity on $\ssk$. On the other hand, if $X\in \ssg$
+is left fixed by $(d\sigma)_e$, then $s_{p_0}\exp tX s_{p_0} =
+\exp tX$ for all $t$, so $X\in \ssk$. Hence $\ssk = \{X\in
+\ssg:(d\sigma)_eX = X\}$.
+The direct decomposition $\ssg = \ssk\oplus\ssp$ follows from the
+identity $X = \frac{1}{2}(X+d\sigma
+(X))+\frac{1}{2}(X-d\sigma(X))$.
+
+Now we prove that $\ker d\pi_e = \ssk$. Actually, if $X\in \ker
+d\pi_e$,  then for any $f\in C^{\infty}(M)$, we have 
+\[0 = (d\pi_eX)f = X(f\circ
+\pi)=\left.\frac{d}{dt}\right|_{t=0}f(\exp tX\cdot p_0).
+\]
+For any $s \in \R$, we use the above equation on the function
+$g(q)=f(\exp sX \cdot q), q\in M$. Then
+\[
+0=\left.\frac{d}{dt}\right|_{t=0}g(\exp tX\cdot
+p_0)=\left.\frac{d}{dt}\right|_{t=s}f(\exp tX\cdot p_0
+\]
+which shows that $f(\exp sX\cdot p_0)$ is constant in $s$. Since
+$f$ is arbitrary, we have $\exp sX\cdot p_0 = p_0$ for all $s$,
+so $X\in \ssk$. On the other hand, it is clear that $d\pi_e$
+vanishes on $\ssk$, hence $\ker(d\pi)_e=\ssk$ and
+$\dim\mathrm{Im}(d\pi)_e = \dim\ssg-\dim\ssl = \dim G/K = \dim
+M$, so $T_{p_0}M\cong \ssg/\ssk$.
+\eproof
+
+
+To move on, we need to learn about the $\ad$ representation and
+the Killing form of Lie algebras.
+
+\begin{definition}
+	Let $G$ be a Lie group, Lie $G = \ssg$. For $\sigma \in G$,
+	define an automorphism $I({\sigma})$ of Lie froup $G$ as
+	$I(\sigma)(g) = \sigma g\sigma^{-1}$ and an automorphism of
+	Lie algebra $\ssg$ as $\ad(\sigma) = dI(\sigma)_e$.
+\end{definition}
+\begin{theorem}
+	For any $X\in \ssg$ and $\sigma \in G$, we
+	have$$\exp(\ad(\sigma)X) = \sigma\exp X\sigma^{-1}.$$
+	Moreover, the map $\ad\:\sigma\mapsto\ad(\sigma)$ is a Lie
+	group homomorphism from $G$ to $Gl(\ssg)$, hence $\ad$ is a
+	representation of Lie group $G$.
+\end{theorem}
+\bproof
+From lemma $\ref{31}$, $\exp((dI(\sigma))_eX) = I(\sigma)\exp X$,
+so $\exp(\ad(\sigma)X) = \sigma\exp X\sigma^{-1}$. Besides, for
+$\sigma_1, \sigma_2\in G$, we have
+$$\exp(\ad(\sigma_1\sigma_2)X) = \sigma_1\sigma_2\exp
+X\sigma_2^{-1}\sigma_1^{-1} =
+\sigma_1\exp(\ad(\sigma_2)X)\sigma_1^{-1} =
+\exp(\ad(\sigma_1)\ad(\sigma_2) X).$$
+Hence $\ad(\sigma_1\sigma_2)X = \ad(\sigma_1)\ad(\sigma_2) X$ for
+$X$ in a neighborhood of $0\in\ssg$. Since
+$\ad(\sigma_1\sigma_2)$ and $\ad(\sigma_1)\circ\ad(\sigma_2)$ are
+linear, we have $\ad(\sigma_1\sigma_2) =
+\ad(\sigma_1)\circ\ad(\sigma_2)$. 
+
+Finally, we prove that $\ad: G\to Gl(\ssg)$ is smooth. It
+suffices to show that for any $X\in \ssg$ and linear function $w$
+on $\ssg$, the function $\sigma\mapsto w(\ad(\sigma)X)$ is smooth
+at $\sigma=e$. Take a smooth function $f\in C^{\infty}(U)$ on a
+neighborhood of $e$ such that $Y(f) = w(Y)$ for all $Y\in \ssg$.
+Then by $\exp(t\ad(\sigma)X) = \sigma\exp tX\sigma^{-1}$, we have
+$$w(\ad(\sigma)X) = (\ad(\sigma)X)f =
+\left.\frac{d}{dt}\right|_{t =
+0}f(\exp(t\ad(\sigma)X))=\left.\frac{d}{dt}\right|_{t=0}f(\sigma
+\exp(tX)\sigma^{-1})$$
+which proves the smoothness.
+\eproof
+
+\begin{definition}
+	Let $\ssg$ be a Lie algebra. For any $X \in \ssg$, define a
+	linear map $\mathrm{ad}X\:\ssg \to \ssg$ as
+	$\mathrm{ad}X(Y)=[X,Y]$.
+\end{definition}
+\begin{theorem}
+	For any $X\in\ssg$, $\mathrm{ad}X$ is a derivation,
+	hence$$\mathrm{ad}X[Y,Z] =
+	[\mathrm{ad}X(Y),Z]+[Y,\mathrm{ad}X(Z)].$$
+\end{theorem}
+\begin{lemma}\label{323}
+Let $G$ be a Lie group,  Lie $G=\ssg$, then for any $X, Y \in
+\mathfrak{g}$, we have
+\[
+	\exp t X \exp t Y = \exp \left\{ t(X+Y)+\frac{t^{2}}{2}[X,
+	Y]+O\left(t^{3}\right) \right\}
+\]
+\[
+	\exp t X \exp t Y \exp (-t X) = \exp \left\{ t Y+t^{2}[X,
+	Y]+O\left( t^{3} \right) \right\}.
+\]	
+\end{lemma}
+\bproof
+see \cite{Hel} page 106.
+\eproof
+
+\begin{theorem}
+	The map  $\mathrm{ad}\:\mathfrak{g} \rightarrow
+	\mathfrak{gl}(\mathfrak{g})$ is a homomorphism of Lie
+	algebras. Moreover,  $\mathrm{ad}$ is the differential of
+	$\mathrm{Ad}\: {G} \rightarrow {Gl}(\mathfrak{g})$ at $e .$
+
+\end{theorem}
+\bproof
+We first prove $\operatorname{ad}[X, Y]=[\operatorname{ad} X, 
+\mathrm{ad} Y]$.  For any $Z \in \mathfrak{g}$, we have
+$$\operatorname{ad}[X, Y](Z)=[[X, Y], Z]=(\operatorname{ad} X
+\operatorname{ad} Y-\operatorname{ad} Y \operatorname{ad}
+X)(Z)=[X,[Y, Z]]-[Y,[X,Z]].$$
+Next we prove that the differential of $\ad$ is $\mathrm{ad}$. By
+Lemma $\ref{323}$, we
+have  $$\exp (\operatorname{Ad}(\exp t X) t Y) = I(\exp (t
+X))(\exp t Y) = \exp \left( t Y+t^{2}[X, Y]+O\left( t^{3} \right)
+\right)$$
+then 
+$$
+\operatorname{Ad}(\exp t X) Y=Y+t[X, Y]+O\left( t^{3} \right)
+$$
+hence $d \operatorname{Ad}_{e}(X)=\operatorname{ad} X$.
+\eproof
+\begin{definition}
+Let $\mathfrak{g}$ be a Lie algebra. The Killing form $B:
+\mathfrak{g} \times \mathfrak{g} \rightarrow \mathfrak{g}$ is a
+bilinear symmetric form defined as
+\[
+B_{\mathfrak{g}}(X, Y)=\operatorname{Tr}(\mathrm{ad} {X} \circ
+\mathrm{ad} {Y}).
+\]	
+\end{definition}
+
+\begin{theorem}
+	The Killing form is invariant under $\operatorname{Ad} \tau$
+	and $\mathrm{ad} X, \forall \tau \in G$ and $X \in
+	\mathfrak{g}$.
+	
+\end{theorem}
+\bproof
+Since $\sigma := \operatorname{Ad}(\tau)$ is an automorphism of
+$\mathfrak{g}$, we have (by acting on $\sigma Y$ ) that
+$\operatorname{ad}(\sigma X) = \sigma \circ \operatorname{ad} X
+\circ \sigma^{-1}$. Then
+\[
+B_{\mathfrak{g}}(\sigma X, \sigma Y) =
+\operatorname{Tr}\left(\sigma \circ \operatorname{ad} X \circ
+\sigma^{-1} \sigma \circ \mathrm{ad} Y \circ \sigma^{-1}\right) =
+B_{\mathfrak{g}}(X, Y).
+\]
+Then
+\[
+B_{\mathfrak{g}}(\operatorname{Ad}(\exp t W) X,
+\operatorname{Ad}(\exp (t W)) Y) = B_{\mathfrak{g}}(X, Y)
+\]
+ by taking derivative to $t$ at $t = 0$, we have
+\[
+B_{\mathfrak{g}}(\operatorname{ad} W(X), Y) + B_{\mathfrak{g}}(X,
+\text { ad } W(Y)) = 0,\ \forall W \in \ssg.
+\]
+We may write it as
+\[
+B_{\mathfrak{g}}([W, X], Y) + B_{\mathfrak{g}}(X, [W, Y]) = 0
+\]
+which is easy to remember.
+\eproof
+From the proof we see that a bilinear form is invariant under
+$\ad G$ implies its invariance under $\mathrm{ad}\ssg$.
+
+Sometimes, the metric of a manifold may not be given. We need to
+construct one in order to make it a symmetric manifold (usually
+for a Lie group).
+
+\begin{lemma}
+Let $G$ be a compact Lie group, Lie $G = \ssg$, then
+$\mathfrak{g}$ admits an inner product $\langle\cdot,
+\cdot\rangle$ such that it is invariant under $\mathrm{Ad} {G}$.
+As a consequence, the
+Killing form of $G$ is semi-definite negative and $B_{\ssg}(X, X)
+= 0$ if and only if $X$ is in the center of $\mathfrak{g}$.	
+\end{lemma}
+\bproof
+Let $g_{0}$ be any inner product on $\mathfrak{g}$ and it induces
+a right-invariant metric on
+$G$, then we define
+\[
+g(V, W) = \int_{G} g_{0}(\operatorname{Ad}(x) V,
+\operatorname{Ad}(x) W) d x
+\]
+so $g$ is a inner product on $\mathfrak{g}$ and
+\[
+\begin{aligned}
+	g(\operatorname{Ad}(y) V, \operatorname{Ad}(y) W) & =
+	\int_{G} g_{0}(\operatorname{Ad}(x y) V, \operatorname{Ad}(x
+	y) W)\mathrm{vol}_{g_{0}} \\
+	& = \int_G R_{y}^{*}\left( g_{0}(\operatorname{Ad}(x) V,
+	\operatorname{Ad}(x) W) \text { vol}_{g_{0}} \right) = g(V,
+	{W})
+\end{aligned}
+\]
+hence $g$ is $\operatorname{Ad}(G)$ invariant. Then
+\[
+g(\operatorname{Ad}(\exp t W) X, \operatorname{Ad}(\exp (t W)) Y)
+= g(X, Y)
+\]
+then by taking derivative to $t$ at $t=0$, we have
+\[
+g(\operatorname{ad} W(X), Y)+g(X, \text { ad } W(Y)) = 0
+\]
+hence ad$W$ is represented as a skew-symmetric matrix $A$ with
+respect to an
+orthonormal basis of $\mathfrak{g}$, then we have
+\[
+B_{\ssg}(X, X) = \operatorname{Tr}(\operatorname{ad} X \circ
+\operatorname{ad} X)=\operatorname{Tr}\left(A^{2}\right) =
+\operatorname{Tr}\left(-A A^{T}\right) \leq 0
+\]
+and the equality holds if and only if ad $X=0$, hence $X$ is in
+the center of $\mathfrak{g}$.
+\eproof
+
+Then $-B$ is an $\operatorname{Ad}(G)$ invariant inner product on
+$\mathfrak{g}$ and it can be extended to a bi-invariant
+Riemannian metric on $G$ as follows. We define a metric on $G$ by
+\[
+\langle X, Y\rangle_{g} = \left\langle
+d\left(L_{g^{-1}}\right)_{g} X, d\left( L_{g^{-1}} \right)_{g}
+Y\right\rangle
+\]
+Then $L_{g}$ is naturally an isometriy. $R_{g}$ is also an
+isometry by 
+\[
+\begin{aligned}
+	\left\langle d\left (R_{g} \right)_{e} X, d\left( R_{g}
+	\right)_{e} Y\right\rangle_{g} & = \left\langle d\left(
+	L_{g^{-1}} \right)_{g} d\left( R_{g} \right)_{e} X, d\left(
+	L_{g^{-1}} \right)_{g} d\left( R_{g} \right)_{e}
+	Y\right\rangle \\
+	&=\left\langle\operatorname{Ad}\left(g^{-1}\right) X,
+	\operatorname{Ad}\left( g^{-1} \right) Y\right\rangle=\langle
+	X, Y\rangle.
+\end{aligned}
+\]
+
+
+	In the following, we deal with simply-connected Riemannian
+	symmetric manifolds. Now let $M$ be a simply-connected
+	Riemannian symmetric manifold represented as $G / K$, where
+	$G=I_{0}(M)$ and $K$ is the compact subgroup $I_0(M)_p$ and
+	we have the canonical decomposition of $\mathfrak{g} =
+	\mathfrak{k}\oplus\mathfrak{p}$,
+	where $\ssk$ is the Lie algebra of $K$ and $\mathfrak{p}$ 
+	the $-1$ eigenspace of the differential
+	$d \sigma_{e}$ of the involutive automorphism $\sigma
+	\: g \mapsto s_{p_{0}} g s_{p_{0}} .$ We have
+
+\begin{lemma}\label{229}
+		The vector space $\mathfrak{p}$ is invariant under
+		$\operatorname{Ad} K$. In other words, $\mathfrak{p}$ is
+		a representation of the Lie group $K$.
+\end{lemma}
+\bproof
+For any $X \in \mathfrak{p}$ and $k \in K$, we have $\exp
+(\operatorname{Ad}(k) t X) = k \exp t X k^{-1}$, then
+\[
+\sigma(\exp \operatorname{Ad}(k) t X) = s_{0} k \exp t X k^{-1}
+s_{0} = k s_{0} \exp t X s_{0} k^{-1}.
+\]
+Since $X \in \mathfrak{p}$, we have $\left.\frac{d}{d t} s_{0}
+\exp t X s_{0}\right|_{t=0} = d\sigma_{e}X = -X$, then
+\[
+\begin{aligned}
+	d \sigma_{e}(\operatorname{Ad}(k) X) & = \left.\frac{d}{d t}
+	\sigma(\exp \operatorname{Ad}(k) t X)\right|_{t=0} \\
+	& = \left.\frac{d}{d t}\right|_{t=0} I(k)\left(s_{0} \exp t
+	Xs_{0}\right) = \operatorname{Ad}(k)(-X),
+\end{aligned}
+\]
+hence $\operatorname{Ad}(k) X \in \mathfrak{p}$.
+\eproof
+
+\begin{proposition}
+	Let $\mathfrak{g} = \mathfrak{k}\oplus\mathfrak{p}$ be
+	defined as above, then we have
+	\[
+	[\mathfrak{k}, \ssk] \subset \mathfrak{k},
+	\quad[\mathfrak{p}, \mathfrak{p}] \subset \mathfrak{k},
+	\quad[\mathfrak{k}, \mathfrak{p}] \subset \mathfrak{p}.
+	\]
+	As a consequence, we have $\mathfrak{k}$ and $\mathfrak{p}$
+	are orthogonal with respect to the Killing
+	form of $\mathfrak{g}$. 
+\end{proposition}
+\bproof
+$[\mathfrak{k}, \ssk] \subset \mathfrak{k}$ is obvious since
+$\ssk$ is a Lie subalgebra of $\ssg$. The other two is clear as
+$d\sigma_{e}$ is a Lie algebra homomorphism. $[\mathfrak{k},
+\mathfrak{p}] \subset \mathfrak{p}$ can also be implied from
+lemma $\ref{229}$.  Then for any $X\in \ssk$ and $Y\in \ssp$,
+$\mathrm{ad}X \circ \mathrm{ad}Y$ maps $\ssk$ to $\ssp$ and
+$\ssp$ to $\ssk$. Hence $B(X, Y) = 0$.
+\eproof
+
+Next we turn to look at the more geometric ideas.
+
+If $G$ acts by isometries on a manifold $M$, we can associate to
+each $X \in \mathfrak{g}$ a vector field $X^{*}$ on $M$ called an
+action field which is defined by
+\[
+X^{*}(p) = \left.\frac{d}{d t}\right|_{t=0}(\exp (t X) \cdot p) .
+\]
+Notice that the flow of $X^*$ acts by isometries, $X^*$ is a
+Killing vector field. We should be careful that $\left[X^{*},
+Y^{*}\right] = -([X, Y])^{*}$ since  the flow of $X \in
+\mathfrak{g}$ is given by right translation, different from that
+of $X^*$. 
+
+We can then identify
+\[
+\mathfrak{p} \simeq T_{p_{0}} M \text { via } X \rightarrow
+X^{*}\left(p_{0}\right)
+\]
+This is an isomorphism since $X^{*}\left(p_{0}\right) = 0$ iff $X
+\in \mathfrak{k}$.
+
+\begin{proposition}\label{geo}
+	Let $G = I_0(M), K = I_0(M)_p$ such that $M\cong G/K$, with
+	Cartan decomposition $\mathfrak{g} = \mathfrak{k} \oplus
+	\mathfrak{p}$.
+	
+	(a) For any vector field $Y$ on $G / K$ and $X \in
+	\mathfrak{p}$, we have $\left( \nabla_{X^*}  Y \right)\left(
+	p_{0} \right)=$
+	$\left[ X^{*}, Y \right]\left( p_{0} \right) .$
+	
+	(b) If $X, Y, Z \in \mathfrak{p}$, then $\left( R\left(
+	X^{*}, Y^{*} \right) Z^{*} \right)\left( p_{0} \right)=-[[X,
+	Y], Z]^{*}\left( p_{0} \right)$.
+\end{proposition}
+\bproof
+(a) For $X \in \mathfrak{p}$, let $\gamma(t)=(\exp t X) \cdot
+p_{0}$ , which is a geodesic in $M$. We have the corresponding
+transvection $T_{t}=s_{\gamma(\frac{1}{2})} s_{\gamma(0)} =
+{L_{\exp t X}}$ which is the flow of $X^*$.  Also $\left(d
+T_{t}\right)_{\gamma(s)}$
+ is parallel translation along $\gamma$.  Thus if $ Y$  is any
+ vector field on $M$, we have  $\nabla_{X^*} Y = \frac{d}{d
+ t}|_{t=0} \left( P_{t}^{-1} Y(\gamma(t)) \right) = \frac{d}{d
+ t}|_{t=0}\left( d T_{t}^{-1} \right)_{\gamma(t)}
+ Y(\gamma(t))=\left[ X^{*}, Y \right]$.
+ 
+ (b) We first compute (cverything at $p_{0}$ )
+ \[
+ \nabla_{X^*} \nabla_{Y^*} Z^{*} = \left[X^{*}, \nabla_{Y^*}
+ Z^{*}\right] = \nabla_{\left[X^{*}, Y^*\right]}
+ Z^{*}+\nabla_{Y^*}\left[X^{*}, Z^{*}\right]
+ \]
+ since isometries preserve the connection and the flow of $X^{*}$
+ consists of isometries. Since $[\ssp, \ssp] \subset
+ \mathfrak{k}$ we have $[X, Y]^{*}\left(p_{0}\right)=0$ and hence
+ \[\nabla_{X^*} \nabla_{Y^*} Z^{*}=\nabla_{Y^{*}} \left[X^{*},
+ Z^{*}\right]=-\nabla_{Y^*}[X, Z]^{*}=-\left[Y^{*},[X,
+ Z]^{*}\right]=[Y,[X, Z]]^{*}
+ \]
+ Thus
+ \[
+ \begin{aligned}
+ 	R\left(X^{*}, Y^{*}\right) Z^{*} &=\nabla_{X^*} \nabla_{Y^*}
+ 	Z^{*}-\nabla_{Y^*} \nabla_{X^*} Z^{*}-\nabla_{\left[X^{*},
+ 	Y^{*}\right]} Z^{*} \\
+ 	&=[Y,[X, Z]]^{*}-[X,[Y, Z]]^{*}=-[[X, Y], Z]^{*}
+ \end{aligned}
+ \]
+ by the Jacobi identity.
+\eproof
+
+  We usually simply state
+ \[
+ \nabla_{X} Y = [X, Y], \quad R(X, Y) Z = -[[X, Y], Z]
+ \]
+ with the understanding that this only holds at $p_{0}$.
+
+\begin{remark}
+	Part (a) gives rise to a geometric interpretation of 
+	Cartan decomposition in terms of Killing vector fields,
+	assuming that $G={I}_{0}(M)$ :
+	\[
+	\mathfrak{k} = \left\{X \in \mathfrak{g} \mid X^{*}\left(
+	p_{0} \right) = 0 \right\} \quad \mathfrak{p} = \left\{X \in
+	\mathfrak{g} \mid \nabla_{v} X^{*}\left(p_{0}\right) = 0
+	\text { for all } v \in T_{p_{0}} M \right\}
+	\]
+	The first equality is obvious and for the second one, we
+	observe that (a) implics that $\left( \nabla_{X^{*}} Y^{*}
+	\right)\left( p_{0} \right) = [X, Y]^{*}\left( p_{0}
+	\right)=0$ for $X, Y \in \mathfrak{p} \operatorname{\ since\
+	}[\mathfrak{p}, \mathfrak{p}] \subset \mathfrak{k}$.
+	Then the equality holds for the reason of dimension. 
+\end{remark}
+
+\begin{corollary}\label{geo2}
+	For any $X, Y, Z \in T_{p} M$, we have
+	\[
+		R(X, Y) Z = [Z,[X, Y]] 
+	\]
+	\[
+		\operatorname{Ric}(Y, Z) = -\frac{1}{2} B(Y, Z)
+	\]
+\end{corollary}
+\bproof
+See \cite{Peter} Theorem 10.1.6.
+\eproof
+\subsection{de Rham decompostition}
+
+Next we consider the classification of  Riemannian (globally)
+symmetric spaces.
+
+For a Riemannian manifold and a fixed point $p$ one defines the
+holonomy group $\mathrm{Hol}_{p} = \left\{P_{\gamma} \mid
+\gamma(0) = \gamma(1) = p\right\}$ given by parallel translation
+along piecewise smooth curves, and we let $\mathrm{Hol}_{p}^{0}$
+be its identity component. Note that for different point $p$, the
+group are isomorphic with each other. Thus We  often denote it by
+Hol. It has some fundamental properties :
+\begin{theorem}
+	Assumc that $M$ is complete. Then
+	
+	(a) $\mathrm{Hol}$ is a Lie group with  $\mathrm{Hol}^{0}$
+	compact.
+	
+	(b) $\mathrm{Hol}^0$ is given by parallel translation along
+	null homotopic curves.
+	
+	(c) $\mathrm{Hol}_{p}$ is connected if $M$ is simply
+	connected,
+\end{theorem}
+\bproof
+See \cite{Ziller} Theorem 6.7.
+\eproof
+
+If we write $M = G / K$, $G = I(M)$, $K = I(M)_p$,  notice that
+$\mathrm{Hol}_{p}$ is a subgroup of $\mathrm{O}\left(T_{p}
+M\right)$ by definition, as is $K$ via the isotropy
+representation.
+
+\begin{corollary}
+	If $M = G / K$ is a symmetric space with $G = {I}(M)$, then
+	$\operatorname{Hol}_{p} \subset K$.
+\end{corollary}
+\bproof
+See \cite{Ziller} Corollary 6.8.
+\eproof
+
+
+We can now combine this  with the de Rham decomposition theorem,
+which is an significant application of holonomy groups, 
+Recall that:
+\begin{definition}
+	$M$ is said to be decomposable if $M$ can be written as
+	$(M,g) = (M_1,g_1)\times(M_2,g_2)$. Otherwise $M$ is called
+	indecomposable.
+\end{definition}
+\begin{theorem}[de Rham]
+	 Let $M$ be a simply connected Riemannian manifold,
+	 $\mathrm{Hol}_{p}$ is the holonomy group for some $p\in M$.
+	 Let $T_{p} M = W_{0} \oplus W_{1} \oplus \cdots \oplus
+	 W_{k}$ be a decomposition such that each $W_i$ is
+	 irreducible with respect to $\mathrm{Hol}_{p}$ , and that 
+	 $W_{0} = \left\{ v \in T_{p} M \mid h v = \right.$ $v$ for
+	 $\forall \left.h \in \mathrm{Hol}_{p} \right\}$. 
+	 
+	 Then $M = N_{0} \times \cdots \times N_{k}$, where $N_{0}$
+	 is isometric to flat $\mathbb{R}^{n}$. If $p = \left(p_{0},
+	 p_{1}, \ldots, p_{k} \right)$, then $T_{p_{i}} N_{i} \simeq
+	 W_{i}$ and $N_{i}$ is indecomposable for $i \geq 1$.
+	 Moreover, the decomposition is unique up to order and
+	 $\mathrm{Hol}_{p} \simeq \mathrm{Hol}_{p_{1}} \times \cdots
+	 \times \mathrm{Hol}_{p_{k}}$ with $\mathrm{Hol}_{p_{i}}$ the holonomy
+	of $N_{i}$ at $p_{i} .$ At last we have, ${I}_{0}(M) = {I}_{0}\left(N_{0}\right) \times \cdots \times {I}_{0}\left(N_{k}\right)$.
+\end{theorem}
+\bproof
+See \cite{Ziller} Theorem 6.9.
+\eproof
+
+Since for a symmetric space Hol$_{p} \subset K$, this implies 
+
+\begin{corollary}
+	If the Riemannian symmetric manifold $M = G / K$ is simply
+	connected with $M$ indecomposable, then $K$ acts irreducibly
+	on the tangent space.
+\end{corollary}
+
+This motivates the definition of reducibility:
+
+\begin{definition}
+	A symmetric manifold $G / K$ with $G = {I}(M)$, $K = I(M)_p$,
+	is called irreducible if $K_0$ (the identity component of
+	$K$) acts irreducibly (by $\ad$) on $T_pM$, and reducible
+	otherwise.
+\end{definition}
+
+Notice that the definition does not change if we replace $G$ by
+$G = I_0(M)$ since $I(M)/K\cong I_0(M)/I_0(M)_p$ and $I_0(M)_p =
+I_0(M)\cap I(M)_p$ has the same Lie algebra with $I(M)_p$, just
+as we said in the Carton decomposition part.
+
+Also, the definition is independent of different  $p$, since the
+isometry
+group acts transitively on $M$ and for any point $q$ there exists
+an isometry $\varphi \in I(M)$ such that $\varphi(p) = q$, then
+$\varphi G_{p}^{0} \varphi^{-1} = G_{q}^{0}$ and the reduciblity
+of the action $G_{p}^{0}$ on $T_{p} M$ is the same as that of
+$G_{q}^{0}$. Equivalently, one can use $G = I(M)$ and $K = G_{p}
+$ since the definitions are
+both equivalent to the reduciblity of the action of
+$\mathfrak{k}$ on $\mathfrak{p}$ by ad.
+
+
+By the above, we have
+\begin{theorem}
+	If $M$ is a simply connected symmetric manifold and $M$ is
+	indecomposable, then $M$ is irreducible.
+\end{theorem}
+\bproof
+Since $M = I_{0}(M) / K$ and $M$ is simply-connected, then $K$ is
+connected by the homotopy sequence
+\[
+\begin{aligned}
+	\pi_{1}(K) & \rightarrow \pi_{1}(G) \rightarrow \pi_{1}(G /
+	K) \rightarrow e \pi_{0}(K) \\
+	& \rightarrow \pi_{0}(G) \rightarrow \pi_{0}(G / K) \rightarrow 1
+\end{aligned}
+\]
+where $\pi_{0}$ denotes the set of connected components, but in the case $\tilde{G}$ and
+$\tilde{K}$ are Lie groups, these sets are all groups with natural multiplication. So $K = K_{0} .$ Then $\mathrm{Hol}_{p} \subset K_{0}$, so $\mathrm{Hol}_{p}$ acts irreducibly on the tangent space indicates that $K_{0}$ acts irreducibly.
+\eproof
+
+However the other side is wrong even if it is simply connected.
+Just look at flat $\mathbb{R}^{n}$, we have $K = \mathrm{O}(n)$
+which acts irreducibly. But this is  the only exception by the
+conclusion to be learned: If $M = G / K$ is irreducible, then $M
+= \mathbb{R}^{n} \times N$ with the product metric, where the
+metric on $\R^n$ is flat and $N$ has a metric making it a
+symmetric manifold and is decomposable.
+
+ The DeRham decomposition theorem implies:
+ 
+ \begin{corollary}
+ 	If the symmetric manifold $M = G / K$ is  simply connected,
+ 	then $M$ is isomorphic to product of irreducible symmetric
+ 	manifolds $M_1\times \cdots\times M_k$.
+ \end{corollary}
+\bproof
+See \cite{Ziller} Corollary 6.12.
+\eproof
+ 
+ Another important consequence:
+ \begin{corollary}
+ 	If the symmetric manifold $M = G / K$ is simply connected
+ 	and $G$ is simple, then $M$ is irreducible.
+ \end{corollary}
+\bproof
+It suffices to show $M$ is indecomposable. By contradiction, if
+$M = M_{1} \times \cdots \times M_{k}$, then $I_{0}(M) =
+{I}_{0}\left( M_{1} \right) \times \cdots \times {I}_{0}\left(
+M_{k} \right)$
+so that $G$ is not simple. 
+\eproof
+In fact, the converse is also true  except for one example.
+
+One easily sees:
+\begin{corollary}\label{333}
+	An irreducible symmetric manifold is Einstein, i.e.\
+	$\Ric(g) =  \lambda g$ for some constant $\lambda$.
+	Moreover, the metric is unique up to scaling.
+\end{corollary}
+\bproof
+This follows from the following useful lemma.
+\eproof
+\begin{lemma}
+	Let $B_{1}, B_{2}$ be two symmetric bilinear forms on a
+	vector space $V$ and let $B_{1}$ be positive definite. If a
+	compact Lie group $K$ acts irreducibly on $V$ such that
+	$B_{1}$ and $B_{2}$ are invariant under $K$, then $B_{2} =
+	\lambda B_{1}$ for some constant $\lambda$.
+\end{lemma}
+\bproof
+By the non-degeneration of $B_{1}$, there is an endomorphism
+$\phi\: V \rightarrow V$ such that $B_{2}(u, v) = B_{1}(\phi u,
+v) .$ As $K$ acts by isometries, $B_{1}(k \phi u, v) =
+B_{1}\left( \phi u, k^{-1} v \right) = B_{2}\left( u, k^{-1} v
+\right)=B_{2}(k u, v) = B_{1}(\phi k u, k v)$ and therefore
+$\phi k = k \phi$
+for all $k \in K$. Besides, by symmetry we have $B_{1}(\phi u,
+v) = B_{2}(u, v) = B_{2}(v, u) = B_{1}(\phi v, u) = B_{1}(u,
+\phi v)$. So $\phi$ is symmetric with respect to $B_{1}$ and the
+eigenvalues of $\phi$ are real. Suppose $W \subset V$ is an
+eigenspace of $\lambda$, then $W$ is invariant under $K$ since
+$k \phi=\phi k$. As $K$ acts irreducibly, $W = \{0\}$ or $W =
+V$. Thus there is a constant $\lambda$ such that $\phi =
+\lambda$ Id and hence $B_{2} = \lambda B_{1}$. Notice that
+$\lambda \neq 0$ since otherwise
+$B_{2} = 0$.
+\eproof
+
+\bproof
+Return to Corollary $\ref{333}$. From above, we see that the
+metric is unique up to scaling. Since isometries preserve the
+curvature, Ric is also a symmetric bilincar form invariant under
+$K$, hence at any point there exists smooth function $\lambda$
+such that $\Ric = \lambda g$. Since $\Ric $ is parallel,
+$\lambda$ has to be a constant.
+\eproof
+\subsection{Classification theorems}
+\begin{definition}
+	Let $(M,g)$ be a Riemannian symmetric manifold. If the Ricci
+	curvature is positive(negative), then $M$ is called of
+	(non-)compact type. If the Ricci curvature is zero, then $M$
+	is called of Euclidean type.
+\end{definition}
+
+\bremark
+Note that this only gives a classification irreducible ones.
+Also, since $\Ric$ is parallel, we have that the eigevalues of
+$\Ric$ are the same. So by Myer's theorem, $M$ is compact if it
+is of compact type, and by Bochner formular, $M$ is non-compact
+if $M$ is of non-compact type (see \cite{Peter} Corollary 8.2.5
+for example).
+
+\eremark
+
+When $M$ is of Euclidean type, we refer to this theorem:
+\begin{theorem}
+	If a Riemannian symmetric manifold is Ricci flat, then it is
+	flat.
+\end{theorem}
+\bproof
+See \cite{Peter} Corollary 8.2.5.
+\eproof
+ Then if $M$ is of Euclidean type and  is simply connected, then
+ it must be isomorphic to $\R^n$ up to uniformization. If not
+ simply connected, we will show that $M$ is covered by $\R^n$.
+ As a matter of fact, we also have that any symmetric manifold
+ of (non-)compact type can be covered by a product of
+ (non-)compact irreducible symmetric manifolds, which will be
+ shown in the following:
+ 
+ \begin{theorem}\label{cover}
+ 	 Let $(M, g)$ be a Riemannian symmetric manifold represented
+ 	 as $G / K$, where $G = I_{0}(M), K = I_0(M)_p$  and
+ 	 $\mathfrak{g} = \mathfrak{k}\oplus\mathfrak{p}$ is the
+ 	 Cartan decomposition with $\sigma\: \mathfrak{g}
+ 	 \rightarrow \mathfrak{g}$ as the Cartan involution. Let
+ 	 $\tilde{G}$ be the simply connected Lie group induced by
+ 	 $\mathfrak{g}$. Then there exists a connected Lie subgroup
+ 	 $\tilde{K}$ corresponding to $\mathfrak{k}$ and a
+ 	 $\tilde{G}$ -invariant metric on $\tilde{M}:=\tilde{G} /
+ 	 \tilde{K}$ such that $\tilde{M}$ is a Riemannian symmetric
+ 	 manifold and moreover, it is a Riemannian covering of $M$.
+ \end{theorem}
+To prove this, we first give the lemma:
+\begin{lemma}\label{11}
+	Let $G$ be a Lie group and $H$ be a connected Lie subgroup
+	with Lie algebras $\mathfrak{g}, \mathfrak{k}$ and
+	$\mathfrak{p}$ is a subspace of $\mathfrak{g}$ such that
+	$\mathfrak{g} = \mathfrak{k}\oplus\mathfrak{p}$ and
+	$\mathrm{Ad} H(\mathfrak{p}) \subset \mathfrak{p}$. Then
+	there is a one-to-one correspondence between the set of all
+	$G$-invariant
+	metrics on the quotient manifold $G / H$ and the set of all
+	inner products $Q$
+	on $\mathfrak{p} \simeq T_{o}(G / H)$ such that
+	\[
+	Q(\operatorname{Ad}(h)(X), \operatorname{Ad}(h)(Y)) = Q(X,
+	Y), \forall h \in H ,\ X, Y \in \ssp.
+	\]
+\end{lemma}
+\bproof
+On one hand, suppose $G / H$ has a G-invariant metric $g$. Then
+let $Q$ be the inner product on $\mathfrak{p} \simeq T_{o}(G /
+H)$ induced by $g$. Since the adjoint representation of $H$ on
+$\mathfrak{p}$ and the isotropy representation of $H$ on
+$T_{o}(G / H)$ is the same under $\mathfrak{m} \simeq T_{o}(G /
+H)$, then since $g$ is $G$ -invariant, we have
+\[
+Q(d h(X), d h(Y)) = Q(X, Y) . \forall h \in H, \forall X, Y \in
+T_{o}(G / H)，
+\]
+and hence
+\[
+Q(\operatorname{Ad}(h)(X), \operatorname{Ad}(h)(Y)) = Q(X, Y).
+\forall h \in H, \forall X, Y \in \mathfrak{p}.
+\]
+On the other hand, given an inner product $Q$ on $\mathfrak{p}$
+invariant under $\operatorname{Ad} H$, it
+is an inner product on $T_{o}(G / H)$ which is invariant under
+the pushforward by $H$, then define
+$$
+g_{a H}(u, v):=Q\left(\left(d \tau_{a}\right)_{a
+H}^{-1}(u),\left(d \tau_{a}\right)_{a H}^{-1}(v)\right), \forall
+u, v \in T_{a H}(G / H)
+$$
+we have a well-defined G-invariant metric on $G / H$.
+\eproof
+\bproof
+Back to theorm $\ref{cover}$. We prove that $\tilde{M}$ is a
+Riemannian symmetric manifold.  Let $\sigma\: \mathfrak{g}
+\rightarrow \mathfrak{g}$ be the canonical involutive
+automorphism. By the theory of simply-connected
+Lie groups, there exists an involutive automorphism of Lie
+groups $\tilde{\sigma}$ such that $d \tilde{\sigma}_{e} =
+\sigma$. Take $\tilde{K}$ to be $\tilde{G}_{\sigma}^{0}$, which
+is the identity component of the group $\tilde{G}_{\sigma}$ of
+fixed point in $\tilde{G}$ by $\tilde{\sigma}$. Then
+\[
+\text { Lie } K = \text { Lie } \tilde{G}_{\sigma}^{0} =
+\operatorname{Lie} \tilde{G}_{\sigma} = \{X \in \mathfrak{g}
+\mid \sigma(X) = X\} = \mathfrak{k} \text { . }
+\]
+Besides, since $\tilde{K}$ is connected, we have that
+\[
+Q(\operatorname{Ad}(k) X, \operatorname{Ad}(k) Y)=Q(X, Y),
+\forall k \in \tilde{K}, X, Y \in \mathfrak{p}
+\]
+if and only if
+\[
+Q([Z, X], Y)+Q(X,[Z, Y]) = 0, \forall Z \in \mathfrak{k}, X, Y
+\in \mathfrak{p}
+\]
+which is due to $Q$ is the inner product of $M = G / K$ at $0 =
+e K$.
+
+So by Lemma $\ref{11}$, we have that $Q$ induces a $\tilde{G}$
+-invariant metric on $\tilde{G} / \tilde{K}$. Next we prove that
+$\tilde{M}$ endowed with the metric is a Riemannian symmetric
+manifold. Indeed, since $K = \tilde{G}_{\sigma}^{0} \subset
+\tilde{G}_{\sigma}$, we have there exists a map
+$\sigma_{0}\:\tilde{G} / \tilde{K} \rightarrow \tilde{G} /
+\tilde{K}$ such that the diagram commutes,
+\[
+\begin{matrix}
+	G&\stackrel{\pi}{\longrightarrow}&G/K\\
+	\ \ \downarrow \sigma& &\ \ \downarrow \sigma_{0}\\
+	G&\stackrel{\pi}{\longrightarrow}&G/K
+\end{matrix}
+\]
+hence
+\[
+\sigma_{0}(a \tilde{K})=\tilde{\sigma}(a) \tilde{K}, \forall a
+\in \tilde{G}
+\]
+then $\sigma_{0}(e \tilde{K}) = \sigma_{0}(\pi(e)) =
+\pi(\tilde{\sigma}(e)) = \pi(e) = \{\tilde{K}\}$, hence $0 = e
+K$ is a fixed
+point of $\sigma_{0}$ and it is clear that $\sigma_{0}^{2}= i
+d_{\tilde{G} / \tilde{K}}$. Then for any $g \tilde{K} \in
+\tilde{G} / \tilde{K}$, let $\tau_{g}: \tilde{G} / \tilde{K}
+\rightarrow \tilde{G} / \tilde{K}$ be defined as $\tau_{g}(a
+\tilde{K}) = (g a) \tilde{K}, \forall g \in \tilde{G}$, and let
+$\sigma_{g \tilde{K}}:= \tau_{g} \sigma_{0} \tau_{g}^{-1}$,  it
+is clear that the definition is independent of the choice of $g$
+and $\sigma_{g K}^{2} = i d_{\tilde{G}} / \tilde{K}$.
+
+Now we can prove that $x = g \tilde{K}$ is an isolated fix point
+of $\sigma_{x}$ and $d \sigma_{x} = -i d$ on $T_{x}(G / K)$ and
+$\sigma_{x}^{*} g = g$, hence $\tilde{M}$ is a Riemannian
+symmetric manifold. By homotopy theory, we have a long exact
+sequence
+\[
+\begin{aligned}
+	\pi_{1}(\tilde{K}) & \rightarrow \pi_{1}(\tilde{G})
+	\rightarrow \pi_{1}(\tilde{G} / \tilde{K}) \rightarrow
+	\tilde{\pi}_{0}(\tilde{K}) \\
+	& \rightarrow \pi_{0}(G) \rightarrow \pi_{0}(G / K)
+	\rightarrow 1.
+\end{aligned}
+\]
+So since $G$ is connected and simply-connected, $\tilde{K}$ is
+connected, we have $\tilde{G} / \tilde{K}$ is simply-connected.
+Finally, we prove that $\tilde{G} / \tilde{K}$ is a Riemannian
+covering of $G / K$. Let $\varphi$ be the homomorphism of
+$\tilde{G}$ to $G$ such that $(d \varphi)_{e}\: \mathfrak{g}
+\rightarrow \mathfrak{g}$ is identity map and let $\psi\:
+\tilde{G} / \tilde{K}$ be defined as $g \tilde{K} \rightarrow
+\varphi(g) K$.
+Since the metric of $\tilde{G} / \tilde{K}$ is got by
+translating the metric of $G / K$ at $e K$, we have that the
+mapping $\psi: g \tilde{K} \rightarrow \varphi(g) K$ is a local
+isometry.
+
+By the following result in Riemannian geometry, we have that
+$\psi$ is a Rie-
+mannian covering:
+
+ Let $M, N$ be Riemannian manifolds and $M$ is complete. Then
+ any local
+isometry map $\varphi\: M \rightarrow N$ is a Riemannian
+covering map.
+\eproof
+Hence we get the theorem:
+\begin{theorem}
+	Let $M$ be a Riemannian symmetric manifold of (non)-compact
+	type, then the Riemannian universal covering $\tilde{M}$ of
+	$M$ is a product of (non)-compact irreducible symmetric
+	manifolds. If $M$ is of Euclidean type, then the Riemannian
+	universal covering is an Euclidean space.
+\end{theorem}
+
+So we have the equivalent definitions of types which occurs in
+many articles:
+
+\begin{definition}
+	Let $(M, g)$ be a Riemannian symmetric manifold and
+	$(\tilde{M}, \tilde{g})$ is a universal Riemannian covering
+	manifold of $M$. Suppose $\tilde M = \tilde M_{1} \times
+	\cdots \times \tilde M_{k}$ is the decomposition of products
+	of irreducible symmetric spaces. If $\tilde M_{i}$ 's are
+	all of (non)-compact (Euclidean) type, then $M$ is called of
+	(non)-compact
+	(Euclidean) type.
+\end{definition}
+and
+\begin{definition}
+	Let $(M, g)$ be a Riemannian symmetric manifold represented
+	as $G / K$, where $G = I_{0}(M), K = I_0(M)_p$ and
+	$\mathfrak{g} = \mathfrak{k}\oplus\mathfrak{p}$ is the
+	canonical decomposition. If $\left.B\right|_{\ssp}$ is
+	negative definite, then $M$ is called of compact type; if
+	$\left.B\right|_{\ssp}$ is positive definite, then $M$ is
+	called of non-compact type; if $\left.B\right|_{\ssp} = 0$,
+	then $M$ is called of Euclidean type. The manifold of
+	compact type or non-compact type is called of semisimple
+	type.
+\end{definition}
+
+\begin{proposition}
+	Let $M$ be a symmetric of compact type or non-compact type,
+	then $I(M)$ is semisimple.
+\end{proposition}
+\bproof
+See \cite{Ziller} Proposition 6.38.
+\eproof
+\begin{proposition}
+	If $M$ is a symmetric manifold of (non)-compact type, then
+	$\sec \geq(\leq) 0$.
+\end{proposition}
+\bproof
+It suffices to prove for irreducible ones, in which case
+$B=\lambda\langle\cdot,\cdot\rangle$ for some
+$\lambda \neq 0$. Then since $R(X, Y) Z=[Z,[X, Y]]$, we have
+\[
+\begin{aligned}
+	\lambda \sec (u, v) & = \lambda\langle R(u, v) v, u\rangle
+	\\
+	&=-\lambda\langle[[u, v], v], u\rangle=-B([[u, v], v], u) \\
+	&=B([u, v],[u, v]) < 0.
+\end{aligned}
+\]
+The last inequality is because $B|_{\ssk}<0$, we can also refer
+to \cite{Ziller} Proposition 6.38 proof of (c) and (d).
+\eproof
+This implies in particular that for a non-compact type $M$, $G =
+I_0(M)$ is simple.  
+\begin{theorem}
+	Let $M$ be a Riemannian symmetric manifold of non-compact
+	type, then $M$
+	is diffeomorphic to $\mathbb{R}^{n}$ and in particular, $M$
+	is simply-connected.
+\end{theorem}
+\bproof
+Since sec $\leq 0$, by Hadamard theorem, we have $\exp _{p}$ is
+a local diffeomorphism for any $p \in M$. By Hopf-Rinow theorem,
+we have $\exp _{p}$ is surjective. So it suffices to prove that
+$\exp _{p}$ is injective. Write $M$ as $M = G / K$, $G = I(M),
+K=G_{p}$, then for any $X \in T_{e K} M$, it corresponds to a
+Killing vector field $X^{*}$, which is an element in
+$\mathfrak{g}$ and $\left\{T_{t}\right\}$ is the one-parameter
+subgroup of $G$ with $\left.\frac{d}{d t}\right|_{t=0} = X^{*}$,
+hence $T_{t} = \exp \left(t X^{*}\right)$, where exp is the
+exponential map of the Lie group $G$.
+
+Since $T_{t} p$ is the geodesic starting at $p$ with direction
+$X$ and $M \simeq G / K$ is the same $G$-set, we have that the
+geodesic is $\exp \left(t X^{*}\right) K$ and hence the
+exponential map on $M$ at $p$ is $X \rightarrow \exp
+\left(X^{*}\right) K$. To show the injectivity, suppose $X, W
+\in T_{p} M$ satisfies that there exists $h \in K$ such that
+$\exp (X) h = $ $\exp \left(W\right)$. Then
+\[
+\operatorname{Ad}(\exp (X)) \operatorname{Ad}(h) =
+\operatorname{Ad}\left(\exp \left(W\right)\right)
+\]
+and $e^{\mathrm{ad} X} \operatorname{Ad}(h) =
+e^{\mathrm{ad}\left(W\right)}$. Let $B^{*}(X, Y):=-B(\sigma(X),
+Y)$, where $\sigma$ is the
+involution. Since $M$ is of non-compact type, we have
+$\left.B\right|_{\ssp} = -2 \mathrm{Ric}>0$. Since
+$\left.\sigma\right|_{\mathfrak{k}} = i d$ and
+$\left.\sigma\right|_{\mathfrak{p}} =-i d$ and
+$\left.B\right|_{\ssk}<0$, we have $B^{*}$ is positive definite.
+
+Then for $X \in \mathfrak{p}$, we have
+\[
+\begin{aligned}
+	B^{*}(\operatorname{ad}(X) Z, Y)
+	&=-B(\sigma(\operatorname{ad} X(Z)), Y) \\
+	&=-B([\sigma X, \sigma Z], Y) \\
+	&=B([X, \sigma(Z)], Y) \\
+	&=-B(\sigma(Z),[X, Y])=B^{*}(Z, \operatorname{ad} X(Y)),
+\end{aligned}
+\]
+hence ad$X$ is symmetric when $X \in \mathfrak{\ssp}$. Then
+$e^{\mathrm{ad} X} \operatorname{Ad}(h)$ and $e^{\mathrm{ad} W}$
+are both polar decompositions of a linear map, hence
+$\mathrm{ad} X = \mathrm{ad}W$ and $X-W \in$ $Z(\mathfrak{g})=0$
+by the semisimple property of $G$. Then $X=W$, hence $\exp _{p}$
+is injective, hence an diffeomorphism.
+\eproof
+
+The above theorems give  a general classification and relevant
+properties of symmetric manifolds.
+
+Ofcourse, we can classify them in a more subtle way. Usually the
+case of compact type and non-compact type are studied
+separately. We have the following  in order to know better:
+
+\begin{proposition}
+	A non-compact irreducible symmetric space is a quotient ${G}
+	/ {K}$ where $G$ is a real simple non compact Lie group with
+	trivial center and $K$ is a maximal compact subgroup of $G$.
+\end{proposition}
+\bproof
+See \cite{Besse} Corollary 7.79.
+\eproof
+\begin{remark}
+	 Usually these symmetric spaces are called "of type III" if
+	 $G$ is absolutely simple (i.e., if the complexification
+	 $g^{\C} = g \otimes \mathbb{C}$ is simple as a complex Lie
+	 algebra), and "of type IV" if not, in which case $G$ is a
+	 simple complex Lie group. 
+\end{remark}
+\begin{theorem}\label{3}
+	If $(M, g)$ is a compact simply-connected irreducible
+	symmetric space, then either $G$ is simple or there exists a
+	real simple compact simply-connected Lie group $H$ with
+	center $Z$ such that $G=(H \times H) / Z$ and $K=H / Z$,
+	where $Z$ and $H$ are imbedded in $H \times H$ via the
+	diagonal embedding $h \mapsto(h, h)$.
+\end{theorem}
+\bproof
+See \cite{Besse} Theorem 7.81.
+\eproof
+\begin{remark}
+	These last symmetric spaces $H \times H / H$ are called "of
+	type II". 	
+\end{remark}
+
+Now we are left with the case of compact irreducible symmetric
+spaces such that $G$ is simple. These ones are called "of type
+I". Another trick shows that once again the classification is a
+consequence of the classification of real simple Lie groups. It
+goes as follows; let $\ssg^{\mathbb{C}} = \ssg \otimes
+\mathbb{C}$ be the complexification of $g$ and $G^{\C}$ the
+simply-connected complex Lie group generated by $\ssg^{\C} .$
+Now $\ssg_{1}=\mathfrak{k} \oplus i \ssp$ is obviously
+a (real) Lie subalgebra of $\ssg^{C}$. Let $G_{1}$ be the
+subgroup of $G^{\mathbb{C}}$ generated by $\ssg_{1} .$ Since $f
+\subset g_{1}, G_{1}$ contains $K$ and we see easily that $G_{1}
+/ K$ is a non compact irreducible symmetric space, necessarily
+of type III.
+
+Now the classification of spaces of type I follows from the
+classification of real simple Lie groups and their maximal
+compact subgroups.
+
+The tables of the four types can be found in \cite{Besse} page
+201-202.
+
+\begin{remark}
+	 1) More generally, the same construction works for any
+	 irreducible symmetric space. The space $M_{1}=G_{1} / K$ is
+	 called the "dual" of $M .$ This duality interchanges types
+	 I and III, and types II and IV, respectively.
+	 
+	2) In summary, irreducible symmetric spaces of type I or II
+	are compact, Einstein and have non-negative sectional
+	curvature. Irreducible symmetric spaces of type III or IV
+	are non-compact, Einstein and have non-positive sectional
+	curvature.
+\end{remark}

@@ -1,0 +1,185 @@
+\usepackage{geometry}
+\geometry{
+    paperwidth = 155mm,
+    paperheight = 235mm,
+    outer = 20mm,
+    inner = 20mm,
+    top = 25mm,
+    bottom = 20mm
+}
+
+% fonts & unicode
+\usepackage[PunctStyle=kaiming]{xeCJK}
+\usepackage{amsmath}
+\usepackage{unicode-math}
+
+\setCJKmainfont{NotoSerifCJKsc-Regular.otf}[
+    Path            = ../../fonts/,
+    BoldFont        = NotoSansCJKsc-Medium.otf,
+    ItalicFont      = fzktk.ttf,
+    Scale           = .97,
+    ItalicFeatures  = {Scale = 1}
+]
+
+\setCJKsansfont{NotoSansCJKsc-DemiLight.otf}[
+    Path            = ../../fonts/,
+    BoldFont        = NotoSansCJKsc-Bold.otf,
+    Scale           = .97
+]
+
+\setCJKmonofont{NotoSansCJKsc-DemiLight.otf}[
+    Path            = ../../fonts/,
+    BoldFont        = NotoSansCJKsc-Bold.otf,
+    Scale           = .9
+]
+
+\newCJKfontfamily{\KaiTi}{fzktk.ttf}[
+    Path            = ../../fonts/,
+    BoldFont        = NotoSansCJKsc-Medium.otf,
+    BoldFeatures    = {Scale = .97},
+    ItalicFont      = NotoSerifCJKsc-Regular.otf,
+    ItalicFeatures  = {Scale = .97}
+]
+
+\setmainfont{XITS}[
+    Path            = ../../fonts/,
+    Extension       = .otf,
+    UprightFont     = *-Regular,
+    BoldFont        = *-Bold,
+    ItalicFont      = *-Italic,
+    BoldItalicFont  = *-BoldItalic
+]
+
+\setsansfont{Lato}[
+    Path            = ../../fonts/,
+    Scale           = MatchUppercase,
+    Extension       = .ttf,
+    UprightFont     = *-Regular,
+    BoldFont        = *-Bold,
+    ItalicFont      = *-Italic,
+    BoldItalicFont  = *-BoldItalic
+]
+
+\setmonofont{FiraMono}[
+    Path            = ../../fonts/,
+    Scale           = .9,
+    Extension       = .otf,
+    UprightFont     = *-Regular,
+    BoldFont        = *-Bold
+]
+
+\setmathfont{XITSMath-Regular.otf}[
+    Path            = ../../fonts/,
+    BoldFont        = XITSMath-Bold.otf
+]
+
+\setmathfont{latinmodern-math.otf}[
+    Path            = ../../fonts/,
+    range           = {frak, bffrak},
+    BoldFont        = latinmodern-math.otf
+]
+
+\setmathfont{LatoMath.otf}[
+    Path            = ../../fonts/,
+    Scale           = .95,
+    BoldFont        = LatoMath.otf,
+    version         = sf
+]
+
+\setmathfont{LatoMath.otf}[
+    Path            = ../../fonts/,
+    Scale           = .95,
+    BoldFont        = LatoMath.otf,
+    range           = {bb, sfup -> up, sfit -> it, bfsfup -> bfup, bfsfit -> bfit}
+]
+
+\setmathfont{STIX2Math.otf}[
+    Path            = ../../fonts/,
+    BoldFont        = STIX2Math-Bold.otf,
+    range           = {\int, \sum, \prod, \coprod, \bigoplus, \bigotimes, \bigcup, \bigcap, \bigvee, \bigwedge}
+]
+
+\Umathcode`/  =  "0 "0 "2215    % / -> U+2215 division slash
+
+% headers and footers
+\usepackage{fancyhdr}
+\fancyhf{}
+\fancyhead[CE]{\sf\mathversion{sf}\theheadertitle}
+\fancyhead[CO]{\sf\mathversion{sf}\nouppercase{\leftmark}}
+\fancyhead[LE,RO]{\textbf{\textsf{\thepage}}}
+\headsep=8mm
+\headheight=6mm
+
+\AtBeginDocument{
+    \renewcommand{\thepage}{\roman{page}}
+    \pagestyle{fancy}\thispagestyle{empty}
+}
+
+% spacing
+\AtBeginDocument{
+    \hfuzz=2pt
+    \emergencystretch 2em
+    \setlength{\belowdisplayshortskip}{\belowdisplayskip}
+}
+
+% parts
+\usepackage{tikz}
+
+\renewcommand{\titlepage}[2]{%
+    \clearpage%
+    \thispagestyle{empty}%
+    \vspace*{20mm}%
+    \centerline{\begin{tikzpicture}
+        \node [scale = 3] at (0, 0) {\sffamily 荷\hspace{.5em}思};
+        \node [scale = 1.8] at (0, -94.5mm) {\sffamily #1};
+        \node [scale = 1.2] at (0, -105mm) {\sffamily 第 #2 期};
+        \draw (-16mm, -8mm) -- (16mm, -8mm);
+        \draw (-14mm, -100mm) -- (14mm, -100mm);
+        \draw (-8mm, -110mm) -- (8mm, -110mm);
+    \end{tikzpicture}}%
+    \clearpage%
+}
+
+\newcommand{\committee}{%
+    \clearpage%
+    \thispagestyle{empty}%
+    \vspace*{120mm}%
+}
+
+\newcommand{\committeeitem}[2]{%
+    \par%
+    {%
+        \leftskip=3em%
+        \rightskip=8em%
+        \parindent=-3em%
+        {\bfseries\sffamily#1}\quad%
+        {\sffamily#2}%
+        \par\vspace{6pt}%
+    }%
+}
+
+\newcommand{\toctitle}{%
+    \clearpage%
+    \thispagestyle{empty}%
+    \vspace*{15mm}%
+    \noindent{\huge\sffamily 目录}%
+    \par\vspace{10mm}%
+}
+
+\newcommand{\tocsection}[1]{%
+    \par\vspace{6mm}%
+    \noindent{\large\sffamily #1}%
+    \par\vspace{4mm}%
+}
+
+\newcommand{\tocitem}[3]{%
+    \par%
+    {%
+        \leftskip=3em%
+        \parindent=-3em%
+        \makebox[2em][r]{\textbf{\textsf{#3}}}%
+        \quad#1%
+        \hfill\mbox{}\hfill\phantom{#2}\hfill\makebox[0em][r]{#2}%
+        \par\vspace{8pt}%
+    }%
+}

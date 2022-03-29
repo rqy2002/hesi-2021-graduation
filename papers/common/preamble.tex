@@ -1,0 +1,308 @@
+\usepackage{geometry}
+\geometry{
+    paperwidth = 155mm,
+    paperheight = 235mm,
+    outer = 20mm,
+    inner = 20mm,
+    top = 25mm,
+    bottom = 20mm
+}
+
+% fonts & unicode
+\usepackage[PunctStyle=kaiming]{xeCJK}
+\usepackage{amsmath}
+\usepackage{unicode-math}
+
+\setCJKmainfont{NotoSerifCJKsc-Regular.otf}[
+    Path            = ../../fonts/,
+    BoldFont        = NotoSansCJKsc-Medium.otf,
+    ItalicFont      = fzktk.ttf,
+    Scale           = .97,
+    ItalicFeatures  = {Scale = 1}
+]
+
+\setCJKsansfont{NotoSansCJKsc-DemiLight.otf}[
+    Path            = ../../fonts/,
+    BoldFont        = NotoSansCJKsc-Bold.otf,
+    Scale           = .97
+]
+
+\setCJKmonofont{NotoSansCJKsc-DemiLight.otf}[
+    Path            = ../../fonts/,
+    BoldFont        = NotoSansCJKsc-Bold.otf,
+    Scale           = .9
+]
+
+\newCJKfontfamily{\KaiTi}{fzktk.ttf}[
+    Path            = ../../fonts/,
+    BoldFont        = NotoSansCJKsc-Medium.otf,
+    BoldFeatures    = {Scale = .97},
+    ItalicFont      = NotoSerifCJKsc-Regular.otf,
+    ItalicFeatures  = {Scale = .97}
+]
+
+\setmainfont{XITS}[
+    Path            = ../../fonts/,
+    Extension       = .otf,
+    UprightFont     = *-Regular,
+    BoldFont        = *-Bold,
+    ItalicFont      = *-Italic,
+    BoldItalicFont  = *-BoldItalic
+]
+
+\setsansfont{Lato}[
+    Path            = ../../fonts/,
+    Scale           = MatchUppercase,
+    Extension       = .ttf,
+    UprightFont     = *-Regular,
+    BoldFont        = *-Bold,
+    ItalicFont      = *-Italic,
+    BoldItalicFont  = *-BoldItalic
+]
+
+\setmonofont{FiraMono}[
+    Path            = ../../fonts/,
+    Scale           = .9,
+    Extension       = .otf,
+    UprightFont     = *-Regular,
+    BoldFont        = *-Bold
+]
+
+\setmathfont{XITSMath-Regular.otf}[
+    Path            = ../../fonts/,
+    BoldFont        = XITSMath-Bold.otf
+]
+
+\setmathfont{latinmodern-math.otf}[
+    Path            = ../../fonts/,
+    range           = {frak, bffrak},
+    BoldFont        = latinmodern-math.otf
+]
+
+\setmathfont{LatoMath.otf}[
+    Path            = ../../fonts/,
+    Scale           = .95,
+    BoldFont        = LatoMath.otf,
+    version         = sf
+]
+
+\setmathfont{LatoMath.otf}[
+    Path            = ../../fonts/,
+    Scale           = .95,
+    BoldFont        = LatoMath.otf,
+    range           = {bb, sfup -> up, sfit -> it, bfsfup -> bfup, bfsfit -> bfit}
+]
+
+\setmathfont{STIX2Math.otf}[
+    Path            = ../../fonts/,
+    BoldFont        = STIX2Math-Bold.otf,
+    range           = {\int, \sum, \prod, \coprod, \bigoplus, \bigotimes, \bigcup, \bigcap, \bigvee, \bigwedge}
+]
+
+\Umathcode`/  =  "0 "0 "2215    % / -> U+2215 division slash
+
+% patch 'text math' math alphabets in bold math
+\setmathfontface\mathrm{XITS-Bold.otf}[
+    Path            = ../../fonts/,
+    version         = bold
+]
+
+\setmathfontface\mathit{XITS-BoldItalic.otf}[
+    Path            = ../../fonts/,
+    version         = bold
+]
+
+\setmathfontface\mathbf{XITS-Bold.otf}[
+    Path            = ../../fonts/,
+    version         = bold
+]
+
+\setmathfontface\mathtt{FiraMono-Bold.otf}[
+    Path            = ../../fonts/,
+    Scale           = .9,
+    version         = bold
+]
+
+\setmathfontface\mathrm{Lato-Regular.ttf}[
+    Path            = ../../fonts/,
+    Scale           = MatchUppercase,
+    version         = sf
+]
+
+\setmathfontface\mathit{Lato-Italic.ttf}[
+    Path            = ../../fonts/,
+    Scale           = MatchUppercase,
+    version         = sf
+]
+
+\setmathfontface\mathbf{Lato-Bold.ttf}[
+    Path            = ../../fonts/,
+    Scale           = MatchUppercase,
+    version         = sf
+]
+
+\setmathfontface\mathtt{FiraMono-Regular.otf}[
+    Path            = ../../fonts/,
+    Scale           = .9,
+    version         = sf
+]
+
+% bold math in bold text
+\usepackage{amsthm}
+\makeatletter
+    \g@addto@macro\bfseries{\boldmath}
+    \def\thmhead@plain#1#2#3{%
+        \thmname{#1}\thmnumber{\@ifnotempty{#1}{ }\@upn{#2}}%
+        \thmnote{ {\the\thm@notefont{\unboldmath(#3)}}}}
+    \let\thmhead\thmhead@plain
+\makeatother
+
+% title & abstract
+\def\title#1\author#2{%
+    \headertitle{#1}
+    \vspace*{0mm}
+    \begin{center}
+        {\sf\LARGE#1\par}
+        \vspace{10mm}
+        {\large#2}
+    \end{center}
+    \vspace{10mm}
+}
+\def\headertitle#1{
+    \def\theheadertitle{#1}
+}
+
+\renewcommand{\abstractname}{ABSTRACT}
+\makeatletter
+    \let\endabstract@orig\endabstract
+    \def\endabstract{\endabstract@orig\vspace{5mm}}
+\makeatother
+
+% section titles
+\usepackage{titlesec}
+\titleformat*{\section}{\Large\sffamily\mathversion{sf}}
+\titleformat*{\subsection}{\large\sffamily\mathversion{sf}}
+\titleformat*{\paragraph}{\normalsize\sffamily\mathversion{sf}}
+
+% headers and footers
+\usepackage{fancyhdr}
+\fancyhf{}
+\fancyhead[CE]{\sf\mathversion{sf}\theheadertitle}
+\fancyhead[CO]{\sf\mathversion{sf}\nouppercase{\leftmark}}
+\fancyhead[LE,RO]{\textbf{\textsf{\thepage}}}
+\headsep=8mm
+\headheight=6mm
+
+\AtBeginDocument{
+    \pagestyle{fancy}\thispagestyle{empty}
+}
+
+% spacing
+\AtBeginDocument{
+    \hfuzz=2pt
+    \emergencystretch 2em
+    \setlength{\belowdisplayshortskip}{\belowdisplayskip}
+}
+
+% environments
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\theoremstyle{plain}
+
+\def\qedsymbol{$◻$}
+\def\thmqedhere{\pushQED{\qed}\qedhere\popQED}
+
+\numberwithin{equation}{theorem}
+
+% renew theorem: https://tex.stackexchange.com/q/103013/
+\makeatletter
+\def\renewtheorem#1{%
+    \expandafter\let\csname#1\endcsname\relax
+    \expandafter\let\csname c@#1\endcsname\relax
+    \gdef\renewtheorem@envname{#1}
+    \renewtheorem@secpar
+}
+\def\renewtheorem@secpar{\@ifnextchar[{\renewtheorem@numberedlike}{\renewtheorem@nonumberedlike}}
+\def\renewtheorem@numberedlike[#1]#2{\newtheorem{\renewtheorem@envname}[#1]{#2}}
+\def\renewtheorem@nonumberedlike#1{  
+\def\renewtheorem@caption{#1}
+\edef\renewtheorem@nowithin{\noexpand\newtheorem{\renewtheorem@envname}{\renewtheorem@caption}}
+\renewtheorem@thirdpar
+}
+\def\renewtheorem@thirdpar{\@ifnextchar[{\renewtheorem@within}{\renewtheorem@nowithin}}
+\def\renewtheorem@within[#1]{\renewtheorem@nowithin[#1]}
+\makeatother
+
+% ref & biblatex
+\usepackage[colorlinks,allcolors=black,bookmarksnumbered,linktoc=all]{hyperref}
+
+\def\thesection{\arabic{section}\texorpdfstring{}{.}} % pdf bookmark numbering
+\setcounter{secnumdepth}{1} % suppress subsection numbering
+
+\usepackage[style=alphabetic,sorting=anyvt,useprefix=true]{biblatex}
+\usepackage{xpatch}
+\renewcommand*{\bibfont}{\small}
+\DeclareFieldFormat[article]{volume}{\mkbibbold{#1}}
+\DeclareFieldFormat[book,inbook]{number}{\mkbibbold{#1}}
+\DeclareFieldFormat[article]{number}{(#1)}
+\DeclareFieldFormat*{year}{(#1)}
+\DeclareFieldFormat{pages}{#1}
+\renewbibmacro{in:}{}
+\renewbibmacro*{volume+number+eid}{%
+    \printfield{volume}%
+    \setunit*{\addnbspace}% originally: \setunit*{\adddot}
+    \printfield{number}%
+    \setunit{\addcomma\space}%
+    \printfield{eid}%
+}
+\xapptobibmacro{author/editor+others/translator+others}{%
+    \setunit{\space}%
+    \printfield{year}%
+    \clearfield{year}%
+}{}{}
+\xapptobibmacro{author/translator+others}{%
+    \setunit{\space}%
+    \printfield{year}%
+    \clearfield{year}%
+}{}{}
+    \renewbibmacro*{issue+date}{%
+    \printfield{issue}%
+    \newunit%
+}
+\AtBeginBibliography{
+    \DeclareFieldFormat{labelalpha}{#1}
+    \DeclareFieldFormat{extraalpha}{\mknumalph{#1}}
+}
+\AtEveryBibitem{
+    \ifentrytype{online}{%
+        \clearfield{year}%
+    }{}
+}
+
+% tikz
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\tikzset{
+    > = latex
+}
+\tikzcdset{
+    arrow style = tikz,
+    arrows = {
+        /tikz/line width = .5pt
+    },
+    diagrams = {
+        > = {Straight Barb[scale = 0.8]}
+    },
+    nodes = {
+        inner xsep = 3pt,
+        inner ysep = 3pt
+    }
+}
+

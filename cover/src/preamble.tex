@@ -1,0 +1,55 @@
+\usepackage{geometry}
+\geometry{paperwidth=420mm,paperheight=297mm,left=0cm,right=0cm,top=.5cm,bottom=0cm}
+
+\usepackage[PunctStyle=kaiming]{xeCJK}
+\setCJKmainfont[Path=../fonts/,BoldFont=NotoSansCJKsc-Bold.otf]{NotoSansCJKsc-DemiLight.otf}
+\setmainfont[Path=../fonts/,BoldFont=NotoSansCJKsc-Bold.otf]{NotoSansCJKsc-DemiLight.otf}
+\newfontfamily{\Acumin}[Path=../fonts/]{AcuminExtraCondSemibold.otf}
+
+\usepackage{xcolor}
+\definecolor{lightblue}{HTML}{31c6f4}
+\definecolor{darkblue}{HTML}{1f6899}
+
+\usepackage{tikz}
+
+\long\def\MakeCover#1#2#3#4{
+    \def\halfthk{#1*0.025mm}
+    \clearpage
+    \begin{center}
+        \begin{tikzpicture}
+            \node[anchor=north west,inner sep=0] at (\halfthk-10mm,10mm) {\includegraphics[width=175mm]{src/front.pdf}};
+            \node[anchor=north east,inner sep=0] at (-\halfthk+10mm,10mm) {\includegraphics[width=175mm]{src/back.pdf}};
+            \node[anchor=north,inner sep=0] at (0mm,10mm) {\includegraphics[width=30mm]{src/ridge.pdf}};
+            
+            \node[scale=3.67,white] at (\halfthk+77mm,-151mm) {\Acumin #2};
+            \node[scale=3.67,white] at (\halfthk+77mm,-164mm) {\Acumin #3};
+            \node[darkblue] at (-\halfthk-77.5mm,-174mm) {\parbox{75mm}{#4}};
+            \node[anchor=north,darkblue,scale=1.6] at (0mm,-145mm) {\rotatebox{-90}{\Acumin #2}};
+            \node[anchor=north,darkblue,scale=1] at (0mm,-155.7mm) {年};
+            \draw[darkblue] (-2.5mm,-165mm) -- (2.5mm,-165mm);
+            \node[anchor=north,darkblue,scale=1] at (0mm,-169.5mm) {第};
+            \node[anchor=north,darkblue,scale=1.6] at (0mm,-173.2mm) {\rotatebox{-90}{\Acumin #3}};
+            \node[anchor=north,darkblue,scale=1] at (0mm,-179.7mm) {期};
+
+            \fill[lightblue] (-165mm-\halfthk,10mm)--(165mm+\halfthk,10mm)--(165mm+\halfthk,-10mm)--(-165mm-\halfthk,-10mm);
+            \fill[darkblue] (-165mm-\halfthk,-245mm)--(165mm+\halfthk,-245mm)--(165mm+\halfthk,-225mm)--(-165mm-\halfthk,-225mm);
+
+            \draw[thick]
+                (-180mm-\halfthk,0mm)--(-170mm-\halfthk,0mm)
+                (180mm+\halfthk,0mm)--(170mm+\halfthk,0mm)
+                (-180mm-\halfthk,-235mm)--(-170mm-\halfthk,-235mm)
+                (180mm+\halfthk,-235mm)--(170mm+\halfthk,-235mm)
+                (-155mm-\halfthk,25mm)--(-155mm-\halfthk,15mm)
+                (155mm+\halfthk,25mm)--(155mm+\halfthk,15mm)
+                (-155mm-\halfthk,-260mm)--(-155mm-\halfthk,-250mm)
+                (155mm+\halfthk,-260mm)--(155mm+\halfthk,-250mm)
+                (-\halfthk,25mm)--(-\halfthk,15mm)
+                (\halfthk,25mm)--(\halfthk,15mm)
+                (-\halfthk,-260mm)--(-\halfthk,-250mm)
+                (\halfthk,-260mm)--(\halfthk,-250mm); 
+            % \draw (-\halfthk, 0mm) rectangle (\halfthk, -235mm);
+            % \draw (-155mm-\halfthk, 0mm) rectangle (155mm+\halfthk, -235mm);
+            % \draw (-165mm-\halfthk, 10mm) rectangle (165mm+\halfthk, -245mm);
+        \end{tikzpicture}
+    \end{center}
+}

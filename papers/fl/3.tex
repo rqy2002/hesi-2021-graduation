@@ -1,0 +1,350 @@
+% \section{Calabi--Yau Completion}
+%=========================================================
+\label{sec 3}
+
+%=========================================================
+\subsection{Differential double graded categories}
+%=========================================================
+Let $\Bk$ be a commutative ring.
+We introduce differential double graded algebras
+which are differential graded algebras graded by $\ZZ \oplus G$ where $G$ is a group.
+
+\begin{definition}
+  A \textit{differential double graded algebra} (ddg algebra for short)
+  $A$ is a $\ZZ \oplus G$-graded $\Bk$-algebra
+  \[ A \coloneq \bigoplus_{m \in \ZZ, g \in G} A^{(m, g)} \]
+  with the differential $d \colon A^{(m, g)} \to A^{(m+1, g)}$
+  of degree 1 such that $d^2 = 0$ and the graded Leibniz rule
+  \[ d(ab) = (da)b + (-1)^pa(db) \]
+  holds for $a \in A^{(p, g)}, b \in A.$
+\end{definition}
+
+\begin{definition}
+  A \textit{(right) ddg $A$-module} $M$ is a $\ZZ \oplus G$ graded $A$-module
+  \[ M \coloneq \bigoplus_{m \in \ZZ, g \in G} M^{(m, g)} \]
+  endowed with the differential $d \colon M^{(m,g)} \to M^{(m+1,g)}$ of degree 1
+  such that $d^2 = 0$ and the graded Leibniz rule
+  \[ d(ma) = (dm)a + (-1)^pm(da) \]
+  holds for $m \in M^{(p, g)}, a \in A$.
+  The \textit{shift} of ddg $\Bk$-module $M' = M[(k, h)]$ is defined in component
+  \[ (M')^{(m,g)} \coloneq M^{(m+k,g \cdot h)}, \]
+  with the new differential $d' \coloneq (-1)^kd$.
+\end{definition}
+
+Let
+\[
+  M^{-, g} = 
+  \begin{tikzcd}[cramped, column sep=small]
+    \ldots \ar[r] & M^{(i-1, g)} \ar[r, "d^{i-1}"] & M^{(i,g)} \ar[r, "d^i"]
+                  & M^{(i+1, g)} \ar[r] & \ldots
+  \end{tikzcd}, g \in G
+\]
+be a dg $A$-module.
+We have the standard truncation functors $\tau^g_{\leq 0}$ and $\tau^g_{> 0}$ as:
+\begin{align*}
+  {}_{\tau^g_{\leq 0}}M^{-,g} &=
+  \begin{tikzcd}[cramped, column sep=small]
+    \ldots \ar[r] & M^{(-2,g)} \ar[r, "d^{-2}"] & M^{(-1,g)} \ar[r, "d^{-1}"]
+      & \ker d^0 \ar[r] & 0\ar[r] & 0\ar[r] & 0 \ldots,
+  \end{tikzcd} \\
+  {}_{\tau^g_{> 0}}M^{-,g} &=
+  \begin{tikzcd}[cramped, column sep=small]
+  \ldots \ar[r] & 0\ar[r] & 0\ar[r] & M^{(0,g)} \quot \ker d^0 \ar[r, "d^0"]
+      & M^{(1,g)} \ar[r, "d^{1}"] & M^{(2,g)} \ar[r, "d^{2}"] & M^{(3,g)} \ldots
+  \end{tikzcd}
+\end{align*}
+
+Let $M$ and $N$ be two ddg $A$-modules.
+A \textit{morphism $f \colon M \to N$ of ddg $A$-modules}
+is a $\ZZ \oplus G$ graded $\Bk$-linear map $\hom_A(M, N)$.
+The $(i, g)$-th component $\hom^{(i, g)}_A(M, N)$ is
+\[
+  \prod_{j \in \ZZ, h \in G} \Hom_{\Bk}(M^{(j,h)}, N^{(i+j,h\cdot g)}),
+\]
+consisting of morphisms $f$ such that
+\[ f(ma) = f(m)a \]
+holds for all $m \in M$ and $a \in A$.
+Moreover, the bi-graded map $\hom_A(M, N)$
+is also equipped with a differential $d$ such that
+\[ d(f) = f \circ d_M - (-1)^{|f|} d_N \circ f \]
+holds for a homogeneous morphism $f$ of degree $|f|$.
+
+\begin{definition}
+  A \textit{double differential graded $\Bk$-category} (ddg $\Bk$-category for short)
+  is a $\Bk$-category $\mathcal{A}$ with the following data:
+  \begin{itemize}
+    \item a class of objects, denoted by $\Obj{\mathcal{A}}$,
+    \item morphism spaces $\hom_{\mathcal{A}}(X, Y)$ as complexes of $\Bk$-modules,
+      where $X, Y \in \Obj{\mathcal{A}}$,
+    \item The composition maps
+      \begin{align*}
+        \hom_{\mathcal{A}}(Y, Z) \otimes_{\Bk} \hom_{\mathcal{A}}(X, Y)
+        & \to \hom_{\mathcal{A}}(X, Z)\\
+        g \otimes f &\mapsto g \circ f
+      \end{align*}
+      are chain maps for bi-complexes,
+      namely that it satisfies the graded Leibniz rule
+      \[ d(g \circ f) = d(g)\circ f + (-1)^{|f|}g \circ d(f) \]
+      for homogeneous morphisms $f$ and $g$.
+  \end{itemize}
+\end{definition}
+
+Let $\mathcal{A}$ and $\mathcal{B}$ be two ddg $\Bk$-categories.
+A \textit{ddg functor} from $\mathcal{A}$ to $\mathcal{B}$ is a $\Bk$-linear functor
+$F \colon \mathcal{A} \to \mathcal{B}$ such that all maps
+\[ F(X,Y) \colon \hom_{\mathcal{A}}(X, Y) \to \hom_{\mathcal{B}}(F(X), F(Y)) \]
+are chain maps for bi-complexes.
+Note that the category $\dgcat$ formed by all small ddg categories
+is also a ddg category, 
+with morphism spaces consisting of dg functors \cite{K7}.
+\begin{remark}
+  Similar to the dg case \cite{K7},
+  if a ddg category $\mathcal{A}$ has only one object $*$,
+  it can be viewed as a ddg algebra,
+  namely the endomorphism algebra $\hom_{\mathcal{A}}(*, *)$ of $*$.
+\end{remark}
+
+%=========================================================
+\subsection{The derived category}
+%=========================================================
+Let $\Ce(A)$ denote the category of ddg $A$-modules,
+where the objects are the ddg $A$-modules
+and the morphisms are the morphisms of ddg $A$-modules.
+Moreover, this is an abelian $\Bk$-category.
+A morphism $f \colon M \to N$ of $\Ce(A)$ is called \textit{null-homotopic}
+if there is a homogeneous morphism $s \colon M \to N$ of degree $-1$
+such that $f = ds+sd$, where we omit the degree for simplicity.
+We call a morphism $f$ in $\Ce(A)$ \textit{quasi-isomorphism}
+if $H^p(f)$ is invertible for all $p \in \ZZ$.
+
+The \textit{homotopy category} $\mathcal{H}(A)$ has the same objects as $\Ce(A)$.
+Its morphisms are residue classes of morphisms of $\Ce(A)$
+modulo null-homotopic morphisms.
+Moreover, the homotopy category is a triangulated category.
+
+The \textit{derived category of ddg $A$-modules},
+denoted by $\D(A)$, is the localization of $\mathcal{H}(A)$
+with respect to the quasi-isomorphisms.
+The \textit{perfect derived category} $\per A \subset \D(A)$
+is the smallest full triangulated subcategory of $\D(A)$ containing $A$
+which is closed under taking shifts, extensions and direct summands.
+The \textit{finite dimensional derived category} $\D_{fd}(A)$
+is the full subcategory of $\D(A)$ consisting of all ddg $A$-modules
+whose cohomology are of finite total dimension, i.e.,
+\[ \D_{fd}(A) = \Bigl\{ M \in \D(A) \Bigm| \sum_p \dim H^p(M) < \infty \Bigr\}. \]
+
+A ddg $A$-module $P$ is \textit{cofibrant} if,
+for every quasi-isomorphism $L \to M$ which is surjective in each component,
+every morphism $P \to M$ factors through $L$.
+A ddg $A$-module $I$ is \textit{fibrant} if,
+for every quasi-isomorphism $L \to M$ which is injective in each component,
+every morphism $L \to I$ factors through $M$.
+The following two diagrams illustrate the definition:
+
+\[
+  \begin{tikzcd}
+    & P \ar[dl, dashed] \ar[d] \\ L \ar[r] & M,
+  \end{tikzcd}
+  \quad \quad
+  \begin{tikzcd}
+    L \ar[r] \ar[d] & M. \ar[dl, dashed] \\ I
+  \end{tikzcd}
+\]
+
+\begin{proposition}\cite{K1}
+  \begin{enumerate}
+    \item Let $M$ be a ddg module.
+      There are quasi-isomorphisms
+      \[ \Bp M \to M, \quad M \to \Bi M\]
+      where $\Bp M$ is cofibrant and $\Bi M$ is fibrant.
+    \item The projection functor $\mathcal{H}(A) \to \D(A)$
+      has a fully faithful left adjoint as $M \mapsto \Bp M$
+      and a fully faithful right adjoint as $M \mapsto \Bi M$,
+      which is shown in the following diagram,
+      \[
+        \begin{tikzcd}
+          \mathcal{H}(A) \ar[d] \\
+          \D(A) \ar[u, shift left=2, "\Bp"] \ar[u, shift right=2, "\Bi"']
+        \end{tikzcd}
+      \]
+  \end{enumerate}
+\end{proposition}
+We call $\Bp M \to M$ a \textit{cofibrant resolution}
+and $M \to \Bi M$ a \textit{fibrant resolution} of $M$.
+If $A$ is a usual $\Bk$-algebra and $M$ is a right $A$-module
+considered as a complex concentrated in degree $0$,
+then $\Bp M \to M$ becomes a projective resolution
+and $M \to \Bi M$ becomes an injective resolution of $M$.
+
+%=========================================================
+\subsection{The derived Hom and tensor functors}
+%=========================================================
+Let $A$ and $B$ be two ddg $\Bk$-algebras.
+A ddg $B$-$A$-\textit{bimodule} $X$ is a right ddg module
+over the ddg algebra $B^{\rm op} \otimes_{\Bk} A$ such that
+\[ x(b \otimes a) = (-1)^{|b| \cdot |x|}bxa \]
+holds for all $b \in B, x \in X, a \in A$.
+
+Let $X$ be a ddg $B$-$A$-bimodule. We have an adjoint pair of ddg functors:
+\begin{align*}
+  - \otimes_B X&: \Ce(B) \to \Ce(A), \text{and}\\
+  \Hom_A(X, -)&: \Ce(A) \to \Ce(B).
+\end{align*}
+Taking $0$-degree cohomology, we obtain an adjoint pair of triangle functors:
+\[
+  \begin{tikzcd}[column sep=4em, every arrow/.append style=shift left]
+    \mathcal{H}(B) \ar[r, "- \otimes_B X"]
+    & \mathcal{H}(A). \ar[l, "{\Hom_A(X, -)}"]
+  \end{tikzcd}
+\]
+Generally, we have the following diagram of adjoint pairs of triangle functors:
+
+\[
+  \begin{tikzcd}[column sep=4em, every arrow/.append style=shift left]
+    \D(B) \ar[r, "\Bp_B"]
+    & \mathcal{H}(B) \ar[r, "- \otimes_B X"] \ar[l, "\pi_B"]
+    & \mathcal{H}(A) \ar[l, "{\Hom_A(X, -)}"] \ar[r, "\pi_A"]
+    & \D(A). \ar[l, "\Bi_A"]
+  \end{tikzcd}
+\]
+
+The left derived functor $- \Ltimes_B X \colon \D(B) \to \D(A)$
+of $- \otimes_B X$ is defined as the compositions:
+\[ - \Ltimes_B X = \pi_A \circ (- \otimes_B X) \circ \Bp_B \]
+which sends a ddg module $L$ to $(\Bp L) \otimes_B X$.
+The right derived functor $\RHom_A(X, -) \colon \D(A) \to \D(B)$
+of $\Hom_A(X, -)$ is defined as the compositions:
+\[ \RHom_A(X, -) = \pi_B \circ \Hom_A(X, -) \circ \Bi_A \]
+which sends a ddg module $M$ to $\Hom_A(X, \Bi M)$.
+\begin{proposition}\cite{K1}
+  $(- \Ltimes_B X, \RHom_A(X, -))$ forms an adjoint pair of triangle functors,
+  i.e. there is a canonical isomorphism
+  \[ \Hom_{\D(A)}(L \Ltimes_B X, M) \cong \Hom_{\D(B)}(L, \RHom_A(X, M)). \]
+\end{proposition}
+
+%=========================================================
+\subsection{The inverse dualizing complex}
+%=========================================================
+Let $\Bk$ be a field and $A$ be a ddg $\Bk$-algebra.
+The \textit{enveloping algebra} of $A$ is defined as $A^e \coloneq A \otimes A^{\rm op}$.
+The ddg-algebra $A$ can be regarded
+as an $A^e$-module through the $A$-bimodule action.
+
+A ddg algebra $A$ is called \textit{homologically smooth} if $A$,
+regarded as an $A$-bimodule,
+admits a finite resolution by finite generated projective bimodules,
+i.e. $A \in \per A^e$.
+Let $A$ be a homologically smooth ddg algebra.
+The \textit{inverse dualizing complex} $\Theta_A$
+is given by the cofibrant resolution of $\RHom_{A^e}(A, A^e)$.
+\begin{remark}
+  If $A$ is homologically smooth,
+  \cite[Lemma 4.1]{K1} implies that the finite-dimensional category
+  $\D_{fd}(A)$ is a subcategory of $\per A$.
+  Hence, it motivates us to define $\per A \quot \D_{fd}(A)$ by Verdier quotient.
+\end{remark}
+
+\begin{lemma}\cite[Lemma 4.1]{K1}
+  Let $A$ be a homologically smooth ddg $\Bk$-algebra.
+  For any ddg module $L \in \D(A)$ and $M \in \D_{fd}(A)$,
+  there exists a canonical isomorphism
+  \[
+    \DHom_{\D(A)}(M,L)
+    \xrightarrow{\sim} \Hom_{\D(A)}\bigl(L \Ltimes_A \Theta_A, M\bigr)
+  \]
+  where $D = \Hom_{\Bk}(-, \Bk)$.
+\end{lemma}
+
+\begin{definition}
+  Let $\mathcal{N} \in \ZZ \oplus G$ where $G$ is a group.
+  We call a ddg algebra $A$ a \textit{Calabi--Yau-$\mathcal{N}$}
+  algebra if $A$ is homologically smooth and it satisfies
+  \[ \Theta_A \xrightarrow{\sim} A[-\mathcal{N}] \]
+  in $\per A$.
+  Similarly, a category $\mathcal{C}$ is called
+  a \textit{Calabi--Yau-$\mathcal{N}$} category if
+  \[ \Hom(X, Y) \simeq \DHom(Y, X[\mathcal{N}]) \]
+  holds for any $X, Y \in \mathcal{C}$.
+\end{definition}
+
+By definition, we observe that the shift functor $[\mathcal{N}]$
+is a Serre functor in a Calabi--Yau-$\mathcal{N}$ category.
+In particular, if $A$ is a Calabi--Yau-$\mathcal{N}$ algebra,
+then $\D_{fd}(A)$ is a Calabi--Yau-$\mathcal{N}$ triangulated category.
+
+%=========================================================
+\subsection{Calabi--Yau-\texorpdfstring{$g$}{g} completions for ddg algebras}
+%=========================================================
+Let $G$ be a group and $g$ be an element in $G$.
+We regeneralize the definition of Calabi--Yau completions
+for dg algebras in \cite{K2}.
+
+\begin{definition}\label{CYcomp}
+  Let $A$ be a homologically smooth ddg $\Bk$-algebra
+  and $\Theta_A$ be its inverse dualizing complex.
+  The \textit{Calabi--Yau-$g$ completion} of $A$ is defined as the tensor algebra
+  \[
+    \Pi_g(A) \coloneq T_A(\theta)
+    = A \oplus \theta \oplus (\theta \otimes_A \theta) \oplus \cdots
+  \]
+  where $\theta \coloneq \Theta_A[g-1]$.
+\end{definition}
+
+Moreover, Keller's results \cite{K2} still holds in double grading case.
+
+\begin{theorem}\label{DfdCY}\cite[Theorem 4.8]{K2}
+  Let $A$ be a homologically smooth ddg $\Bk$-algebra.
+  The Calabi--Yau-$g$ completion $\Pi_gA$ of $A$ is homologically smooth
+  and is a Calabi--Yau-$g$ algebra.
+  Particularly, $\D_{fd}(\Pi_gA)$ is a Calabi--Yau-$g$ category.
+\end{theorem}
+
+\begin{remark}
+  If we consider the case when $G$ is a free abelian group $\ZZ\XX$
+  of rank one generated by $\XX$, we deduce Theorem 2.4 in \cite{Q12}.
+\end{remark}
+
+%=========================================================
+\subsection{Ginzburg ddg algebra}
+%=========================================================
+\begin{definition}
+  Let $(Q, W)$ be a $\ZZ$-graded quiver with potential $W$
+  where $Q = (Q_0,Q_1)$ with vertices set $Q_0 = \{1, 2, \ldots, n\}$
+  and arrows set $Q_1$.
+  We define the \textit{Ginzburg ddg algebra}
+  $\Gamma_g(Q, W) \coloneq (\Bk \overline{Q}, d)$ as follows.
+  The $\ZZ \oplus G$-graded quiver $\overline{Q}$ has the vertices set
+  $\overline{Q}_0$ the same as the original vertices set $Q_0$.
+  The arrows set of $\overline{Q}$ consists of the following data:
+  \begin{itemize}
+    \item Original arrows $a \colon i \to j \in Q_1$ with degree $d$;
+    \item Opposite arrows $a^* \colon j \to i$ for the original arrow
+      $a \colon i \to j \in Q_1$ endowed with degree $2 - g - d$;
+    \item A loop $t_i$ for each vertex $i \in Q_0$ endowed with degree $1 - g$.
+  \end{itemize}
+  Consider the ddg path algebra $\Bk \overline{Q}$ which is graded by $\ZZ \oplus G$.
+  We define a differential $d \colon \Bk \overline{Q} \to \Bk \overline{Q}$
+  of degree 1 on it by
+  \begin{itemize}
+    \item $da = 0$ for $a \in Q_1$;
+    \item $da^* = \partial_aW$ for $a \in Q_1$, where $\partial_aW$
+      represents the cyclic derivative of $W$ with respect to $a$;
+    \item $dt_i = e_i\bigl(\sum_{a \in Q_1}(aa^* - a^*a)\bigr) e_i$
+      for $i \in Q_0$, where $e_i$ is the idempotent at $i$.
+  \end{itemize}
+  Thus we obtain the ddg algebra $\Gamma_g(Q,W) = (\Bk \overline{Q}, d)$.
+\end{definition}
+Particularly if $W = 0$, it degenerates into the acyclic quiver case,
+which implies $da = da^* = 0$ for $a \in Q_1$.
+We denote $\Gamma_gQ$ the Ginzburg ddg algebra when $W = 0$,
+and $\D_{fd}(\Gamma_gQ)$ the finite-dimensional derived category of $\Gamma_gQ$.
+Analogous to \cite[Corollary 2.8]{Q12},
+$\Gamma_gQ$ is the Calabi--Yau-$g$ completion of $\Bk Q$.
+
+\begin{theorem}\cite{Q12}\label{3.10}
+  With the notation above,
+  the Calabi--Yau-$g$ completion $\Pi_g(\Bk Q)$ of the path algebra $\Bk Q$
+  is quasi-isomorphic to the Ginzburg Calabi--Yau-$g$ algebra $\Gamma_gQ$.
+  Particularly, $\D_{fd}(\Gamma_gQ)$ is a Calabi--Yau-$g$ triangulated category.
+\end{theorem}
+%=========================================================

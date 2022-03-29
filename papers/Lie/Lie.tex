@@ -1,0 +1,50 @@
+% !TeX encoding = UTF-8
+% !TeX program = xelatex
+% !TeX spellcheck = en_US
+
+\documentclass[twoside]{article}
+
+\input{../common/preamble}
+\input{commands}
+
+\addbibresource{refs.bib}
+
+\begin{document}
+
+\title{Lie Algebras Arising from Singularities}
+\author{Huang Chang\footnote{黄畅，清华大学数学系数 73 班.}}
+
+\begin{abstract}
+	In this paper we follow the method provided in \cite{SY} and \cite{BN}
+  to calculate serval families of Lie algebras
+  associated to two families of singularities,
+  and verify their non-triviality by the cohomology of Lie algebras.
+	
+  \bigskip
+
+  \noindent
+  \textbf{Keywords:}
+  derivation Lie algebra; isolated hypersurface singularity; non-trivial family
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}\label{sec1}
+\input{data/chap01}
+
+\section{Basic definitions and facts}\label{sec2}
+\input{data/chap02}
+
+\section{Computation of derivation Lie algebras}\label{sec3}
+\input{data/chap03}
+
+\section{Variation of liftable Lie algebra}\label{sec4}
+\input{chap04}
+
+\section{Decomposition data}\label{app-C}
+\input{appendix}
+
+% 参考文献
+\printbibliography       % 参考文献使用 BibLaTeX 编译
+
+\end{document}

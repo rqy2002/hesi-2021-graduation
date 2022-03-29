@@ -1,0 +1,514 @@
+% !TeX root = ../Lie.tex
+
+In our case,  $f$ is a homogeneous polynomial taking  the form
+\[x_1^d+\cdots+x_n^d + \sum_{t=1}^m t_i g_i,\]
+where $\{g_i\,\mid i = 1,\cdots, m\}$ is actually a monomial basis for  $A(f_\0)_d\cong A^*(f_\0)_d$, $d=4$, $n=3,4$ and $m=6,19$ respectively. Let's compute the families of Lie algebras $L(f_\bt)$ and $L^*(f_\bt)$  arising from the singularities defined by $\{f_\bt=0\}$, either by hand or computer.
+
+%	In the rest of the paper, we would identify $(x_1,x_2,x_3,x_4)$ with $(x,y,z,w)$.  Let's compute the new Lie algebras $L^*(f)$ of the following two families of singularities:
+%	\[
+%	f=f_{\bt}:=x^4+y^4+z^4+\sum_{i=1}^6t_ig_i,\]
+%	where $\{g_i\,| i = 1,\cdots, 6\}$ is a monomial basis for degree $4$ part of $A^*(f)$ and  
+%	\[
+%	f=f_\bt:=x^4+y^4+z^4+w^4+\sum_{i=1}^{19}t_ig_i,
+%	\]
+%	where $\{g_i\,| i = 1,\cdots, 19\}$ is a monomial basis for degree $4$ part of $A^*(f)$.	The number of variable would be denoted by $n(=3,4)$ and the degree of $f$ would be denoted by $d$.
+
+\subsection{General method}\label{sec-3.1}
+\subsubsection{Understand \texorpdfstring{$A(f)$}{A(f)} and $A^*(f)$}
+A direct computation gives a monomial basis for $A(f_\0)$ as following:
+\begin{equation}\label{3.1.1}
+  \{\xn^{\boldsymbol{\alpha}}\coloneq  x_1^ {\alpha_1}\cdots x_n^{\alpha_n}  \mid 0 \leqslant \alpha_1,\cdots, \alpha_n \leqslant d-2 \},
+\end{equation}
+This is a $\Cc$-basis for general $A(f_\bt)$ in the sense of the following proposition:
+\begin{proposition} \label{pro-3.1}
+  There is a Zariski closed set $Z\subset \Cc^m\backslash \{\0\}$ such that $\forall \bt \in \Cc^m\backslash Z,$ $A(f_\bt)$ admits the $\Cc$-basis \eqref{3.1.1}.
+\end{proposition}	
+\begin{remark}
+  From Proposition \ref{res}(2), we can easily deduce that a basis for general $A^*(f_\bt)$ can be given by 
+  \[\{\xn^{\boldsymbol{\alpha}} \mid 0 \leqslant \alpha _1,\cdots, \alpha_n \leqslant d-2 , |\alpha|\leqslant D-1\},\]
+  where $|\alpha|\coloneq \alpha_1+\cdots+\alpha_n, D= n(d-2).$
+\end{remark}
+\begin{proof} 
+  For $k\geqslant 0$, denote
+  \begin{align*}
+    \{B_1,\cdots, B_M\}&\coloneq \{\xn^{\boldsymbol{\alpha}} \mid |\boldsymbol{\alpha}| = k \},\\
+    \{b_1,\cdots, b_\mu\}&\coloneq \{\xn^{\boldsymbol {\alpha}} \mid 0 \leqslant \alpha_1,\cdots, \alpha_n \leqslant d-2, |\alpha|=k\},\\
+    \{b_{\mu+1},\cdots, b_{M'}\}&\coloneq \left\{ \xn^{\boldsymbol \alpha}\cdot \pd f{x_j} \Bigm| |\alpha|+d-1=k \right\}.
+  \end{align*}
+  Then $\{B_1,\cdots, B_M\}$ is a monomial basis for $\Cc\{\xn\}_k$, and $\{b_1,\cdots, b_\mu\}$ is exactly the monomials of degree $k$  in \eqref{3.1.1}. Note that when $k>D=n(d-2)$ the second set is empty and we can write $\mu=0$, when $k<d-1$ the third set is empty and we can write $M'=\mu$. 
+
+  Since $b_1,\cdots, b_\mu, b_{\mu+1},\cdots, b_{M'}$ are also of degree $k$, there is a matrix $C=(C_i^j) \in \Mat\left( M' \times M , \Cc[\bt] \right)$ such that
+  \[\begin{pmatrix}
+    b_1\\
+    \vdots\\
+    b_{M'}
+  \end{pmatrix}
+  =
+  C
+  \begin{pmatrix}
+    B_1\\
+    \vdots\\
+    B_M
+  \end{pmatrix}
+,\]
+or explicitly, $\forall 1\leqslant i \leqslant M', 1\leqslant j \leqslant M$, 
+\[b_i=\sum_{j=1}^M C_i^j B_j.\]
+
+$C(\0)$ is of rank $M$ due to the following reasons. We already know that $\{b_1,\cdots, b_\mu\}$ is a basis for $A(f_\0)_k$, the degree $k$-part of $A(f_\0)=\Cc\{\xn\}/j(f_\0)$. Since as $\Cc$-vector spaces, we have
+\[\left(\Cc\{\xn\}/j(f_\bt) \right)_k=\frac{\Cc\{\xn\}_k}{j(f_\bt)_k}
+  =\frac{\spann_\Cc\{B_1,\cdots, B_M\}}
+{\spann_\Cc\{b_{\mu+1},\cdots, b_{M'}\}},\]
+then we know $\{b_1,\cdots, b_{M'}\}$ spans $\Cc\{\xn\}_k$ at $\bt=\0$.  So up to a row permutation, $C(\bt)$ takes the form
+\[\begin{pmatrix}
+  C_k(\bt)\\
+  *
+\end{pmatrix}\]   
+where the submatrix $C_k(\bt)\in \Mat(M\times M , \Cc[\bt]) $ is invertible at $\bt=\0$.  In particular, $\det C_k \in \Cc[\bt]$ has a non-zero constant term, and $M\leqslant M'$.
+
+Take $Z_k = V\left( \det C_k \right)$, then $\forall \bt \in \Cc^m \backslash Z_k$, $C_k(\bt)$ is invertible and hence  $\rank C(\bt) = M$. Consequently, for those $\bt$, we have 
+\[\{\xn^{\boldsymbol{\alpha}} \mid |\boldsymbol{\alpha}| = k \} = \{B_1,\cdots, B_M \}\subset  \spann_\Cc\{ b_1,\cdots, b_\mu\} + \lan \pd f{x_1},\cdots, \pd f{x_n} \ran.\]
+In particular, take $k=D+1>n(d-2)$ and we would have $\{b_1,\cdots,b_\mu\}=\varnothing$, then by the above argument we obtain 
+\[\m^{D+1}=\lan B_1,\cdots, B_M\ran \subset j(f_\bt)\]
+for those $\bt\in \Cc^m \backslash Z_{D+1}$. 
+
+Now take 
+\[Z=\bigcup_{k=0}^{D+1} Z_{k}\subseteq \Cc^m,\]
+a Zariski closed set doesn't contain $0$, and 
+we have that $\forall \bt\in \Cc^m \backslash Z$, $A(f_\bt)$ is spanned by the monomials in \eqref{3.1.1}, and in particular, finite dimensional.  
+
+The monomials in \eqref{3.1.1} is linearly independent in $A(f_\bt)$ due to  proposition \ref{res} (1),  since the number of them is exactly $(d-1)^n=\dim A(f_\bt).$
+\end{proof}
+
+\begin{remark}\label{rem-3.2}
+  It's necessary for a computer to know the multiplication table of $A(f)$ under a basis.   \item[(1)] Take $\{B_1,\cdots, B_M\}, \{b_1,\cdots, b_\mu\} $  and $\{b_{\mu+1},\cdots, b_{M'}\}$ as in the above proof, let's find $u_i^j \in \Cc$ such that
+  \[B_i = \sum_{j=1}^\mu u_i^j b_j \in A(f_\bt).\]
+
+  Finding the matrix $C$ in the proof is easy for a computer. Now let $e_i \in \Cc^M$ denote the $i$-th coordinate row vector, then the solution of the linear equation
+  \[uC = e_i\]
+  satisfies
+  \[
+    B_i = e_i
+    \begin{pmatrix}
+      B_1\\
+      \vdots\\
+      B_M
+    \end{pmatrix}
+    =
+    uC
+    \begin{pmatrix}
+      B_1\\
+      \vdots\\
+      B_M
+    \end{pmatrix}
+    =
+    u
+    \begin{pmatrix}
+      b_1\\
+      \vdots\\
+      b_{M'}
+    \end{pmatrix}
+    =\sum_{j=1}^\mu u^j b_j +\sum_{j=\mu+1}^{M'}u^j b_j,
+  \]
+  so we can take $u_i^j\coloneq u^j$.
+
+  In particular,  $u_i^j(\bt)$ is holomorphic on a neighbourhood of $\0\in \Cc^m$, hence lies in $\Cc\{\bt\}$.  
+
+  \item[(2)]  Now let's denote
+    \begin{align*}
+      \{B_1,\cdots, B_M\}&\coloneq \{\xn^{\boldsymbol{\alpha}} \mid |\boldsymbol{\alpha}| \leqslant D \},\\
+      \{b_1,\cdots, b_\mu\}&\coloneq \{\xn^{\boldsymbol {\alpha}} \mid 0 \leqslant \alpha_1,\cdots, \alpha_n \leqslant d-2\},\\
+      \{b_{\mu+1},\cdots, b_{M'}\}&\coloneq \left\{ \xn^{\boldsymbol \alpha}\cdot \pd f{x_j} \Bigm| |\alpha|+d-1\leqslant D \right\}.
+    \end{align*}
+    We already find $u_i^j\in \Cc\{\bt\}$ such that 
+    \[B_i = \sum_{j=1}^\mu u_i^j b_j \in A(f_\bt).\]
+    Then we ca find  $u_{i,j}^k$ such that 
+    \[b_i\cdot b_j =\sum_{k=1}^\mu u_{i,j}^k b_k \in A(f_\bt).\]
+    Indeed, if $\deg b_i+\deg b_j \leqslant D$, then $b_i\cdot b_j$ must be some $B_l$, then we can take $u_{i,j}^k\coloneq u_l^k.$ If $\deg b_i+\deg b_j > D,$ then we just need to take $u_{i,j}^k=0$. 
+
+    Consequently, the multiplication table of $A(f)$ under the basis $\{b_1,\cdots, b_\mu\}$ can be obtained again by solving linear equation systems.  In particular, we would also have $u_{i,j}^k \in \Cc\{\bt\}$. This fact will be used in remark \ref{rem-3.3}.
+  \end{remark}
+
+  \subsubsection{Compute a basis for \texorpdfstring{$L(f)$}{L(f)}}\label{sec-3.1.2}
+  To calculate $L(f)$, we need a technical lemma in \cite{BN}:
+  \begin{lemma}(\cite{BN}, lemma 6.1)\label{lem-3.2}
+    Let $I \subseteq \Cc\{\xn\}$ be an ideal, then there is a natural isomorphism of Lie algebras:
+    \[\frac{\Der_I \Cc\{\xn\}} {I \Der_\Cc\{ \xn\} } \stackrel {\sim} \longrightarrow \Der_\Cc\left(\Cc\{\xn\}/I\right),\]
+    where
+    \[\Der_I \Cc\{\xn\} = \left\{ \delta \in \Der_\Cc\{\xn\} \mid \delta I \subseteq I\right\}.\]
+  \end{lemma} 
+  A basis for $L(f)$ hence can be obtained by solving linear equations. Indeed, according to the above lemma, a derivation in $L(f)_k$ can be lifted to a derivation in 
+  \[\left( \Der_\Cc \Cc\{ \xn \} \right)_k = \left( \bigoplus_{i=1}^n \Cc\{\xn\} \pd{}{x_i} \right)_k = \bigoplus_{i=1}^n \Cc\{\xn\}_{k+1} \pd{} {x_i}.\]
+  Take again $\{B_1,\cdots, B_M\}, \{b_1,\cdots, b_\mu\}$ in the proof of proposition \ref{pro-3.1}, but is of degree $k+1$. Then $\delta \in L(f)_k$ can be lifted to the form
+  \[\tilde \delta = \sum_{i=1}^n \sum_{j=1}^M \delta^{i,j} B_j \pd{}{x_i}, \]
+  where $\delta^{i,j} \in \Cc.$ Since $\delta$ is an linear endomorphism  of  $A(f)$, we just need to take the form 
+  \[\tilde \delta = \sum_{i=1}^n \sum_{j=1}^\mu \delta^{i,j} b_ j\pd{}{x_i}. \]
+  To make $\tilde \delta $ a derivation of $A(f)$, we just need to require $\tilde \delta j(f) \subseteq j(f)$, which is equivalent to say:
+  $\forall l = 1,\cdots, n$, 
+  \begin{equation}\label{3.1.2}
+    \overline{\tilde \delta \pd f {x_l} } \coloneq  
+    \overline{ \sum_{i=1}^n \sum_{j=1}^\mu \delta^{i,j} b_ j\frac{\partial^2 f }{\partial x_i \partial x_l }} = 0 \in A(f).
+  \end{equation}
+  Take a basis for $A(f)_{k+d-1}$, for example, monomial basis in \eqref{3.1.1}, then $\overline{\tilde \delta \pd f {x_l} }$ can be linearly combined from this basis with coefficients linear functions of $\delta^{i,j}$. \eqref{3.1.2} means that these functions vanishes, which turns out to be a system of homogeneous linear equations of $\delta^{i,j}$.
+
+  In the case $k>D-d+1$, \eqref{3.1.2} holds automatically since $A(f)_{k+d-1}=0$. Then we can easily deduce that 
+  \[L(f)_k = \bigoplus_{i=1}^n A(f)_{k+1} \pd{}{x_i}\]
+  for such $k$.
+
+  \begin{remark}\label{rem-3.3}
+    Another way to calculate $L(f)$ from $A(f)$ needs to solve a more complicated linear equation system, but is useful for the proof of lemma \ref{lem-4.9}. Take a  $\Cc$-basis  $\{b_1,\cdots, b_\mu\}$ for $A(f)$. Then $\delta \in \Endo_\Cc A(f)$ is a derivation if and only if $\forall 1\leqslant i ,j \leqslant \mu,$
+    \begin{equation}\label{3.1.3}
+      \delta(b_ib_j)=\delta (b_i)b_j+b_i\delta(b_j).
+    \end{equation}
+    We can regard $\delta$ as a $\mu^2$-dimensional vector given by $\delta_i^j\in \Cc$, with
+    \[\delta b_i = \sum_{j=1}^\mu \delta_i^j b_j,\]
+    then equation \eqref{3.1.3} comes out to be a linear equation system of size $\mu^3\times \mu^2$:
+    \[\sum_{i=1}^\mu u_{i,j}^k\delta_k^l-u_{i,k}^l\delta_j^k-u_{k,j}^l\delta_i^k=0,\, \forall 1\leqslant i,j,l\leqslant \mu,\]
+    where the matrix coefficients $u_{i,j}^k$ lies in $\Cc\{\bt\}$, as mentioned in remark \ref{rem-3.2} (2). In the two case we consider, the above equation can not be solved by hand.
+  \end{remark}
+
+  \subsubsection{Compute a basis for \texorpdfstring{$L^*(f)$}{L*(f)}}\label{sec-3.1.3}
+  The calculation of $L^*(f)_k$ is nearly the same as $L(f)_k$ due to proposition \ref{res} (4).
+  Indeed, $\forall \delta \in \tilde L(f)_k$  can be lifted to the form
+  \[\tilde \delta = \sum_{i=1}^n \sum_{j=1}^M \delta^{i,j} b_j \pd{}{x_i}, \]
+  where $\delta^{i,j} \in \Cc.$  	To make $\tilde \delta $ a derivation of $A^*(f)$, we just need to require $\tilde \delta \lan j(f), H(f) \ran \subseteq \lan j(f), H(f) \ran$. However, proposition \ref{res} (4) implies that $\deg \tilde \delta \geqslant 0$, so 
+  \[
+    \overline{\tilde \delta H(f)} = 0 \in A^*(f).
+  \]
+  holds automatically. Then we just need to require $\forall l = 1,\cdots, n$, 
+  \begin{equation}\label{3.1.2*}
+    \overline{\tilde \delta \pd f {x_l} } \coloneq  
+    \overline{ \sum_{i=1}^n \sum_{j=1}^\mu \delta^{i,j} b_ j\frac{\partial^2 f }{\partial x_i \partial x_l }} = 0 \in A(f).
+  \end{equation}
+  which looks very like the equation \eqref{3.1.2}.
+
+
+  What we would like to point out  is that the difference takes place when $k=D-d+1$ and $k=D-1$. The former one is because \eqref{3.1.2*} holds automatically, while \eqref{3.1.2} would lead to $n$ non-trivial equations. The latter one is because $A^*(f)_D=0,$ while $\dim A(f)_D=1$.
+
+  Consequently, there is a natural map $L(f)\to L^*(f)$ inducing  isomorphisms $L(f)_k \stackrel \sim \to L^*(f)_k$ as $\Cc$-linear space when $k\not=D-d+1, D-1$, and zero map when $k=D-1$, since $L^*(f)_{D-1}=0$. Note that 
+  \[L(f)_{D-1}=\bigoplus_{i=1}^n A(f)_D \pd{}{x_i}\]
+  is of dimension $n$,  then due to proposition \ref{res}(4), we can be convinced that
+  \[L(f)_{D-d+1} \to L^*(f)_{D-d+1}\]
+  is an injection with codimension $n$. These facts will be used in subsubsection \ref{sec-4.2.3}.
+
+  As presented above, all the computations are essentially solving linear equations, and can be realized by Mathematica.
+
+
+
+  \subsection{Data  for the case \texorpdfstring{$n=3$}{n=3}}\label{sec-3.2}
+  The software we use is Mathematica. Even in this simpler case, the result is so complicated that Mathematica can not even present the multiplication table of $A(f_\bt)$ or $A^*(f_\bt)$  explicitly. However, if we restrict to $1$ parameter, results become available even by hand.  In the following we will present some data compute by hand in the case $n=3$.
+
+  \subsubsection{A \texorpdfstring{$1$}{1}-parameter example} 
+  For example, let's consider
+  \[f=f_{t_1}\coloneq x_1^4+x_2^4+x_3^4
+  +t_1x_1^2x_2^2,\]
+  and for convenience we sometimes replace $(x_1,x_2,x_3,t_1)$ by $(x,y,z,t)$. It comes out that the $Z\subseteq \Cc$ in proposition \ref{pro-3.1} is $\{\pm 2\}$, for $t$ outside which  $f_t$ defines an isolated singularity. A basis for $L^*(f_t)_k, k\leqslant D-d=2$ is presented as follows:
+  \begin{itemize}
+    \item[$t=0$]
+      $L^*(f)_0$ admits a basis 
+      \[x\pd{}x, y\pd{} y, z\pd{} z,\]
+      hence is of dimension 3.
+      $L^*(f)_1$ admits a basis 
+      \[x_ix_j\pd{}{x_i}, i,j=1,2,3,\]
+      hence is of dimension 9.
+      $L^*(f)_2$ admits a basis 
+      \[x_i^2x_j\pd{}{x_i}, x_i^2x_j\pd{}{x_j}, x_1x_2x_3\pd{}{x_i}, 1\leqslant i \not=j \leqslant 3,\]
+      hence is of dimension 15. Consequently
+      \[\dim L^*(f_0) = 3+9+15+18+9=54.\]
+    \item[$t=\pm 6$]
+      $L^*(f)_0$ admits a basis 
+      \[ x\pd{} x+y\pd{} y, y\pd{} x\pm x\pd{} y , z\pd{}z,\]
+      hence is of dimension 3.
+      $L^*(f)_1$ admits a basis 
+      \begin{align*}
+        x^2\pd{}x+xy\pd{}y,
+        \left(\frac{12-t^2}{4t}x^2+y^2\right)\pd{}x ,&
+        xy\pd{}x+y^2\pd{}y,
+        xz\pd{}x+yz\pd{}y,\\
+        \left( x^2+\frac{12-t^2}{4t}y^2\right)\pd{}y, 
+        xz\pd{}z,
+        yz\pd{}z,&
+        z^2\pd{}z,
+        yz\pd{}x\pm xz\pd{}y,
+      \end{align*}
+      hence is of dimension 9.
+      $L^*(f)_2$ admits a basis 
+      \begin{align*}
+        x^2y\pd{}x,
+        xy^2\pd{}x,
+        \left(\frac{12-t^2}{4t}x^2z+y^2z\right)\pd{}x,\\
+        x^2z\pd{}x+xyz\pd{}y,
+        xyz\pd{}x+y^2z\pd{}y,\\
+        xz^2\pd{}x+yz^2\pd{}y,
+        x^2y\pd{}y,\\
+        \left(x^2z+\frac{12-t^2}{4t}y^2z\right)\pd{}y,
+        xy^2\pd{}y,
+        x^2z\pd{}z,\\
+        xyz\pd{}z,
+        xz^2\od{}z,
+        y^2z\pd{}z,
+        yz^2\pd{}z,\\
+        yz^2\pd{}x\pm xz^2\pd{}y,
+      \end{align*}
+      hence is of dimension 15. Consequently
+      \[\dim L^*(f_0) = 3+9+15+18+9=54.\]
+    \item[$t\not=0,\pm2,\pm6$]
+      $L^*(f)_0$ admits a basis 
+      \[ x\pd{}x+y\pd{}y, z\pd{}z,\]
+      hence is of dimension 2.
+      $L^*(f)_1$ admits a basis 
+      \begin{align*}
+        x^2\pd{}x+xy\pd{}y,
+        \left(\frac{12-t^2}{4t}x^2+y^2\right)\pd{}x ,&
+        xy\pd{}x+y^2\pd{}y,
+        xz\pd{}x+yz\pd{}y,\\
+        \left( x^2+\frac{12-t^2}{4t}y^2\right)\pd{}y, &
+        xz\pd{}z,
+        yz\pd{}z,
+        z^2\pd{}z,
+      \end{align*}
+      hence is of dimension 8.
+      $L^*(f)_2$ admits a basis 
+      \begin{align*}
+        x^2y\pd{}x,
+        xy^2\pd{}x,
+        \left(\frac{12-t^2}{4t}x^2z+y^2z\right)\pd{}x,\\
+        x^2z\pd{}x+xyz\pd{}y,
+        xyz\pd{}x+y^2z\pd{}y,\\
+        xz^2\pd{}x+yz^2\pd{}y,
+        x^2y\pd{}y,\\
+        \left(x^2z+\frac{12-t^2}{4t}y^2z\right)\pd{}y,
+        xy^2\pd{}y,
+        x^2z\pd{}z,\\
+        xyz\pd{}z,
+        xz^2\od{}z,
+        y^2z\pd{}z,
+        yz^2\pd{}z,
+      \end{align*}
+      hence is of dimension 14. Consequently
+      \[\dim L^*(f_0) = 2+8+14+18+9=51.\]
+  \end{itemize}
+
+  For some other considerations, one may need the coefficients lie in $\Cc\{t\}$, to achieve which we can, for example, replace $ \left(\frac{12-t^2}{4t}x^2+y^2\right)\pd{}x$ by $ \left(x^2+\frac{4t}{12-t^2}y^2\right)\pd{}x$. The reason and general method will be introduced in subsubsection \ref{sec-4.2.1}.
+
+  \subsubsection{A \texorpdfstring{$2$}{2}-parameter example} 
+  Let's now consider
+  \[f\coloneq  x^4+y^4+z^4+tx^2y^2+sx^2z^2.\]
+  It comes out that the $Z$ in proposition \ref{pro-3.1} is 
+  \[\left \{(t,s)\in \Cc^2\,| \left( t^2 -4\right) \left(s^2-4\right)\left( t^2+s^2-4\right) =0\right \},\]
+  for $(t,s)$ outside which  $f$ defines an isolated singularity. A basis for $L^*(f)_k, k\leqslant 2$ is presented as follows: In the general case 
+  \[3t^4+26t^2s^2+3s^4-120t^2-120s^2+432
+  \not=0,\]
+  $L^*(f)_0$ admits a basis 
+  \[ x\pd{}x+y\pd{}y+z\pd{}z,\]
+  hence is of dimension 1.
+  $L^*(f)_1$ admits a basis 
+  \begin{align*} 
+    x^2\pd{}x+xy\pd{}y+xz\pd{}z,\\
+    xy\pd{}x+y^2\pd{}y+yz\pd{}z,\\
+    xz\pd{}x+yx\pd{}y+z^2\pd{}z,
+  \end{align*}
+  hence is of dimension 3.
+  $L^*(f)_2$ admits a basis 
+  \begin{align*}
+    x^2y\pd{}x+xy^2\pd{}y+yxz\pd{}z,\\
+    \frac{t\left(t^2+s^2-4\right)}{2s\left(s^2-4\right)}x^2y\pd{}x+\left(\frac{t^2s^2-6t^2-6s^2+24}{ts\left(s^2-4\right)}xy^2-xz^2\right)\pd{}y,\\
+    \left(\frac{2t^3+t^2+s^2-12}{4s}x^2y-yz^2\right)\pd{}x+\frac{t^2+s^2+8t-12}{4s}xy^2\pd{}y,\\
+    x^2z\pd{}x+xyz\pd{}y+xz^2\pd{}z,\\
+    \frac{s\left(t^2+s^2-4\right)}{2t\left(t^2-4\right)}x^2z\pd{}x
+    +\left(-xy^2+\frac{t^2s^2-6t^2-6s^2+24}
+    {ts\left(t^2-4\right)}xz^2\right)\pd{}z,\\
+    \left(\frac{2s^3+t^2+s^2-12}{4t}x^2z-y^2z\right)\pd{}x
+    +\frac{t^2+s^2+8t-12}{4t}xz^2\pd{}z,\\
+    xy^2\pd{}x-\frac t 2 x^2y\pd{}y+\frac{s^2-4}{2t} x^2z\pd{}z,\\
+    xyz\pd{}x+y^2z\pd{}y+yz^2\pd{}z,\\
+    xz^2\pd{}x+\frac{t^2-4}{2s}x^2y\pd{}y-\frac s 2 x^2 z \pd{}z,\\
+    \left(\frac{t^2-4}{2s}x^2y-yz^2\right)\pd{}y,\\
+    \left(x^2z+\frac{t^2+3s^2-12}{t\left(s^2-4\right)}y^2z\right)\pd{}y,\\
+    \left(x^2y+\frac{3t^2+s^2-12}{s\left(t^2-4\right)}yz^2\right)\pd{}z,\\
+    \left(\frac{s^2-4}{2t}x^2z-y^2z\right)\pd{}z,
+  \end{align*}
+  hence is of dimension 13. Consequently
+  \[\dim L^*(f_0) = 1+3+13+18+9=44.\]
+  While in the special case
+  \[3t^4+26t^2s^2+3s^4-120t^2-120s^2+432
+  =0,\]
+  $L^*(f)_1$ becomes of dimension $4$, with one more basis derivation added:
+  \[-\frac{t^2+3s^2-12}{t\left(s^2-4\right)} yz \pd{} x 
+    +xy\pd{} y
+  -\frac{t^4+8t^2s^2+3s^4 -40t^2-48s^2+144} {4ts\left(s^2-4\right)} xy \pd{}z.\]
+  One may check that the following derivation is also contained in $L^*(f)_1$ now:	
+  \[-\frac{3t^2+s^2-12}{s\left(t^2-4\right)} yz \pd{} x 
+    -\frac{3t^4+8t^2s^2+s^4-48t^2 -40s^2+144} {4ts\left(t^2-4\right)} xz \pd{}y
+  +xz\pd{} z.\]
+
+
+  %	upper semi-continuous of dimension, 
+  %	
+  %	dimension of  general Lie algebra is not known, but conjectured.
+  \subsubsection{Another \texorpdfstring{$1$}{1}-parameter example}
+  For the consideration of section \ref{sec4},  we now present a general basis of the $1$-parameter family $L^*(f_t)$, where 
+  \[f=f_t\coloneq  x^4+y^4+z^4+tx^2yz.\] 		
+  For general $t\in \Cc$, $L^*(f)_0$ admits a basis 
+  \[ x \pd {} x + y \pd{} y + z\pd{} z,\]
+  hence is of dimension 1.
+  $L^*(f)_1$ admits a basis 
+  \begin{align*}
+    x^2 \pd{} x + xy \pd{} y + xz \pd{} z ,\\
+    xy\pd{} x+ y^2\pd{} y + yz \pd{} z,\\
+    xz \pd{} x + yz \pd{} y + z^2\pd{} z,
+  \end{align*}
+  hence is of dimension 3.
+  $L^*(f)_2$ admits a basis 
+  \begingroup
+  \allowdisplaybreaks
+  \begin{align*}
+    -\frac{3t^6-448t^2}{8\left(5t^4-576\right) } xz^2 \pd{} y 
+    - \frac{ 3 \left( t^5-64 t\right)}{2\left( 5 t^4 - 576\right)} y^2 z \pd{}x 
+    + xy^2 \pd{} y ,\\
+    \frac{t^6-320t^2}{8\left( 5t^4-576\right)} xz^2 \pd{} y 
+    +\frac{t^5+192t}{2\left(5t^4-576\right)}y^2 z\pd{} x
+    +xyz\pd{} z,\\
+    \frac{t^6-64t^2}{4\left( 5t^4-576\right)}xz^2\pd{}y
+    +\frac{t^5-192 t}{5t^4-576}y^2 z \pd{} x
+    +x^2y\pd{} x ,\\
+    -\frac{3t^6-448t^2}{8\left(5t^4-576\right) } xy^2 \pd{} z 
+    - \frac{ 3 \left( t^5-64 t\right)}{2\left( 5 t^4 - 576\right)} y z^2 \pd{}x 
+    + xz^2 \pd{} z ,\\
+    \frac{t^6-320t^2}{8\left( 5t^4-576\right)} xy^2 \pd{} z 
+    +\frac{t^5+192t}{2\left(5t^4-576\right)}y z^2\pd{} x
+    +xyz\pd{} y,\\
+    \frac{t^6-64t^2}{4\left( 5t^4-576\right)}xy^2\pd{}z
+    +\frac{t^5-192 t}{5t^4-576}y^2 z \pd{} x
+    +x^2z\pd{} x ,\\
+    xyz\pd{}x+y^2z\pd{}y + y z^2\pd{} z,\\
+    \frac t 2 y ^2 z \pd{} y+ x^2 y \pd{} y  ,\\
+    - \frac t 2 xyz\pd{} x - \frac t 2 y^2 z \pd{} y+x^2 z \pd{} z ,\\
+    -\frac{3\left(t^5-64t\right)}{4\left(t^4-576 \right ) }x^2y \pd{} z
+    -\frac{16 t^3}{t^4-576}x^2z\pd{}y
+    +yz^2\pd{}y,\\
+    -\frac{16t^3}{t^4-576}x^2y \pd{} z 
+    -\frac{3\left(t^5-64t\right)}{4\left(t^4-576\right)} x^2 z \pd{}y
+    +y^2z\pd{}z,\\
+    \frac{t^5+192 t}{2\left( t^4-576\right)}x^2y \pd{} z 
+    +\frac{16t^3}{t^4-576}x^2z\pd{}y
+    +xz^2\pd{}x,\\
+    \frac{16t^3}{t^4-576}x^2y\pd{}z
+    +\frac{t^5+192t}{2\left(t^4-576\right)}x^2z\pd{}y
+    +xy^2\pd{}x.
+  \end{align*}
+  \endgroup
+  hence is of dimension 13. Consequently
+  \[\dim L^*(f_0) = 1+3+13+18+9=44.\]
+
+  \subsubsection{What would we do}
+  Our ultimate goal is to check Torelli-type theorem for the case we consider. That is $V(f_{\bt})\cong V(f_{\boldsymbol s})$ as complex space germs iff. $L(f_{\bt})\cong L(f_{\boldsymbol s})$ (or $L^*(f_{\bt})\cong L^*(f_{\boldsymbol s})$ ) as complex Lie algebras. But it is hard since the solvable Lie algebra $L(f_{\bt})$ and $L^*(f_{\bt})$ is complicated with large dimension.
+
+  Alternatively, weak versions of Torelli-type theorem can be verified. For example, $V(f_{\0})$ is different from $V(f_{\bt})$ for general $\bt\in \Cc^m$, since their Yau algebra $L(f_\0)$ and $L(f_\bt)$ are non-isomorphic Lie algebras, which can be easily checked from the dimension.
+
+  More over, we can make better use of these families of Lie algebras. Since non-trivial family of solvable Lie algebras with large dimension is difficult to construct, $L(f_\bt)$ and $L^*(f_\bt)$ provide the examples once proved to be.
+
+  \subsection{Triviality of a family of Lie algebras}\label{sec-3.4}
+  Let's recall from section 4 of \cite{BN} what do we mean by ``trivial family of Lie algebras'' and  how to check it by computation.
+  \subsubsection{\texorpdfstring{$1$}{1}-parameter case}
+  Let $V$ be a $\Cc$-linear space and $\eta_t$ a $1$-parameter family of Lie algebra multiplications of $V$, where $t$ is the parameter taking values in a domain $U \subseteq \Cc$.  Suppose moreover $0\in U$ and 
+  \[\eta_t=\eta+t\varphi+t^2\psi+\cdots.\]
+
+  \begin{definition}\label{din-3.2}
+    The family of Lie algebras $\left(V, \eta_t\right)$ is said to be trivial at $0\in U$, if there is 
+    \[I_t=I+t\alpha+t^2\beta+\cdots \in \Endo_\Cc V\]
+    such that $I_t\colon(V,\eta_0) \to ( V,\eta_t)$ is an isomorphism of Lie algebras.
+  \end{definition}
+  The tool we use to show the non-triviality of a family of Lie algebras is cohomology of Lie algebras. The following definition is referred to page 7 of \cite{BN}. 
+
+  \begin{definition}Let $L$ be a Lie algebra.
+  \item[(1)]A $p$-cochain of $L$ is a $p$-linear alternating map from $L^p$ to $L$, here $p\in \N$.  If we regard $L^0=0$, then a $0$-cochain of $L$ is given by an element in $L$. Denote $C^p(L)$ the vector space of $p$-cochains of $L$. 
+  \item[(2)]The boundary map $\delta^p\colon C^p(L) \to C^{p+1}(L)$ is defined to be: for $\phi \in C^p(L)$, 
+    \begin{align*}
+      (\delta^p \phi)(x_1,\cdots, x_{p+1})=&\sum_{1\leqslant i \leqslant p+1} (-1)^{i+1}\left[x_i, \phi(x_1, \cdots, \hat x_i,\cdots, x_{p+1})\right]\\
+                                           &+\sum_{1\leqslant i <j \leqslant p+1} (-1)^{i+j} \phi([x_i,x_j], x_1,\cdots, \hat x_i ,\cdots, \hat x_j ,\cdots, x_{p+1}).
+    \end{align*}
+  It's easy to check $\delta^{p+1}\delta^p=0$.
+\item[(3)]The $p$-th cocycle, coboundary, cohomology space of $L$ is defined to be
+  \[Z^p(L)=\Ker \delta^{p},\,
+    B^p(L)=\mathrm{Im}\,  \delta^{p-1},
+  H^p(L)\coloneq \frac{Z^p(L)}{B^p(L) }.\]
+
+\end{definition}
+
+\begin{lemma}\label{lem-3.4}
+  For the $1$-parameter family $L_t\coloneq \left( V, \eta_t\right)$ above,  we have $\varphi\in Z^2\left(L_0\right)$. If $L_t$ is  trivial at $0\in U$, then $\varphi\in B^2\left(L_0\right)$, i.e., $\varphi=0\in H^2\left(L_0\right)$.
+\end{lemma}
+\begin{proof}
+  We refer to \cite[16-17]{BN}.
+\end{proof}
+
+Let's tell computer how to check whether $\varphi\not\in B^2(L_0)$, once it know a basis $\{e_1,\cdots, e_n\}$ for $V$ and 
+\[\eta(e_i,e_j)=\sum_{k=1}^n\eta_{i,j}^k e_k.\]
+Obviously, 
+\[\varphi(e_i,e_j)= \sum_{k=1}^n\varphi_{i,j}^ke_k,\]
+where $\varphi_{i,j}^k = \pd{\eta_{i,j}^k}{t}(0)$. If $\varphi \in B^2(L_0)$, then there is a $a\in C^1(L)$ with
+\[a(e_i)=\sum_{j=1}^na_i^j e_j\]
+such that $\forall x,y\in V$,
+\[
+  \varphi(x,y)=\left(\delta a\right)(x,y)\coloneq \eta\left(x,a(y)\right)-\eta(y,a(x))-a(\eta(x,y) ),
+\]
+which holds iff it holds for $x,y \in \{e_1,\cdots, e_n\}$. Hence $\varphi=\delta a $ iff $\forall 1\leqslant i ,j, k \leqslant n$, 
+\begin{equation}\label{coh}
+  \sum_{l=1}^n \eta_{i,l}^k a_j^l-\eta_{j,l}^ka_i^l-\eta_{i,j}^la_l^k=\varphi_{i,j}^k.
+\end{equation}
+Then $\varphi \in B^2(L_0)$ iff the linear equation \eqref{coh} for $a_i^j$ has a solution. Consequently, to show a 1-parameter family of Lie algebras of dimension $n$ is non-trivial, the computer need to solve a linear equation of size $n^3\times n^2$.
+
+\subsubsection{Multi-parameter case}
+Now suppose $L_\bt=(V,\eta_\bt)$ a $m$-parameter family of Lie algebras of dimension $n$, where $\bt$ is the parameter taking values in a domain $U \subseteq \Cc^m$. Suppose moreover $\eta_\bt$ is analyticly dependent on $\bt$ and  $\0 \in U$, hence  
+\[\varphi_i \coloneq \pd{\eta_\bt}{t_i}\left(\0\right) \in Z^2(L_0)\]
+are defined.  
+\begin{definition}\label{din-3.5}
+  The family of Lie algebras $L_\bt$ is said to be non-trivial at $0\in U$, if  $\{\varphi_1,\cdots, \varphi_m\}$ are linearly independent in $H^2\left(L_0\right)$.
+\end{definition}
+The following face can be deduced from lemma \ref{lem-3.4} directly.
+\begin{lemma}\label{lem-3.5}
+  If $L_\bt$ is non-trivial at $0\in U$,  then $\forall \gamma\colon D \to U$ holomorphic curve with $\gamma(0)= \0,$ the $1$-parameter family of Lie algebra $L_{\gamma(t) }, t\in D \subseteq \Cc$ is non-trivial at $0\in D$ in the sense of definition \ref{din-3.2}
+\end{lemma}
+Note that, $\{\varphi_1,\cdots, \varphi_m\}$ are linearly dependent in $H^2\left(L_0 \right ) $ means there is $u=(u_1,\cdots, u_m)\in \Cc^m\backslash \{\0\}$ and $a\in C^1(L_\0)$ such that
+\begin{equation}\label{coho-m}
+  u_1\varphi_1+\cdots +u_m\varphi_m = \delta a \in Z^2(L_\0)\subseteq C^2(L_0).
+\end{equation}
+Suppose
+\[\eta(e_i,e_j)=\sum_{k=1}^n\eta_{i,j}^k e_k,\quad
+  \varphi_l(e_i,e_j)=\sum_{k=1}^n\varphi_{l,i,j}^k e_k,\quad
+  a(e_i)=\sum_{j=1}^na_i^j e_j,
+\]
+then \eqref{coho-m} means  $\forall 1\leqslant i , j, k \leqslant n$,
+\begin{equation}\label{coh-m}
+  \left( \sum_{l=1}^n \eta_{i,l}^k a_j^l-\eta_{j,l}^ka_i^l-\eta_{i,j}^la_l^k \right) -\left( \sum_{l=1}^m \varphi_{l,i,j}^k u_l\right) 
+  %\varphi_{1,i,j}^ku_1-\cdots -\varphi_{m,i,j}^ku_m
+  =0,
+\end{equation}
+a system of homogeneous equations of $a=(a_i^j)$ and $u=(u_l)$.
+Consequently, $\{\varphi_1,\cdots, \varphi_m\}$ are linearly dependent in $H^2(L_0 )$ means \eqref{coh-m} admits a solution $(a,u)$ with $u\not=\0\in \Cc^m$, which can also checked by computer.
+
+\subsection{Difficulties and alternatives}
+As I have mentioned before, the Mathematica can not compute the $m$-parameter family of Lie algebras $L(f_\bt)$ and $L^*(f_\bt)$, since they're too complicated. But to compute $\varphi_i$, we just need to compute the $1$-parameter families at a general point in $m$ directions. Compared to the former one, the latter one has lower computation complexity.
+
+However, the trouble is that Mathematica still refuse to compute, because those $1$-parameter families at a general point are still complicated. We have to make the computation simpler. In section \ref{sec4}, we would take a family of subalgebras $L_\bt\subset L(f_\bt)$ or $L^*(f_\bt)$ which can be ``extended to'' the origin $\0\in \Cc^m$ and check the non-triviality at the origin. 
+
+Before the start of next section, let's collect some fact that Mathematica can verify: 
+\begin{itemize}
+  \item For
+    \[f\coloneq x^4+y^4+z^4+tx^2y^2,\]
+    where $t \in \Cc\backslash\{0,\pm2,\pm6\}$, the $1$-parameter families $L^*(f)$ and $L(f)$ is non-trivial at $t=1$. 
+  \item For
+    \[f\coloneq x^4+y^4+z^4+tx^2y^2+sx^2z^2,\]
+    where
+    \[3t^4+26t^2s^2+3s^4-120t^2-120s^2+432
+    =0,\]
+    and
+    \[ts\left( t^2-4\right)\left( s^2-4\right)\left( t^2+s^2-4\right) \not=0,\] 
+    the $1$-parameter family $L^*(f)$ and $L(f)$ is non-trivial at  $\left(\sqrt 3,\sqrt 3\right)$.
+  \item  For
+    \[f\coloneq x^4+y^4+z^4+tx^2y^2+sx^2z^2,\]
+    where
+    \[ts( t^2-4)( s^2-4)( t^2+s^2-4)(3t^4+26t^2s^2+3s^4-120t^2-120s^2 +432)
+    \not=0,\]
+    the $2$-parameter family  $L^*(f)$ and $L(f)$ is non-trivial at $(t,s)=(1,1)$.
+\end{itemize}

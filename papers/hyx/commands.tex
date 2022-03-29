@@ -1,0 +1,32 @@
+\renewcommand{\:}{\colon}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\mean}{\operatorname{mean}}
+\newcommand{\Mod}{\operatorname{Mod}}
+\newcommand{\diff}{\operatorname{diff}}
+\newcommand{\stab}{\operatorname{stab}}
+\newcommand{\sym}{\operatorname{sym}}
+\newcommand{\cut}{\operatorname{cut}}
+
+
+\AtBeginDocument{
+    \let\temp\phi
+    \let\phi\varphi
+    \let\varphi\temp
+    \let\temp\epsilon
+    \let\epsilon\varepsilon
+    \let\varepsilon\temp
+}
+
+\theoremstyle{cjk-definition}
+\renewtheorem{notation}[theorem]{记号}
+\renewtheorem{exercise}[theorem]{习题}
+
+\usepackage{enumitem}
+\setlist{itemsep=0pt}
+\setlist[enumerate]{nosep,label=\roman*)}
+
+\usepackage{cases}
