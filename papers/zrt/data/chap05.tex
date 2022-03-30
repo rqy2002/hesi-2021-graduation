@@ -1,67 +1,67 @@
 % !TeX root = ../thuthesis-example.tex
 
-\chapter{Metrics near singular fibers}
-Combining the two sections above, we now take a look at the metrics near singular fibers. We will classify all cases through the order of monodromy and have a look at the metric in different cases and proved certain cases in the table we listed in last chapter.\\ \indent
-In the last section of this chapter, we will see that we construct the form in such expression because that it's easier to prove the related geometric properties like SOB and CYL conditions. Finally, we explain briefly how the metric on smooth part and singular part is glued and give an existence proposition of certain Calabi--Yau metric.
-\section{Trivial monodromy}
-\indent If the monodromy is trivial, we can set $\tau_1\equiv 1$ and $\tau_2=\tau$, where $\tau\colon\Delta\rightarrow\mathfrak{H}$ is a regular function that satisfies $D\simeq \mathbb{C}/(\mathbb{Z}+\mathbb{Z}\tau(0))$, but is not constrained otherwise; in particular $N=0$. The div$(\Omega)=0$ case directly follows from the formula in section 2. When div$(\Omega)=-D$, then $$\Omega=\frac{k(z)}{z}dz\wedge dw\; .$$
+\section{Metrics near singular fibers}
+Combining the two subsections above, we now take a look at the metrics near singular fibers. We will classify all cases through the order of monodromy and have a look at the metric in different cases and proved certain cases in the table we listed in last section.\\ \indent
+In the last subsection of this section, we will see that we construct the form in such expression because that it's easier to prove the related geometric properties like SOB and CYL conditions. Finally, we explain briefly how the metric on smooth part and singular part is glued and give an existence proposition of certain Calabi--Yau metric.
+\subsection{Trivial monodromy}
+\indent If the monodromy is trivial, we can set $\tau_1\equiv 1$ and $\tau_2=\tau$, where $\tau\colon\Delta\rightarrow\mathfrak{H}$ is a regular function that satisfies $D\simeq \mathbb{C}/(\mathbb{Z}+\mathbb{Z}\tau(0))$, but is not constrained otherwise; in particular $N=0$. The div$(\Omega)=0$ case directly follows from the formula in section 2. When div$(\Omega)=-D$, then \[ \Omega=\frac{k(z)}{z}dz\wedge dw\; . \]
 thus we have
-$$\omega_{\textrm{sf},\epsilon}=i|k|^2\frac{\textrm{Im}(\tau)}{\epsilon|z|^2}dz\wedge dw+\frac{i\epsilon}{2\textrm{Im}(\tau)}(dw-\Gamma dz)\wedge(d\bar{w}-\bar{\Gamma}d\bar{z})\; ,$$
-where $$\Gamma(z,w)=\frac{\textrm{Im}(w)}{\textrm{Im}(\tau)}\frac{d\tau}{dz}\; .$$
-\indent Notice that $\mu:=|k(0)|(2\textrm{Im}\tau(0))^{1/2}$ has an intrinsic interpretation:
-$$\mu^2=i\int_D R\wedge\bar{R}$$
+\[ \omega_{\mathrm{sf},\epsilon}=i|k|^2\frac{\operatorname{Im}(\tau)}{\epsilon|z|^2}dz\wedge dw+\frac{i\epsilon}{2\operatorname{Im}(\tau)}(dw-\Gamma dz)\wedge(d\bar{w}-\bar{\Gamma}d\bar{z})\; , \]
+where \[ \Gamma(z,w)=\frac{\operatorname{Im}(w)}{\operatorname{Im}(\tau)}\frac{d\tau}{dz}\; . \]
+\indent Notice that $\mu\\coloneq|k(0)|(2\operatorname{Im}\tau(0))^{1/2}$ has an intrinsic interpretation:
+\[ \mu^2=i\int_D R\wedge\bar{R} \]
 for the Poincare residue $R$ of $\Omega$ along $D$. We change the coordinates on $\Delta\setminus[0,1)$ through
-$$z=\exp\left(\frac{-u\sqrt{\epsilon}}{\mu}\right)\; ,$$
+\[ z=\exp\left(\frac{-u\sqrt{\epsilon}}{\mu}\right)\; , \]
 here $u$ ranging in the strip $(0,\infty)+i(0,2\pi\frac{\mu}{\epsilon})$, thus we have
-$$dz=-\frac{\sqrt{\epsilon}z}{\mu}du,\qquad d\bar{z}=-\frac{\sqrt{\epsilon}\bar{z}}{\mu}d\bar{u}$$
+\[ dz=-\frac{\sqrt{\epsilon}z}{\mu}du,\qquad d\bar{z}=-\frac{\sqrt{\epsilon}\bar{z}}{\mu}d\bar{u} \]
 and
-$$\omega_{\textrm{sf},\epsilon}=\frac{i}{2}\left(du\wedge d\bar{u}+\frac{\epsilon}{\textrm{Im}\tau(0)}dw\wedge d\bar{w}\right)\left(1+O_\epsilon\left(\exp\left(-\frac{\sqrt{\epsilon}\:\textrm{Re}u}{\mu} \right)\right)\right)\; .$$
-\indent The error estimate is understood as to hold for all derivatives, and $w$ ranging in fundamental domain spanned by $1,\tau(z(u))$ in $\{u\}\times\mathbb{C}$. So $\omega_{\textrm{sf},\epsilon}$ decays to a flat cylinder $\mathbb{R}^+\times S^1\times D$, here $D$ carries its flat K{\"a}hler metric with area $\epsilon$ and the length of the circle is $w\pi\frac{\mu}{\sqrt{\epsilon}}$, with exponential rate $$O_\epsilon\left(\exp\left(\frac{-r\sqrt{\epsilon}}{\mu}\right)\right)\; .$$
+\[ \omega_{\mathrm{sf},\epsilon}=\frac{i}{2}\left(du\wedge d\bar{u}+\frac{\epsilon}{\operatorname{Im}\tau(0)}dw\wedge d\bar{w}\right)\left(1+O_\epsilon\left(\exp\left(-\frac{\sqrt{\epsilon}\:\operatorname{Re}u}{\mu} \right)\right)\right)\; . \]
+\indent The error estimate is understood as to hold for all derivatives, and $w$ ranging in fundamental domain spanned by $1,\tau(z(u))$ in $\{u\}\times\mathbb{C}$. So $\omega_{\mathrm{sf},\epsilon}$ decays to a flat cylinder $\mathbb{R}^+\times S^1\times D$, here $D$ carries its flat K{\"a}hler metric with area $\epsilon$ and the length of the circle is $w\pi\frac{\mu}{\sqrt{\epsilon}}$, with exponential rate \[ O_\epsilon\left(\exp\left(\frac{-r\sqrt{\epsilon}}{\mu}\right)\right)\; . \]
 \indent Here if we replace $\Omega$ by $|\alpha|\Omega$ then the circle gets changed by scale $|\alpha|$ and the area of the torus is fixed.\\ \indent
-\section{Finite order monodromy}
+\subsection{Finite order monodromy}
 If the monodromy is of finite order, the calculations for all types of singular fibers where $A$ is of finite order are similar, thus we only discuss the most difficult one, i.e.\ the Kodaira type $\uppercase\expandafter{\romannumeral2}$ when the central fiber is a cusp.\\ \indent
 Follow the table we give above, $\mathscr{J}(0)=0$, $A=E_1$, $m\equiv1~(3)$, $N=1$. Since
-$$j(\tau)=\left(\frac{\tau-\zeta_3}{\tau-\zeta_3^2}\right)^3h(j(\tau))\; ,$$
+\[ j(\tau)=\left(\frac{\tau-\zeta_3}{\tau-\zeta_3^2}\right)^3h(j(\tau))\; , \]
 changing coordinates on $\Delta$ we make 
-$$\tau(z)=\zeta_3\frac{1-\zeta_3z^{m/3}}{1-z^{m/3}}\; ,$$
+\[ \tau(z)=\zeta_3\frac{1-\zeta_3z^{m/3}}{1-z^{m/3}}\; , \]
 hence we have
-$$\frac{\tau-\zeta_3}{\tau-\zeta_3^2}=z^{\frac{m}{3}}\; .$$
+\[ \frac{\tau-\zeta_3}{\tau-\zeta_3^2}=z^{\frac{m}{3}}\; . \]
 \indent Since the monodromy is  described by $E_1$, i.e.
-$$\tau\mapsto A\tau=-\frac{\tau+1}{\tau}\; .$$
+\[ \tau\mapsto A\tau=-\frac{\tau+1}{\tau}\; . \]
 \indent Here $\operatorname{ord}A=6$, the pullback $U'$ of $U|_{\Delta^*}$ under $z=u^6$ can be written as
-$$(\Delta_u^*\times\mathbb{C}_v)/(\mathbb{Z}+\mathbb{Z}\tau(u^6))\; ,$$
+\[ (\Delta_u^*\times\mathbb{C}_v)/(\mathbb{Z}+\mathbb{Z}\tau(u^6))\; , \]
 hence can be extended to the whole disc with central fiber $\mathbb{C}/(\mathbb{Z}+\mathbb{Z}\zeta_3)$, and the monodromy group acts on $U'$ by deck transformation is given by
-$$A(u,v)=\left(\zeta_6u,\frac{v}{c\tau(u^6)+a}\right)=\left(\zeta_6u,\zeta_6\frac{1-u^{2m}}{1-\zeta_3u^{2m}}v\right)\; .$$
+\[ A(u,v)=\left(\zeta_6u,\frac{v}{c\tau(u^6)+a}\right)=\left(\zeta_6u,\zeta_6\frac{1-u^{2m}}{1-\zeta_3u^{2m}}v\right)\; . \]
 \indent Notice that the fiberwise linear map
-$$\Phi\colon\Delta^*\times \mathbb{C}\rightarrow \Delta^*\times\mathbb{C},\qquad (u,v)\mapsto (u^6,(1-u^{2m})u^5v)\; ,$$
+\[ \Phi\colon\Delta^*\times \mathbb{C}\rightarrow \Delta^*\times\mathbb{C},\qquad (u,v)\mapsto (u^6,(1-u^{2m})u^5v)\; , \]
 factor through the action generated by monodromy action, inducing an isomorphism of elliptic fibrations
-$$\Phi\colon\Delta^*\times \mathbb{C}\rightarrow (\Delta^*\times\mathbb{C})/(\mathbb{Z}\tau_1+\mathbb{Z}\tau_2)$$
+\[ \Phi\colon\Delta^*\times \mathbb{C}\rightarrow (\Delta^*\times\mathbb{C})/(\mathbb{Z}\tau_1+\mathbb{Z}\tau_2) \]
 with multivalued generators
-$$\tau_1(z)=\textrm{pr}_2\Phi(z^{1/6},1)=(1-z^{m/3})z^{5/6}\; ,$$
+\[ \tau_1(z)=\operatorname{pr}_2\Phi(z^{1/6},1)=(1-z^{m/3})z^{5/6}\; , \]
 and
-$$\tau_2(z)=\textrm{pr}_2 \Phi(z^{1/6},\tau(z))=\zeta_3(1-\zeta_3z^{m/3})z^{5/6}=\tau_1(z)\tau(z)\; .$$
+\[ \tau_2(z)=\operatorname{pr}_2 \Phi(z^{1/6},\tau(z))=\zeta_3(1-\zeta_3z^{m/3})z^{5/6}=\tau_1(z)\tau(z)\; . \]
 \indent Now what remains is to calculate the multiplicity $N$ of $\Phi^*(dz\wedge dw)$ along the central fiber. Resolve the singularities appear on the central fiber of the quotient, then blowing down vertical $(-1)$-curves if necessary. Near the three orbits of fixed points, the monodromy action is conjugate to the $\mathbb{Z}_{6/l}$-action on $\mathbb{C}^2$ generated by $(x,y)\mapsto(\zeta_6^lx,\zeta_6^ly)$ for $l=1,2,3$ respectively, and the germ of $x=0$ corresponds to the central fiber of $U'$.\\ \indent
 To resolve the quotients, map
-$$(x,y)\mapsto (x^{\frac{6}{l}},y^{\frac{6}{l}},(x:y))\in \mathbb{C}\times\mathbb{C}\times\mathbb{P}^1,\quad l=1,2,3\; .$$
+\[ (x,y)\mapsto (x^{\frac{6}{l}},y^{\frac{6}{l}},(x:y))\in \mathbb{C}\times\mathbb{C}\times\mathbb{P}^1,\quad l=1,2,3\; . \]
 \indent From the global viewpoint, this produces exceptional curves $E_1,E_2,E_3$ and the strict transform $E$ of the central fiber of $U/\mathbb{Z}_6$. The multiplicities of $z\circ\Phi$ along these curves are $1,2,3,6$, and the multiplicities of $\Phi^*(dz\wedge dw)$ are $1,3,5,10$.\\ \indent
 Turns out that $E$ is a (-1)-curve, blowing down $E$ turns $E_3$ into a $(-1)$-curve, repeating the process, blowing down $E_3$ and $E_2$, and the curve $E_1$ becomes a rational cusp curve with self-intersection 0, so $N=1$.\\ \indent
 So $\Omega=gdz\wedge dw$ such that $g(z)=z^{-2}k(z)$ or $g(z)=z^{-1}k(z)$ where $k(0)\neq 0$ depending on $\operatorname{div}(\Omega)$. For the first case,
-$$\omega_{\textrm{sf},\epsilon}=\frac{i|k|^2\sqrt{3}(1-|z|^{2m/3})}{2\epsilon|z|^{7/3}}dz\wedge d\bar{z}+\frac{i\epsilon}{\sqrt{3}|z|^{5/3}(1-|z|^{2m/3})}(dw-\Gamma dz)\wedge(d\bar{w}-\bar{\Gamma}d\bar{z})\; .$$
+\[ \omega_{\mathrm{sf},\epsilon}=\frac{i|k|^2\sqrt{3}(1-|z|^{2m/3})}{2\epsilon|z|^{7/3}}dz\wedge d\bar{z}+\frac{i\epsilon}{\sqrt{3}|z|^{5/3}(1-|z|^{2m/3})}(dw-\Gamma dz)\wedge(d\bar{w}-\bar{\Gamma}d\bar{z})\; . \]
 where
-$$\Gamma(z,w)=\frac{5w}{6z}(1+\textrm{correction})\; ,$$
-and the correction term is $\frac{1}{w}(\textrm{Re}(w)P+\textrm{Im}(w)Q)$ with $P,Q=O(|z|^{m/3})$. When $m$ tends to infinity, the fibration becomes isotrivial and the correction term tends to zero.\\ \indent
+\[ \Gamma(z,w)=\frac{5w}{6z}(1+\textrm{correction})\; , \]
+and the correction term is $\frac{1}{w}(\operatorname{Re}(w)P+\operatorname{Im}(w)Q)$ with $P,Q=O(|z|^{m/3})$. When $m$ tends to infinity, the fibration becomes isotrivial and the correction term tends to zero.\\ \indent
 To have a better look at it, we again use the coordinate change
-$$z=\left(\frac{u_0}{u}\right)^6,\quad w=\left(\frac{u_0}{u}\right)^5v,\quad \textrm{where }u_0:=6\sqrt[3]{4}\epsilon^{-\frac{1}{2}}|k(0)|\; .$$
+\[ z=\left(\frac{u_0}{u}\right)^6,\quad w=\left(\frac{u_0}{u}\right)^5v,\quad \textrm{where }u_0\coloneq 6\sqrt[3]{4}\epsilon^{-\frac{1}{2}}|k(0)|\; . \]
 \indent Then $u$ ranges in the domain $\{|u|>u_0,~0<\arg u<\frac{\pi}{3}\}$ and $v$ belongs to a fundamental cell in $\{u\}\times\mathbb{C}$ which converges to the one spanned by $1,\zeta_3$ when $|u|$ tends to infinity. Under the new coordinate, we have
-$$\omega_{\textrm{sf},\epsilon}=\frac{i}{2}\left(du\wedge d\bar{u}+\frac{\epsilon}{\textrm{Im}(\zeta_3)}\eta\wedge\bar{\eta}\right)(1+O(|u|^{-4m}))\; ,$$
+\[ \omega_{\mathrm{sf},\epsilon}=\frac{i}{2}\left(du\wedge d\bar{u}+\frac{\epsilon}{\operatorname{Im}(\zeta_3)}\eta\wedge\bar{\eta}\right)(1+O(|u|^{-4m}))\; , \]
 where
-$$\eta=dv-\uppercase\expandafter{\romannumeral2}du,\quad \uppercase\expandafter{\romannumeral2}(u,v)=\frac{1}{u}(Pv+Qu),\quad P,Q=O(|u|^{-2m})\; .$$
+\[ \eta=dv-\uppercase\expandafter{\romannumeral2}du,\quad \uppercase\expandafter{\romannumeral2}(u,v)=\frac{1}{u}(Pv+Qu),\quad P,Q=O(|u|^{-2m})\; . \]
 \indent In order to estimate the metric, we need a further coordinate change by $(u,v)\mapsto(u,M_uv)$, where $M_u\in GL(2,\mathbb{R})$, $M_u=I+O(|u|^{-2m})$, is defined by $w(M_u(1))=\tau_1(z(u))$ and $w(M_u(\zeta_3))=\tau_2(z(u))$.\\ \indent
-\section{Infinite monodromy}
+\subsection{Infinite monodromy}
 Finally we have a look at the infinite monodromy case, i.e.\ $\uppercase\expandafter{\romannumeral1}_b$ and $\uppercase\expandafter{\romannumeral1}_b^*$ type fiber. According to Kodaira's work, for any $\uppercase\expandafter{\romannumeral1}_1$ degeneration of elliptic curves $f\colon U\rightarrow \Delta$, the restriction $U|_{\Delta^*}$ must be abstractly isomorphic to $(\Delta^*\times\mathbb{C})/(\mathbb{Z}\tau_1+\mathbb{Z}\tau_2)$, where $\tau_1=1$, $\tau_2=\frac{1}{2\pi i}\log z$, he also proved that the map
-$$\Psi(z,w):=\left(z,-\frac{1}{12}-\frac{1}{4\pi^2}\wp_z(w),\frac{i}{8\pi^3}\wp_z'(w)\right)\in \Delta\times\mathbb{C}_{xy}^2$$
+\[ \Psi(z,w)\coloneq \left(z,-\frac{1}{12}-\frac{1}{4\pi^2}\wp_z(w),\frac{i}{8\pi^3}\wp_z'(w)\right)\in \Delta\times\mathbb{C}_{xy}^2 \]
 induces an isomorphism from $(\Delta^*\times\mathbb{C})/(\mathbb{Z}\tau_1+\mathbb{Z}\tau_2)$ onto the surface
-$$y^2=4x^3+x^2-g_2(z)x-g_3(z)$$
+\[ y^2=4x^3+x^2-g_2(z)x-g_3(z) \]
 in $\Delta^*\times\mathbb{P}^2_{xy}$ with the natural elliptic fibration by projection on the first coordinate, where $g_2,g_3$ are regular functions, and $\wp_z$ is the usual Weierstrass function associated with the lattice generated by $\tau_1(z)$ and $\tau_2(z)$. The closure of image of $\Psi$ is a smooth elliptic surface $\bar{U}$ with central fiber the node $y^2=4x^3+x$, representing the Kodaira's canonical form for $\uppercase\expandafter{\romannumeral1}_1$. In our setting, the above $\Phi$ is now $\Psi^{-1}$. The multiplicity $N$ of $\Phi^*(dz\wedge dw)$ along $D$ is obtained by compute $\Psi^*\Theta$, where $\Theta=dz\wedge(dx/y)$. We have
 \begin{displaymath}
 \begin{split}
@@ -70,91 +70,91 @@ in $\Delta^*\times\mathbb{P}^2_{xy}$ with the natural elliptic fibration by proj
 &=2\pi idz\wedge dw\; .
 \end{split}
 \end{displaymath}
-Then $$2\pi i\Phi^*\Psi^*\Theta=\Phi^*(dz\wedge dw)\; .$$
+Then \[ 2\pi i\Phi^*\Psi^*\Theta=\Phi^*(dz\wedge dw)\; . \]
 On the other hand
-$$\Phi^*\Psi^*\Theta=(\Psi\circ\Phi)^*\Theta=\Theta\; .$$
+\[ \Phi^*\Psi^*\Theta=(\Psi\circ\Phi)^*\Theta=\Theta\; . \]
 So the multiplicity of $\Phi^*(dz\wedge dw)=2\pi i\Theta$ is 0 along $D$. By Kodaira's work, the $I_b$ case with $b>1$ reduces to $\uppercase\expandafter{\romannumeral1}_1$ by a fiberwise b-fold unramified covering. In this case
-$$\omega_{\textrm{sf},\epsilon}=i|k|^2\frac{b|\log|z||}{2\pi\epsilon |z|^2}dz\wedge d\bar{z}+\frac{2\pi i\epsilon}{2b|\log|z||}(dw-\Gamma dz)\wedge(d\bar{w}-\bar{\Gamma}d\bar{z})\; ,$$
+\[ \omega_{\mathrm{sf},\epsilon}=i|k|^2\frac{b|\log|z||}{2\pi\epsilon |z|^2}dz\wedge d\bar{z}+\frac{2\pi i\epsilon}{2b|\log|z||}(dw-\Gamma dz)\wedge(d\bar{w}-\bar{\Gamma}d\bar{z})\; , \]
 where
-$$\Gamma(z,w)=\frac{\textrm{Im}(w)}{iz|\log|z||}\; .$$
-\section{Asymptotics}
+\[ \Gamma(z,w)=\frac{\operatorname{Im}(w)}{iz|\log|z||}\; . \]
+\subsection{Asymptotics}
 The purpose to write the metric in this form is to estimate the form through analytic ways more easily. Before this, we introduce two definitions. We first take a look at the $\uppercase\expandafter{\romannumeral1}_b$ type fier case. \\ \indent
 In the following context, we assume $(M,g)$ be a complete Riemannian manifold of dimension $n>2$.
-\begin{defi}
-$(M,g)$ is called SOB$(\beta)$ if there exists a point $x_0\in M$ and a constant $C\geq 1$ such that the annuli $A(x_0,r,r+s)$ is connected for all $r\geq C$, $s>0$, $|B(x_0,s)|\leq Cs^\beta$ for all $s\geq C$, and $$\left|B\left(x,\left(1-\frac{1}{C}\right)r(x)\right)\right|\geq\frac{1}{C}r(x)^\beta\; ,$$
+\begin{definition}
+$(M,g)$ is called SOB$(\beta)$ if there exists a point $x_0\in M$ and a constant $C\geq 1$ such that the annuli $A(x_0,r,r+s)$ is connected for all $r\geq C$, $s>0$, $|B(x_0,s)|\leq Cs^\beta$ for all $s\geq C$, and \[ \left|B\left(x,\left(1-\frac{1}{C}\right)r(x)\right)\right|\geq\frac{1}{C}r(x)^\beta\; , \]
 and
-$$\textrm{Ric}(x)\geq -\frac{C}{r(x)^2},\quad \textrm{if }r(x):=d(x_0,x)\geq C\; .$$
-\end{defi}
-\indent If a manifold satisfies SOB$(\beta)$, then it admits some natural weighted global Sobolev inequalities, for detaill see\cite{hein2011weighted}.
-\begin{defi}
+\[ \operatorname{Ric}(x)\geq -\frac{C}{r(x)^2},\quad \textrm{if }r(x)\coloneq d(x_0,x)\geq C\; . \]
+\end{definition}
+\indent If a manifold satisfies SOB$(\beta)$, then it admits some natural weighted global Sobolev inequalities, for detaill see \cite{hein2011weighted}.
+\begin{definition}
 A complete Riemannian manifold $M$ with an end is called CYL$(\gamma)$ with $0\leq\gamma<1$, which is `cylindral' asymptotic for short, if there exist a point $x_0\in M$ and a constant $C\geq 1$ such that $|B(x_0,s)|\leq Cs^2$ for all $s\geq C$ and 
-$$A\left(x_0,r(x)-\frac{1}{C}r(x)^\gamma,r(x)+\frac{1}{C}r(x)^\gamma\right)\subset B\left(x,Cr(x)^\gamma(x)\right)\; , $$
+\[ A\left(x_0,r(x)-\frac{1}{C}r(x)^\gamma,r(x)+\frac{1}{C}r(x)^\gamma\right)\subset B\left(x,Cr(x)^\gamma(x)\right)\; ,  \]
 as well as Ric$(x)\geq -Cr(x)^{-2\gamma}$ for all $x\in M$ with $r(x)\geq C$.
-\end{defi}
-And we have two related propositions. Both proved in Hein's paper\cite{hein2012gravitational}\cite{hein2011weighted}.\\ \indent
-\begin{prop}
+\end{definition}
+And we have two related propositions. Both proved in Hein's paper \cite{hein2012gravitational} \cite{hein2011weighted}.\\ \indent
+\begin{proposition}
 Let $(M^m,\omega_0)$ be a complete K{\"a}hler manifold with
-$$|\textrm{Rm}|+|\nabla \textrm{Scal}|+|\nabla^2 \textrm{Scal} |\leq C \; ,$$
+\[ |\mathrm{Rm}|+|\nabla \mathrm{Scal}|+|\nabla^2 \mathrm{Scal} |\leq C \; , \]
 where Rm, Scal denote the Riemannian curvature tensor and the scalar curvature. And assmue $M$ satisfies SOB$(\beta)$ condition.\\ \indent
 Let $f\in C^{2,\alpha}(M)$ satisfies $|f|\leq Cr^{-\mu}$ for some $\mu>2$. If $\beta\leq 2$ and $\int(e^f-1)\omega^m=0$, or $\beta>2$, then there exists an $0<\bar{\alpha}\leq \alpha$ and $u\in C^{4,\bar{\alpha}}$ such that
-$$\left(\omega_0+i\partial\bar{\partial}u  \right)^m=e^f\omega^m\; .$$
+\[ \left(\omega_0+i\partial\bar{\partial}u  \right)^m=e^f\omega^m\; . \]
 If $\beta\leq 2$, then moreover 
-$$\int_M|\nabla u|^2 d\mathrm{vol}<\infty\; .$$
-\end{prop}
-\begin{prop}
+\[ \int_M|\nabla u|^2 d\mathrm{vol}<\infty\; . \]
+\end{proposition}
+\begin{proposition}
 Let $(M^m,\omega_0)$ be a complete K{\"a}hler manifold and $u,f$ are smooth functions on $M $ such that
-$$\sup|\nabla^i u|+\sup|\nabla^i f|<\infty  $$
+\[ \sup|\nabla^i u|+\sup|\nabla^i f|<\infty   \]
 for all $i\in\mathbb{N}_0$ and satisfies
-$$(\omega_0+i\partial\bar{\partial}u)^m=e^f\omega_0\; .$$
+\[ (\omega_0+i\partial\bar{\partial}u)^m=e^f\omega_0\; . \]
 
 (i) Assume that $M$ is CYL$(\gamma)$ where $0\leq \gamma<1$ and
-$$\exp(\kappa r(x)^{1-\gamma})|B(x,1)|\rightarrow\infty\; ,$$
+\[ \exp(\kappa r(x)^{1-\gamma})|B(x,1)|\rightarrow\infty\; , \]
 as $r(x)\rightarrow\infty$ for every fixed constant $\kappa>0$. If there exists a $\epsilon>0$ such that
-$$\int_M|\nabla u|^2\omega^m <\infty,\quad |f|\leq C\exp(-\epsilon r^{1-\gamma})\; ,$$
+\[ \int_M|\nabla u|^2\omega^m <\infty,\quad |f|\leq C\exp(-\epsilon r^{1-\gamma})\; , \]
 then there exists $\delta>0$ such that for all $x\in M$,
-$$\sup_{B(x,1)}|u-u_{B(x,1)}|\leq C\exp(-\delta r(x)^{1-\gamma}) \; ,$$
-where $$u_{A}=\frac{1}{m(A)}\int_A u \; ,$$
+\[ \sup_{B(x,1)}|u-u_{B(x,1)}|\leq C\exp(-\delta r(x)^{1-\gamma}) \; , \]
+where \[ u_{A}=\frac{1}{m(A)}\int_A u \; , \]
 is the average of integral on $A$.\\ \indent
 
 (ii) Assume that $M$ is SOB$(\beta)$ where $0< \beta\leq 2$ and
-$$r(x)^\kappa |B(x,1)|\rightarrow\infty\; ,$$
+\[ r(x)^\kappa |B(x,1)|\rightarrow\infty\; , \]
 as $r(x)\rightarrow\infty$ for every fixed constant $\kappa>0$. If there exists $\epsilon>0$ such that
-$$\int_M|\nabla u|^2\omega^m<\infty,\quad |f|\leq C\exp(-\epsilon r^{1-\gamma})\; ,$$
+\[ \int_M|\nabla u|^2\omega^m<\infty,\quad |f|\leq C\exp(-\epsilon r^{1-\gamma})\; , \]
 then there exists a $\delta>0$ such that for all $x\in M$,
-$$\sup_{B(x,1)}|u-u_{B(x,1)}|\leq Cr(x)^{-\delta} \; .$$
-\end{prop}
-Now come back to the case of semi-flat metric on rational elliptic surface. We denote $\Delta^*$ be the punctured unit disk with radius $\frac{1}{2}$ and $U=f^{-1}(\Delta^*)$， and also denote $z_x:=f(x)\in\Delta^*$ for $x\in U$ and the metric
-$$g:=\frac{b}{2\pi \epsilon}|k(z)|^2\frac{|\log|z||}{|z|^2}|dz|^2\; .$$
-\indent Thus $f\colon(U,g_{\textrm{sf},\epsilon})\rightarrow(\Delta^*,g)$ is a Riemannian submersion. And we also assume for convenience that $(U,g_{\textrm{sf},\epsilon})$ embedded into a complete Riemannian manifold $M$ as the only end of it, we fixed a base point $x_0$ on $U$, and denote $r_x:=d_M(x_0,x)$.\\ \indent
+\[ \sup_{B(x,1)}|u-u_{B(x,1)}|\leq Cr(x)^{-\delta} \; . \]
+\end{proposition}
+Now come back to the case of semi-flat metric on rational elliptic surface. We denote $\Delta^*$ be the punctured unit disk with radius $\frac{1}{2}$ and $U=f^{-1}(\Delta^*)$， and also denote $z_x\coloneq f(x)\in\Delta^*$ for $x\in U$ and the metric
+\[ g\coloneq \frac{b}{2\pi \epsilon}|k(z)|^2\frac{|\log|z||}{|z|^2}|dz|^2\; . \]
+\indent Thus $f\colon(U,g_{\mathrm{sf},\epsilon})\rightarrow(\Delta^*,g)$ is a Riemannian submersion. And we also assume for convenience that $(U,g_{\mathrm{sf},\epsilon})$ embedded into a complete Riemannian manifold $M$ as the only end of it, we fixed a base point $x_0$ on $U$, and denote $r_x\coloneq d_M(x_0,x)$.\\ \indent
 For every $z\in\Delta^*$, the diameter of the fiber $f^{-1}(z)$ and the $g$-length of the Euclidean circle of radius $|z|$ in $\Delta^*$ are both $\sim$ $|\log|z||^{\frac{1}{2}  }$.\\ \indent
 Notice that
-$$\int \frac{1}{t}\left(\log \frac{1}{t}\right)^{\frac{1}{2}}=-\frac{2}{3}\left(\log \frac{1}{t} \right)^{\frac{3}{2} },\quad \int \frac{1}{t}\left(\log \frac{1}{t}\right)=-\frac{1}{2}\left(\log \frac{1}{t} \right)^{2}\; . $$
+\[ \int \frac{1}{t}\left(\log \frac{1}{t}\right)^{\frac{1}{2}}=-\frac{2}{3}\left(\log \frac{1}{t} \right)^{\frac{3}{2} },\quad \int \frac{1}{t}\left(\log \frac{1}{t}\right)=-\frac{1}{2}\left(\log \frac{1}{t} \right)^{2}\; .  \]
 \indent We thus get
-$$|z_x|\ll 1\Longrightarrow r_x\sim d_g(z_x,z_{x_0})\sim |\log|z_x||^{\frac{3}{2}}\; .$$
-\indent Also, Vol$(f^{-1}(B),g_{\textrm{sf},\epsilon})=\epsilon\cdot\textrm{Vol}(B,g)$ for every $B\subset \Delta^*$. Hence using the above integral again, we get
-$$s\gg 1\Longrightarrow |B(x_0,s)|\sim s^{\frac{4}{3}}\; .$$
+\[ |z_x|\ll 1\Longrightarrow r_x\sim d_g(z_x,z_{x_0})\sim |\log|z_x||^{\frac{3}{2}}\; . \]
+\indent Also, Vol$(f^{-1}(B),g_{\mathrm{sf},\epsilon})=\epsilon\cdot\operatorname{Vol}(B,g)$ for every $B\subset \Delta^*$. Hence using the above integral again, we get
+\[ s\gg 1\Longrightarrow |B(x_0,s)|\sim s^{\frac{4}{3}}\; . \]
 The above formulas imply that $M$ satisfies CYL condition for $\gamma=\frac{1}{3}$. Actually we can show that it also satisfies SOB condition for $\beta=\frac{4}{3}$, which suffices to show that
-$$r_x\gg 1\Longrightarrow \{y\in U:|z_x|<|z_y|<|z_x|^{1-\alpha}\}\subset B(x,\frac{r_x}{2})$$
+\[ r_x\gg 1\Longrightarrow \{y\in U:|z_x|<|z_y|<|z_x|^{1-\alpha}\}\subset B(x,\frac{r_x}{2}) \]
 for some $\alpha<1$. This can also be proved by estimate the diamter of $f^{-1}(z)$ and the $g$-length of the circle of radius $|z|$ in $\Delta^*$.\\ \indent
 Actually, using similar methods, we can prove that for $\uppercase\expandafter{\romannumeral1}_b^*$ type fiber, the manifold $M$ can't satisfies the cylindral condition, and satisfies the SOB$(2)$ condition. Hence we can try to prove that $M$ satisfies the conditions in Proposition 5.4.1 and Proposition 5.4.2 and they actually satisfies.\\ \indent
-Adding a large number of estimation using various Sobolev inequalities, Hein proved\cite{hein2012gravitational} the following result. Which shows how we try to glue the metric on smooth part and singular part of the fibration together.
-\begin{prop}
-There exist a holomorphic section $\widetilde{\sigma}$ over $\Delta^*$, concentric disks $\Delta'\subset \Delta''\subset\Delta'''\subset\Delta$ and a positive $(1,1)$-form $\beta$ on $\mathbb{P}^1$ such that supp$(\beta)\subset \Delta'''\setminus\Delta$, and a constant $\alpha_0>0$, such that for any $\alpha>\alpha_0$, there exist $$u_\alpha^{\textrm{int}}\in C^\infty (f^{-1}(\mathbb{P}^1\setminus\Delta'),\mathbb{R})\; ,$$
-$$u_\alpha^{\textrm{ext}}\in C^\infty (f^{-1}(\Delta''\setminus\{0\}),\mathbb{R})\; ,$$
+Adding a large number of estimation using various Sobolev inequalities, Hein proved \cite{hein2012gravitational} the following result. Which shows how we try to glue the metric on smooth part and singular part of the fibration together.
+\begin{proposition}
+There exist a holomorphic section $\widetilde{\sigma}$ over $\Delta^*$, concentric disks $\Delta'\subset \Delta''\subset\Delta'''\subset\Delta$ and a positive $(1,1)$-form $\beta$ on $\mathbb{P}^1$ such that supp$(\beta)\subset \Delta'''\setminus\Delta$, and a constant $\alpha_0>0$, such that for any $\alpha>\alpha_0$, there exist \[ u_\alpha^{\mathrm{int}}\in C^\infty (f^{-1}(\mathbb{P}^1\setminus\Delta'),\mathbb{R})\; , \]
+\[ u_\alpha^{\mathrm{ext}}\in C^\infty (f^{-1}(\Delta''\setminus\{0\}),\mathbb{R})\; , \]
 with the same complex Hessian on the overlapping area $\Delta''\setminus\Delta'$, and $t_\alpha>0$ such that the closed $(1,1)$-form
-$$\omega_0(\alpha,t):=\omega+tf^*\beta+i\partial\bar{\partial}u_{\alpha}^{\textrm{int,ext}} $$
-is positive for $t>t_\alpha$. And it conincides with $\omega$ on $\mathbb{P}^1\setminus \Delta'''$, and coincides with $T^*\omega_{\textrm{sf}}(\alpha)$ on $\Delta'\setminus\{0\} $ where $T$ is the vertical translation by $\widetilde{\sigma}$ since $\sigma$ gives a Lie group structure on each fiber with unit $\sigma(s)$. In addition, we have 
-$$\int_M\left(\omega_0(\alpha,t)^2-\alpha\Omega\wedge\bar{\Omega} \right)=0$$
+\[ \omega_0(\alpha,t)\coloneq \omega+tf^*\beta+i\partial\bar{\partial}u_{\alpha}^{\mathrm{int,ext}}  \]
+is positive for $t>t_\alpha$. And it conincides with $\omega$ on $\mathbb{P}^1\setminus \Delta'''$, and coincides with $T^*\omega_{\mathrm{sf}}(\alpha)$ on $\Delta'\setminus\{0\} $ where $T$ is the vertical translation by $\widetilde{\sigma}$ since $\sigma$ gives a Lie group structure on each fiber with unit $\sigma(s)$. In addition, we have 
+\[ \int_M\left(\omega_0(\alpha,t)^2-\alpha\Omega\wedge\bar{\Omega} \right)=0 \]
 for precisely one $t>t_\alpha$.
-\end{prop}
+\end{proposition}
 With the above three proposition, Hein proved an important result of existence. But the statement use a definition called bad cycle, which we write here.
-\begin{defi}
+\begin{definition}
 A bad 2-cycle is one that arises from the following process and this definition is up to orientation and isotopy. Consider the topological monodromy representation of the fundamental group of $\Delta^*$ in the mapping class group of an arbitrary $F$ over the punctured disk. Choose a simple loop $\gamma\subset F$ such that $[\gamma]\in H_1(F,\mathbb{Z})$ is indivisible and invariant under monodromy. Then, move the loop around the puncture by lifting $\bar{\gamma}\subset \Delta^*$ up to each point in $\gamma$ such that the union of such translates of $\gamma$ is a $T^2$ embedded in $f^{-1}(\gamma)$. 
-\end{defi}
+\end{definition}
 Now all preparation has been set up, we now show the final conclusion.
-\begin{prop}
+\begin{proposition}
 Suppose $X$ is an rational elliptic surface and hence an elliptic fibration over $\mathbb{P}^1$. And $\Omega$ is the rational 2-form that whose corresponding divisor is $-D$. Define $M=X\setminus D$ and fix a small disk $\Delta$ with $z(p)=0$ and all fibers on $\Delta^*$ are soomth.\\ \indent
-Let $\omega$ be an arbitrary K{\"a}hler metric on $M$ such that the integral of $\omega^2$ on $M$ is finite, and the integral of $\omega$ for all bad 2-cycles $C$. Here $\omega$ are often taken as the restriction of K{\"a}hler metric on $X$. Then there exists a constant $\alpha_0>0$, depending on $X,\Omega,\omega$ such that for all $\alpha>\alpha_0$, there exists a complete Calabi--Yau metric $\omega_{\textrm{CY}}$ on $M $ satisfies
-$$\omega_{\textrm{CY}}^2=\alpha\Omega\wedge \bar{\Omega}\; ,$$
-and $\omega_{\textrm{CY}}-\omega$ is $d$-exact on $M$.
-\end{prop}
+Let $\omega$ be an arbitrary K{\"a}hler metric on $M$ such that the integral of $\omega^2$ on $M$ is finite, and the integral of $\omega$ for all bad 2-cycles $C$. Here $\omega$ are often taken as the restriction of K{\"a}hler metric on $X$. Then there exists a constant $\alpha_0>0$, depending on $X,\Omega,\omega$ such that for all $\alpha>\alpha_0$, there exists a complete Calabi--Yau metric $\omega_{\mathrm{CY}}$ on $M $ satisfies
+\[ \omega_{\mathrm{CY}}^2=\alpha\Omega\wedge \bar{\Omega}\; , \]
+and $\omega_{\mathrm{CY}}-\omega$ is $d$-exact on $M$.
+\end{proposition}

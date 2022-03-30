@@ -1,84 +1,83 @@
 % !TeX root = ../thuthesis-example.tex
 
-\chapter{Metric on complex torus bundle}
-In this chapter, we discuss some important notions to express the local model of an elliptic fibration explicitly. In this process, we need to choose local trivialization properly and consider the monodromy. We then give a explicit formula of a semi-flat metric using the coordinates obtained by period map.
-\section{Local model}
-In this section, we discuss the local model, and explain how a metric will be constructed.
-\begin{defi}
+\section{Metric on complex torus bundle}
+In this section, we discuss some important notions to express the local model of an elliptic fibration explicitly. In this process, we need to choose local trivialization properly and consider the monodromy. We then give a explicit formula of a semi-flat metric using the coordinates obtained by period map.
+\subsection{Local model}
+In this subsection, we discuss the local model, and explain how a metric will be constructed.
+\begin{definition}
 For an elliptic fibration, we call a metric semi-flat
 if it restricts to a flat metric on each fiber.
-\end{defi}
+\end{definition}
 Let $f\colon X\rightarrow \mathbb{P}^1$ be a holomorphic submersion such that all fibers $X_p=f^{-1}(p)$ are complex torus, and suppose $f$ admits a holomorphic section $\sigma$ with a 2
 -form $\omega$, which restricts to a K{\"a}hler form on each fiber $X_p$ and there exists $c_i\in\mathbb{R}$ and $\xi_i(p)\in H^2(X_p,\mathbb{Z})$ such that
-$$[\omega|_{X_p}]=\sum_i c_i\xi_i(p),\qquad  \forall p\in\mathbb{P}^1 \;.$$
-\indent For $\epsilon>0$ and $p\in\mathbb{P}^1$, from Yau's result\cite{yau1978ricci}, there exist a unique Ricci-flat K{\"a}hler metric $g_{p,\epsilon}$ with $\textrm{Vol}(X_p,g_{p,\epsilon})=\epsilon$ whose K{\"a}hler class is $[\omega|_{X_p}]$. Restricting $g_{p,\epsilon}$ to $T_{\sigma(p)}X_p$ then induces a Hermitian fiber metric $h_\epsilon$ on the holomorphic vector bundle $E:=\sigma^*T_{X/\mathbb{P}^1}$ over $\mathbb{P}^1$.\\ \indent
+\[ [\omega|_{X_p}]=\sum_i c_i\xi_i(p),\qquad  \forall p\in\mathbb{P}^1 \;. \]
+\indent For $\epsilon>0$ and $p\in\mathbb{P}^1$, from Yau's result \cite{yau1978ricci}, there exist a unique Ricci-flat K{\"a}hler metric $g_{p,\epsilon}$ with $\operatorname{Vol}(X_p,g_{p,\epsilon})=\epsilon$ whose K{\"a}hler class is $[\omega|_{X_p}]$. Restricting $g_{p,\epsilon}$ to $T_{\sigma(p)}X_p$ then induces a Hermitian fiber metric $h_\epsilon$ on the holomorphic vector bundle $E\\coloneq \sigma^*T_{X/\mathbb{P}^1}$ over $\mathbb{P}^1$.\\ \indent
 Suppose $X$ admits a holomorphic volume form $\Omega$. There exists a unique Riemannian metric $g_{\mathbb{P}^1,\epsilon}$, compatible with the complex structure of $\mathbb{P}^1$, and the faithful pairing 
-$$E\otimes T^{1,0}\mathbb{P}^1\rightarrow \mathbb{C}$$
+\[ E\otimes T^{1,0}\mathbb{P}^1\rightarrow \mathbb{C} \]
 induced by $h_\epsilon$ and $g_{\mathbb{P}^1,\epsilon}$ is isometric to the one induced by $\Omega$.\\ \indent
 We can choose a fibre-preserving biholomorphism $X\simeq E/\Lambda$ for a holomorphic lattice bundle $\Lambda\subset E$. Thus $\Lambda$ induces a flat $\mathbb{R}$-linear connection on $E$, thus we can define an integrable horizontal distribution $\mathscr{H}$ on $X$. Then define
-$$g_{\textrm{sf},\epsilon}(u,v)=g_{p,\epsilon}(Pu,Pv)+g_{\mathbb{P}^1,\epsilon}(df(u),df(v))$$
+\[ g_{\mathrm{sf},\epsilon}(u,v)=g_{p,\epsilon}(Pu,Pv)+g_{\mathbb{P}^1,\epsilon}(df(u),df(v)) \]
 for $u,v\in T_xX$, where $P$ is the projection along $\mathscr{H}_x$.\\ \indent
 Now we see the metric locally, thus we choose a local trivialization on an open subset $U$ of $\mathbb{P}^1$, thus we have
-$$X|_U\simeq E|_U/\Lambda \simeq(U\times \mathbb{C})/\Lambda \; ,$$
+\[ X|_U\simeq E|_U/\Lambda \simeq(U\times \mathbb{C})/\Lambda \; , \]
 denote the coordinate $z$ on $U$ and $w$ on the $\mathbb{C}$.
 Fix an oriented basis $\{\tau_1,\tau_2\}$ for $\Lambda$ at a generic point, and extend it to $\tau_i\in \mathscr{O}(U,\mathbb{C})$ that generate the lattice everywhere and let $(\xi^1,\xi^2)$ be $\mathbb{R}$-dual to $(\tau_1,\tau_2)$. The assumption we made before means the existence of a matrix $Q\in M_{2\times2}(\mathbb{R})$, $Q+Q^T=0$, such that
-$$\omega=\frac{1}{2}Q_{ij}\xi^i\wedge\xi^j$$
+\[ \omega=\frac{1}{2}Q_{ij}\xi^i\wedge\xi^j \]
 restricts to K{\"a}hler metric on each fiber. Define $T\in \mathscr{O}(U,M_{1\times2}(\mathbb{C}))$ by
-$$\tau_1=T_{11}\qquad \tau_2=T_{12}\; .$$
-\indent Consider the monodromy, we have a matrix $A\in GL(2,\mathbb{R})$, then $A^TQA=Q$. There exists $S\in GL(2,\mathbb{R})$, unique up to right multiplication by a matrix in $Sp(2,\mathbb{R})$ such that $$S^TQS=\begin{pmatrix}
+\[ \tau_1=T_{11}\qquad \tau_2=T_{12}\; . \]
+\indent Consider the monodromy, we have a matrix $A\in GL(2,\mathbb{R})$, then $A^TQA=Q$. There exists $S\in GL(2,\mathbb{R})$, unique up to right multiplication by a matrix in $Sp(2,\mathbb{R})$ such that \[S^TQS=\begin{pmatrix}
 0 & 1\\
 -1 & 0
-\end{pmatrix}\; .$$
-\\ \indent We thus write $TS=(R,RZ)$ with multivalued holomorphic maps $R:U\rightarrow \mathbb{C}$ and $Z:U\rightarrow \mathbb{C}$. By Griffiths--Harris\cite{griffiths1978principles}, $\omega$ being positive $(1,1)$ is equivalent to the image of $Z$ is contained in upper-half plane. And we have
-$$\omega=iH dw\wedge d\bar{w}\; ,$$
+\end{pmatrix}\; .\]
+\\ \indent We thus write $TS=(R,RZ)$ with multivalued holomorphic maps $R\colon U\rightarrow \mathbb{C}$ and $Z\colon U\rightarrow \mathbb{C}$. By Griffiths--Harris \cite{griffiths1978principles}, $\omega$ being positive $(1,1)$ is equivalent to the image of $Z$ is contained in upper-half plane. And we have
+\[ \omega=iH dw\wedge d\bar{w}\; , \]
 and
-$$H^{-1}:=2|R|^2\textrm{Im}  Z=i\bar{T}Q^{-1}T\; .$$
-\indent Here $Z$ is actually the so called period map, although actually is not well-defined since $S$ is only unique up to multiplication by matrix in $\textrm{Sp}(2,\mathbb{R})$. The flat connection induced before has Christoffel symbol
-$$\Gamma(z,w)=\frac{\partial T}{\partial z}\begin{pmatrix}
+\[ H^{-1}\\coloneq 2|R|^2\operatorname{Im}  Z=i\bar{T}Q^{-1}T\; . \]
+\indent Here $Z$ is actually the so called period map, although actually is not well-defined since $S$ is only unique up to multiplication by matrix in $\operatorname{Sp}(2,\mathbb{R})$. The flat connection induced before has Christoffel symbol
+\[\Gamma(z,w)=\frac{\partial T}{\partial z}\begin{pmatrix}
 T \\
 \bar{T}
 \end{pmatrix}^{-1}\begin{pmatrix}
 w\\
 \bar{w}
-\end{pmatrix}\in\mathbb{C}\; .$$
-\\ \indent
+\end{pmatrix}\in\mathbb{C}\; .\]
 
-
-\section{Construction of metric}
-In this section, we give explicit formula for a semi-flat metric consturcted by Hein\cite{hein2012gravitational}.
-\begin{lemm}
-For $H$ as defined above and $\epsilon>0$, denote $\displaystyle H(\epsilon)=\frac{\epsilon}{\sqrt{\det Q}}H$, if $\Omega=gdz\wedge dw$ where $g$ is holomorphic, then the K{\"a}hler form of $g_{\textrm{sf},\epsilon}$ is
-$$\omega_{\textrm{sf},\epsilon}=i|g|^2H(\epsilon)^{-1}dz\wedge d\bar{z}+iH(\epsilon)(dw-\Gamma dz)\wedge(d\bar{w}-\bar{\Gamma}d\bar{z})\; .$$
+\subsection{Construction of metric}
+In this subsection, we give explicit formula for a semi-flat metric constructed by Hein \cite{hein2012gravitational}.
+\begin{lemma}
+For $H$ as defined above and $\epsilon>0$, denote $\displaystyle H(\epsilon)=\frac{\epsilon}{\sqrt{\det Q}}H$, if $\Omega=gdz\wedge dw$ where $g$ is holomorphic, then the K{\"a}hler form of $g_{\operatorname{sf},\epsilon}$ is
+\[ \omega_{\mathrm{sf},\epsilon}=i|g|^2H(\epsilon)^{-1}dz\wedge d\bar{z}+iH(\epsilon)(dw-\Gamma dz)\wedge(d\bar{w}-\bar{\Gamma}d\bar{z})\; . \]
 It is a closed form whose top power is $2\Omega\wedge\bar{\Omega}$, so is Calabi--Yau.
-\end{lemm}
-\begin{lemm}
+\end{lemma}
+\begin{lemma}
 Using the above notations, the metric $g_{\mathbb{P}^1,\epsilon}$ on the base are K{\"a}hler, and has Ricci form 
-$$\rho(\omega_{\mathbb{P}^1,\epsilon})=-i\partial\bar{\partial}\log(\textrm{Im} Z)=\frac{i dZ\wedge d\overline{Z}}{4(\textrm{Im} Z)^2}\; .$$
-\end{lemm}
+\[ \rho(\omega_{\mathbb{P}^1,\epsilon})=-i\partial\bar{\partial}\log(\operatorname{Im} Z)=\frac{i dZ\wedge d\overline{Z}}{4(\operatorname{Im} Z)^2}\; . \]
+\end{lemma}
 \begin{proof}
-First notice that $$|R|^2\textrm{Im} Z=\frac{1}{H}\; ,$$and notice that Ricci form is invariant under scalar multiplication on metric. Then denote $$f=\textrm{Im} Z=\frac{1}{2i}(Z-\bar{Z})\; .$$
+  First notice that \[ |R|^2\operatorname{Im} Z=\frac{1}{H}\; ,\]
+and notice that Ricci form is invariant under scalar multiplication on metric. Then denote \[ f=\operatorname{Im} Z=\frac{1}{2i}(Z-\bar{Z})\; . \]
 \indent Then we have
 \begin{displaymath}
 \begin{split}
-\partial\bar{\partial}\log(\textrm{Im} Z)&=\partial\left(\frac{f_{\bar{z}}}{f}d\bar{z}\right)\\
+\partial\bar{\partial}\log(\operatorname{Im} Z)&=\partial\left(\frac{f_{\bar{z}}}{f}d\bar{z}\right)\\
 &=\frac{ff_{z\bar{z}}-f_z f_{\bar{z}}}{f^2}dz\wedge d\bar{z}\\
 &=\frac{Z_z\bar{Z}_{\bar{z}}}{(Z-\bar{Z})^2}dz\wedge d\bar{z}\\
-&=\frac{-|Z_z|^2}{4(\textrm{Im} Z)^2}dz\wedge d\bar{z}\; .
+&=\frac{-|Z_z|^2}{4(\operatorname{Im} Z)^2}dz\wedge d\bar{z}\; .
 \end{split}
 \end{displaymath}
 \indent And notice that 
-$$dZ\wedge d\bar{Z}=Z_zdz\wedge\overline{Z_z}d\bar{z}=|Z_z|^2dz\wedge d\bar{z}\; .$$
+\[ dZ\wedge d\bar{Z}=Z_zdz\wedge\overline{Z_z}d\bar{z}=|Z_z|^2dz\wedge d\bar{z}\; . \]
 \indent Hence complete the proof.
 \end{proof}
-We summarize the above conclusions and give an explicit formula as in Gross--Wilson\cite{gross2000large}, but using the notions in Hein\cite{hein2012gravitational}.
-\begin{prop}
-Let $f\colon X\rightarrow S$ an Weierstrass fibration over a Riemann surface, where $\sigma$ is the given holomorphic section and $f$ has no singular fiber. Suppose $\Omega$ be a holomorphic symplectic form on $X$. Let $\omega_{\textrm{sf},\epsilon}$ be semi-flat K{\"a}hler, constructed from $\sigma,\Omega/\sqrt{2}$, such that the area of the fibers of $f$ are $\epsilon$. In particular, $\omega_{\textrm{sf},\epsilon}^2=\Omega\wedge\bar{\Omega}\; .$\\ \indent
-Let $U$ be a domain in $S$, $z$ be the holomorphic coordinate on $U$, and fix a local trivialization $$X|U\simeq (U\times \mathbb{C}_w)/(\mathbb{Z}\tau_1+\mathbb{Z}\tau_2)\; ,$$ 
-with multivalued functions $\tau_1,\tau_2$ which the pair $(\tau_1,\tau_2)$ is positively oriented and $\sigma$ corresponds to the zero section. Then $\Omega=gdz\wedge dw$ such that $g:U\rightarrow\mathbb{C}$ is holomorphic and
-$$\omega_{\textrm{sf},\epsilon}=i|g|^2\frac{\textrm{Im} (\bar{\tau_1}\tau_2)}{\epsilon}dz\wedge d\bar{z}+\frac{i\epsilon}{2\textrm{Im} (\bar{\tau_1}\tau_2)}(dw-\Gamma dz)\wedge(d\bar{w}-\bar{\Gamma}d\bar{z})\; ,$$
+We summarize the above conclusions and give an explicit formula as in Gross--Wilson \cite{gross2000large}, but using the notions in Hein \cite{hein2012gravitational}.
+\begin{proposition}
+Let $f\colon X\rightarrow S$ an Weierstrass fibration over a Riemann surface, where $\sigma$ is the given holomorphic section and $f$ has no singular fiber. Suppose $\Omega$ be a holomorphic symplectic form on $X$. Let $\omega_{\operatorname{sf},\epsilon}$ be semi-flat K{\"a}hler, constructed from $\sigma,\Omega/\sqrt{2}$, such that the area of the fibers of $f$ are $\epsilon$. In particular, $\omega_{\mathrm{sf},\epsilon}^2=\Omega\wedge\bar{\Omega}\; .$\\ \indent
+Let $U$ be a domain in $S$, $z$ be the holomorphic coordinate on $U$, and fix a local trivialization \[ X|U\simeq (U\times \mathbb{C}_w)/(\mathbb{Z}\tau_1+\mathbb{Z}\tau_2)\; , \] 
+with multivalued functions $\tau_1,\tau_2$ which the pair $(\tau_1,\tau_2)$ is positively oriented and $\sigma$ corresponds to the zero section. Then $\Omega=gdz\wedge dw$ such that $g\colon U\rightarrow\mathbb{C}$ is holomorphic and
+\[ \omega_{\mathrm{sf},\epsilon}=i|g|^2\frac{\operatorname{Im} (\bar{\tau_1}\tau_2)}{\epsilon}dz\wedge d\bar{z}+\frac{i\epsilon}{2\operatorname{Im} (\bar{\tau_1}\tau_2)}(dw-\Gamma dz)\wedge(d\bar{w}-\bar{\Gamma}d\bar{z})\; , \]
 where
-$$\Gamma(z,w)=\frac{1}{\textrm{Im} (\bar{\tau_1}\tau_2)}\left(\textrm{Im} (\bar{\tau_1}w)\frac{d\tau_2}{dz}-\textrm{Im} (\bar{\tau_2}w)\frac{d\tau_1}{dz}\right)\; .$$
+\[ \Gamma(z,w)=\frac{1}{\operatorname{Im} (\bar{\tau_1}\tau_2)}\left(\operatorname{Im} (\bar{\tau_1}w)\frac{d\tau_2}{dz}-\operatorname{Im} (\bar{\tau_2}w)\frac{d\tau_1}{dz}\right)\; . \]
 \indent On $U$, the Ricci form of the induced metric $\omega_{S,\epsilon}$ on the base is given by
-$$\rho(\omega_{S,\epsilon})=-i\partial\bar{\partial}\log\textrm{Im} (\tau)=\frac{id\tau\wedge d\bar{\tau}}{4\textrm{Im} (\tau)^2}\; ,$$
-the pullback of hyperbolic metric on the upper half-plane $\mathfrak{H}=\{\textrm{Im} (\tau)>0\}$ whose Gaussian curvature is $-2$  under the period map $\tau=\frac{\tau_2}{\tau_1}\colon U\rightarrow \mathfrak{H}$.
-\end{prop}
+\[ \rho(\omega_{S,\epsilon})=-i\partial\bar{\partial}\log\operatorname{Im} (\tau)=\frac{id\tau\wedge d\bar{\tau}}{4\operatorname{Im} (\tau)^2}\; , \]
+the pullback of hyperbolic metric on the upper half-plane $\mathfrak{H}=\{\operatorname{Im} (\tau)>0\}$ whose Gaussian curvature is $-2$  under the period map $\tau=\frac{\tau_2}{\tau_1}\colon U\rightarrow \mathfrak{H}$.
+\end{proposition}
