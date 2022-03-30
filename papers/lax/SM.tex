@@ -1,0 +1,62 @@
+\documentclass[twoside]{article}
+
+\input{../common/preamble}
+\input{commands}
+
+\addbibresource{SM.bib}
+\nocite{*}
+
+\begin{document}
+
+\title{A Study on Symmetric Manifolds}
+\author{Luo Aoxue\footnote{罗傲雪}}
+
+\begin{abstract}
+\input{abs}
+\end{abstract}
+
+\begin{center}
+  \begin{tabular}{ll}
+    \hline
+    \textbf{Notation}              & \textbf{Definition} \\
+    \hline
+    $M$                            & smooth manifold,\\
+    $G$                            & a Lie group,\\
+    $\ssg$                         & the Lie algebra of $G$,\\
+    $G_p$                          & the isotropy group(stabilizer) at $p$,\\
+    $I(M)$                         & the isometry group of $M$,\\
+    $I_0(M)$                       & the identity component of $I(M)$,\\
+    $s_p$                          & the involution isometry at $p\in M$,\\
+    $Gl(n,\mathbb{R})$             & $\{(n\times n) \text{ matrices } A \text{ over } \mathbb{R} \text{ with } \det A\neq 0\}$,\\
+    $Sl(n,\mathbb{R})$             & $\{A \in Gl(n,\mathbb{R}) : \det A =1\}$,\\
+    $SO(n)$                        & $\{A \in Sl(n,\mathbb{R}) : A^t=A^{-1}\}$,\\
+    $\mathfrak {gl}(n,\mathbb{R})$ & $\{(n\times n) \text{ matrices } A \text{ over } \mathbb{R}\}$,\\
+    $\mathfrak{sl}(n,\mathbb{R})$  & $\{X \in \mathfrak {gl}(n,\mathbb{R}) : \operatorname{tr} X=0\}$,\\
+    $\mathfrak{so}(n)$             & $\{X \in \mathfrak {sl}(n,\mathbb{R}) : X^t=-X\}$. \\
+    \hline
+  \end{tabular}
+\end{center}
+
+\section{Introduction}
+
+\input{introduction}
+
+\section{Prerequisites on Lie theories}
+
+\input{pre}
+
+\section{Riemannian symmetric manifolds}
+
+\input{RSM}
+
+\section{Hermitian symmetric manifolds}
+
+\input{HSM}
+
+\section{Examples of symmetric manifolds}
+
+\input{EX}
+
+\printbibliography
+
+\end{document}

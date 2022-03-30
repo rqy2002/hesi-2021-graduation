@@ -21,29 +21,32 @@ For an isometry, it has the following properties:
 	be two Riemannian manifolds and $F\: M \rightarrow N$ be a
 	local Riemannian isometry. Then
 	
-	(1) $F$ maps geodesics to geodesics.
-	
-	(2) For any $p \in M$ and $v \in T_{p} M$, if $\exp _{p} v$
-	is defined, then $\exp _{F(p)}\left( D F_{p}(v) \right)$ is
-	defined and $F \circ \exp _{p}(v) = \exp _{F(p)} \circ D
-	F_{p}(v) .$
+  \begin{enumerate}
+    \item $F$ maps geodesics to geodesics.
+    
+    \item For any $p \in M$ and $v \in T_{p} M$, if $\exp _{p} v$
+    is defined, then $\exp _{F(p)}\left( D F_{p}(v) \right)$ is
+    defined and $F \circ \exp _{p}(v) = \exp _{F(p)} \circ D
+    F_{p}(v) .$ \qedhere
+  \end{enumerate}
 \end{lemma}
-\bproof
+\bproof \hfill
+\begin{enumerate}
+  \item is an obvious conclusion in Riemannian geometry.
 
-(1) is an obvious conclusion in Riemannian geometry.
-
-(2) If $\exp _{p}(v)$ is defined, then $t \mapsto \exp _{p}(t v)$
-is a geodesic. Thus $t \mapsto$ $F\left( \exp _{p}(t v) \right)$
-is also a geodesic. Since
-\[
-\begin{aligned}
-	\left.\frac{d}{d t} F\left( \exp _{p}
-	\right)\right|_{t=0} &=D F\left( \left .\frac{d}{d t} \exp
-	_{p}(t v) \right|_{t=0} \right) =D F(v)
-\end{aligned}
-\]
-we have that $F\left( \exp _{p}(t v) \right)=\exp _{F(p)}(t D
-F(v))$. Setting $t=1$ then the claim is proved.
+  \item If $\exp _{p}(v)$ is defined, then $t \mapsto \exp _{p}(t v)$
+  is a geodesic. Thus $t \mapsto$ $F\left( \exp _{p}(t v) \right)$
+  is also a geodesic. Since
+  \[
+  \begin{aligned}
+    \left.\frac{d}{d t} F\left( \exp _{p}
+    \right)\right|_{t=0} &=D F\left( \left .\frac{d}{d t} \exp
+    _{p}(t v) \right|_{t=0} \right) =D F(v)
+  \end{aligned}
+  \]
+  we have that $F\left( \exp _{p}(t v) \right)=\exp _{F(p)}(t D
+  F(v))$. Setting $t=1$ then the claim is proved.
+\end{enumerate}
 \eproof
 \begin{corollary}\label{11.2}
 Let $F, G\:\left( M, g_{M} \right) \rightarrow \left( N, g_{N}
@@ -111,7 +114,7 @@ $\gamma(0) = p, \gamma(1) = q$. Let $m=\gamma\left( \frac{1}{2}
 transitively on $M$.
 \eproof
 
-	By now we've proved tht $I(M)$ is a locally compact
+	By now we've proved that $I(M)$ is a locally compact
 	transitive transformation group on $M$. Also from above we
 	see that the involutive isometry at each point is unique. And
 	$M$ is homeomorphic to $I(M) / I(M)_p$. To see the
@@ -119,9 +122,9 @@ transitively on $M$.
 
 
 \begin{lemma}\label{3.7}
-Let $M$ be a Riemmanian globally symmetric manifold and $\gamma\:
+Let $M$ be a Riemannian globally symmetric manifold and $\gamma\:
 \mathbb{R} \rightarrow M$ be a geodesic with $\gamma(0) = p_{0}
-.$ Then for any $t \in \mathbb{R}$, the map $T_{t}\: =
+.$ Then for any $t \in \mathbb{R}$, the map $T_{t} \coloneq
 s_{\gamma\left( \frac{t}{2} \right)} s_{p_{0}}$ is an isometry of
 $M$, called a transvection, which sends $p_{0}$ to $\gamma(t)$
 and $\left( d T_{t} \right)_{p_{0}}$ is the parallel translation
@@ -203,14 +206,14 @@ invariant whether we use $I(M)/I(M)_p$ or $ I_0(M)/I_0(M)_p$.
 	 isometry group $I(M)$ and its identity component $G =
 	 I_0(M)$. Let $p_0$ be a fixed point on $M$ and $K$ is the
 	 subgroup of $G$ which fixes $p_0$. Then the mapping
-	 $\sigma:g\to s_{p_0}gs_{p_0}$ is an involutive automorphism
+	 $\sigma\:g\to s_{p_0}gs_{p_0}$ is an involutive automorphism
 	 of $G$, also called the Cartan involution of this symmetric
 	 space.
 	 
 	 Let $\ssg$ and $\ssk$ denote the Lie algebras of $G$ and $K$
-	 respectively. Then $\ssk = \{ X \in \ssg:(d\sigma)_eX = X\}$
-	 and  we have $\ssg = \ssk\oplus\ssp$ for $\ssp:=\{X\in
-	 \ssg:(d\sigma)_eX = -X\}$. Let $\pi $ denote the natural
+	 respectively. Then $\ssk = \{ X \in \ssg\:(d\sigma)_eX = X\}$
+	 and  we have $\ssg = \ssk\oplus\ssp$ for $\ssp\coloneq \{X\in
+	 \ssg\:(d\sigma)_eX = -X\}$. Let $\pi $ denote the natural
 	 mapping $g\mapsto g\cdot p_0$ of $G$ onto $M$. Then
 	 $(d\pi)_e$ maps $\ssk$ into $\{0\}$ and $\ssp$
 	 isomorphically onto $T_{p_0}M$. In particular, we have
@@ -227,7 +230,7 @@ $\ref{11.2}$. It follows that the automorphism $(d\sigma)_e$ of
 $\ssg$ is identity on $\ssk$. On the other hand, if $X\in \ssg$
 is left fixed by $(d\sigma)_e$, then $s_{p_0}\exp tX s_{p_0} =
 \exp tX$ for all $t$, so $X\in \ssk$. Hence $\ssk = \{X\in
-\ssg:(d\sigma)_eX = X\}$.
+\ssg\:(d\sigma)_eX = X\}$.
 The direct decomposition $\ssg = \ssk\oplus\ssp$ follows from the
 identity $X = \frac{1}{2}(X+d\sigma
 (X))+\frac{1}{2}(X-d\sigma(X))$.
@@ -237,7 +240,7 @@ d\pi_e$,  then for any $f\in C^{\infty}(M)$, we have
 \[0 = (d\pi_eX)f = X(f\circ
 \pi)=\left.\frac{d}{dt}\right|_{t=0}f(\exp tX\cdot p_0).
 \]
-For any $s \in \R$, we use the above equation on the function
+For any $s \in \bbR$, we use the above equation on the function
 $g(q)=f(\exp sX \cdot q), q\in M$. Then
 \[
 0=\left.\frac{d}{dt}\right|_{t=0}g(\exp tX\cdot
@@ -257,7 +260,7 @@ the Killing form of Lie algebras.
 
 \begin{definition}
 	Let $G$ be a Lie group, Lie $G = \ssg$. For $\sigma \in G$,
-	define an automorphism $I({\sigma})$ of Lie froup $G$ as
+	define an automorphism $I({\sigma})$ of Lie group $G$ as
 	$I(\sigma)(g) = \sigma g\sigma^{-1}$ and an automorphism of
 	Lie algebra $\ssg$ as $\ad(\sigma) = dI(\sigma)_e$.
 \end{definition}
@@ -282,7 +285,7 @@ $\ad(\sigma_1\sigma_2)$ and $\ad(\sigma_1)\circ\ad(\sigma_2)$ are
 linear, we have $\ad(\sigma_1\sigma_2) =
 \ad(\sigma_1)\circ\ad(\sigma_2)$. 
 
-Finally, we prove that $\ad: G\to Gl(\ssg)$ is smooth. It
+Finally, we prove that $\ad\: G\to Gl(\ssg)$ is smooth. It
 suffices to show that for any $X\in \ssg$ and linear function $w$
 on $\ssg$, the function $\sigma\mapsto w(\ad(\sigma)X)$ is smooth
 at $\sigma=e$. Take a smooth function $f\in C^{\infty}(U)$ on a
@@ -346,7 +349,7 @@ $$
 hence $d \operatorname{Ad}_{e}(X)=\operatorname{ad} X$.
 \eproof
 \begin{definition}
-Let $\mathfrak{g}$ be a Lie algebra. The Killing form $B:
+Let $\mathfrak{g}$ be a Lie algebra. The Killing form $B\:
 \mathfrak{g} \times \mathfrak{g} \rightarrow \mathfrak{g}$ is a
 bilinear symmetric form defined as
 \[
@@ -362,7 +365,7 @@ B_{\mathfrak{g}}(X, Y)=\operatorname{Tr}(\mathrm{ad} {X} \circ
 	
 \end{theorem}
 \bproof
-Since $\sigma := \operatorname{Ad}(\tau)$ is an automorphism of
+Since $\sigma \coloneq  \operatorname{Ad}(\tau)$ is an automorphism of
 $\mathfrak{g}$, we have (by acting on $\sigma Y$ ) that
 $\operatorname{ad}(\sigma X) = \sigma \circ \operatorname{ad} X
 \circ \sigma^{-1}$. Then
@@ -451,7 +454,7 @@ Riemannian metric on $G$ as follows. We define a metric on $G$ by
 d\left(L_{g^{-1}}\right)_{g} X, d\left( L_{g^{-1}} \right)_{g}
 Y\right\rangle
 \]
-Then $L_{g}$ is naturally an isometriy. $R_{g}$ is also an
+Then $L_{g}$ is naturally an isometry. $R_{g}$ is also an
 isometry by 
 \[
 \begin{aligned}
@@ -615,7 +618,7 @@ T_{t}\right)_{\gamma(s)}$
 	\text { for all } v \in T_{p_{0}} M \right\}
 	\]
 	The first equality is obvious and for the second one, we
-	observe that (a) implics that $\left( \nabla_{X^{*}} Y^{*}
+	observe that (a) implies that $\left( \nabla_{X^{*}} Y^{*}
 	\right)\left( p_{0} \right) = [X, Y]^{*}\left( p_{0}
 	\right)=0$ for $X, Y \in \mathfrak{p} \operatorname{\ since\
 	}[\mathfrak{p}, \mathfrak{p}] \subset \mathfrak{k}$.
@@ -634,7 +637,7 @@ T_{t}\right)_{\gamma(s)}$
 \bproof
 See \cite{Peter} Theorem 10.1.6.
 \eproof
-\subsection{de Rham decompostition}
+\subsection{de Rham decomposition}
 
 Next we consider the classification of  Riemannian (globally)
 symmetric spaces.
@@ -647,7 +650,7 @@ be its identity component. Note that for different point $p$, the
 group are isomorphic with each other. Thus We  often denote it by
 Hol. It has some fundamental properties :
 \begin{theorem}
-	Assumc that $M$ is complete. Then
+	Assume that $M$ is complete. Then
 	
 	(a) $\mathrm{Hol}$ is a Lie group with  $\mathrm{Hol}^{0}$
 	compact.
@@ -764,7 +767,7 @@ Just look at flat $\mathbb{R}^{n}$, we have $K = \mathrm{O}(n)$
 which acts irreducibly. But this is  the only exception by the
 conclusion to be learned: If $M = G / K$ is irreducible, then $M
 = \mathbb{R}^{n} \times N$ with the product metric, where the
-metric on $\R^n$ is flat and $N$ has a metric making it a
+metric on $\bbR^n$ is flat and $N$ has a metric making it a
 symmetric manifold and is decomposable.
 
  The DeRham decomposition theorem implies:
@@ -830,7 +833,7 @@ $B_{2} = 0$.
 \bproof
 Return to Corollary $\ref{333}$. From above, we see that the
 metric is unique up to scaling. Since isometries preserve the
-curvature, Ric is also a symmetric bilincar form invariant under
+curvature, Ric is also a symmetric bilinear form invariant under
 $K$, hence at any point there exists smooth function $\lambda$
 such that $\Ric = \lambda g$. Since $\Ric $ is parallel,
 $\lambda$ has to be a constant.
@@ -845,9 +848,9 @@ $\lambda$ has to be a constant.
 
 \bremark
 Note that this only gives a classification irreducible ones.
-Also, since $\Ric$ is parallel, we have that the eigevalues of
+Also, since $\Ric$ is parallel, we have that the eigenvalues of
 $\Ric$ are the same. So by Myer's theorem, $M$ is compact if it
-is of compact type, and by Bochner formular, $M$ is non-compact
+is of compact type, and by Bochner formula, $M$ is non-compact
 if $M$ is of non-compact type (see \cite{Peter} Corollary 8.2.5
 for example).
 
@@ -862,8 +865,8 @@ When $M$ is of Euclidean type, we refer to this theorem:
 See \cite{Peter} Corollary 8.2.5.
 \eproof
  Then if $M$ is of Euclidean type and  is simply connected, then
- it must be isomorphic to $\R^n$ up to uniformization. If not
- simply connected, we will show that $M$ is covered by $\R^n$.
+ it must be isomorphic to $\bbR^n$ up to uniformization. If not
+ simply connected, we will show that $M$ is covered by $\bbR^n$.
  As a matter of fact, we also have that any symmetric manifold
  of (non-)compact type can be covered by a product of
  (non-)compact irreducible symmetric manifolds, which will be
@@ -878,7 +881,7 @@ See \cite{Peter} Corollary 8.2.5.
  	 $\tilde{G}$ be the simply connected Lie group induced by
  	 $\mathfrak{g}$. Then there exists a connected Lie subgroup
  	 $\tilde{K}$ corresponding to $\mathfrak{k}$ and a
- 	 $\tilde{G}$ -invariant metric on $\tilde{M}:=\tilde{G} /
+ 	 $\tilde{G}$ -invariant metric on $\tilde{M}\coloneq \tilde{G} /
  	 \tilde{K}$ such that $\tilde{M}$ is a Riemannian symmetric
  	 manifold and moreover, it is a Riemannian covering of $M$.
  \end{theorem}
@@ -920,14 +923,14 @@ invariant under $\operatorname{Ad} H$, it
 is an inner product on $T_{o}(G / H)$ which is invariant under
 the pushforward by $H$, then define
 $$
-g_{a H}(u, v):=Q\left(\left(d \tau_{a}\right)_{a
+g_{a H}(u, v)\coloneq Q\left(\left(d \tau_{a}\right)_{a
 H}^{-1}(u),\left(d \tau_{a}\right)_{a H}^{-1}(v)\right), \forall
 u, v \in T_{a H}(G / H)
 $$
 we have a well-defined G-invariant metric on $G / H$.
 \eproof
 \bproof
-Back to theorm $\ref{cover}$. We prove that $\tilde{M}$ is a
+Back to theorem $\ref{cover}$. We prove that $\tilde{M}$ is a
 Riemannian symmetric manifold.  Let $\sigma\: \mathfrak{g}
 \rightarrow \mathfrak{g}$ be the canonical involutive
 automorphism. By the theory of simply-connected
@@ -962,11 +965,10 @@ manifold. Indeed, since $K = \tilde{G}_{\sigma}^{0} \subset
 $\sigma_{0}\:\tilde{G} / \tilde{K} \rightarrow \tilde{G} /
 \tilde{K}$ such that the diagram commutes,
 \[
-\begin{matrix}
-	G&\stackrel{\pi}{\longrightarrow}&G/K\\
-	\ \ \downarrow \sigma& &\ \ \downarrow \sigma_{0}\\
-	G&\stackrel{\pi}{\longrightarrow}&G/K
-\end{matrix}
+\begin{tikzcd}
+  G\ar[r, "\pi"] \ar[d, "\sigma"] &G/K \ar[d, "\sigma_0"]\\
+  G\ar[r, "\pi"] &G/K
+\end{tikzcd}
 \]
 hence
 \[
@@ -978,10 +980,10 @@ then $\sigma_{0}(e \tilde{K}) = \sigma_{0}(\pi(e)) =
 K$ is a fixed
 point of $\sigma_{0}$ and it is clear that $\sigma_{0}^{2}= i
 d_{\tilde{G} / \tilde{K}}$. Then for any $g \tilde{K} \in
-\tilde{G} / \tilde{K}$, let $\tau_{g}: \tilde{G} / \tilde{K}
+\tilde{G} / \tilde{K}$, let $\tau_{g}\: \tilde{G} / \tilde{K}
 \rightarrow \tilde{G} / \tilde{K}$ be defined as $\tau_{g}(a
 \tilde{K}) = (g a) \tilde{K}, \forall g \in \tilde{G}$, and let
-$\sigma_{g \tilde{K}}:= \tau_{g} \sigma_{0} \tau_{g}^{-1}$,  it
+$\sigma_{g \tilde{K}}\coloneq  \tau_{g} \sigma_{0} \tau_{g}^{-1}$,  it
 is clear that the definition is independent of the choice of $g$
 and $\sigma_{g K}^{2} = i d_{\tilde{G}} / \tilde{K}$.
 
@@ -1009,12 +1011,11 @@ $\tilde{G}$ to $G$ such that $(d \varphi)_{e}\: \mathfrak{g}
 \varphi(g) K$.
 Since the metric of $\tilde{G} / \tilde{K}$ is got by
 translating the metric of $G / K$ at $e K$, we have that the
-mapping $\psi: g \tilde{K} \rightarrow \varphi(g) K$ is a local
+mapping $\psi\: g \tilde{K} \rightarrow \varphi(g) K$ is a local
 isometry.
 
 By the following result in Riemannian geometry, we have that
-$\psi$ is a Rie-
-mannian covering:
+$\psi$ is a Riemannian covering:
 
  Let $M, N$ be Riemannian manifolds and $M$ is complete. Then
  any local
@@ -1038,7 +1039,7 @@ many articles:
 	$(\tilde{M}, \tilde{g})$ is a universal Riemannian covering
 	manifold of $M$. Suppose $\tilde M = \tilde M_{1} \times
 	\cdots \times \tilde M_{k}$ is the decomposition of products
-	of irreducible symmetric spaces. If $\tilde M_{i}$ 's are
+	of irreducible symmetric spaces. If $\tilde M_{i}$'s are
 	all of (non)-compact (Euclidean) type, then $M$ is called of
 	(non)-compact
 	(Euclidean) type.
@@ -1115,7 +1116,7 @@ $\exp (X) h = $ $\exp \left(W\right)$. Then
 \operatorname{Ad}\left(\exp \left(W\right)\right)
 \]
 and $e^{\mathrm{ad} X} \operatorname{Ad}(h) =
-e^{\mathrm{ad}\left(W\right)}$. Let $B^{*}(X, Y):=-B(\sigma(X),
+e^{\mathrm{ad}\left(W\right)}$. Let $B^{*}(X, Y)\coloneq -B(\sigma(X),
 Y)$, where $\sigma$ is the
 involution. Since $M$ is of non-compact type, we have
 $\left.B\right|_{\ssp} = -2 \mathrm{Ric}>0$. Since
@@ -1144,7 +1145,7 @@ is injective, hence an diffeomorphism.
 The above theorems give  a general classification and relevant
 properties of symmetric manifolds.
 
-Ofcourse, we can classify them in a more subtle way. Usually the
+Of course, we can classify them in a more subtle way. Usually the
 case of compact type and non-compact type are studied
 separately. We have the following  in order to know better:
 
@@ -1159,7 +1160,7 @@ See \cite{Besse} Corollary 7.79.
 \begin{remark}
 	 Usually these symmetric spaces are called "of type III" if
 	 $G$ is absolutely simple (i.e., if the complexification
-	 $g^{\C} = g \otimes \mathbb{C}$ is simple as a complex Lie
+	 $g^{\bbC} = g \otimes \mathbb{C}$ is simple as a complex Lie
 	 algebra), and "of type IV" if not, in which case $G$ is a
 	 simple complex Lie group. 
 \end{remark}
@@ -1168,7 +1169,7 @@ See \cite{Besse} Corollary 7.79.
 	symmetric space, then either $G$ is simple or there exists a
 	real simple compact simply-connected Lie group $H$ with
 	center $Z$ such that $G=(H \times H) / Z$ and $K=H / Z$,
-	where $Z$ and $H$ are imbedded in $H \times H$ via the
+	where $Z$ and $H$ are embedded in $H \times H$ via the
 	diagonal embedding $h \mapsto(h, h)$.
 \end{theorem}
 \bproof
@@ -1184,8 +1185,8 @@ spaces such that $G$ is simple. These ones are called "of type
 I". Another trick shows that once again the classification is a
 consequence of the classification of real simple Lie groups. It
 goes as follows; let $\ssg^{\mathbb{C}} = \ssg \otimes
-\mathbb{C}$ be the complexification of $g$ and $G^{\C}$ the
-simply-connected complex Lie group generated by $\ssg^{\C} .$
+\mathbb{C}$ be the complexification of $g$ and $G^{\bbC}$ the
+simply-connected complex Lie group generated by $\ssg^{\bbC} .$
 Now $\ssg_{1}=\mathfrak{k} \oplus i \ssp$ is obviously
 a (real) Lie subalgebra of $\ssg^{C}$. Let $G_{1}$ be the
 subgroup of $G^{\mathbb{C}}$ generated by $\ssg_{1} .$ Since $f

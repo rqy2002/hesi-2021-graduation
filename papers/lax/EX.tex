@@ -6,7 +6,7 @@
 	exponential map is the usual matrix exponential map:
 	For $X \in \mathfrak{gl}(n, \mathbb{R})$
 	\[
-	\exp X=e^{X}:={Id}+X+\frac{1}{2} X^{2}+\cdots.
+	\exp X=e^{X}\coloneq {Id}+X+\frac{1}{2} X^{2}+\cdots.
 	\]
 	For $X, Y \in \mathfrak{gl}(n, \mathbb{R})$, 
 	\[
@@ -68,13 +68,13 @@
 	
 	Let
 	\begin{itemize}
-		\item $P$:=\{$A \in S l(n, \mathbb{R})$: $A^{t}=A$, $A$
+		\item $P$\coloneq \{$A \in S l(n, \mathbb{R})$: $A^{t}=A$, $A$
 		{ positive definite }\}
-		\item $\mathfrak p$:=\{$X\in
+		\item $\mathfrak p$\coloneq \{$X\in
 		\mathfrak{sl}(n,\mathbb{R})$: $X^t=X$\}
 	\end{itemize}
 	Then  $\mathfrak{g}=\mathfrak{k} \oplus \mathfrak{p}$ is the
-	orthogonal decomposition w.r.t $B$, i.e. 
+	orthogonal decomposition w.r.t. $B$, i.e. 
 	for $\forall X\in \mathfrak k, \forall Y\in \mathfrak p$, 
 	\[
 	B(X,Y)=2n\text{tr}
@@ -120,7 +120,7 @@
 	
 	In order to describe the metric, we put
 	\[
-	\langle X, Y\rangle_{\mathfrak{g}}:=\left\{\begin{array}{cl}
+	\langle X, Y\rangle_{\mathfrak{g}}\coloneq \left\{\begin{array}{cl}
 		B(X, Y) & \text { for } X, Y \in \mathfrak{p} \\
 		-B(X, Y) & \text { for } X, Y \in \mathfrak{k} \\
 		0 & \text { otherwise. }
@@ -130,14 +130,14 @@
 	$\langle\cdot, \cdot\rangle_{\mathfrak g}$ is positive
 	definite. 
 
-	We put $e:=\mathrm{Id} \in G$, and we identify $T_{e} G$ with
+	We put $e\coloneq \mathrm{Id} \in G$, and we identify $T_{e} G$ with
 	$\mathfrak{g} .\ \ \langle\cdot, \cdot\rangle_{\mathfrak{g}}$
 	then defines a metric on $T_{e} G$, and we then obtain a
 	metric on $T_{g} G$ for arbitrary $g$ by requiring that the
 	left translation
 	\[
 	\begin{aligned}
-		L_{g}: G & \rightarrow G \\
+		L_{g}\: G & \rightarrow G \\
 		h & \rightarrow g h
 	\end{aligned}
 	\]
@@ -152,7 +152,7 @@
 	that
 	\[
 	\begin{aligned}
-		L_{g}: G / K & \rightarrow G / K \\
+		L_{g}\: G / K & \rightarrow G / K \\
 		h K & \rightarrow g h K
 	\end{aligned}
 	\]
@@ -167,7 +167,7 @@
 	appropriate involution. We start with
 	\[
 	\begin{aligned}
-		\tau_{e}: G & \rightarrow G \\
+		\tau_{e}\: G & \rightarrow G \\
 		h & \rightarrow\left(h^{-1}\right)^{t}, \text { in
 		particular } \tau_{e }|_K=\text { id }
 	\end{aligned}
@@ -175,7 +175,7 @@
 	with derivative
 	\[
 	\begin{aligned}
-		d\tau_{e}: \mathfrak g & \rightarrow \mathfrak g \\
+		d\tau_{e}\: \mathfrak g & \rightarrow \mathfrak g \\
 		X & \rightarrow-X^{t}
 	\end{aligned}
 	\]
@@ -189,7 +189,7 @@
 	Next, for $g \in G$
 	\[
 	\begin{aligned}
-		\tau_{g}: G & \rightarrow G \\ h & \rightarrow g
+		\tau_{g}\: G & \rightarrow G \\ h & \rightarrow g
 		g^{t}\left(h^{-1}\right)^{t} .
 	\end{aligned}
 	\]
@@ -199,7 +199,7 @@
 	\]
 	Consequently, we get corresponding involutions
 	\[
-	\tau_{g K}: G / K \rightarrow G / K
+	\tau_{g K}\: G / K \rightarrow G / K
 	\]
 	with
 	\[
@@ -210,7 +210,7 @@
 
 	Moreover, the matrix exponential map 
 	\[
-	\exp X=e^{X}:={Id}+X+\frac{1}{2} X^{2}+\cdots
+	\exp X=e^{X}\coloneq {Id}+X+\frac{1}{2} X^{2}+\cdots
 	\]
 	when restricted to $\mathfrak{p}$ becomes the Riemannian
 	exponential map for $G / K$ at $T_{e K} G / K \simeq
@@ -277,9 +277,9 @@
 	
 	The action of $G\times G$ on itself is given by $(a,b)\cdot (g,h)=(ag,bh)$, the homeomorphism $G\times G/G^{\triangle}\cong G$ is by $(a,b)G^{\triangle}=(ab^{-1},e)G^{\triangle}\mapsto ab^{-1}$, and therefore this action on $G$ is $(a,b)\cdot g=agb^{-1}$.
 
-	The involution automorphism on $G\times G$ is $\sigma:G\times G\to G\times G,\ (g,h)\mapsto (h,g)$, then we see $\sigma|_{G^{\triangle}}=id$, and hence we get the induced involution isometry on $G\times G/G^{\triangle}\cong G$ as $g\mapsto g^{-1}$.
+	The involution automorphism on $G\times G$ is $\sigma\:G\times G\to G\times G,\ (g,h)\mapsto (h,g)$, then we see $\sigma|_{G^{\triangle}}=id$, and hence we get the induced involution isometry on $G\times G/G^{\triangle}\cong G$ as $g\mapsto g^{-1}$.
 	
-	We see that $(d\sigma)_e:
+	We see that $(d\sigma)_e\:
 	(X,Y)\mapsto (Y,X)$, and that $(d\sigma)_e|_{\ssk}=id$, $(d\sigma)_e|_{\ssp}=-id$, and $\ssp\cong T_eG$ as desired.
 
 	When $\ssg$ has no center, $g=-B$ defines a biinvariant
@@ -324,7 +324,7 @@
 	\mathrm{O}(n-k))=\left\{\left(\begin{array}{cc}
 		A & 0 \\
 		0 & B
-	\end{array}\right) \mid A \in \mathrm{O}(k), B \in
+	\end{array}\right) \middle| A \in \mathrm{O}(k), B \in
 	\mathrm{O}(n-k),|A||B|=1\right\}.
 	\]
 	For the oriented $G_{k}^{0}\left(R^{n}\right)$, we have
@@ -333,7 +333,7 @@
 	Obviously, the diagonal matrix with diagon entries 1 and -1
 	is an involution on $G$ as long as it is not the identity
 	matrix. Consider such matrix as $I_{p,q}$ with $p$ numbers of
-	value $1$ on the left top and other $q$ numbers of $-1$ on the right bottom. Then 
+	value $1$ on the left top and other $q$ numbers of $-1$ on the right bottom.
 	
 	We denote the matrix with $p$ entries of $1$ and $q$
 	$\sigma(A)=I_{k, n-k} A I_{k, n-k}$ is a automorphism of $G$.
@@ -358,7 +358,7 @@
 	\mathfrak{p}=\left\{\left(\begin{array}{cc}
 		0 & X \\
 		-X^{T} & 0
-	\end{array}\right) \mid X \in M(p, q, \mathbb{R})\right\}
+	\end{array}\right) \middle| X \in M(p, q, \mathbb{R})\right\}
 	\subset\mathfrak{so}(n)\ 
 	\]
 	and the $\ad$ representation is $\mathrm{Ad}((A, B)) X=A X B^{T}$, 
@@ -380,16 +380,16 @@
 	\end{center}
 	
 	With only the definition of a symmetric Riemannian manifold,
-	one can see that $\R^n$ with standard flat matric is one.
+	one can see that $\bbR^n$ with standard flat matric is one.
 	$s_p$ are obviously the total reflection at a vector, i.e.,
-	$s_p(p+v)=p-v$ for any $p\in \R^n$. 
+	$s_p(p+v)=p-v$ for any $p\in \bbR^n$. 
 	
 	Another trivial example is the unit sphere, with
 	$s_p(v)=2\langle v,p\rangle-v$. We see that indeed it act on
 	the tangent space at $p$ by $-id$. 
 	
 	For a compact Lie group, if endow it with bi-invariant matric
-	as before, $s_e:g\mapsto g$ is clearly an involution
+	as before, $s_e\colon g\mapsto g$ is clearly an involution
 	isometry. Since for any $X\in\ssg$, there is $s_p(\exp
 	tX)=\exp(-tX)$, so $d(s_e)_e=-id$. This is consistent with
 	what we analyzed previouly.
