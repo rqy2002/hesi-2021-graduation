@@ -1,0 +1,35 @@
+\subsection{Zeta integrals of matrix coefficients}
+
+\begin{definition}[\textbf{Global matrix coefficients}]
+Let $f_1,f_2$ be two cuspidal forms with same central character $\omega$. Then the matrix coefficient is defined by
+\[ \beta _{f_1,f_2} (g) = \left \langle ^{g} f_1, f_2 \right \rangle =\int \limits _{\bar G(\mathbb Q)\backslash \bar G(\mathbb A)} f_1(hg)\overline {f_2(h)} d^* h.\]
+\end{definition}
+
+\begin{definition}[\textbf{Zeta integral of matrix coefficient}]
+Let $\beta =\beta_{f_1,f_2}$ be a matrix coefficient and $\Phi\in S(M(\mathbb A))$. Define zeta integral by
+\[
+\zeta (s,\Phi,\beta )=\int\limits_{G(\mathbb A)} \Phi(g)\beta(g)\left | \det g \right |^s d^*g.
+\]
+\end{definition}
+
+
+\begin{theorem}\label{main}
+$\zeta(s,\Phi,\beta)$ can be extended to be an entire function. Moreover we have
+\[
+\zeta (s,\Phi,\beta)=\zeta (2-s,\widehat \Phi,\check \beta).
+\]
+\end{theorem}
+
+\begin{proof}
+\begin{equation*}
+\begin{split}
+\zeta(s,\Phi,\beta)
+&= \int\limits_{G(\mathbb A)} \Phi(g) \int\limits_{\bar {G}(\mathbb Q) \backslash \bar {G^1}} f_1(hg)\overline {f_2(h)} d^*h \left | \det (g) \right |^s d^*g\\
+&\= \int\limits_{\bar G(\mathbb Q) \backslash \bar {G^1}}   \int\limits_{G(\mathbb A)} \Phi(g)f_1(hg)\overline {f_2(h)} \left | \det (g) \right |^s d^*g d^*h\\
+&\=\int\limits_{\bar G(\mathbb Q) \backslash \bar {G^1}} \zeta(s,\Phi,  f_1^{h^{-1}}) \overline {f_2(h)} d^*h\\
+&\=\limits^{\bl{\ref{eq4}}} \int\limits_{\bar G(\mathbb Q) \backslash \bar {G^1}} \zeta(2-s,\widehat \Phi, ^{h^{-1}} \check f_1) \overline {f_2(h)} d^*h\\
+&\= \int\limits_{\bar G(\mathbb Q) \backslash \bar {G^1}}   \int\limits_{G(\mathbb A)} \widehat \Phi(g)f_1(hg^{-1})\overline {f_2(h)} \left | \det (g) \right |^{2-s} d^*g d^*h\\
+&\=\zeta(2-s,\widehat \Phi,\check \beta). \qedhere
+\end{split}
+\end{equation*}
+\end{proof}

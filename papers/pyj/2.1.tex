@@ -1,0 +1,58 @@
+\subsection{\texorpdfstring{$(\fr g,K)$}{(g,k)}-modules}
+
+Let $G=\mathrm{GL}_2 (\mathbb R)$. Let $\fr g$ be the Lie algebra of $G$. Let $K$ be $\mathrm {O}_2(\mathbb R)$, $\fr t$ be the Lie algebra of $K$ and $K_0=\mathrm {SO}_2(\mathbb R)$.
+
+\begin{definition}[\textbf{Unitary representations}]
+A unitary representation is a Hilbert space $V$ with a continuous action $G\times V\to V, (g,v)\mapsto \pi(g)v$,
+such that $\pi(g)$ is unitary..
+\end{definition}
+
+\begin{definition}[\textbf{Admissible representations}]
+Let $(\pi,V)$ be a unitary representation. If for any irreducible representation $\sigma$ of $K$, $V^{\sigma}$ is finite-dimensional, then $V$ is called admissible.
+\end{definition}
+
+\begin{definition}[\textbf{Smooth $V$-valued functions}]
+Let $V$ be a Hilbert space. A continuous function $f\colon G\to V$ is called $C^1$ if for any smooth tangent vector field $X$, $Xf$ is well defined and continuous.
+$f$ is called smooth if for any smooth tangent vector fields $X_1,X_2,\cdots, X_n$, $X_1X_2\cdots X_n f$ is well defined and continuous.
+\end{definition}
+
+\begin{definition}[\textbf{$V^\infty$}]
+Let $(\pi,V)$ be a unitary representation. $V^{\infty}$ is the set of vectors $v$ such that $x\mapsto \pi(x)v$ is smooth. For any $v\in V^\infty$, $X\in \fr g$, we define $\pi(X)v$ by
+\[
+ \pi(X)v=\mathop{\mathrm {lim}}\limits_{t\to 0} \frac {\pi(\mathrm {exp} (tX)) v-v} t.
+\]
+\end{definition}
+
+\begin{definition}[\textbf{$K$-finite vectors, $V_K$}]
+Let $(\pi,V)$ be a unitary representation. $v\in V$ is called $K$-finite vector if $\pi(K)v$ spans a finite-dimensional space. $V_K$ denotes the space of $K$-finite vectors.
+\end{definition}
+
+\begin{proposition}
+If $(\pi,V)$ is an admissible Banach representation. Then $V_K$ is dense in $V$ and $V_K\subset V^\infty.$
+\end{proposition}
+
+\begin{proof}
+See 9.1.5 of \bl{\cite{Gai}}.
+\end{proof}
+
+\begin{definition}[\textbf{ $(\fr g,K)$-modules}]
+A $(\fr g,K)$-module is a vector space $V$ together with representations $\pi$ of $\fr g$ and $K$ such that:
+\begin{enumerate}
+  \item for any $v\in V$, $\pi(K)v$ spans a finite-dimensional space;
+  \item for any $X\in \fr t, v\in V$, we have 
+  \[
+  \pi(X)v=\mathop{\mathrm {lim}}\limits_{t\to 0} \frac {\pi (\mathrm {exp} (tX))v-v} t. 
+  \]
+  Here the limit makes sense since $\pi(K)v$ spans a finite-dimensional space.
+  \item for any $k\in K$ and $X\in \fr g$, we have $\pi(k)\pi (X)\pi (k^{-1})=\pi(\mathrm {Ad}(k))(X)$.
+\end{enumerate}
+The $(\fr g, K)$-module is said admissible if for any finite irreducible representation $\sigma$ of $K$, $V^\sigma$ is a finite-dimensional space.  
+\end{definition}
+
+\begin{proposition}
+Suppose $V$ is an admissible Banach representation. Then $V_K$ is an admissible $(\fr g,K)$-module. 
+\end{proposition}
+
+\begin{proof}
+See 9.1.6 of \bl{\cite{Gai}}.
+\end{proof}

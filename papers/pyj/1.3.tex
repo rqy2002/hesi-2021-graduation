@@ -1,0 +1,257 @@
+\subsection{Functional equations for principal series representations}
+
+In this subsection, we prove theorem $\bl{\ref{main1}}$ for $V$ is an irreducible principal series representation or special representation.
+
+\begin{lemma}
+The contragredient representation of $\mathcal B(\chi_1,\chi_2)$ is $\mathcal B(\chi_1^{-1} ,\chi_2^{-1})$. And the canonical form is given by
+\[\left \langle f_1,f_2\right \rangle =\int\limits_K f_1(k)f_2(k) d^*k.\]
+\end{lemma}
+
+\begin{lemma}\label{int}
+Let $f\in L^1(G)$. Then we have
+\[
+\int_G f(g) d^* g =\int\limits_{F^*}\int\limits_{F^*} \int\limits_F \int\limits_K f\left (\left (
+\begin{array}{cc}
+	a_1 & x \\
+	0 & a_2
+\end{array}
+\right ) k\right )d^*k dx \frac {d^*a_1} {\left |a_1\right |} d^*a_2.
+\]
+\end{lemma}
+
+Now we can give a simple computation.
+\begin{equation*}
+\begin{split}
+	\zeta(s+\frac 1 2, \Phi,\beta) &=
+    \int\limits_G\int\limits_K \Phi(g)f_1(k_2g) f_2(k_2) \left | \det (g) \right | ^{s+\frac 1 2} d^*k_2 d^*g\\    
+    &\= \int\limits_K\int\limits_G \Phi(g)f_1(k_2g) f_2(k_2) \left | \det (g) \right | ^{s+\frac 1 2} d^*g d^*k_2\\
+    &\=\limits_{g\mapsto k_2^{-1}g}\int\limits_K\int\limits_G \Phi(k_2^{-1}g)f_1(g) f_2(k_2) \left | \det (g) \right | ^s d^*g d^*k_2\\
+   &\=\limits^{\bl{\ref{int}}}\int\limits_{K\times K\times F^*\times F^* \times F }\Phi\left (k_2^{-1} \left (
+    \begin{array}{cc}
+	a_1 & x \\
+	0 & a_2
+\end{array} \right ) k_1 \right ) f_1\left ( \left (
+    \begin{array}{cc}
+	a_1 & x \\
+	0 & a_2
+\end{array} \right ) k_1 \right )
+\\
+&f_2(k_2) \left | a_1 \right | ^{s-\frac 1 2} \left | a_2 \right |^{s+\frac 1 2} dx d^*a_1d^*a_2dk_1dk_2\\
+&\=\limits^{\bl{\ref{eq1.1.1}}}\int\limits_{K\times K\times F^*\times F^* \times F }\Phi\left (k_2^{-1} \left (
+    \begin{array}{cc}
+	a_1 & x \\
+	0 & a_2
+\end{array} \right ) k_1 \right ) f_1( k_1 )
+\\
+&f_2(k_2) \left | a_1 \right | ^{s}\chi_1(a_1) \left | a_2 \right |^{s}\chi_2(a_2) dx d^*a_1d^*a_2dk_1dk_2
+\end{split}
+\end{equation*}
+
+Let
+\[
+f_\Phi(a_1,a_2) =\int \limits _ K\int\limits _K \int\limits _F\Phi\left ( k_2^{-1}\left( \begin{array}{cc}
+a_1 & x\\
+0 & a_2
+\end{array}
+\right ) k_1 \right )f_1(k_1)f_2(k_2)d^*k_1d^*k_2dx.
+\]
+
+Then we have
+\begin{equation}\label{1.3.1}
+\zeta (s+\frac 1 2,\Phi,\beta)=\int\limits _{F^*}\int\limits_{F^*} f_\Phi(a_1,a_2) |a_1|^s\chi_1(a_1)|a_2|^s\chi_2(a_2) d^*a_1d^*a_2.
+\end{equation}
+
+Since $\Phi$ is compactly supported, for $\left | a_1 \right |$ or $\left | a_2 \right |$ large enough, one can see that
+\[
+\Phi\left (k_2^{-1} \left (
+    \begin{array}{cc}
+	a_1 & x \\
+	0 & a_2
+\end{array} \right ) k_1 \right ) =0
+\]
+for any $k_1,k_2\in K$. Thus
+we obtain
+$f_\Phi(a_1,a_2) \in S( F\times F)$.
+
+\begin{theorem}[\textbf{Rationality of the zeta integral}]
+There is a real number $s_0$ such that for $\mathrm {Re}(s)> s_0$, $\zeta (s,\Phi, \beta)$ is absolutely convergent, and $\zeta (s+\frac 1 2,\Phi,\beta)$ is a rational function of $q^{-s}$. Moreover,
+\[
+\zeta(s+\frac 1 2,\Phi,\beta)\in L(s,\chi_1)L(s,\chi_2)\mathbb C[q^s,q^{-s}].
+\]
+\end{theorem}
+
+\begin{proof}
+Since $f_\Phi\in S(F\times F)$, $f_\Phi$ is a linear combination of functions of the form $\Phi_1\otimes \Phi_2$ where $\Phi_1,\Phi_2\in S(F)$. Then $\zeta(s+\frac 1 2,\Phi,\beta)$ is a linear combination of the functions of the form
+\[
+\prod\limits_{i=1,2} \int\limits_{F^*} \Phi_i(a)\chi_i(a) \left | a \right |^s d^* a.
+\]
+By [Tate67], the integral is absolutely convergent for $\mathrm {Re} (s)>1$ and,
+\[
+\int\limits_{F^*} \Phi_i(a)\chi_i(a) \left | a \right |^s d^* a\in L(s,\chi_i) \mathbb C[q^s,q^{-s}].
+\]
+Thus the statement holds.
+\end{proof}
+
+Similarly we can get
+\begin{equation}\label{1.3.2}
+\zeta (\frac 3 2-s,\widehat \Phi,\check \beta)=\int\limits _{F^*}\int\limits_{F^*}\check f_{\hat \Phi}(a_1,a_2) |a_1|^{1-s}\chi_1^{-1}(a_1)|a_2|^{1-s}\chi_2^{-1}(a_2) d^*a_1d^*a_2,
+\end{equation}
+where $\check f_{\widehat \Phi}(a_1,a_2)$ is defined by
+\[\int \limits _ K\int\limits _K \int\limits _F \widehat \Phi\left ( k_1^{-1}\left( \begin{array}{cc}
+a_1 & x\\
+0 & a_2
+\end{array}
+\right ) k_2 \right )f_1(k_1)f_2(k_2)d^*k_1d^*k_2dx.\]
+
+Next, we want to prove that the Fourier transform of $f_\Phi$ is $\check f _{\widehat \Phi}$. Recall that for a function $\Phi$  on $M$, the left action of $\Phi$ by $g\in G$ is defined by
+\[
+^g \Phi (a) =\Phi(ag),
+\]
+and the right action is defined by
+\[
+\Phi ^g(a) =\Phi(g^{-1} a).
+\]
+
+\begin{lemma}\label{lem1}
+We have the formula
+\[
+\widehat {^{g}\Phi^{h}}=\left | \mathrm {det} (hg^{-1}) \right |^2 {^{h}}{\widehat \Phi}^{g}.
+\]
+\end{lemma}
+
+\begin{proof}
+Consider the linear automorphism:
+\[
+L\colon M\to M,\ a\mapsto h^{-1}ag.
+\]
+Then the map
+\[
+S(M)\to \mathbb C,\ \Phi\mapsto \int\limits_M\Phi(L(a)) da
+\]
+defines an additive measure. Thus there is a constant $c$ such that
+\[
+\int\limits_M \Phi(a)da=c\int\limits_M \Phi(L(a)) da.
+\]
+Take
+\[
+  \Psi(a)=\begin{cases}
+    1, &a\in M (\fr o)\\
+    0, &a\notin M(\fr o)
+\end{cases}
+\]
+By Cartan decomposition, we assume
+\[
+h= h_1 \left( \begin{array}{cc}
+x & 0\\
+0 & y
+\end{array}
+\right) h_2, \
+g= g_1 \left( \begin{array}{cc}
+z & 0\\
+0 & w
+\end{array}
+\right) g_2,
+\]
+where $h_i, g_i \in K$.
+Then
+\[
+L^{-1} M (\fr o)=\left( \begin{array}{cc}
+\frac x z \fr o & \frac x w \fr o\\
+\frac y z \fr o & \frac y w \fr o
+\end{array}
+\right).
+\]
+We get
+\[
+\int\limits_M \Psi(L(a))da=\int \limits_{L^{-1} M (\fr o)} da=\left |\det (hg^{-1})\right |^2\int\limits_M \Psi(a)da,
+\]
+which implies $c= \left |\mathrm {det} (gh^{-1})\right |^2$.
+Apply it to
+\[
+\widehat {^{g}\Phi^{h}}(b) =\int\limits _M \Phi(L(a)) \bar {\psi}(\mathrm {Tr}(hL(a)g^{-1}b))da=c^{-1}\int\limits _M \Phi(a) \bar {\psi}(\mathrm {Tr}(hag^{-1}b))da.
+\]
+Since $\mathrm{Tr}(hag^{-1}b)=\mathrm{Tr}(ag^{-1}bh)$, the lemma holds.
+\end{proof}
+
+\begin{proposition}\label{1.3.4}
+The function $\check f_{\hat \Phi}$ is the Fourier transform of $f_\Phi$.
+\end{proposition}
+
+\begin{proof}
+\begin{equation*}
+\begin{split}
+&\check f_{\widehat \Phi}(a_1,a_2)\\
+&={\int \limits _ K\int\limits _K \int\limits _F} {^{k_2}\widehat \Phi^{k_1}} \left ( \left( \begin{array}{cc}
+a_1 & x\\
+0 & a_2
+\end{array}
+\right )\right )f_1(k_1)f_2(k_2)d^*k_1d^*k_2dx\\
+&=\int \limits _ K\int\limits _K \int\limits _F \widehat {^{k_1}\Phi^{k_2}} \left ( \left( \begin{array}{cc}
+a_1 & x\\
+0 & a_2
+\end{array}
+\right )\right )f_1(k_1)f_2(k_2)d^*k_1d^*k_2dx\\
+\end{split}
+\end{equation*}
+
+However, we have
+\begin{equation*}
+\begin{split}
+&\int\limits_F\widehat {^{k_1}\Phi^{k_2}} \left ( \left( \begin{array}{cc}
+a_1 & x\\
+0 & a_2
+\end{array}
+\right )\right )dx\\
+&=\int\limits_F\int\limits_F \int\limits_F\int\limits_F\int\limits_F{^{k_1}\Phi^{k_2}} \left ( \left( \begin{array}{cc}
+x_1 & x_2\\
+x_3 & x_4
+\end{array}
+\right )\right )\overline{\psi(a_1x_1+a_2x_4)} dx_1dx_2dx_4\overline {\psi(xx_3)}dx_3dx\\
+&=\int\limits_F\int\limits_F J(x_3)\bar \psi(xx_3)dx_3dx\\
+&= J(0)\ ( \mathrm {The \ Fourier \ inversion \ formula})\\
+&= \int\limits_F\int\limits_F\int\limits_F{^{k_1}\Phi^{k_2}} \left ( \left( \begin{array}{cc}
+x_1 & x_2\\
+0 & x_4
+\end{array}
+\right )\right )\bar\psi(a_1x_1+a_2x_4) dx_1dx_2dx_4\\
+\end{split}
+\end{equation*}
+
+Finally we get
+\begin{equation*}
+\begin{split}
+&\check f_{\widehat \Phi}(a_1,a_2)\\
+&=\int\limits_F\int\limits_F\left (\int\limits_F\int\limits_K \int\limits_K {^{k_1}\Phi^{k_2}} \left ( \left( \begin{array}{cc}
+x_1 & x_2\\
+0 & x_4
+\end{array}
+\right )\right )f_1(k_1)f_2(k_2)d^*k_1d^*k_2dx_2 \right )\\
+&\overline{\psi(a_1x_1+a_2x_4)}dx_1 dx_4\\
+&=\widehat {f_\Phi}(a_1,a_2).\\
+\end{split}
+\end{equation*}
+\end{proof}
+
+\begin{theorem}\label{6.3.2}
+We have the functional equation
+\[
+\zeta(2-s,\widehat \Phi, \check \beta ) =\gamma(s,\chi_1) \gamma(s,\chi_2) \zeta(s,\Phi,\beta).
+\]
+\end{theorem}
+
+\begin{proof}
+Without loss of generality, assume that $f_{\Phi} =\Phi_1\otimes \Phi_2$. Then by $\bl{\ref{1.3.4}}$, $\check f_{\widehat \Phi} =\widehat \Phi_1\otimes \widehat \Phi_2$. By $\bl{\ref{1.3.1}}$ and $\bl{\ref{1.3.2}}$ we have:
+\begin{equation*}
+\zeta(s+\frac 1 2,\Phi, \beta)=\prod\limits_{i=1,2} \int\limits_{F^*} \widehat \Phi(a) \chi_i(a) \left | a \right |^{s} d^*a,
+\end{equation*}
+\begin{equation*}
+\zeta(\frac 3 2-s,\widehat \Phi,\check \beta)=\prod\limits_{i=1,2} \int\limits_{F^*} \widehat \Phi(a) \chi_i^{-1} (a) \left | a \right |^{1-s} d^*a .
+\end{equation*}
+By [Tate67], we have 
+\[
+\int_{F^*} \widehat\Phi(a) \chi^{-1}(a) \left | a \right |^{-s} d^*a 
+=
+\gamma(s,\chi) \int_{F^*} \Phi(a) \chi(a) \left | a \right |^s d^*a.
+\]
+Then the theorem holds.
+\end{proof}

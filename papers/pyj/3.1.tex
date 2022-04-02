@@ -1,0 +1,61 @@
+\subsection{Cuspidal automorphic forms}
+
+Automorphic forms are generalizations of modular forms. Here we give the definition and some properties briefly.
+
+\begin{definition}[\textbf{Automorphic forms with central quasi-character $\omega$}]
+Let $\omega$ be a character of $ \mathbb Q^*\backslash  \mathbb I$. An automorphic form of $G(\mathbb A)$ with central character $\omega$ is a complex valued function $\phi$ on $G(\mathbb A)$ satisfying:
+\begin{enumerate}
+\item  $\phi\left(\left (\begin{array}{cc}
+z & 0\\
+0 & z
+\end{array} \right )g\right )=\omega(z)\phi(g)$ for any $z\in \mathbb I$, $g\in G(\mathbb A)$;
+\item  $\phi(\gamma g)=\phi(g)$ for any $\gamma\in G(\mathbb Q)$, $g\in G(\mathbb A)$.\\
+\item  (\textbf{Smoothness}) For every $g\in G(\mathbb A)$, there is a neighborhood $N$ of $g$ and a smooth function $\phi_\infty$ on $G(\mathbb R)$ such that $\phi(h)=\phi_\infty(h_\infty)$ for $h\in N$.
+\item  (\textbf{$K$-finiteness}) $\{\phi(\cdot k); k\in K\}$ spans a finite-dimensional space.
+\item  (\textbf{$Z(U(\fr g))$-finiteness}) $\{D\phi; D\in Z(U(\fr g))\}$ spans a finite-dimensional space.
+\item  (\textbf{Moderate growth}) There exist constants $C$ and $N$ such that
+\[\left |\phi(g) \right |< C\prod _v \mathrm {max}\left \{ \left |g_{ij,v}\right |_v, \left |\mathrm {det} (g_v) \right |^{-1}_v\right \}^N.\]
+\end{enumerate}
+We denote the space of automorphic forms with central character $\omega$ by $\mathcal A(\omega)$.
+\end{definition}
+
+\begin{definition}[\textbf{Cuspidal automorphic forms}]\label{CAF}
+An automorphic form $\phi$ is called cuspidal if
+\begin{equation}\label{cuspidal}
+\int _{\mathbb Q\backslash \mathbb A}\phi\left ( \left (\begin{array}{cc}
+1 & a\\
+0 & 1
+\end{array} \right )g\right )da=0
+\end{equation}
+for every $g$. We denote the space of cuspidal forms by $\mathcal A_0(\omega)$.
+\end{definition}
+
+\begin{definition}[\textbf{$(\fr g,K)\times G(\mathbb A_f)$-modules}]
+A $(\fr g,K)\times G(\mathbb A_f)$-module is a complex vector space with actions $\pi_{\fr g}, \pi_{K}$ and
+\[\pi_{\mathrm f}\colon G(\mathbb A_f)\to\mathrm{GL}(V),\]
+such that $V$ is a  $(\fr g,K)$-module and $\pi_\mathrm f$ is commute with $\pi_{\fr g}, \pi_{K}$.
+\end{definition}
+
+\begin{lemma}
+Let $K$ and $G(\mathbb A_f)$ act on  $\mathcal A(\omega)$ by right translation and $\fr g$ acts as differential operator at $\infty$. Then $\mathcal A(\omega)$ is a $(\fr g,K)\times G(\mathbb A_f)$-module.
+\end{lemma}
+
+\begin{proof}
+See [Bum98].
+\end{proof}
+
+\begin{definition}[\textbf{Admissible $(\fr g,K)\times G(\mathbb A_f)$-module}]
+Let $K_{\mathbb A} =K\cdot K_f$. Then a $(\fr g, K)\times G(\mathbb A_f)$-module $V$ is said admissible if for any irreducible finite representation $\sigma$ of $K$, $V^\sigma$ is of finite dimension. 
+\end{definition}
+
+\begin{lemma}\label{61}
+$\mathcal A_0(\omega)$ is an admissible $(\fr g,K)\times G(\mathbb A_f)$-module. Moreover, it is a direct sum of irreducible $(\fr g,K)\times G(\mathbb A_f)$-modules.
+\end{lemma}
+
+\begin{proof}
+See [Bum98].
+\end{proof}
+
+\begin{definition}[\textbf{Automorphic representations}]
+An automorphic representation is an irreducible $(\fr g,K)\times G(\mathbb A_f)$-module which can be realized by a subquotient of $\mathcal A(\omega)$. An automorphic cuspidal representation is an irreducible $(\fr g,K)\times G(\mathbb A_f)$-module which can be realized by a submodule of $\mathcal A_0(\omega)$ .
+\end{definition}

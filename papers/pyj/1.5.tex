@@ -1,0 +1,270 @@
+\subsection{Functional equations for cuspidal representations}
+
+In this subsection we prove theorem $\bl{\ref{main1}}$ for $V$ is cuspidal. Without loss of generality, we assume the central character $\omega$ of $V$ is unitary.
+
+\begin{lemma}\label{lem1.4.1}
+The matrix coefficient of a cuspidal representation is compactly supported modulo $Z(G)$. 
+\end{lemma}
+
+\begin{proof}
+See 10.2 of \bl{\cite{B-H}}.
+\end{proof}
+
+\begin{definition}
+Let $S_0(M)$ be the subspace of $\Phi\in S(M)$ such that $\Phi$ and $\widehat \Phi$ vanish on singular matrices.
+\end{definition}
+
+\begin{lemma}\label{lem2}
+Let $v\in V$ and $\check v\in \check V$. Then  
+\[
+\Psi(a)=\begin{cases}
+\left \langle \pi(g) v,\check v\right \rangle, &g\in G^1 \\
+0, &g\notin G^1
+\end{cases}
+\]
+is in $S_0(M)$. Here $G^1$ is defined by 
+\[
+\left \{ g\in M; \left |\det (g)\right |=1 \right \}.
+\]
+\end{lemma}
+
+\begin{proof}
+By $\bl{\ref{lem1.4.1}}$, the matrix coefficient is supported on $CZ(G)$ where $C$ is a compact. Then $\Phi$ is compactly supported since $CZ(G)\cap G^1$ is compact.
+By $\bl{\ref{lem1}}$, it is sufficient to check that $\widehat \Phi(w)=0$ where 
+$w=0$ or  $\left ( \begin{array}{cc}
+  1 & 0\\
+  0 & 0
+\end{array}
+\right )
+$.
+By the definition, 
+\begin{equation*}
+	\begin{split}
+	\widehat \Phi (w)&=\int\limits_M \Phi(x)\overline {\psi(\mathrm {Tr} (xw))} dx\\
+    &=\int\limits_{G^1} \Phi(x)\overline {\psi(\mathrm {Tr} (xw))}  d^*x\\
+    &=\int\limits_{G^1/U} \int\limits_U \left \langle \pi(xu)v,\check v \right \rangle \overline{\psi(\mathrm {Tr} (xuw))} dud^*x \\
+    &\=\limits^{uw=w}\int\limits_{G^1/U} \overline {\psi(\mathrm {Tr} (xw))}\int\limits_U \left \langle \pi(xu)v,\check v \right \rangle dud^*x.
+\end{split}
+\end{equation*}
+The inner integral vanishes since $V$ is cuspidal. Thus the statement holds.
+\end{proof}
+
+We first prove the functional equation for $\Phi\in S_0(M)$.
+
+\begin{lemma} 
+Suppose $\Phi$ vanishes on singular matrices, then 
+$\zeta(s,\Phi,\beta)$ 
+is absolutely convergent and is in $\mathbb C[q^s,q^{-s}]$. 
+\end{lemma}
+
+\begin{proof}
+Since $\Phi$ is compactly supported and locally constant and vanishes on singular matrices, there is a positive integer $n$ such that $\Phi$ is supported on 
+\[
+\left \{ g\in G; -n\le v(\det (g))\le n\right \}.
+\]
+Then 
+\[
+\zeta(s,\Phi,\beta ) =\sum \limits_{-n\le k\le n} q^{ks} \int\limits_{ v(\det (g))=k} \Phi(g) \beta (g) d^*g.
+\]
+Thus the statement holds.
+\end{proof}
+
+Now we let $\mathcal C(\pi)$ be the space of all finite linear combinations of the matrix coefficient of  $\pi$. Then $\mathcal C(\pi)$ is a representation of $G\times G$ given by 
+\[
+{^ g \beta ^h}  (x)=\beta (h^{-1}xg).
+\]
+Next suppose $\beta=\beta_{v,\check v}$, then 
+\[
+{^g \beta ^h} =\beta _{\pi (g)v,\check \pi (h) \check v}.
+\]
+Thus we have 
+\[
+\mathcal C(\pi ) \cong V\otimes \check V.
+\]
+\begin{lemma} Suppose $\Phi \in S(M)$. Then
+\begin{equation}\label{eq1.4.1}
+\zeta (s,{^g \Phi ^h} ,{^g \beta ^h}) =q^{v(\det (hg^{-1}))s} \zeta(s,\Phi, \beta),
+\end{equation}
+\begin{equation}\label{eq1.4.2}
+\zeta (2-s,\widehat {^g\Phi^h} ,\widecheck {^g\beta ^h}) =q^{v(\det (hg^{-1}))s} \zeta(2-s,\widehat \Phi, \widecheck \beta).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The first equation is trivial. Now we prove the section equation. Note that 
+\[
+\widecheck {^g\beta ^h}={^h {\widecheck \beta} ^g}
+\]
+and by $\bl{\ref{lem1}}$,
+    \[
+    \widehat {^g\Phi ^h}=\left |\det( hg^{-1}) \right |^2 {^h {\widehat \Phi} ^g}.
+    \]
+    Then 
+    \begin{equation*}
+	\begin{split}
+	&\zeta (2-s,\widehat {^g\Phi^h} ,\widecheck {^g\beta ^h})\\
+    &=\left | \det (hg^{-1}) \right |^2\zeta (2-s,{^h{\widehat \Phi}^g} ,{^h{\widecheck \beta }^g})\\
+    &=\left | \det (hg^{-1}) \right |^2\int\limits_G {^h{\widehat \Phi}^g}(x){^h{\widecheck \beta }^g}(x)\left | \det (x) \right |^{2-s} d^*x\\
+    &\=\limits^{x\mapsto gxh^{-1}}  q^{v(\det (hg^{-1}))s} \zeta(2-s,\widehat \Phi, \widecheck \beta).    \qedhere
+\end{split}
+\end{equation*}
+\end{proof}
+
+Let $f\in \mathbb C[q^s,q^{-s}]$ and let $^g f ^h = q^{v(\det (hg^{-1}))s}f$. Then $\bl{(\ref{eq1.4.1})}$ and $\bl{(\ref{eq1.4.2})}$ imply that 
+\[
+\zeta(s,\Phi,\beta),\zeta(2-s,\widehat \Phi,\widecheck \beta)\in \mathrm {Hom}_{G\times G} (S_0(M) \otimes \mathcal C(\pi), \mathbb C[q^s,q^{-s}]).
+\]
+
+Then the following lemma gives the functional equation for $\Phi\in S_0(M)$.
+\begin{lemma}
+$\mathrm {Hom}_{G\times G} (S_0(M) \otimes \mathcal C(\pi), \mathbb C(q^s))$ has $\mathbb C(q^s)$-dimension one.
+\end{lemma}
+
+\begin{proof}
+Since $S_0(M)\subset S(G)$. It is sufficient to prove 
+\[
+\mathrm {Hom}_{G\times G} (S(G) \otimes \mathcal C(\pi), \mathbb C(q^s))
+\]
+has $\mathbb C(q^s)$-dimension one. Now we follow the proof of  24.7 of \bl{\cite{B-H}}. It can be shown that 
+\[
+\mathrm {Hom}_{G\times G} (S(G)\otimes \mathcal C(\pi), \mathbb C(q^s))\cong  \mathrm {Hom}_{G\times G} ( \mathcal C(\pi), \check {S(G)}\otimes \mathbb C(q^s)).
+\]
+Let $H$ be the diagonal subgroup of $G\times G$. Suppose $\Phi \in S(G)$, then let $f_\Phi(g_1,g_2) =\Phi(g_1^{-1} g_2)$. One can see the map 
+\[ 
+\Phi \mapsto f_\Phi
+\]
+is a $G\times G$-isomorphism
+\[
+S(G)\cong c-\mathrm {Ind} _{H} ^{G\times G} (1_H).
+\]
+Thus we have 
+\[ 
+\mathrm {Ind} _{H} ^{G\times G} (1_H)\cong \check {S(G)}.
+\]
+Now note that the map 
+\[
+\mathrm {Ind} _{H} ^{G\times G} (1_H)\otimes \mathbb C(q^s)\to \mathrm {Ind} _{H} ^{G\times G} (\mathbb C(q^s))
+\] 
+given by 
+\[ 
+f\otimes \phi \mapsto f\phi 
+\] 
+is $G\times G$ equivalent and injective, it is sufficient to show 
+$\mathrm {Hom}_H( \mathcal C(\pi), \mathbb C(q^s))$ has $\mathbb C(q^s)$-dimension one. Since $H\cong G$ acts trivially on $\mathcal C(\pi)$ and $\mathbb C(q^s)$, we have 
+\begin{equation*}
+	\begin{split}
+	\mathrm {Hom}_H( \mathcal C(\pi), \mathbb C(q^s))&\cong \mathrm {Hom}_H( V\otimes \check V, \mathbb C(q^s))\\
+    &\cong \mathrm {Hom}_H( V\otimes \check V, \mathbb C)\otimes \mathbb C(q^s)\\
+    &\cong \mathrm {End}_G( V)\otimes \mathbb C(q^s).
+\end{split}
+\end{equation*}
+Thus the statement holds.
+\end{proof}
+
+Now there is a $\gamma(s,\pi) \in \mathbb C(q^s)$ such that for $\Phi\in S_0(M)$, 
+\begin{equation}\label{eq1.4.3}
+\zeta(2-s,\widehat \Phi, \check \beta) =\gamma(s)\zeta (s,\Phi,\beta).
+\end{equation}
+
+\begin{proposition}
+Let $(\pi,V)$ be cuspidal representation of $G$. Let $(\check \pi,\check V)$ be its contragradient. Fix vectors $v\in V,\check v\in \check V$. Take $\Phi \in S(A)$ and $\Psi\in S_0(A)$. Then
+\begin{equation}\label{1}
+\begin{split}
+\int\limits_G \int\limits_G \Phi(g) \widehat {\Psi}(h) \left \langle \pi (g)v , \check \pi (h) \check v\right \rangle \left | \mathrm {det} (g)\right |^{s}\left | \mathrm {det} (h)\right |^{2 -s }d^*g d^*h\\
+=\int\limits_G \int\limits_G\widehat \Phi(g)  {\Psi}(h) \left \langle \pi (g^{-1})v , \check \pi (h^{-1}) \check v\right \rangle \left | \mathrm {det} (g)\right |^{2 -s}\left | \mathrm {det} (h)\right |^{s}d^*g d^*h,
+\end{split}
+\end{equation}
+and both integrals converge absolutely for $0 < \mathrm { Re} (s) < 2$.
+\end{proposition}
+
+\begin{proof}
+Let $C\subset G$ be the compact support of $\widehat\Psi$. Then $\left \{ \check \pi (g)\check v; g\in C \right \}$ is finite. Since the matrix coefficient is compactly supported modulo $Z(G)$, then there is a compact subset $C'$ such that the map
+\[
+g\mapsto \widehat {\Psi}(h) \left \langle \pi (g)v , \check \pi (h) \check v\right \rangle
+\]
+is supported on $C'Z(G)$ for any $h$.
+Note
+\[
+\int\limits_{C'Z(G)} \Phi(g) \left \langle \pi(g)v, \check v \right \rangle 
+\le \int\limits_{Z(G)\backslash C'Z(G)}   dg \int\limits_{F^*} \left |\omega(a) \Phi(ag) \right |\left |a\right |^{2s} \left \langle \pi(g) v,\check v\right \rangle \left | \det (g) \right | ^s d^*a,
+\]
+and the inner integral is absolutely convergent for $\mathrm {Re} (s) >0$, which implies the left side of $\bl{\ref{1}}$ converges absolutely for $\mathrm {Re} (s)> 0$. Similarly right side converges absolutely for $\mathrm {Re } (s) < 2$.\\
+
+Let $I(s)$ denote the left side of $\bl{\ref{1}}$ and make change $g\mapsto hg$. We have
+\[
+I(s)= \int\limits_G \left \langle \pi(g)v, \check v \right \rangle \left ( \int\limits_G \Phi(hg) \hat \Psi (h) \left | \mathrm {det}(h) \right |^2 d^*h \right )  \left | \mathrm {det}(g) \right |^{s} d^*g.
+\]
+Similarly let $J(s)$ be the right side of $\bl{\ref {1}}$. We have
+\[
+J(s)= \int\limits_G \left \langle \pi(g)v, \check v \right \rangle \left ( \int\limits_G \Phi(g^{-1}h) \hat \Psi (h) \left | \mathrm {det}(h) \right |^2 d^*h \right )  \left | \mathrm {det}(g) \right |^{s-2} d^*g.
+\]
+However, one can see that $\left | \mathrm {det}(h) \right |^2 d^*h$ is an additive Haar measure and we denote by $c\cdot dh$. Then
+\begin{equation*}
+\begin{split}
+&\int\limits_G \Phi(hg) \widehat \Psi (h) \left | \det (h) \right |^2 d^*h\\
+&=c\int\limits_M {^g\Phi}(h) \widehat \Psi (h) dh\\
+&=c\int\limits_M \widehat { ^g\Phi}(h) \Psi (h) dh\\
+&\=\limits^{\bl{\ref{lem1}}}c\int\limits_M \widehat  \Phi(g^{-1}h) \Psi (h)\left | \det (g)^{-1} \right |^2 dh.
+\end{split}
+\end{equation*}
+Then plugging this into $I(s), J(s)$ proves $\bl{\ref {1}}$.
+\end{proof}
+
+For $\Phi\in S_0(M)$, we define an operator on $V$ by
+\[
+\zeta(s,\Phi, \pi) = \int\limits_G \Phi(g) \left | \pi(g) \det g\right |^s d^*g.
+\]
+
+\begin{proposition}\label{lem3}
+For any nonzero $v\in V$, there is $\Phi\in S_0(M)$ such that 
+\[
+\zeta(s,\Phi, \pi) v
+\]
+is nonzero and independent of $s$.
+\end{proposition}
+
+\begin{proof}
+Let $\check v\in \check V$ such that $\left \langle v,\check v\right \rangle \ne 0$. 
+By $\bl{\ref{lem2}}$, 
+\[
+\Psi(a)=\begin{cases}
+\overline {\left \langle \pi(g) v,\check v\right \rangle}, &g\in G^1 \\
+0, &g\notin G^1
+\end{cases}
+\]
+is in $S_0(M)$. Obviously $\zeta(s,\Phi,\pi)v$ is constant since $\Phi$ is supported on $G^1$. 
+Note that 
+\begin{equation*}
+	\left \langle \zeta(s,\Phi,\pi)v,\check v\right \rangle =\int\limits_{G^1} \left | \beta_{v,\check v} (g)\right |^2 d^*g>0.
+\end{equation*}
+Then $\zeta(s,\Phi,\pi)v\ne 0$.
+\end{proof}
+
+We can see $\zeta (s,\Phi, \beta)$ can be identically $1$ for $\Phi \in S_0(M)$. Then by $\bl{(\ref{eq1.4.3})}$ we get that $\gamma(s,\pi) \in \mathbb C[q^s,q^{-s}]$.
+
+\begin{theorem}
+For any $\Phi$, the functional equation $\bl{(\ref{eq1.4.3})}$ holds. Moreover, we have 
+\[
+\gamma(s,\pi)\gamma(s,\check \pi)=1
+\]
+\end{theorem}
+
+\begin{proof}
+Since the contragredient of principal series representation is principal series, one can see the contragradient of cuspidal representation is cuspidal. By $\bl{\ref{lem3}}$, there there is a $\Psi \in S_0(M)$ such that 
+$\zeta(s,\Psi,\pi) \check v$ is a nonzero constant and we denote by $u$. Then by $\bl{(\ref{eq1.4.3})}$, 
+\[
+\zeta(2-s,\widehat \Psi,\check \pi)=\gamma(s,\check \pi)^{-1}u.
+\]
+Now apply $\bl{\ref{1}}$, we obtain 
+\begin{equation}\label{eq1.4.5}
+\zeta(s,\Phi,\beta_{v,u}) =\gamma(s,\check \pi) \zeta(2-s,\Phi,\beta_{v,u})
+\end{equation}
+which is the functional equation for $\beta_{v,u}$.
+Now by $\bl{(\ref{eq1.4.1})}$ and $\bl{(\ref{eq1.4.2})}$,
+we can see  $\bl{(\ref{eq1.4.5})}$ holds for \pi(g)u instead of $u$ for any $u\in G$. Since $\check V$ is irreducible. Then $\bl{\ref{eq1.4.5}}$ holds for any matrix coefficient. Comparing with $\bl{\ref{eq1.4.3}}$, we get 
+\[
+\gamma(s,\pi)\gamma(s,\check \pi)=1 \qedhere
+\]
+\end{proof}
+
+Now we can see that $\gamma(s,\pi)$ is an invertible element of $\mathbb C[q^s,q^{-s}]$. Thus $\gamma(s,\pi)$ has the form $cq^{ns}$.

@@ -1,0 +1,81 @@
+\subsection{\texorpdfstring{$L$}{L}-factors of unitary unramified representations}
+
+In the previous subsection, we have shown that 
+\[
+\frac {\zeta (s+\frac 1 2,\Phi, \beta )} {L(s,\chi_1) L(s,\chi_2) }\in \mathbb C[q^s,q^{-s}]. 
+\]
+where $\beta$ is the matrix coefficient of the infinite-dimensional irreducible subrepresentation of $\mathcal B(\chi_1,\chi_2)$. However, we do not show the fact that there is a suitable $\Phi$ such that 
+\[
+{\zeta (s+\frac 1 2,\Phi, \beta )} ={L(s,\chi_1) L(s,\chi_2) }.
+\]
+In this subsection, we prove this fact for $V$ is unramified and unitary.
+
+\begin{definition}
+An irreducible admissible representation $V$ of $G$ is said unramified if $V^K\ne 0$. 
+\end{definition} 
+
+\begin{lemma}
+An infinite-dimensional irreducible admissible representation $V$ of $G(F)$ is unramified if and only if
+\[
+V\cong \mathcal B(\chi_1,\chi_2),
+\]
+where $\mathcal B(\chi_1,\chi_2)$ is irreducible and $\chi_i=\left | \ \right |^{t_i}$ are unramified. And if $V$ is unramified, we have $\operatorname {dim} V^K=1$.
+\end{lemma}
+
+\begin{proof}
+See theorem 3.3 of \bl{\cite{B-G}}.
+\end{proof}
+
+Moreover, if $V$ is unitary, we can see 
+\[
+V\cong \mathcal B(\left | \ \right |^t, \left |  \ \right |^{-t})
+\]
+for some complex number $t\ne \pm 1/2$.
+
+\begin{proposition}\label{6.3.1}
+The $L$-factor of $V$ is given by 
+\begin{equation*}
+	\begin{split}
+	L(s,\pi)=L(s,\left| \ \right |^t)L(s,\left | \ \right |^{-t})=\frac 1 {(1-q^{-t-s}  )(1-q^{t-s})}.
+\end{split}
+\end{equation*}
+Moreover, let $\Phi$ be the characteristic function of $M(\fr o)$ and $f\in V^K$ such that $\left\langle  f, f \right \rangle =1$. Then \begin{equation*}
+\zeta (s+\frac 1 2 ,\Phi_v,\beta_{f,f})=L(s,\pi).
+\end{equation*}
+\end{proposition}
+
+\begin{proof}
+Let $\Phi_v$ be the characteristic function of $M(\fr o_v)$. Recall $\bl{(\ref{1.3.1})}$ we have
+\begin{equation*}
+\zeta (s+\frac 1 2,\Phi_v,\beta_{f,f})=\int\limits _{F^*}\int\limits_{F^*} f_{\Phi_v}(a_1,a_2) |a_1|^{t+s}|a_2|^{s-t} d^*a_1d^*a_2,
+\end{equation*}
+where 
+\[
+f_\Phi(a_1,a_2) =\int \limits _ {K}\int\limits _{K} \int\limits _{F}\Phi\left ( k_2^{-1}\left( \begin{array}{cc}
+a_1 & x\\
+0 & a_2
+\end{array}
+\right ) k_1 \right )f(k_1)f(k_2)d^*k_1d^*k_2dx.
+\]
+Since $f\in V^K$ and $\left \langle f,f \right \rangle =1$, we have $f(k)=\pm\frac 1 {\mathrm{V} (K, d^*k)}$. Thus
+\begin{equation*}
+	\begin{split}
+	f_\Phi(a_1,a_2) &=\frac 1 {\mathrm {V}(K, d^*k)^2}\int \limits _ {K}\int\limits _{K} \int\limits _{F}\Phi\left ( k_2^{-1}\left( \begin{array}{cc}
+a_1 & x\\
+0 & a_2
+\end{array}
+\right ) k_1 \right )d^*k_1d^*k_2dx.\\
+&\=\limits^{^{k_1} \Phi ^{k_2} =\Phi} \Phi \left( \begin{array}{cc}
+a_1 & x\\
+0 & a_2
+\end{array}
+\right )dx\\
+&=\Phi_0(a_1)\Phi_0(a_2).
+\end{split}
+\end{equation*}
+where $\Phi_0$ is the characteristic function of $\fr o_v$. Apply to $\zeta (s,\Phi,\beta )$ we get
+\[
+\zeta (s,\Phi ,\beta )=\zeta(s,\Phi_0,\left| \ \right |^t)\zeta(s,\Phi_0,\left | \ \right |^{-t})=L(s,\left| \ \right |^t)L(s,\left | \ \right |^{-t}).
+\]
+Thus the statement holds.
+\end{proof}

@@ -1,0 +1,78 @@
+\subsection{Local zeta integrals}
+
+\begin{definition}
+For $s=s_1,s_2, \omega =(\omega_1,\omega_2)$. Let $B(s_1,s_2,\omega)=H(s_1+\frac 1 2, s_2-\frac 1 2,\omega)_K$.
+\end{definition}
+
+\begin{definition}[\textbf{Matrix coefficients}]
+Let $(\pi,V)$ be an irreducible admissible $(\fr g,K)$-module. Then $V$ is a submodule of $B(s_1,s_2,\omega)$. Let $f_1\in V, f_2\in B(s_1^{-1},s_2^{-1},\omega)$. The function
+\[
+\beta_{f_1,f_2}(g)=\int_K f_1(kg)f_2(k)dk,\ g\in G
+\]
+is called matrix coefficient.
+\end{definition}
+
+Now we prove that the matrix coefficient of an admissible $(\fr g, K)$-module $V$ is independent of its Hilbert realization.
+
+\begin{theorem}[\textbf{Analyticity of matrix coefficient}]\label{analytic}
+Suppose that $(\pi, V)$ is an admissible Hilbert representation of $G$ with Hermitian form $\left \langle \ , \ \right \rangle$. Suppose $v,w\in V_K$, Then the matrix coefficient $\beta(g)$ of $V$ defined by
+\[
+\beta(g)=\left \langle \pi(g)v,w \right \rangle 
+\]
+is an analytic function on $G$.
+\end{theorem}
+
+\begin{proof}
+See proposition 9.2.9 of \bl{\cite{Gai}}.
+\end{proof}
+
+A function $\beta$ is analyticity means that for any $X\in \fr g$,
+\[
+\beta(g\cdot \mathrm{exp} (X))=\sum \frac 1 {n!} X^n \beta(g).
+\]
+Note any element $g\in G(\mathbb R)$ can be written as $rk\mathrm {exp}(X)$ for $r\in Z(G(\mathbb R))$, $k\in K$ and $X\in \fr g$. Thus we get the following lemma:
+\begin{lemma}\label{ana}
+Suppose $\beta_1$ and $\beta_2$ are analytic functions on $G(\mathbb R)$ and
+\[
+X^n \beta_1(g) =X^n \beta_2(g),
+\]
+for any $g\in Z(G(\mathbb R)) K, X\in \fr g$. Then $\beta_1(g)=\beta_2(g)$ for all $g$.
+\end{lemma}
+
+\begin{theorem}
+Suppose $V_1$ and $V_2$ are admissible Hilbert representations of $G$ such that ${V_1}_K\cong {V_2}_K=V$ as an $(\fr g,K)$-module and their Hermitian form is same on $V$. Then for any $v,w\in V$, $g\in G$
+\[
+\left \langle \pi(g)v,w \right \rangle_1=\left \langle \pi(g)v,w \right \rangle_2.
+\] 
+\end{theorem}  
+
+Thus the matrix coefficient of an admissible irreducible $(\fr g,K)$-module is well defined.
+Let $M=M(\mathbb R)$, and $S(M)$ denote all those Schwartz functions of the form
+\[ \Phi\left(\left (\begin{array}{cc}
+a & b\\
+c & d
+\end{array} \right )\right )=e^{-\pi(a^2+b^2+c^2+d^2)} P(a,b,c,d),\]
+where $P$ is a polynomial.
+Let $\beta$ be a matrix coefficient of an irreducible admissible $(\fr g,K)$-module $(\pi,V)$. The local zeta integral of $V$ is defined by
+\[
+\zeta(s,\Phi,\beta)=\int _G \Phi(g)\beta(g) \left | \mathrm {det} (g) \right |^s d^*g.
+\]
+
+\begin{theorem}[\textbf{Functional equation of the local zeta integral}]\label{FE for real} 
+Let $(\pi,V)$ be an irreducible admissible $(\fr g,K)$-module.
+\begin{enumerate}
+\item There exists $s_0\in \mathbb R$ such that the local zeta integral is absolutely and normally convergent for $\mathrm {Re} (s)>s_0$.
+\item The local zeta integral is a finite linear combination of functions of the form 
+\[ \pi^{-\frac {s+r_1} 2} \Gamma\left (\frac {s+r_1} 2 \right ) \pi^{-\frac {s+r_2} 2} \Gamma\left (\frac {s+r_2} 2 \right ), \] 
+for some $s_1,s_2\in \mathbb C$ which means the local zeta integral is continued analytically as an entire function.
+\item There is a factor $L(s,\pi)$ independent of $\Phi$ and $\beta$ and unique up to a scalar factor such that 
+\[ \frac {\zeta(s+\frac 1 2,\Phi,\beta)}{L(s,\pi)} \]
+is a polynomial function of $s$ which is identically $1$ for suitable $\Phi$.
+\item There is a meromorphic function $\gamma (s,\pi)$ independent of $\Phi$ or $\beta$ such that 
+\[ \zeta(2-s,\widehat \Phi,\check \beta)=\gamma(s,\pi)\zeta (s,\Phi,\beta). \] 
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+See 11.15.1 of \bl{\cite{G-H}}.
+\end{proof}

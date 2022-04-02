@@ -1,0 +1,63 @@
+\subsection{Irreducible admissible representations}
+Let $G=\mathrm {GL}_2(F)$ where $F$ is a $p$-adic field. And let $M$ denote $\mathrm {Mat } _{2\times 2} (F)$. Let $S(M)$ be the space of the locally constant functions with compact support. 
+Here we give a brief introduction to the irreducible admissible representation of $G$.
+
+\begin{definition}[\textbf{Smooth representations}]
+A representation $(\pi,V)$ of $G$ is called smooth if the map $g\mapsto \pi(g)v$ is locally constant for any $v\in V$.
+\end{definition}
+
+
+Suppose $H$ is a subgroup of $G$, let $V^H$ be the space of those vectors fixed by $H$.
+
+\begin{definition}[\textbf{Admissible representations}]
+A smooth representation $V$ of $G$ is called admissible if $V^H$ is finite-dimensional for any open compact subgroup $H$ of $G$.
+\end{definition}
+
+\begin{definition}[\textbf{Cuspidal representations}]
+An irreducible admissible representation $(\pi,V)$ of $G$ is said cuspidal if for any sufficiently large $n$,
+\[
+\int_{\fr p^{-n}} \pi\left (
+\begin{array}{cc}
+	1 & u \\
+	0 & 1
+\end{array} \right ) vdu=0.
+\]
+The integral is well defined since $\fr p^{-n}$ is open compact.
+\end{definition}
+
+\begin{definition}[\textbf{Principal series representations}]
+Let $\chi_1,\chi_2$ be the quasi-characters of $F^*$. Define $\mathcal B(\chi_1,\chi_2)$ to be the space of the smooth function $f$ on $G$ such that 
+\begin{equation}\label{eq1.1.1}
+f\left ( \left ( \begin{array} {cc}
+a & b\\
+0 & d
+\end{array} \right ) g\right )
+= \left | \frac a d \right | ^{\frac 1 2} \chi_1(a) \chi_2(d) f(g).
+\end{equation}
+$\mathcal B(\chi_1,\chi_2)$ is a representation of $G$ by the left transformation.
+\end{definition} 
+
+\begin{proposition}
+$\mathcal B(\chi_1,\chi_2)$ is an irreducible admissible representation. 
+\end{proposition}
+
+\begin{definition}[\textbf{Irreducible principal series representations}]
+An irreducible representation which can be realized as $\mathcal B(\chi_1,\chi_2)$ is called irreducible principle representation.
+\end{definition}
+
+\begin{definition}[\textbf{Special representations}]
+An infinite-dimensional irreducible representation that can be realized as a proper subrepresentation of $\mathcal B(\chi_1,\chi_2)$ is called spacial representation.
+\end{definition} 
+
+\begin{theorem}[\textbf{Classification of irreducible admissible representations}]
+An irreducible admissible representation with infinite dimension is exactly one of the following:\\
+\begin{enumerate}
+  \item cuspidal representations;
+  \item Irreducible principle representations;
+  \item Special representations.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+See 6.16.1 of \bl{\cite{G-H}} or 9.11 of \bl{\cite{B-H}} for a general case.
+\end{proof}

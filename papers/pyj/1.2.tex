@@ -1,0 +1,54 @@
+\subsection{Local zeta integrals}
+
+\begin{definition}[\textbf{Contragredient representations}]
+Let $(\pi,V)$ be a smooth representation of $G$. Let $\check V$ be the space of linear form
+\[
+l \colon V\mapsto \mathbb C
+\]
+such that for some open compact subgroup $H$, $l\cdot \pi(h)=l$ for all $h\in H$. 
+\end{definition}
+
+By the definition, one can prove that the contragredient representation is smooth.
+
+\begin{definition}[\textbf{Matrix coefficients}]
+Let $V$ be an admissible representation of $G$, and $v\in V$, $\check v\in \check V$. Then the matrix coefficient of $V$ is a function 
+\begin{align*}
+  \beta_{v,\check v} \colon G&\to \mathbb C,\\
+  \beta_{v,\check v} (g) &=\left \langle \pi(g)v,\check v\right \rangle.
+\end{align*}
+\end{definition}
+
+
+\begin{definition}
+Let $V$ be an admissible representation and $\beta$ a matrix coefficient. Let $\Phi\in S(M)$. Then the local zeta integral is defined by 
+\[
+\zeta(s,\Phi,\beta)=\int_{G} \Phi(g) \beta(g) \left | \det (g) \right | ^s d^*g.
+\]
+\end{definition}
+
+Now we fix a nontrivial character $\psi$ of $F$.
+
+\begin{definition}[\textbf{The Fourier transform}]
+Let $\Phi\in S(M)$. Then the Fourier transform of $\Phi$ is defined by 
+\[
+\widehat {\Phi} (a) =\int_M \Phi(b)\psi(\mathrm{Tr}(ab)) db.
+\]
+\end{definition} 
+
+\begin{theorem}\label{main1}
+Let $V$ be an irreducible admissible representation. Then we have
+\begin{enumerate}
+  \item There is a real number $s_0$ such that for $\mathrm {Re}(s)> s_0$, $\zeta(s, \Phi,\beta)$ is absolutely.
+  \item $\zeta(s+\frac 1 2,\Phi,\beta)$ is a rational function in $q^{-s}$. Recall that $q=\#\fr o/\fr p$.
+  \item There is a unique function $L(s,\pi)$ of the form $(1 +q^{-s} P(q^{-s}) )^{-1}$ where $P$ is a polynomial such that  
+  \[
+  \frac {\zeta (s+\frac 1 2, \Phi,\beta) } {L(s,\pi) }
+  \]
+  is in $\mathbb C[q^s,q^{-s}]$ and is identically $1$ for a suitable $\Phi$.
+  \item There is a $\gamma(s,\pi)\in \mathbb C(q^{-s})$ such that 
+  \[
+  \zeta(2-s,\widehat \Phi,\check \beta)=\gamma(s,\pi) \zeta(s,\Phi,\beta). 
+  \]
+  where $\check \beta (g) =\beta (g^{-1})$.
+\end{enumerate}
+\end{theorem}

@@ -1,0 +1,165 @@
+\subsection{Zeta integrals of automorphic forms}
+In this subsection, we denote $G/Z(G)$ by $\overline G$. 
+For $H$ is a unimodular closed subgroup of a unimodular locally compact group $G$, there is a unique $G$-invariant measure on the quotient space $H\backslash G$ and Fubini theorem holds. 
+Moreover, there is a nontrivial fact that $\bar G(\mathbb Q)$ is a discrete subgroup of $\bar G(\mathbb A)$. Thus we have 
+\begin{equation}\label{im2}
+\int\limits_{\bar G(\mathbb A)} f(g) d^*g=\int\limits_{\bar G(\mathbb Q)\backslash \bar G(\mathbb A)} \sum\limits_{\xi \in \bar G(\mathbb Q)} f(\xi g) d^*g.
+\end{equation}
+Let $G^1$ denote the group
+\[
+\left \{ g\in G(\mathbb A); \left  | \det(g)\right | =1 \right \}.
+\]
+One can check that 
+\[
+\bar G(\mathbb Q)\backslash \bar {G^1}\to \bar G(\mathbb Q)\backslash \bar G(\mathbb A)
+\]
+is in fact an isomorphism. Thus we have 
+\begin{equation}\label{im}
+\int\limits_{\bar G(\mathbb Q)\backslash \bar G(\mathbb A)} f(g) d^* g=
+\int\limits_{\bar G(\mathbb Q)\backslash \bar {G^1}} f(g) d^* g.
+\end{equation}
+For the detail, we recommend chapter 7 of \bl{\cite{A-C}}.
+
+
+\begin{definition}[\textbf{Zeta integrals of automorphic form}]
+Let $f$ be a cuspidal form. Then we define
+\[
+\zeta(s,\Phi,f)=\int\limits_{G(\mathbb A)} \Phi(g) f(g) \left |\det (g) \right |^s d^*g.
+\]
+\end{definition}
+
+
+
+For $\Re(s)>4$, we have
+\begin{equation*}
+\begin{split}
+\zeta(s,\Phi,f)&\= \int\limits_{ \overline {G}(\mathbb A)}\int\limits_{\mathbb I} \Phi(ag) \omega(a) f(g) \left |\det (ag) \right |^sd^*ad^*g\\
+&\=\limits^{\bl{\ref{im2}}}  \int\limits_{\overline G(\mathbb Q) \backslash \overline G(\mathbb A)}\left ( \sum\limits_{\xi\in \mathbb Q^*\backslash G(\mathbb Q)}  \int\limits_{\mathbb I} \Phi(a\xi g) \omega(a) f(\xi g)\left |\det (a\xi g) \right |^s d^*a \right ) d^*g\\
+&\=  \int\limits_{\overline G(\mathbb Q)\backslash \overline G(\mathbb A)}\left (   \int\limits_{\mathbb Q^*\backslash \mathbb I} \sum\limits_{\xi\in G(\mathbb Q)}\Phi(a\xi g) \omega(a) \left | a \right |^{2s}d^*a \right ) f(g)\left |\det ( g) \right |^sd^*g\\
+&\=\limits^{\bl{\ref{im}}} \int\limits_{\overline G(\mathbb Q)\backslash \overline {G^1}}f(g)\left (\theta^0_2 (s,{^g \Phi},\omega) +\theta^1_2 (s,{^g \Phi},\omega)\right )d^*g
+\end{split}
+\end{equation*}
+Since functions $g\mapsto f(g) \theta^i_j(s,{^g \Phi} ,\omega)$ and $g\mapsto f(g)\theta^i_j(s,{ \Phi^{g}} ,\omega^{-1})$ are left $G(\mathbb Q)Z(G^1)$-invariant and continuous, By $\bl{\ref{eq1}}$ we have
+\begin{equation}\label{eq2}
+\begin{split}
+\zeta(s,\Phi,f)=&\int\limits_{\overline G(\mathbb Q)\backslash \overline G^1}f(g)\theta^0_2 (2s,{^g \Phi},\omega)d^*g\\
+&+\int\limits_{\overline G(\mathbb Q)\backslash \overline {G^1}}f(g)\theta^0_2 (4-2s,{ \widehat{\Phi}^{g}},\omega^{-1})d^*g\\
+&+\int\limits_{\overline G(\mathbb Q)\backslash \overline {G^1}}f(g)\theta^0_1 (4-2s,{\widehat{\Phi}^{g}},\omega^{-1})d^*g\\
+&-\int\limits_{\overline G(\mathbb Q)\backslash \overline {G^1}}f(g)\theta^1_1 (2s,{^g \Phi},\omega)d^*g\\
+&+\widehat \Phi(0)\lambda(2s-4,\omega)\int\limits_{\overline G(\mathbb Q)\backslash \overline G^1}f(g)d^*g\\
+&-\Phi(0)\lambda(2s,\omega)\int\limits_{\overline G(\mathbb Q)\backslash \overline {G^1}} f(g)d^*g.
+\end{split}
+\end{equation}
+Now we prove the last four terms on the right side of $\bl{\ref{eq2}}$ vanish.
+
+\begin{lemma}\label{58} The following two statements hold:
+\begin{enumerate}
+  \item If $\omega$ is a principle character, i.e. $\omega$ is trivial on $\mathbb I^1=\left \{ a\in \mathbb I, \left |a \right |=1\right \}$. Then
+\[ \int\limits_{\bar G(\mathbb Q)\backslash \bar {G^1}} f(g)d^*g=0. \]
+\item If $\omega$ is not principle, then $\lambda(s,\omega)=0$ for any $s$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+We give a sketch of the first statement. Let $L^2(\bar G(\mathbb Q)\backslash \bar {G}(\mathbb A), \omega)$ be the space of all functions $\phi$ on $G(\mathbb Q)\backslash G(\mathbb A)$ such that
+\begin{enumerate}
+\item $\phi(ag)=\omega(a) \phi(g)$;
+\item) $\int\limits_{\bar G(\mathbb Q)\backslash \bar G(\mathbb A)} \left |\phi(g)\right |^2d^*g \le +\infty$.
+\end{enumerate}
+This space is a unitary representation with left transformation.  And cuspidal functions span a closed and right $G(\mathbb A)$-invariant subspace $L_0^2(\bar G(\mathbb Q)\backslash \bar {G}(\mathbb A), \omega)$.  If $\omega$ is principal, then there is a principal character $\omega_0$ of $\mathbb Q^*\backslash \mathbb I$ such that $\omega_0^2=\omega$. We can see that $\omega_0\circ \det \in L^2(\bar G(\mathbb Q)\backslash \bar {G}(\mathbb A), \omega)$ and $\mathbb C\omega_0\circ \det$ is right $G(\mathbb A)$-invariant and thus $\left \langle \phi,\omega_0\circ \det \right \rangle=0$ for any cuspidal forms $\phi$. Then we obtain
+\begin{equation*}
+\begin{split}
+0=\int\limits_{\bar G(\mathbb Q)\backslash \overline {G}(\mathbb A)} \phi(g) \overline { \omega_0(\det (g))} d^*g\=\limits^{\bl{\ref{im}}} \int\limits_{\bar G(\mathbb Q)\backslash \bar {G^1}} \phi(g)d^*g.
+\end{split}
+\end{equation*}
+
+If $\omega$ is not principal. Then $\omega$ is nontrivial on the compact subgroup $\mathbb Q^*\backslash \mathbb I^1$. Thus
+\[
+\int\limits_{\mathbb Q^*\backslash \mathbb I^1} \omega(a) d^*a=0
+\]
+which implies $\lambda (s,\omega)=0$.
+\end{proof}
+
+\begin{proposition}\label{59}
+\[
+\int\limits_{\bar G(\mathbb Q)\backslash \bar {G^1}}f(g)\theta^i_1 (s,{^g \Phi},\omega)d^*g=0.
+\]
+\end{proposition}
+
+\begin{proof}
+Let $\gamma\in M(\mathbb Q)$ with rank $1$ and $\mathrm {St}(\gamma)$ be the group $\left \{ \xi\in G(\mathbb Q); \gamma\xi=\gamma \right \}$. Then the function
+\[
+F_\gamma \colon g\mapsto f(g)\int\limits_{\mathbb Q^*\backslash \mathbb I} \omega(a)a^{2s} F_i(\left |a \right |) d^*a\sum \limits_{\xi\in\mathrm {St} (\gamma)\backslash G(\mathbb Q) }\Phi(\gamma\xi ga)
+\]
+is left $G(\mathbb Q)Z(G^1)$-invariant. It is sufficient to show
+\[
+\int\limits_{\bar G(\mathbb Q)\backslash \bar {G^1}} F_\gamma(g) dg =0.
+\]
+Define the groups
+\[ P=\left ( \begin{array} {cc}
+1 & *\\
+0 & *
+\end{array} \right ), \
+U=\left ( \begin{array} {cc}
+1 & *\\
+0 & 1
+\end{array} \right )
+\]
+Suppose
+\[
+\gamma=\gamma_1\omega \gamma_2, \ \omega=\left ( \begin{array} {cc}
+0 & 1\\
+0 & 0
+\end{array} \right )
+\]
+We can see $\mathrm {St}(\gamma)=\gamma_2^{-1} P(\mathbb Q) \gamma_2$. Thus we obtain
+\begin{equation*}
+\begin{split}
+&\int\limits_{\bar G(\mathbb Q)\backslash \bar {G^1}} F_\gamma(g) dg\\
+&\=\int\limits_{\bar G(\mathbb Q)\backslash \bar {G^1}}f(g)\int\limits_{\mathbb Q^*\backslash \mathbb I} \omega(a)\left |a \right |^{2s} F_i(\left |a \right |) d^*a\sum \limits_{\xi\in P(\mathbb Q)\backslash G(\mathbb Q) }\Phi(\gamma_1\omega\xi ga)d^*g\\
+&\= \int\limits_{\mathbb Q^*\backslash \mathbb I} \int\limits_{G(\mathbb Q)\backslash \bar {G^1}}f(g)\omega(a)\left |a \right |^{2s} F_i(\left |a \right |) d^*a\sum \limits_{\xi\in P(\mathbb Q)\backslash G(\mathbb Q) }\Phi(\gamma_1\omega\xi ga)d^*g\\
+\end{split}
+\end{equation*}
+Consider the inner integral:
+\begin{equation*}
+\begin{split}
+&\int\limits_{G(\mathbb Q)Z(G^1)\backslash G^1}f(g)\sum \limits_{\xi\in P(\mathbb Q)\backslash G(\mathbb Q) }\Phi(\gamma_1\omega\xi ga)d^*g\\
+&\= \int\limits_{P(\mathbb Q)\backslash \bar {G^1}}f(g) \sum\limits_{\xi\in Z(G(\mathbb Q))}\Phi(\gamma_1\omega\xi ga)d^*g\\
+&\=  \int\limits_{P(\mathbb Q)\backslash \bar {G^1}}f(g)\sum\limits_{\xi\in Z(G(\mathbb Q))}\Phi(\gamma_1\omega\xi ga)d^*g\\
+&\=  \int\limits_{U(\mathbb A)P(\mathbb Q)\backslash \bar {G^1}}\int\limits_{U(\mathbb Q)\backslash U(\mathbb A) }f(ug) \sum\limits_{\xi\in Z(G(\mathbb Q))}\Phi(\gamma_1\omega\xi uga)dud^*g\\
+&\=\limits^{\omega u= \omega}  \int\limits_{U(\mathbb A)P(\mathbb Q)\backslash \bar {G^1}}\left (\int\limits_{U(\mathbb Q)\backslash U(\mathbb A) }f(ug)du \right )\sum\limits_{\xi\in Z(G(\mathbb Q))}\Phi(\gamma_1\omega\xi ga)d^*g\\
+&\=\limits^{\bl{\ref{cuspidal}}} 0
+\end{split}
+\end{equation*}
+Then the statement holds.
+\end{proof}
+
+\begin{theorem}
+$\zeta(s,\Phi,f)$ can be continued analytically in the whole plane as an entire function. And it satisfies the functional equation:
+\begin{equation}\label{eq4}
+\zeta(s,\Phi,f)=\zeta(2-s,\widehat \Phi, \check f),
+\end{equation}
+where $\check f(g)=f(g^{-1})$.
+\end{theorem}
+
+\begin{proof}
+Combine $\bl{\ref{eq2}}$, $\bl{\ref{58}}$, $\bl{\ref{59}}$. We obtain
+\begin{equation}
+\begin{split}
+\zeta(s,\Phi,f)=&\int\limits_{\bar G(\mathbb Q)\backslash \bar {G^1}}f(g)\theta^0_2 (2s,{^g \Phi},\omega)d^*g\\
+&+\int\limits_{\bar G(\mathbb Q)\backslash \bar {G^1}}f(g)\theta^0_2 (4-2s,{ \widehat{\Phi}^{g}},\omega^{-1})d^*g.
+\end{split}
+\end{equation}
+By $\bl{\ref{62}}$, $\zeta(s,\Phi,f)$ is an entire function.
+Similarly we have
+\begin{equation*}
+\begin{split}
+\zeta(2-s,\widehat \Phi,\check f)&=\int\limits_{ \bar {G^1}/\bar G(\mathbb Q)}f(g^{-1})\theta^0_2 (4-2s,{\widehat \Phi}^{g^{-1}},\omega^{-1})d^*g\\
+& \ +\int\limits_{\bar {G^1}/\bar G(\mathbb Q)}f(g^{-1})\theta^0_2 (2s,{^{g^{-1}}}{ {\Phi}},\omega)d^*g\\
+&\=\limits^{g\mapsto g^{-1}} \int\limits_{\bar G(\mathbb Q)\backslash \bar {G^1}}f(g)\theta^0_2 (4-2s,{\widehat \Phi}^g,\omega^{-1})d^*g\\
+& \ +\int\limits_{\bar G(\mathbb Q)\backslash \bar {G^1}}f(g)\theta^0_2 (2s,{^g} \Phi,\omega)d^*g\\
+&= \zeta(s,\Phi,f).
+\end{split}
+\end{equation*}
+Then the functional equation holds.
+\end{proof}

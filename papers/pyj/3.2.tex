@@ -1,0 +1,177 @@
+\subsection{The Poisson summation formula}
+
+\begin{definition}[\textbf{Global Schwartz--Bruhat functions}]
+A function $\Phi$ on $M(\mathbb A)$ is called Schwartz--Bruhat function if it is a linear combination of the form
+$\prod \Phi_v$, where $\Phi_v\in S(M(F_v))$ and $\Phi_v$ is the characteristic function of $M(\fr o_v)$ for almost all $v$. Let $S(M(\mathbb A))$ denote the space of Schwartz--Bruhat functions.
+\end{definition}
+
+Now we fix a nontrivial character $\psi$ of $\mathbb Q \backslash \mathbb A$.
+
+\begin{definition}[\textbf{The Fourier transformation}]
+The Fourier transformation of a Schwartz--Bruhat function $\Phi$ is defined by 
+\[
+\widehat \Phi(a)=\int_{M(\mathbb A)}\Phi(b)\overline{\psi(\mathrm {Tr}(ab))} db 
+\]
+\end{definition}
+
+\begin{theorem}[\textbf{The Poisson summation formula}]
+Let $\Phi\in S(M(\mathbb A))$. Then we have
+\[
+\sum\limits_{\xi\in M(\mathbb Q)} \Phi(\xi)=\sum\limits_{\xi\in M(\mathbb Q)} \widehat\Phi(\xi).
+\]
+\end{theorem}
+
+\begin{proof}
+See 11.2.3 of \cite{G-H}.
+\end{proof}
+
+\begin{corollary}
+Let $\Phi\in S(M(\mathbb A))$. Then we have
+\[
+\widehat {^g\Phi^h}=\left | \det hg^{-1} \right |^2 {^h{\widehat \Phi}^g}.
+\]
+Thus we obtain
+\begin{equation}\label{eq3}
+\sum\limits_{\xi\in M(\mathbb Q)} {^g\Phi}(\xi)=\left | \det (g) \right |^{-2}\sum\limits_{\xi\in M(\mathbb Q)} {\widehat \Phi}^g(\xi).
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+It is same as $\bl{\ref{lem1}}$.
+\end{proof}
+
+\begin{lemma}\label{lem3.2.1}
+Let $\Phi\in S(\mathbb A)$, $p\ge 0$. Then there is a $c$ such that 
+\begin{equation}
+\sum\limits_ {\xi \in \mathbb Q^*} \Phi (a\xi )\le c\left |a\right |^{-p},  
+\end{equation}
+for any $a\in \mathbb I$ and $\left |a\right | \ge 1$. 
+\end{lemma}
+
+\begin{proof}
+Without loss of generality, we assume that $\Phi =\Phi_f \otimes \Phi_\infty$ where $\Phi_f \in S(\mathbb A_f)$ with compact support $C$ and $\Phi_\infty \in S(\mathbb R)$. 
+Let $u \in \mathbb Q^*$ be the generator of the fraction ideal $C\cap \mathbb Q$ and $a_r$ be the generator of the fraction ideal $a_f\fr o_f\cap \mathbb Q$. Then by the product formula we have $\left | a_r \right |^{-1} = \left | a_f \right |$ and
+\begin{equation*}
+    \begin{split}
+	\sum\limits_ {\xi \in \mathbb Q^*} \Phi (a\xi )&= \sum\limits_{\xi\in \mathbb Q^*, a_f\xi_f\in C} \Phi _\infty (a_\infty \xi)\\
+    &= \sum\limits_{\xi \in\mathbb Z} \Phi _\infty (a_\infty a_r^{-1} u \xi)\\
+    &= \sum\limits_{\xi \in\mathbb Z^*} \Phi _\infty (\left | a\right | u \xi)\\
+    &\le ca^{-p},
+\end{split}
+\end{equation*}
+for some large enough $c$ and $\left |a  \right |\ge 1$.
+\end{proof}
+
+\begin{corollary}
+Let $\Phi\in S(\mathbb A)$, and $p\ge 1$. Then there is a $c$ such that
+\begin{equation}\label{eq3.2.4}
+\sum\limits_ {\xi \in \mathbb Q^*} \Phi (a\xi )\le c\left |a\right |^{-p},  
+\end{equation}
+for any $a\in \mathbb I$. 
+\end{corollary}
+
+\begin{proof}
+As the proof of $\bl{\ref{lem3.2.1}}$, we have 
+\begin{equation*}
+\sum\limits_ {\xi \in \mathbb Q^*} \Phi (a\xi )=\sum\limits_{\xi\in \mathbb Z^*}\Phi_\infty (\left |a\right | u\xi )
+\end{equation*}
+Recall the Poisson summation formula 
+\[
+\sum\limits_{\xi\in \mathbb Z^*}\Phi_\infty (\left |a\right | u\xi )=\left |a\right |^{-1} u^{-1}\sum\limits_{\xi\in \mathbb Z^*}\widehat {\Phi_\infty} (\left |a\right | u\xi )+\left |a\right |^{-1} u^{-1}\widehat {\Phi_\infty}(0)-\Phi(0).
+\]
+Then apply $\bl{\ref{lem3.2.1}}$ to the right side we get
+\[
+\sum\limits_{\xi\in \mathbb Z^*}\Phi_\infty (\left |a\right | u\xi )\le c' \left |a \right |^{-p}
+\]
+for any $a \in \mathbb I$ such that $\left | a \right |\le 1$. Then statement holds.
+\end{proof}
+Now let $F_1$ be the characteristic function of $(0,1]$ and $F_0$ be characteristic function of $(1,+\infty)$. Then $F_0+F_1=1$, $F_0(t)=F_1(t^{-1})$.
+
+\begin{definition}
+Let $\Phi\in S(M(\mathbb A))$, $\omega$ be a character of $\mathbb Q^*\backslash \mathbb I$. For $r\ge 1$ we define
+\[
+\theta ^i_r(s,\Phi,\omega)= \int\limits_{\mathbb Q^*\backslash \mathbb I} F_i(\left |a\right |) \omega(a) \left |a \right |^s d^*a \sum\limits_{\xi\in M(\mathbb Q), \rk (\xi) =r}\Phi(\xi a).
+\]
+\end{definition}
+
+\begin{lemma}\label{62}
+$\theta_r^0 (s,\Phi,\omega)$ is absolutely convergent and normally convergent for all $s$. As a result, it is an entire function of $s$.
+$\theta_r^1 (s,\Phi,\omega)$ is absolutely convergent and normally convergent for $\mathrm {Re} s>4$.
+\end{lemma}
+
+\begin{proof}
+Without loss generality, we assume that
+\[
+\Phi\left ( \begin{array} {cc}
+a_1 & a_2\\
+a_3 & a_4
+\end{array} \right )
+=\prod\Phi_i(a_i).
+\]
+Then
+\[
+\left |\sum\limits_{\xi \in M(\mathbb Q)} \Phi(a\xi )\right |=\left |\prod\limits_{1\le i\le 4} \sum\limits_{\xi_i\in \mathbb Q}\Phi_i(\xi_i a)\right | \mathop{\le}\limits^{\bl{\ref{eq3.2.4}}} \left |a\right |^{-p}P(\left |a \right |^{-p}) + \Phi(0).
+\]
+where $p\ge 1$, $P$ is a polynomial depend on $p$ with degree $3$. For $\sigma_0 >\mathrm {Re} (s)> \sigma_1$, There exists a constant $M_p$ depends on $p$ such that
+\[
+\left |F_0(\left |a\right |) \omega(a) \left |a \right |^s d^*a \sum\limits_{\xi\in G(\mathbb Q), \rk (\xi) =r}\Phi(\xi a)\right |
+ < M_pF_0(\left |a\right |)\left |a \right |^{\sigma_0 -p}.
+\]
+The integral
+\[
+\int\limits_{\mathbb Q^*\backslash \mathbb I} F_0(\left | a \right |) \left | a \right |^{\sigma-p}=\int\limits_1^\infty  t^{\sigma_0 -p} d^* t \mathrm {Vol} ( \mathbb Q^* \backslash \mathbb I^1)
+\]
+is convergent if $p >\sigma_1$. Then the first statement holds. For $\sigma_1 >4$, we take $p=1$. There exists a constant $N$ such that
+\[
+\left |F_1(\left |a\right |) \omega(a) \left |a \right |^s d^*a \sum\limits_{\xi\in G(\mathbb Q), \rk (\xi) =r}\Phi(\xi a)\right |
+< N F_1(\left |a\right |)\left |a \right |^{\sigma_1-4}.
+\]
+The integral
+\[
+\int\limits_{\mathbb Q^*\backslash \mathbb I} F_1(\left | a \right |) \left | a \right |^{\sigma-4}=\int\limits_0^1  t^{\sigma_1 -4} d^* t \mathrm {Vol} ( \mathbb Q^* \backslash \mathbb I^1)
+\]
+is convergent. Then the second statement holds.
+\end{proof}
+
+\begin{proposition}For $\mathrm {Re}(s)>4$ we have
+\begin{equation}\label{eq1}
+\begin{split}
+\theta^1_2(s,\Phi,\omega)&= \theta_2^0(4-s,\widehat \Phi,\omega^{-1})\\
+&+\theta_1^0(4-s,\widehat \Phi,\omega^{-1})\\
+&-\theta_1^1(1-s,\Phi,\omega)\\
+&+\lambda(s-4,\omega)\widehat \Phi(0)-\lambda(s,\omega)\Phi(0).
+\end{split}
+\end{equation}
+where
+\[
+\lambda(s,\omega)=\int\limits_{\mathbb Q^*\backslash \mathbb I} F_1(\left |a\right |) \omega(a) \left |a \right |^s d^*a.
+\]
+\end{proposition}
+
+\begin{proof} Recall $\theta^1_2(s,\Phi,\omega)$ is defined by
+\begin{equation*}
+\begin{split}
+\int\limits_{\mathbb Q^*\backslash \mathbb I} F_1(\left |a\right |) \omega(a) \left |a \right |^s d^*a \sum\limits_{\xi\in M(\mathbb Q), \rk (\xi) =2}{^a\Phi}(\xi )
+\end{split}
+\end{equation*}
+
+By \ref{eq3} we have
+\begin{equation*}
+\begin{split}
+\sum\limits_{\xi\in M(\mathbb Q), \rk (\xi) =2}{^a\Phi}(\xi )=&\left | a\right |^{-4} \sum\limits_{\xi\in M(\mathbb Q), \rk (\xi) =2}{\widehat \Phi}^a(\xi )\\
+&+\left | a\right |^{-4} \sum\limits_{\xi\in M(\mathbb Q), \rk (\xi) =1}{\widehat \Phi}^a(\xi )\\
+&+\left | a\right |^{-4} \widehat \Phi(0)\\
+&-\sum\limits_{\xi\in M(\mathbb Q), \rk (\xi) =1}{^a\Phi}(\xi )\\
+&-\Phi(0).
+\end{split}
+\end{equation*}
+
+Since $a\in Z(G(\mathbb A))$, we have $\Phi^a={^{a^{-1}}\Phi}$. Then
+\begin{equation*}
+\begin{split}
+&\int\limits_{\mathbb Q^*\backslash \mathbb I} F_1(\left |a\right |) \omega(a) \left |a \right |^{s-4} d^*a \sum\limits_{\xi\in M(\mathbb Q), \rk (\xi) =i}{^{a^{-1}}{\widehat \Phi}}(\xi )\\
+&\=\limits^{a\mapsto a^{-1}} \int\limits_{\mathbb Q^*\backslash \mathbb I} F_0(\left |a\right |) \omega^{-1}(a) \left |a \right |^{4-s} d^*a \sum\limits_{\xi\in M(\mathbb Q), \rk (\xi) =i}{^a{\widehat \Phi}}(\xi )\\
+&=\theta_i^0(4-s,\widehat \Phi,\omega^{-1}). \qedhere
+\end{split}
+\end{equation*}
+\end{proof}

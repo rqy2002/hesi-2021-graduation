@@ -1,0 +1,132 @@
+\subsection{The Euler product of global zeta integrals}
+
+Now we define the restricted tensor product. For each finite $v$, let $(\pi_v,V_v)$ be a representation of $G(F_v)$. And let $(\pi_\infty,V_\infty)$ be a $(\fr g, K_\infty)$-module. Suppose for almost all finite $v$, $V_v^{G(\fr o_v)}$ is nonzero and choose $\xi_v^o\in V_v^{\mathrm {GL_2(\fr o_v)}}$. Let $\otimes V_v$ be the ordinary tensor product. Consider the subspace $\otimes' V_v$ spans by $\otimes \xi_v$ where $\xi_v=\xi_v^o$ for almost all $v$.
+
+\begin{theorem}[\textbf{Tensor product theorem}] \hfill
+\begin{enumerate}
+  \item Suppose for each $v$, $(\pi_v,V_v)$ are irreducible admissible and for almost all $v$, $V_v$ there is a nonzero $\xi_v^o \in  V_v^{K_v}$. Then $\otimes' V_v$ is an irreducible admissible $(\fr g,K_\infty)\times G(\mathbb A_{\mathrm f})$-module.\\
+  \item Conversely, if $(\pi,V)$ is an irreducible admissible $(\fr g,K_\infty)\times G(\mathbb A_f)$-module, then there is a collection $\left \{ (\pi_v,V_v)\right \}$ as $(1)$ such that
+\[ (\pi, V)\cong \otimes ' V_v. \]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+See \bl{\cite{Bump}}.
+\end{proof}
+
+
+\begin{proposition}[\textbf{Factorization of Hermitian form}]
+Let $(\pi,V)$ be an irreducible admissible $(\fr g,K_\infty)\times G(\mathbb A_f)$-module with a invariant positive definite Hermitian form $\left \langle \ , \ \right \rangle$. Suppose that $V\cong\otimes V_v$. For each $v$, $V_v$ has a invariant positive definite Hermitian form $\left \langle \ ,\ \right \rangle_v$ such that
+\begin{enumerate}
+\item  $\left \langle \xi_v^o,\xi_v^o\right \rangle=1$ for almost all $v$,
+\item $\left \langle \otimes \xi_{1,v}, \otimes \xi_{2,v} \right \rangle =\prod \left \langle \xi_{1,v}, \xi_{2,v} \right \rangle_v$.
+\end{enumerate}
+\end{proposition}
+
+Recall that an automorphic cuspidal representation $(\pi,V)$ has a invariant positive definite Hermitian. If $f_1,f_2\in V$ are pure tensors, then
+\begin{equation}\label{eqbeta}
+\beta_{f_1,f_2}(g)=\prod \left \langle \pi_v(g_v) f_{1,v}, f_{2,v} \right \rangle_v= \prod \beta_{f_{1,v}, f_{2,v}} (g_v).
+\end{equation}
+for any $g_\infty \in K_\infty Z(G(\mathbb R))$.
+
+\begin{theorem}[\textbf{Factorization of matrix coefficient}]
+$\bl{(\ref{eqbeta})}$ holds for any $g\in G(\mathbb A)$.
+\end{theorem}
+
+\begin{proof}
+Let $\beta=\beta_{f_1,f_2}$ and $\beta_v=\beta_{f_{1,v}, f_{2,v}}$.
+Fix $(g_v)_{v<\infty} \in G(\mathbb A_f)$. Let $\beta_1(g_\infty) =\beta(g_\infty g_f), \beta_2(g_\infty)=\beta_\infty (g_\infty)\prod_{v< \infty} \beta_v(g_v)$. By \ref{eqbeta}, $\beta_1(g_\infty)=\beta_2(g_\infty), \  g_\infty \in K_\infty Z(G(\mathbb R)).$ Moreover, take $X\in \fr {g}$. We have
+\begin{equation*}
+\begin{split}
+X \beta_1(g_\infty)&=\mathop{\mathrm{lim}}\limits_{t\to 0}\int\limits_{\bar G(\mathbb Q)\backslash \bar G(\mathbb A)} \frac {f_1(hg_f g_\infty\cdot \mathrm {exp} (tX))-f_1(h)} t \overline {f_2(h)} d^*h\\
+&=\beta_{\pi(X) f_1,f_2} (g_\infty).
+\end{split}
+\end{equation*}
+Similarly we have $X\beta_2(g_\infty)=\beta_{\pi (X) f_{1,\infty}, f_{2,\infty}}(g_\infty) \beta_v(g_v)$. Thus we get
+\[
+X^n \beta_1(g_\infty)=X^n \beta_2(g_\infty),
+\]
+for any $g\in K_\infty Z(G(\mathbb R))$ and $X\in \fr g$. $\beta_2$ is analytic by \bl{\ref{analytic}}, and we leave reader to check that $\beta_1$ is analytic. Then by \bl{\ref{ana}} $\beta_1(g_\infty )=\beta_2(g_\infty)$ for any $g\in G(\mathbb R)$.
+\end{proof}
+
+Now we get the factorization of the global zeta integral:
+
+\begin{theorem}\label{product}
+Suppose $f_i=\otimes f_{i,v}$ and $\Phi=\prod \Phi_v$. Let $\beta=\beta_{f_1,f_2}$ and $\beta_v=\beta_{f_{1,v},f_{2,v}}$. Then we have
+\[
+\zeta(s,\Phi,\beta)=\prod \zeta(s,\Phi_v,\beta_v).
+\]
+\end{theorem}
+
+\subsection{Godement--Jacquet \texorpdfstring{$L$}{L}-functions}
+
+Let $(\pi, V)$ be a cuspidal automorphic representation and suppose
+\[
+(\pi, V)\cong \otimes' (\pi_v, V_v).
+\]
+Let $S$ denote the set of the finite and unramified places. Then we define 
+\[
+L^S(s,\pi )=\prod\limits_{v\in S} L(s,\pi_v). 
+\]
+
+Then by proposition $\bl{\ref{6.3.1}}$ we can see the $L(s,\pi_v)$ is of the form  
+\[
+\frac 1 { ( 1 -q^{t-s} ) ( 1-q^{-t-s})}. 
+\]
+
+Now we choose $f_v\in V_v$ and $\Phi_v\in S(M(F_v))$ such that for $v\in S$, $f_v=\xi_v^o$ and $\Phi_v$ is the characteristic function of $M(\fr o_v)$. 
+Then  $f=\otimes' f_v\in V$ and $\prod \Phi_v\in S(M(\mathbb A))$. 
+By $\bl{\ref{product}}$, we have
+\begin{equation*}
+	\begin{split}
+\zeta(s+\frac 1 2,\Phi,\beta)&=\prod_v \zeta(s+\frac 1 2,\Phi_v,\beta_v)\\
+&\=\limits^{\mathrm {proposition }\bl{\ref{6.3.1}}} \prod\limits_{v\notin S} \zeta (s,\Phi_v, \beta _v)L^S(s,\pi).
+\end{split}
+\end{equation*}
+By theorem $\bl{\ref{6.3.2}}$ we have 
+\[
+\gamma(s,\pi) =\gamma(s,\left | \ \right |^t)\gamma(s,\left | \ \right | ^{-t}).
+\]
+Thus
+\[
+\zeta(\frac 3 2-s, \widehat \Phi_v,\check \beta_v)=\gamma(s,\pi_v)L(s,\pi_v) =L(1-s,\check {\pi_v}). 
+\]
+Then we obtain 
+\begin{equation*}
+	\begin{split}
+\zeta(\frac 3 2-s,\widehat \Phi,\check \beta)&=\prod_v \zeta(\frac 3 2-s,\widehat {\Phi_v},\check {\beta_v})\\
+&\=\limits^{\mathrm {proposition }\bl{\ref{6.3.1}}} \prod\limits_{v\notin S} \zeta (\frac 3 2-s,\widehat {\Phi_v}, \check {\beta _v})L^S(1-s,\check \pi)\\
+&\=\limits^{\mathrm {theorem}\bl{\ref{main1}}, \mathrm {theorem}\bl{\ref{FE for real}}}
+\zeta(s+\frac 1 2, \Phi_v ,\beta_v) \gamma(s,\pi_v) L^S(1-s,\check \pi).
+\end{split}
+\end{equation*}
+
+Since $\zeta (s,\Phi,\beta )$ absolutely and normally converges for $\mathrm {Re} (s)$ large enough and can be continued analytically as an entire function and satisfies the functional equation 
+\[
+\zeta (s+\frac 1 2, \Phi, \beta) =\zeta (\frac 3 2-s ,\widehat \Phi ,\check \beta ),
+\]
+so is $L^S(s,\pi)$ and satisfies 
+\[
+L^S(s,\pi) = \prod \limits_{v\notin S}\gamma(s,\pi_v) L^S(1-s,\check \pi).
+\]
+We define the Godement--Jacquet $L$-function of $V$ by
+$L(s,\pi)=\prod\limits_v L(s,\pi_v),$
+and let 
+\[ 
+\gamma(s,\pi_v) =\epsilon (s,\pi_v) \frac {L(1-s, \check \pi )} {L(s,\pi)},
+\]
+Then we obtain 
+\[
+L(s,\pi) =\prod\limits_{v\notin S} \epsilon (s,\pi_v) L(1-s,\check \pi).
+\]
+Let $\epsilon (s,\pi) =\prod_{v\notin S} \epsilon (s,\pi_v)$. As a summary, we get 
+\begin{theorem} The following statements are true:
+\begin{enumerate}
+\item $L(s,\pi )$ is absolutely and normally convergent for $\mathrm{Re} (s)$ large enough.
+\item $L(s,\pi)$ can be continued as an entire function.
+\item $L(s, \pi)$ satisfies the functional equation
+\[ 
+L(s,\pi) =\epsilon (s,\pi) L(1-s, \check \pi).
+\]
+\end{enumerate}
+\end{theorem}

@@ -1,0 +1,78 @@
+\subsection{Irreducible admissible \texorpdfstring{$(\fr g,K)$}{(g,K)}-modules}
+In this subsection, we construct a family of Hilbert representations $H(s,\omega)$ of $G$. Any irreducible admissible $(\fr g,K)$-module is realized as a submodule of $H(s,\omega)_K$, which gives the classification of irreducible admissible  $(\fr g,K)$-module.
+
+\begin{definition}[\textbf{$H^\infty(s,\omega)$}]
+Let $s=(s_1,s_2)\in \mathbb C^*\times \mathbb C^*$, $\omega=(\omega_1,\omega_2)$, $\omega_1,\omega_2\in \{ 1,\mathrm {sign} \}$. Let $H^\infty(s,\omega)$ be the space of smooth function $f\colon G\to \mathbb C$ such that:
+\[
+f\left (\left (\begin{array} {cc}
+y_1 & x\\
+0 & y_2
+\end{array} \right )g \right )=\omega_1(y_1)\left | y_1 \right | ^{s_1+ \frac 1 2}\omega_1(y_2) \left | y_2 \right |^ {s_2- \frac 1 2} f(g).
+\]
+Let $\pi(g) f(x)=f(xg)$.
+\end{definition}
+
+We want to show that $H^\infty(s,\omega)$ is related to a Hilbert representation.
+Consider the map
+\[
+F\colon H^\infty (s,\omega)\to L^2(K_0), \ f\mapsto f|_{K_0}.
+\]
+By Iwasawa decomposition, $f$ is determined by $f|_{K_0}$. Then $F$ is injective. Now we can give a Hermitian inner product.
+For $f_1,f_2\in H^\infty(s,\omega)$, let
+\[
+\left\langle f_1,f_2\right\rangle = \int_{K_0} f_1(k)\overline {f_2(k)} dk.
+\]
+
+\begin{proposition}
+$(\pi, H^\infty (s,\omega))$ is a continuous action. Thus it can be extended to a Hilbert representation $(\pi, H(s,\omega))$, where $H(s,\omega)$ is the completion of $H^\infty (s,\omega)$. Moreover, the space of smooth vectors of $H(s,\omega)$ is $H^\infty(s,\omega)$.
+\end{proposition}
+
+\begin{proof}
+See 2.5.3 of \bl{\cite{Bump}}.
+\end{proof}
+
+Next, we want to show that $H(s,\omega)$ is admissible.
+Let
+\[
+\left (\begin{array} {cc}
+\cos \theta & \sin \theta\\
+-\sin \theta & \cos \theta
+\end{array} \right ) =\kappa_\theta
+\]
+Then any irreducible representation of $K_0$ has the form $\chi_m(\kappa _\theta )=e^{m\theta i}$ for some integer $m\in \mathbb Z$. Now let $H(s,\omega)_m$ be the space of $f\in H(s,\omega)$ such that $\pi(k)f=\chi_m(k) f$.
+
+\begin{proposition}
+If $\omega_1(-1)\omega_2(-1)=(-1)^m$, then $H(s,\omega)_m=\mathbb C$. Otherwise $H(s,\omega)_m=0$.
+Thus $(\pi, H(s,\omega))$ is admissible. 
+\end{proposition}
+
+\begin{proof}
+We realize $f$ as an element in $L^2(K)$. Then we can see $\pi(k)f(x)=f(xk)$. Suppose $f\in H(s,\omega)_m$, then $f(k)=\chi_m(k)$. By the definition of $H^\infty(s,\omega)$, we have $f(-k)=\omega_1(-1)\omega_2(-1)f(k)$. Thus if $f(k)\ne 0$, then $\omega_1(-1)\omega_2(-1)=(-1)^m$. On the other hand, if $\omega_1(-1)\omega_2(-1)=(-1)^m$, by Iwasawa decomposition, $\chi_m$ can uniquely extend to $H(s,\omega)$. Then $H(s,\omega)_m=\mathbb C$.
+\end{proof}
+
+As a result, we get an admissible $(\fr g, K)$-module whose underlying space is $H(s,\omega)_K$, which is the direct sum of $H(s,\omega)_m$.
+
+\begin{proposition}[\textbf{Reducibility of principal series}]\label{prop 1} \hfill
+\begin{enumerate}
+  \item If $s_1-s_2=m$ is a positive integer and $(-1)^m=\omega_1(-1)\omega_2(-1)$. Then
+  \[ \oplus_{\left | i \right | \ge m} H(s,\omega)_i \]
+  is an irreducible admissible $(\fr g,K)$-module.
+  \item If $s_1-s_2=m$ is a nonpositive integer and  $(-1)^m=\omega_1(-1)\omega_2(-1)$. Then
+  \[ \oplus_{\left | i \right | \le -m} H(s,\omega)_i \]
+  is an irreducible admissible $(\fr g,K)$-module.
+  \item Otherwise, $H(s,\omega)$ is an irreducible admissible $(\fr g,K)$-module.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+see 7.4.9 of \bl{\cite{G-H}}.
+\end{proof}
+
+\begin{theorem}[\textbf{Classification of irreducible admissible $(\fr g,K)$-modules}]
+Any irreducible admissible $(\fr g, K)$-module is a submodule of some $H(s,\omega)_K$.
+\end{theorem}
+
+\begin{proof}
+See 7.5.10 of \bl{\cite{G-H}}.
+\end{proof}
+
