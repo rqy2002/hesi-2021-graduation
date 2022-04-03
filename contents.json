@@ -1,49 +1,44 @@
 {
-    "parts": [
+    "articles": [
         {
-            "name": "研究讨论",
-            "articles": [
-                {
-                    "fileName": "VOA",
-                    "title": "Vertex Algebras and BRST Twisted Conformal Blocks",
-                    "author": "卜辰璟"
-                },
-                {
-                    "fileName": "fl",
-                    "title": "Cluster Category as Perfect Derived Category",
-                    "author": "范俐"
-                },
-                {
-                    "fileName": "Lie",
-                    "title": "Lie Algebras Arising from Singularities",
-                    "author": "黄畅"
-                },
-                {
-                    "fileName": "hyx",
-                    "title": "McShane--Mirzakhani Identity, Weil–Petersson Volumes and Counting Simple Closed Geodesics",
-                    "author": "贺宇昕"
-                },
-                {
-                    "fileName": "KFH",
-                    "title": "Standard Modules of Quiver Hecke Algebras",
-                    "author": "孔繁浩"
-                },
-                {
-                    "fileName": "SM",
-                    "title": "A Study on Symmetric Manifolds",
-                    "author": "罗傲雪"
-                },
-                {
-                  "fileName": "zrt",
-                  "title": "Ricci-Flat Metrics on Some K3 Surfaces Admitting Elliptic Fibrations",
-                  "author": "张睿桐"
-                },
-                {
-                  "fileName": "pyj",
-                  "title": "$L$-Functions for the General Linear Group",
-                  "author": "彭云剑"
-                }
-            ]
+            "fileName": "VOA",
+            "title": "Vertex Algebras and BRST Twisted Conformal Blocks",
+            "author": "卜辰璟"
+        },
+        {
+            "fileName": "fl",
+            "title": "Cluster Category as Perfect Derived Category",
+            "author": "范俐"
+        },
+        {
+            "fileName": "Lie",
+            "title": "Lie Algebras Arising from Singularities",
+            "author": "黄畅"
+        },
+        {
+            "fileName": "hyx",
+            "title": "McShane--Mirzakhani Identity, Weil–Petersson Volumes and Counting Simple Closed Geodesics",
+            "author": "贺宇昕"
+        },
+        {
+            "fileName": "KFH",
+            "title": "Standard Modules of Quiver Hecke Algebras",
+            "author": "孔繁浩"
+        },
+        {
+            "fileName": "SM",
+            "title": "A Study on Symmetric Manifolds",
+            "author": "罗傲雪"
+        },
+        {
+          "fileName": "zrt",
+          "title": "Ricci-Flat Metrics on Some K3 Surfaces Admitting Elliptic Fibrations",
+          "author": "张睿桐"
+        },
+        {
+          "fileName": "pyj",
+          "title": "$L$-Functions for the General Linear Group",
+          "author": "彭云剑"
         }
     ]
 }

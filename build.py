@@ -15,45 +15,43 @@ def main():
 
     # Build articles
     totalPages = 0
-    for part in contents['parts']:
-        toc += '\\\\tocsection{{{}}}\n'.format(part['name'])
 
-        for article in part['articles']:
-            toc += '\\\\tocitem{{{}}}{{{}}}{{{}}}\n'.format(
-                article['title'], article['author'], totalPages + 1
-            )
+    for article in contents['articles']:
+        toc += '\\\\tocitem{{{}}}{{{}}}{{{}}}\n'.format(
+            article['title'], article['author'], totalPages + 1
+        )
 
-            fn = article['fileName']
-            print('Building {}.tex ...'.format(fn))
+        fn = article['fileName']
+        print('Building {}.tex ...'.format(fn))
 
-            # Set page number
-            with open('papers/common/preamble.tex', mode='w', encoding = 'UTF-8') as f:
-                f.write(preamble + 
-                    '\n\\AtBeginDocument{{\\setcounter{{page}}{{{}}}}}\n'.format(totalPages + 1))
+        # Set page number
+        with open('papers/common/preamble.tex', mode='w', encoding = 'UTF-8') as f:
+            f.write(preamble + 
+                '\n\\AtBeginDocument{{\\setcounter{{page}}{{{}}}}}\n'.format(totalPages + 1))
 
-            # Run latexmk
-            cwd = 'papers/{}/'.format(fn)
-            proc = subprocess.Popen([
-                'latexmk', '-interaction=nonstopmode', '-pdf', '-xelatex', fn + '.tex'
-            ], cwd=cwd, stdout=subprocess.DEVNULL)
-            proc.wait(timeout=60)
+        # Run latexmk
+        cwd = 'papers/{}/'.format(fn)
+        proc = subprocess.Popen([
+            'latexmk', '-interaction=nonstopmode', '-pdf', '-xelatex', fn + '.tex'
+        ], cwd=cwd, stdout=subprocess.DEVNULL)
+        proc.wait(timeout=60)
 
-            # Restore page number
-            with open('papers/common/preamble.tex', mode='w', encoding = 'UTF-8') as f:
-                f.write(preamble)
-                
-            if (proc.returncode != 0):
-                print('============')
-                print('{}.tex failed to build.'.format(fn))
-                print('============')
-                exit(1)
+        # Restore page number
+        with open('papers/common/preamble.tex', mode='w', encoding = 'UTF-8') as f:
+            f.write(preamble)
             
-            # Read pdf to get the number of pages
-            with open('papers/{0}/{0}.pdf'.format(fn), 'rb') as f:
-                reader = PdfFileReader(f)
-                totalPages += reader.numPages
+        if (proc.returncode != 0):
+            print('============')
+            print('{}.tex failed to build.'.format(fn))
+            print('============')
+            exit(1)
+        
+        # Read pdf to get the number of pages
+        with open('papers/{0}/{0}.pdf'.format(fn), 'rb') as f:
+            reader = PdfFileReader(f)
+            totalPages += reader.numPages
 
-            if (totalPages % 2 == 1): totalPages += 1
+        if (totalPages % 2 == 1): totalPages += 1
 
     # Make TOC
     with open('parts/front/front.tex', 'r', encoding = 'UTF-8') as f:
@@ -85,20 +83,20 @@ def main():
         writer.addBlankPage()
     frontPages = reader.numPages + reader.numPages % 2
     
-    for part in contents['parts']:
-        for article in part['articles']:
-            fn = article['fileName']
+    for article in contents['articles']:
+        fn = article['fileName']
 
-            reader = PdfFileReader(open('papers/{0}/{0}.pdf'.format(fn), 'rb'))
-            writer.appendPagesFromReader(reader)
-            if (reader.numPages % 2 == 1):
-                writer.addBlankPage()
+        reader = PdfFileReader(open('papers/{0}/{0}.pdf'.format(fn), 'rb'))
+        writer.appendPagesFromReader(reader)
+        if (reader.numPages % 2 == 1):
+            writer.addBlankPage()
     
     if (os.path.exists('.temp')):
         shutil.rmtree('.temp')
     os.mkdir('.temp')
     with open('.temp/hesi.pdf', 'wb') as f:
         writer.write(f)
+    os.system('cp .temp/hesi.pdf hesi_.pdf')
 
     # Merge page template
     with open('.temp/temp.tex', 'w', encoding = 'UTF-8') as f:
