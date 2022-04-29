@@ -101,20 +101,6 @@
 
 \Umathcode`/  =  "0 "0 "2215    % / -> U+2215 division slash
 
-% headers and footers
-\usepackage{fancyhdr}
-\fancyhf{}
-\fancyhead[CE]{\sf\mathversion{sf}\theheadertitle}
-\fancyhead[CO]{\sf\mathversion{sf}\nouppercase{\leftmark}}
-\fancyhead[LE,RO]{\textbf{\textsf{\thepage}}}
-\headsep=8mm
-\headheight=6mm
-
-\AtBeginDocument{
-    \renewcommand{\thepage}{\roman{page}}
-    \pagestyle{fancy}\thispagestyle{empty}
-}
-
 % spacing
 \AtBeginDocument{
     \hfuzz=2pt
@@ -132,10 +118,10 @@
     \centerline{\begin{tikzpicture}
         \node [scale = 3] at (0, 0) {\sffamily 荷\hspace{.5em}思};
         \node [scale = 1.8] at (0, -94.5mm) {\sffamily #1};
-        \node [scale = 1.2] at (0, -105mm) {\sffamily 第 #2 期};
+        \node [scale = 1.2] at (0, -105mm) {\sffamily #2};
         \draw (-16mm, -8mm) -- (16mm, -8mm);
         \draw (-14mm, -100mm) -- (14mm, -100mm);
-        \draw (-8mm, -110mm) -- (8mm, -110mm);
+        \draw (-13mm, -110mm) -- (13mm, -110mm);
     \end{tikzpicture}}%
     \clearpage%
 }
@@ -182,4 +168,11 @@
         \hfill\mbox{}\hfill\phantom{#2}\hfill\makebox[0em][r]{#2}%
         \par\vspace{8pt}%
     }%
+}
+
+% Make total pages even
+\usepackage[strict]{changepage}
+
+\AtEndDocument{%
+  \checkoddpage\ifoddpage\newpage\thispagestyle{empty}\mbox{}\fi
 }

@@ -305,3 +305,9 @@
     }
 }
 
+% Make total pages even
+\usepackage[strict]{changepage}
+
+\AtEndDocument{%
+  \checkoddpage\ifoddpage\newpage\mbox{}\thispagestyle{empty}\fi
+}

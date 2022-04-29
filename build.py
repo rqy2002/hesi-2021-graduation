@@ -51,8 +51,6 @@ def main():
             reader = PdfFileReader(f)
             totalPages += reader.numPages
 
-        if (totalPages % 2 == 1): totalPages += 1
-
     # Make TOC
     with open('parts/front/front.tex', 'r', encoding = 'UTF-8') as f:
         front = f.read()
@@ -79,17 +77,13 @@ def main():
 
     reader = PdfFileReader(open('parts/front/front.pdf', 'rb'))
     writer.appendPagesFromReader(reader)
-    if (reader.numPages % 2 == 1):
-        writer.addBlankPage()
-    frontPages = reader.numPages + reader.numPages % 2
+    frontPages = reader.numPages
     
     for article in contents['articles']:
         fn = article['fileName']
 
         reader = PdfFileReader(open('papers/{0}/{0}.pdf'.format(fn), 'rb'))
         writer.appendPagesFromReader(reader)
-        if (reader.numPages % 2 == 1):
-            writer.addBlankPage()
     
     if (os.path.exists('.temp')):
         shutil.rmtree('.temp')
