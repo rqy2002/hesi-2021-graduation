@@ -56,7 +56,7 @@ python build.py
 python build_ebook.py
 ```
 
-你也可以从 Releases 界面下载《荷思》或其电子版。
+你也可以从 [Releases 界面](https://github.com/rqy1458814497/hesi-2021-graduation/releases)下载《荷思》或其电子版。
 
 如果要单独编译一篇文章，进入该文章的文件夹，并运行：
 
